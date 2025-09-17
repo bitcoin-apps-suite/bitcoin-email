@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 interface Connection {
   id: string;
-  type: 'handcash' | 'gmail' | 'outlook' | 'hotmail' | 'yahoo' | 'other';
+  type: 'handcash' | 'gmail' | 'outlook' | 'hotmail' | 'yahoo' | 'imap' | 'pop3' | 'exchange' | 'protonmail' | 'icloud' | 'moneybutton' | 'relayx' | 'centbee' | 'simplycash' | 'volt' | 'other';
   name: string;
   email?: string;
   handle?: string;
@@ -26,9 +26,11 @@ export function ConnectionsModal({
   onConnect, 
   onDisconnect 
 }: ConnectionsModalProps) {
+  const [activeTab, setActiveTab] = useState<'email' | 'wallets'>('email');
+  
   if (!isOpen) return null;
 
-  const bitcoinProviders = [
+  const bsvWallets = [
     {
       id: 'handcash',
       name: 'HandCash',
@@ -36,10 +38,98 @@ export function ConnectionsModal({
       icon: '$',
       color: '#00d4aa',
       features: ['$handle payments', 'Bitcoin wallet', 'Instant transfers']
+    },
+    {
+      id: 'moneybutton',
+      name: 'MoneyButton',
+      description: 'One-click Bitcoin payments',
+      icon: '₿',
+      color: '#4772fa',
+      features: ['One-click payments', 'PayMail support', 'OAuth integration']
+    },
+    {
+      id: 'relayx',
+      name: 'RelayX',
+      description: 'Fast BSV wallet with PayMail',
+      icon: '⚡',
+      color: '#1d4ed8',
+      features: ['PayMail addresses', 'DEX integration', 'Token support']
+    },
+    {
+      id: 'centbee',
+      name: 'Centbee',
+      description: 'Mobile-first BSV wallet',
+      icon: '🐝',
+      color: '#fbbf24',
+      features: ['Mobile wallet', 'Merchant tools', 'Remittance']
+    },
+    {
+      id: 'simplycash',
+      name: 'Simply Cash',
+      description: 'Simple BSV wallet',
+      icon: '💳',
+      color: '#10b981',
+      features: ['Easy to use', 'Multi-currency', 'Card integration']
+    },
+    {
+      id: 'volt',
+      name: 'Volt Wallet',
+      description: 'Gaming-focused BSV wallet',
+      icon: '⚡',
+      color: '#8b5cf6',
+      features: ['Gaming payments', 'NFT support', 'Micropayments']
     }
   ];
 
-  const emailProviders = [
+  const priorityEmailProviders = [
+    {
+      id: 'imap',
+      name: 'IMAP Server',
+      description: 'Connect any IMAP email server',
+      icon: '🔧',
+      color: '#6b7280',
+      features: ['Universal protocol', 'Custom servers', 'Full control'],
+      priority: true
+    },
+    {
+      id: 'pop3',
+      name: 'POP3 Server',
+      description: 'Connect any POP3 email server',
+      icon: '📥',
+      color: '#6b7280',
+      features: ['Download emails', 'Legacy support', 'Simple setup'],
+      priority: true
+    },
+    {
+      id: 'exchange',
+      name: 'Exchange',
+      description: 'Microsoft Exchange Server',
+      icon: '🏢',
+      color: '#0078d4',
+      features: ['Enterprise email', 'Calendar sync', 'Active Directory'],
+      priority: true
+    },
+    {
+      id: 'protonmail',
+      name: 'ProtonMail',
+      description: 'Encrypted email service',
+      icon: '🔐',
+      color: '#6d4aff',
+      features: ['End-to-end encryption', 'Swiss privacy', 'Bridge support'],
+      priority: true
+    },
+    {
+      id: 'icloud',
+      name: 'iCloud Mail',
+      description: 'Apple iCloud email service',
+      icon: '☁️',
+      color: '#007aff',
+      features: ['Apple ecosystem', 'iCloud sync', 'Hide My Email'],
+      priority: true
+    }
+  ];
+
+  const standardEmailProviders = [
     {
       id: 'gmail',
       name: 'Gmail',
@@ -71,6 +161,54 @@ export function ConnectionsModal({
       icon: '📬',
       color: '#720e9e',
       features: ['Yahoo sync', 'Large storage', 'Mobile friendly']
+    },
+    {
+      id: 'aol',
+      name: 'AOL Mail',
+      description: 'AOL email service',
+      icon: '📨',
+      color: '#ff0b00',
+      features: ['AOL classic', 'Unlimited storage', 'AIM integration']
+    },
+    {
+      id: 'zoho',
+      name: 'Zoho Mail',
+      description: 'Business email service',
+      icon: '💼',
+      color: '#dc2626',
+      features: ['Business suite', 'Ad-free', 'Custom domains']
+    },
+    {
+      id: 'fastmail',
+      name: 'Fastmail',
+      description: 'Privacy-focused email',
+      icon: '🚀',
+      color: '#2563eb',
+      features: ['Privacy first', 'Custom domains', 'Calendars']
+    },
+    {
+      id: 'mailru',
+      name: 'Mail.ru',
+      description: 'Russian email service',
+      icon: '📮',
+      color: '#005ff9',
+      features: ['Cloud storage', 'Social features', 'Mail.ru ecosystem']
+    },
+    {
+      id: 'yandex',
+      name: 'Yandex Mail',
+      description: 'Yandex email service',
+      icon: '📧',
+      color: '#fc3f1d',
+      features: ['Yandex services', 'Spam protection', 'Translator']
+    },
+    {
+      id: 'gmx',
+      name: 'GMX Mail',
+      description: 'European email service',
+      icon: '📪',
+      color: '#1c4587',
+      features: ['European privacy', 'File storage', 'Organizer']
     }
   ];
 
@@ -79,7 +217,6 @@ export function ConnectionsModal({
   };
 
   const handleConnect = (providerId: string) => {
-    // Simulate connection process
     onConnect(providerId);
   };
 
@@ -92,7 +229,7 @@ export function ConnectionsModal({
       <div className="connections-modal">
         <div className="connections-modal-header">
           <h2>Account Connections</h2>
-          <p>Connect your Bitcoin wallet and email accounts</p>
+          <p>{activeTab === 'email' ? 'Connect your email accounts' : 'Connect your BSV wallets and manage token messages'}</p>
           <button className="close-btn" onClick={onClose}>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -100,138 +237,263 @@ export function ConnectionsModal({
           </button>
         </div>
 
+        <div className="connection-tabs">
+          <button 
+            className={`tab-btn ${activeTab === 'email' ? 'active' : ''}`}
+            onClick={() => setActiveTab('email')}
+          >
+            <span className="tab-icon">📧</span>
+            Email Services
+          </button>
+          <button 
+            className={`tab-btn ${activeTab === 'wallets' ? 'active' : ''}`}
+            onClick={() => setActiveTab('wallets')}
+          >
+            <span className="tab-icon">₿</span>
+            BSV Wallets
+          </button>
+        </div>
+
         <div className="connections-content">
-          {/* Wallet Connections Section */}
-          <div className="connection-section">
-            <div className="section-header">
-              <div className="section-title">
-                <span className="section-icon">₿</span>
-                <h3>Wallet Connections</h3>
-              </div>
-              <p className="section-description">Connect your Bitcoin wallet for payments and $handle support</p>
-            </div>
-            
-            <div className="providers-grid">
-              {bitcoinProviders.map((provider) => {
-                const connection = getConnectionStatus(provider.id);
-                const isConnected = connection?.status === 'connected';
+          {activeTab === 'email' ? (
+            <>
+              {/* Priority Email Services */}
+              <div className="connection-section">
+                <div className="section-header">
+                  <div className="section-title">
+                    <span className="section-icon">⚡</span>
+                    <h3>Priority Services</h3>
+                  </div>
+                  <p className="section-description">Direct server connections and encrypted email services</p>
+                </div>
+                
+                <div className="providers-grid priority-grid">
+                  {priorityEmailProviders.map((provider) => {
+                    const connection = getConnectionStatus(provider.id);
+                    const isConnected = connection?.status === 'connected';
 
-                return (
-                  <div key={provider.id} className={`provider-card ${isConnected ? 'connected' : ''}`}>
-                    <div className="provider-header">
-                      <div className="provider-icon" style={{ backgroundColor: provider.color }}>
-                        {provider.icon}
-                      </div>
-                      <div className="provider-info">
-                        <h3>{provider.name}</h3>
-                        <p>{provider.description}</p>
-                      </div>
-                      <div className="provider-status">
-                        {isConnected ? (
-                          <button 
-                            className="disconnect-btn"
-                            onClick={() => handleDisconnect(connection)}
-                          >
-                            Disconnect
-                          </button>
-                        ) : (
-                          <button 
-                            className="connect-btn primary"
-                            onClick={() => handleConnect(provider.id)}
-                          >
-                            Connect
-                          </button>
+                    return (
+                      <div key={provider.id} className={`provider-card priority ${isConnected ? 'connected' : ''}`}>
+                        <div className="provider-header">
+                          <div className="provider-icon" style={{ backgroundColor: provider.color }}>
+                            {provider.icon}
+                          </div>
+                          <div className="provider-info">
+                            <h3>{provider.name}</h3>
+                            <p>{provider.description}</p>
+                          </div>
+                          <div className="provider-status">
+                            {isConnected ? (
+                              <button 
+                                className="disconnect-btn"
+                                onClick={() => handleDisconnect(connection)}
+                              >
+                                Disconnect
+                              </button>
+                            ) : (
+                              <button 
+                                className="connect-btn primary"
+                                onClick={() => handleConnect(provider.id)}
+                              >
+                                Connect
+                              </button>
+                            )}
+                          </div>
+                        </div>
+
+                        {isConnected && connection && (
+                          <div className="connection-details">
+                            <div className="connected-info">
+                              <div className="status-indicator connected" />
+                              <span>Connected as {connection.email}</span>
+                            </div>
+                          </div>
                         )}
-                      </div>
-                    </div>
 
-                    {isConnected && connection && (
-                      <div className="connection-details">
-                        <div className="connected-info">
-                          <div className="status-indicator connected" />
-                          <span>Connected as {connection.handle || connection.email}</span>
+                        <div className="provider-features">
+                          {provider.features.map((feature, index) => (
+                            <span key={index} className="feature-tag">
+                              {feature}
+                            </span>
+                          ))}
                         </div>
                       </div>
-                    )}
-
-                    <div className="provider-features">
-                      {provider.features.map((feature, index) => (
-                        <span key={index} className="feature-tag">
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Mail Connections Section */}
-          <div className="connection-section">
-            <div className="section-header">
-              <div className="section-title">
-                <span className="section-icon">📧</span>
-                <h3>Mail Connections</h3>
+                    );
+                  })}
+                </div>
               </div>
-              <p className="section-description">Connect your email accounts to send and receive messages</p>
-            </div>
-            
-            <div className="providers-grid">
-              {emailProviders.map((provider) => {
-                const connection = getConnectionStatus(provider.id);
-                const isConnected = connection?.status === 'connected';
 
-                return (
-                  <div key={provider.id} className={`provider-card ${isConnected ? 'connected' : ''}`}>
-                    <div className="provider-header">
-                      <div className="provider-icon" style={{ backgroundColor: provider.color }}>
-                        {provider.icon}
-                      </div>
-                      <div className="provider-info">
-                        <h3>{provider.name}</h3>
-                        <p>{provider.description}</p>
-                      </div>
-                      <div className="provider-status">
-                        {isConnected ? (
-                          <button 
-                            className="disconnect-btn"
-                            onClick={() => handleDisconnect(connection)}
-                          >
-                            Disconnect
-                          </button>
-                        ) : (
-                          <button 
-                            className="connect-btn"
-                            onClick={() => handleConnect(provider.id)}
-                          >
-                            Connect
-                          </button>
+              {/* Standard Email Services */}
+              <div className="connection-section">
+                <div className="section-header">
+                  <div className="section-title">
+                    <span className="section-icon">📮</span>
+                    <h3>Standard Services</h3>
+                  </div>
+                  <p className="section-description">Popular email providers with OAuth integration</p>
+                </div>
+                
+                <div className="providers-grid">
+                  {standardEmailProviders.map((provider) => {
+                    const connection = getConnectionStatus(provider.id);
+                    const isConnected = connection?.status === 'connected';
+
+                    return (
+                      <div key={provider.id} className={`provider-card ${isConnected ? 'connected' : ''}`}>
+                        <div className="provider-header">
+                          <div className="provider-icon" style={{ backgroundColor: provider.color }}>
+                            {provider.icon}
+                          </div>
+                          <div className="provider-info">
+                            <h3>{provider.name}</h3>
+                            <p>{provider.description}</p>
+                          </div>
+                          <div className="provider-status">
+                            {isConnected ? (
+                              <button 
+                                className="disconnect-btn"
+                                onClick={() => handleDisconnect(connection)}
+                              >
+                                Disconnect
+                              </button>
+                            ) : (
+                              <button 
+                                className="connect-btn"
+                                onClick={() => handleConnect(provider.id)}
+                              >
+                                Connect
+                              </button>
+                            )}
+                          </div>
+                        </div>
+
+                        {isConnected && connection && (
+                          <div className="connection-details">
+                            <div className="connected-info">
+                              <div className="status-indicator connected" />
+                              <span>Connected as {connection.email}</span>
+                            </div>
+                          </div>
                         )}
-                      </div>
-                    </div>
 
-                    {isConnected && connection && (
-                      <div className="connection-details">
-                        <div className="connected-info">
-                          <div className="status-indicator connected" />
-                          <span>Connected as {connection.email}</span>
+                        <div className="provider-features">
+                          {provider.features.map((feature, index) => (
+                            <span key={index} className="feature-tag">
+                              {feature}
+                            </span>
+                          ))}
                         </div>
                       </div>
-                    )}
+                    );
+                  })}
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* BSV Wallets Section */}
+              <div className="connection-section">
+                <div className="section-header">
+                  <div className="section-title">
+                    <span className="section-icon">₿</span>
+                    <h3>BSV Wallet Connections</h3>
+                  </div>
+                  <p className="section-description">Connect your Bitcoin SV wallets for payments and token message storage</p>
+                </div>
+                
+                <div className="providers-grid wallets-grid">
+                  {bsvWallets.map((provider) => {
+                    const connection = getConnectionStatus(provider.id);
+                    const isConnected = connection?.status === 'connected';
 
-                    <div className="provider-features">
-                      {provider.features.map((feature, index) => (
-                        <span key={index} className="feature-tag">
-                          {feature}
-                        </span>
-                      ))}
+                    return (
+                      <div key={provider.id} className={`provider-card ${isConnected ? 'connected' : ''}`}>
+                        <div className="provider-header">
+                          <div className="provider-icon" style={{ backgroundColor: provider.color }}>
+                            {provider.icon}
+                          </div>
+                          <div className="provider-info">
+                            <h3>{provider.name}</h3>
+                            <p>{provider.description}</p>
+                          </div>
+                          <div className="provider-status">
+                            {isConnected ? (
+                              <button 
+                                className="disconnect-btn"
+                                onClick={() => handleDisconnect(connection)}
+                              >
+                                Disconnect
+                              </button>
+                            ) : (
+                              <button 
+                                className="connect-btn primary"
+                                onClick={() => handleConnect(provider.id)}
+                              >
+                                Connect
+                              </button>
+                            )}
+                          </div>
+                        </div>
+
+                        {isConnected && connection && (
+                          <div className="connection-details">
+                            <div className="connected-info">
+                              <div className="status-indicator connected" />
+                              <span>Connected as {connection.handle || connection.email}</span>
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="provider-features">
+                          {provider.features.map((feature, index) => (
+                            <span key={index} className="feature-tag">
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Token Wallet Info */}
+              <div className="token-wallet-info">
+                <div className="info-header">
+                  <span className="info-icon">🔐</span>
+                  <h3>Token Message Wallet</h3>
+                </div>
+                <p className="info-description">
+                  This email client doubles as a multi-token wallet. Encrypted messages sent on various tokens 
+                  are stored in your connected wallets. Each message represents a token transaction that can be 
+                  decrypted and read only by you.
+                </p>
+                <div className="token-features">
+                  <div className="token-feature">
+                    <span className="feature-icon">🎯</span>
+                    <div>
+                      <h4>Private Addresses</h4>
+                      <p>Each conversation uses unique addresses for privacy</p>
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </div>
+                  <div className="token-feature">
+                    <span className="feature-icon">💎</span>
+                    <div>
+                      <h4>Multi-Token Support</h4>
+                      <p>Store messages across different token types</p>
+                    </div>
+                  </div>
+                  <div className="token-feature">
+                    <span className="feature-icon">🔒</span>
+                    <div>
+                      <h4>End-to-End Encryption</h4>
+                      <p>Messages encrypted on-chain, readable only by recipients</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
         </div>
 
         <div className="connections-footer">

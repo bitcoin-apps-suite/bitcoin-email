@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bitcoin Email Icon Generator</title>
+</head>
+<body>
+    <canvas id="canvas" width="512" height="512"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Dark background
+        ctx.fillStyle = '#2a2a2a';
+        ctx.fillRect(0, 0, 512, 512);
+        
+        // Draw envelope
+        ctx.save();
+        ctx.translate(256, 256);
+        
+        // Envelope body
+        ctx.fillStyle = '#ef4444';
+        ctx.beginPath();
+        ctx.moveTo(-150, -60);
+        ctx.lineTo(-150, 100);
+        ctx.lineTo(150, 100);
+        ctx.lineTo(150, -60);
+        ctx.closePath();
+        ctx.fill();
+        
+        // Envelope flap
+        ctx.beginPath();
+        ctx.moveTo(-150, -60);
+        ctx.lineTo(0, 20);
+        ctx.lineTo(150, -60);
+        ctx.closePath();
+        ctx.fill();
+        
+        // Dark lines for envelope opening
+        ctx.strokeStyle = '#2a2a2a';
+        ctx.lineWidth = 8;
+        ctx.beginPath();
+        ctx.moveTo(-150, -60);
+        ctx.lineTo(0, 20);
+        ctx.moveTo(150, -60);
+        ctx.lineTo(0, 20);
+        ctx.stroke();
+        
+        // Bitcoin symbol
+        ctx.fillStyle = '#2a2a2a';
+        ctx.font = 'bold 108px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('₿', 0, 22);
+        
+        ctx.restore();
+        
+        // Download link
+        const link = document.createElement('a');
+        link.download = 'bitcoin-email-512.png';
+        link.href = canvas.toDataURL();
+        link.textContent = 'Download 512x512 PNG';
+        document.body.appendChild(link);
+        
+        // Create smaller versions
+        const sizes = [256, 128, 64, 32, 16];
+        sizes.forEach(size => {
+            const smallCanvas = document.createElement('canvas');
+            smallCanvas.width = size;
+            smallCanvas.height = size;
+            const smallCtx = smallCanvas.getContext('2d');
+            smallCtx.imageSmoothingEnabled = true;
+            smallCtx.imageSmoothingQuality = 'high';
+            smallCtx.drawImage(canvas, 0, 0, size, size);
+            
+            const smallLink = document.createElement('a');
+            smallLink.download = `bitcoin-email-${size}.png`;
+            smallLink.href = smallCanvas.toDataURL();
+            smallLink.textContent = `Download ${size}x${size} PNG`;
+            smallLink.style.display = 'block';
+            smallLink.style.marginTop = '10px';
+            document.body.appendChild(smallLink);
+        });
+    </script>
+</body>
+</html>

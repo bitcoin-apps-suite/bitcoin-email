@@ -1,0 +1,28 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#2a2a2a"/>
+  
+  <!-- Email envelope with Bitcoin symbol -->
+  <g transform="translate(256, 256)">
+    <!-- Envelope base -->
+    <path d="M -150 -60 L -150 100 L 150 100 L 150 -60 Z" 
+          fill="#ef4444" stroke="none"/>
+    
+    <!-- Envelope flap (open) -->
+    <path d="M -150 -60 L 0 20 L 150 -60 Z" 
+          fill="#ef4444" stroke="none"/>
+    
+    <!-- Envelope opening lines -->
+    <path d="M -150 -60 L 0 20 M 150 -60 L 0 20" 
+          stroke="#2a2a2a" stroke-width="8" fill="none"/>
+    
+    <!-- Bitcoin symbol in center -->
+    <g transform="scale(1.5)">
+      <text x="0" y="15" 
+            font-family="Arial, sans-serif" 
+            font-size="72" 
+            font-weight="bold" 
+            fill="#2a2a2a" 
+            text-anchor="middle">₿</text>
+    </g>
+  </g>
+</svg>
