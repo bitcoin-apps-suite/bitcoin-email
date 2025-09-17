@@ -67,14 +67,14 @@ export const EmailComposer: React.FC<EmailComposerProps> = ({
   };
 
   return (
-    <div className={`bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 ${className}`}>
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+    <div className={`bg-gray-900 border border-red-900/30 rounded-lg shadow-2xl p-6 ${className}`}>
+      <h2 className="text-2xl font-bold text-white mb-6">
         Compose Email
       </h2>
       
       <form onSubmit={handleSend} className="space-y-4">
         <div>
-          <label htmlFor="to" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="to" className="block text-sm font-medium text-gray-300 mb-2">
             To (Paymail, Cashhandle, or Email)
           </label>
           <PaymailInput
@@ -86,7 +86,7 @@ export const EmailComposer: React.FC<EmailComposerProps> = ({
         </div>
 
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
             Subject
           </label>
           <input
@@ -94,7 +94,7 @@ export const EmailComposer: React.FC<EmailComposerProps> = ({
             id="subject"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 dark:bg-gray-700 dark:text-white"
+            className="w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 bg-gray-800 text-white"
             placeholder="Email subject"
             required
           />
@@ -109,7 +109,7 @@ export const EmailComposer: React.FC<EmailComposerProps> = ({
             id="recipientName"
             value={recipientName}
             onChange={(e) => setRecipientName(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 dark:bg-gray-700 dark:text-white"
+            className="w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 bg-gray-800 text-white"
             placeholder="John Doe"
           />
         </div>
@@ -123,7 +123,7 @@ export const EmailComposer: React.FC<EmailComposerProps> = ({
             value={content}
             onChange={(e) => setContent(e.target.value)}
             rows={6}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 dark:bg-gray-700 dark:text-white"
+            className="w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 bg-gray-800 text-white"
             placeholder="Your message here..."
             required
           />
@@ -139,7 +139,7 @@ export const EmailComposer: React.FC<EmailComposerProps> = ({
               id="buttonText"
               value={buttonText}
               onChange={(e) => setButtonText(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 dark:bg-gray-700 dark:text-white"
+              className="w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 bg-gray-800 text-white"
               placeholder="Click Here"
             />
           </div>
@@ -153,7 +153,7 @@ export const EmailComposer: React.FC<EmailComposerProps> = ({
               id="buttonUrl"
               value={buttonUrl}
               onChange={(e) => setButtonUrl(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 dark:bg-gray-700 dark:text-white"
+              className="w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 bg-gray-800 text-white"
               placeholder="https://example.com"
             />
           </div>
