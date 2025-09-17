@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { InboxPriorityFilter } from './InboxPriorityFilter';
 
 interface Email {
   id: string;
@@ -32,6 +33,7 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
   const [isMockData, setIsMockData] = useState(false);
   const [filter, setFilter] = useState<'all' | 'paid' | 'starred'>('all');
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [minPaymentFilter, setMinPaymentFilter] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
@@ -82,6 +84,13 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
   };
 
   const filteredEmails = emails.filter(email => {
+    // Apply payment filter
+    if (minPaymentFilter > 0) {
+      const paymentAmount = email.paymentAmount || 0;
+      if (paymentAmount < minPaymentFilter) return false;
+    }
+    
+    // Apply category filter
     if (filter === 'paid') return email.hasPayment;
     if (filter === 'starred') return email.isStarred;
     return true;
@@ -117,6 +126,14 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
             </svg>
           </button>
+        </div>
+
+        {/* Priority Filter */}
+        <div className="mb-4">
+          <InboxPriorityFilter
+            onFilterChange={setMinPaymentFilter}
+            className="mb-4"
+          />
         </div>
 
         <div className="flex gap-2 mb-4">

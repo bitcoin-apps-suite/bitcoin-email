@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { render } from '@react-email/render';
 import { EmailTemplate } from './EmailTemplate';
+import { EmailCostCounter } from './EmailCostCounter';
+import { PaymailInput } from './PaymailInput';
 
 interface EmailComposerProps {
   onSend?: (emailData: {
@@ -25,6 +27,7 @@ export const EmailComposer: React.FC<EmailComposerProps> = ({
   const [buttonText, setButtonText] = useState('');
   const [buttonUrl, setButtonUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [estimatedCost, setEstimatedCost] = useState(0);
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,17 +75,13 @@ export const EmailComposer: React.FC<EmailComposerProps> = ({
       <form onSubmit={handleSend} className="space-y-4">
         <div>
           <label htmlFor="to" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            To (comma-separated)
+            To (Paymail, Cashhandle, or Email)
           </label>
-          <input
-            type="email"
-            id="to"
+          <PaymailInput
             value={to}
-            onChange={(e) => setTo(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 dark:bg-gray-700 dark:text-white"
-            placeholder="recipient@example.com"
-            required
-            multiple
+            onChange={setTo}
+            multiple={true}
+            placeholder="satoshi@handcash.io, $alice, bob@moneybutton.com"
           />
         </div>
 
@@ -160,13 +159,26 @@ export const EmailComposer: React.FC<EmailComposerProps> = ({
           </div>
         </div>
 
-        <div className="flex justify-end pt-4">
+        {/* Cost Counter */}
+        <div className="pt-4 border-t border-gray-700 dark:border-gray-600">
+          <EmailCostCounter
+            content={content}
+            recipientCount={to.split(',').filter(e => e.trim()).length}
+            onCostChange={setEstimatedCost}
+            className="text-gray-400"
+          />
+        </div>
+
+        <div className="flex justify-between items-center pt-4">
+          <div className="text-sm text-gray-500">
+            Estimated cost: <span className="font-bold text-bitcoin-orange-400">{estimatedCost < 0.01 ? `${(estimatedCost * 100).toFixed(6)}¢` : `$${estimatedCost.toFixed(4)}`}</span>
+          </div>
           <button
             type="submit"
             disabled={isLoading || !to || !subject || !content}
             className="px-6 py-2 bg-orange-600 hover:bg-orange-700 disabled:bg-gray-400 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:cursor-not-allowed transition-colors"
           >
-            {isLoading ? 'Sending...' : 'Send Email'}
+            {isLoading ? 'Sending...' : `Send Email (${estimatedCost < 0.01 ? `${(estimatedCost * 100).toFixed(4)}¢` : `$${estimatedCost.toFixed(4)}`})`}
           </button>
         </div>
       </form>
