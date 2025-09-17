@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useAuthStore } from '@/store/authStore';
 import { HandCashService } from '@/services/HandCashService';
 import { GmailService } from '@/services/GmailService';
 
@@ -10,9 +9,7 @@ interface ConnectionModalProps {
 }
 
 const ConnectionModal: React.FC<ConnectionModalProps> = ({ onClose }) => {
-  const [selectedProvider, setSelectedProvider] = useState<string | null>(null);
   const [isConnecting, setIsConnecting] = useState(false);
-  const { addConnection } = useAuthStore();
 
   const providers = [
     {

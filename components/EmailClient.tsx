@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 import './EmailClient.css';
 import { EmailList } from './email/EmailList';
@@ -17,8 +17,6 @@ const EmailClient: React.FC = () => {
   const [activeFolder, setActiveFolder] = useState('inbox');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [emails, setEmails] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
   const [showConnectionsModal, setShowConnectionsModal] = useState(false);
   const [connections, setConnections] = useState<any[]>([
     // Demo connections
@@ -61,15 +59,27 @@ const EmailClient: React.FC = () => {
         <div className="title-section">
           <div className="app-title-container">
             <div className="app-logo envelope-logo">
-              <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                <rect width="40" height="40" fill="#2a2a2a" rx="6"/>
-                <g transform="translate(20, 20)">
-                  <path d="M -10 -5 L -10 6 L 10 6 L 10 -5 Z" fill="#ef4444"/>
-                  <path d="M -10 -5 L 0 1 L 10 -5 Z" fill="#ef4444"/>
-                  <path d="M -10 -5 L 0 1 M 10 -5 L 0 1" stroke="#2a2a2a" strokeWidth="0.8" fill="none"/>
-                  <text x="0" y="2" fontFamily="Arial" fontSize="10" fontWeight="bold" fill="#2a2a2a" textAnchor="middle">₿</text>
-                </g>
-              </svg>
+              <img 
+                src="/bitcoin-email-icon.jpg" 
+                alt="Bitcoin Email" 
+                width="40" 
+                height="40"
+                onError={(e) => {
+                  // Fallback to SVG if image fails to load
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.insertAdjacentHTML('afterend', `
+                    <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="40" height="40" fill="#2a2a2a" rx="6"/>
+                      <g transform="translate(20, 20)">
+                        <path d="M -10 -5 L -10 6 L 10 6 L 10 -5 Z" fill="#ef4444"/>
+                        <path d="M -10 -5 L 0 1 L 10 -5 Z" fill="#ef4444"/>
+                        <path d="M -10 -5 L 0 1 M 10 -5 L 0 1" stroke="#2a2a2a" stroke-width="0.8" fill="none"/>
+                        <text x="0" y="4" font-family="Arial" font-size="10" font-weight="bold" fill="#2a2a2a" text-anchor="middle">₿</text>
+                      </g>
+                    </svg>
+                  `);
+                }}
+              />
             </div>
             <h1 className="app-title-header">
               <span className="bitcoin-text">Bitcoin</span> Email

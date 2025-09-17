@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { tokenEncryption, TokenWallet, TokenMessage } from '@/services/tokenEncryption';
+import { tokenEncryption, TokenWallet } from '@/services/tokenEncryption';
 
 interface WalletManagerProps {
   className?: string;
@@ -30,7 +30,7 @@ export function WalletManager({ className = '' }: WalletManagerProps) {
     setTokenBalances(balances);
   };
 
-  const handleConnectWallet = async (type: TokenWallet['type']) => {
+  const _handleConnectWallet = async (type: TokenWallet['type']) => {
     try {
       const wallet = await tokenEncryption.connectWallet(type);
       setWallets([...wallets, wallet]);

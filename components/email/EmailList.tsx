@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import '../EmailList.css';
 
@@ -37,11 +37,7 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
   const [showSettings, setShowSettings] = useState(false);
   const router = useRouter();
 
-  useEffect(() => {
-    fetchEmails();
-  }, []);
-
-  const fetchEmails = async () => {
+  const fetchEmails = useCallback(async () => {
     setIsLoading(true);
     try {
       const response = await fetch('/api/email/receive?limit=20');
@@ -68,7 +64,11 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchEmails();
+  }, [fetchEmails]);
 
   const formatDate = (dateString?: string) => {
     if (!dateString) return 'Unknown';

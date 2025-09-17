@@ -9,7 +9,6 @@ export default function AuthCallback() {
   const router = useRouter();
   const { login } = useAuthStore();
   const [error, setError] = useState<string | null>(null);
-  const [isProcessing] = useState(true);
 
   useEffect(() => {
     const handleCallback = async () => {

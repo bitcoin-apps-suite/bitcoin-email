@@ -6,6 +6,6 @@
     <path d="M -10 -4 L 0 2 L 10 -4 Z" fill="#ef4444"/>
     <path d="M -10 -4 L 0 2 M 10 -4 L 0 2" stroke="#2a2a2a" stroke-width="0.5" fill="none"/>
     <!-- Bitcoin symbol -->
-    <text x="0" y="2" font-family="Arial" font-size="8" font-weight="bold" fill="#2a2a2a" text-anchor="middle">₿</text>
+    <text x="0" y="3.5" font-family="Arial" font-size="8" font-weight="bold" fill="#2a2a2a" text-anchor="middle">₿</text>
   </g>
 </svg>

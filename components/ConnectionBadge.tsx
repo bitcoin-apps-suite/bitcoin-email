@@ -1,7 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-
 interface Connection {
   id: string;
   type: 'handcash' | 'gmail' | 'outlook' | 'hotmail' | 'yahoo' | 'other';

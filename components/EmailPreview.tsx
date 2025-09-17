@@ -14,7 +14,7 @@ const EmailPreview: React.FC<EmailPreviewProps> = ({ email }) => {
     if (!email.read) {
       markAsRead(email.id);
     }
-  }, [email.id, email.read]);
+  }, [email.id, email.read, markAsRead]);
 
   const formatFullDate = (date: Date) => {
     return new Date(date).toLocaleString('en-US', {

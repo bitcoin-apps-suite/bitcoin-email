@@ -85,7 +85,7 @@ export const EmailCostCounter: React.FC<EmailCostCounterProps> = ({
     };
     
     requestAnimationFrame(animate);
-  }, [cost]);
+  }, [cost, animatedCost]);
 
   const formatCost = useCallback((value: number) => {
     if (value < 0.000001) {

@@ -17,7 +17,7 @@
     
     <!-- Bitcoin symbol in center -->
     <g transform="scale(1.5)">
-      <text x="0" y="15" 
+      <text x="0" y="30" 
             font-family="Arial, sans-serif" 
             font-size="72" 
             font-weight="bold" 

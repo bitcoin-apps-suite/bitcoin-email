@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 interface Connection {
   id: string;
-  type: 'handcash' | 'gmail' | 'outlook' | 'hotmail' | 'yahoo' | 'imap' | 'pop3' | 'exchange' | 'protonmail' | 'icloud' | 'moneybutton' | 'relayx' | 'centbee' | 'simplycash' | 'volt' | 'other';
+  type: 'bitcoinwallet' | 'handcash' | 'yours' | 'taal' | 'centbee' | 'gmail' | 'outlook' | 'hotmail' | 'yahoo' | 'imap' | 'pop3' | 'exchange' | 'protonmail' | 'icloud' | 'aol' | 'zoho' | 'fastmail' | 'mailru' | 'yandex' | 'gmx' | 'other';
   name: string;
   email?: string;
   handle?: string;
@@ -32,6 +32,14 @@ export function ConnectionsModal({
 
   const bsvWallets = [
     {
+      id: 'bitcoinwallet',
+      name: 'Bitcoin Wallet',
+      description: 'Our native Bitcoin SV wallet',
+      icon: '₿',
+      color: '#ef4444',
+      features: ['Native integration', 'Full BSV support', 'Token messages']
+    },
+    {
       id: 'handcash',
       name: 'HandCash',
       description: 'Bitcoin wallet and $handle payments',
@@ -40,20 +48,20 @@ export function ConnectionsModal({
       features: ['$handle payments', 'Bitcoin wallet', 'Instant transfers']
     },
     {
-      id: 'moneybutton',
-      name: 'MoneyButton',
-      description: 'One-click Bitcoin payments',
-      icon: '₿',
-      color: '#4772fa',
-      features: ['One-click payments', 'PayMail support', 'OAuth integration']
+      id: 'yours',
+      name: 'Yours Wallet',
+      description: 'The standard BSV wallet',
+      icon: 'Y',
+      color: '#7c3aed',
+      features: ['PayMail support', 'Token support', 'DeFi integration']
     },
     {
-      id: 'relayx',
-      name: 'RelayX',
-      description: 'Fast BSV wallet with PayMail',
-      icon: '⚡',
-      color: '#1d4ed8',
-      features: ['PayMail addresses', 'DEX integration', 'Token support']
+      id: 'taal',
+      name: 'TAAL Wallet',
+      description: 'Enterprise BSV wallet',
+      icon: 'T',
+      color: '#0ea5e9',
+      features: ['Enterprise features', 'TAAL network', 'Advanced tools']
     },
     {
       id: 'centbee',
@@ -62,22 +70,6 @@ export function ConnectionsModal({
       icon: '🐝',
       color: '#fbbf24',
       features: ['Mobile wallet', 'Merchant tools', 'Remittance']
-    },
-    {
-      id: 'simplycash',
-      name: 'Simply Cash',
-      description: 'Simple BSV wallet',
-      icon: '💳',
-      color: '#10b981',
-      features: ['Easy to use', 'Multi-currency', 'Card integration']
-    },
-    {
-      id: 'volt',
-      name: 'Volt Wallet',
-      description: 'Gaming-focused BSV wallet',
-      icon: '⚡',
-      color: '#8b5cf6',
-      features: ['Gaming payments', 'NFT support', 'Micropayments']
     }
   ];
 
@@ -130,6 +122,7 @@ export function ConnectionsModal({
   ];
 
   const standardEmailProviders = [
+    // Most popular services first
     {
       id: 'gmail',
       name: 'Gmail',
@@ -147,20 +140,20 @@ export function ConnectionsModal({
       features: ['Office 365 sync', 'Calendar integration', 'Enterprise features']
     },
     {
-      id: 'hotmail',
-      name: 'Hotmail',
-      description: 'Microsoft Hotmail integration',
-      icon: '📪',
-      color: '#0078d4',
-      features: ['Legacy support', 'Basic email', 'Personal accounts']
-    },
-    {
       id: 'yahoo',
       name: 'Yahoo Mail',
       description: 'Yahoo Mail integration',
       icon: '📬',
       color: '#720e9e',
       features: ['Yahoo sync', 'Large storage', 'Mobile friendly']
+    },
+    {
+      id: 'hotmail',
+      name: 'Hotmail',
+      description: 'Microsoft Hotmail integration',
+      icon: '📪',
+      color: '#0078d4',
+      features: ['Legacy support', 'Basic email', 'Personal accounts']
     },
     {
       id: 'aol',
