@@ -1,0 +1,331 @@
+/* Dark Theme Overrides for Bitcoin Email Marketing Page */
+
+.dark-theme {
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+/* Hero Section - Dark */
+.dark-theme .hero-section {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.dark-theme .hero-gradient {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(239, 68, 68, 0.15) 100%);
+}
+
+.dark-theme .hero-grid {
+  background-image: 
+    linear-gradient(rgba(239, 68, 68, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239, 68, 68, 0.08) 1px, transparent 1px);
+}
+
+.dark-theme .hero-title .title-email {
+  color: #ffffff;
+}
+
+.dark-theme .hero-subtitle {
+  color: #a1a1aa;
+}
+
+.dark-theme .cta-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #d4d4d8;
+  border-color: #3f3f46;
+}
+
+.dark-theme .cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.dark-theme .stat-label {
+  color: #a1a1aa;
+}
+
+/* App Preview - Dark */
+.dark-theme .app-window {
+  background: #0a0a0a;
+  border-color: #27272a;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .window-header {
+  background: #141414;
+  border-bottom-color: #27272a;
+}
+
+.dark-theme .window-title {
+  color: #d4d4d8;
+}
+
+.dark-theme .mock-sidebar {
+  background: #141414;
+  border-right-color: #27272a;
+}
+
+.dark-theme .mock-nav-item {
+  color: #a1a1aa;
+}
+
+.dark-theme .mock-nav-item.active {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.dark-theme .mock-email {
+  border-bottom: 1px solid #27272a;
+}
+
+.dark-theme .mock-email:hover {
+  background: #141414;
+}
+
+.dark-theme .email-from {
+  color: #ffffff;
+}
+
+.dark-theme .email-subject {
+  color: #d4d4d8;
+}
+
+.dark-theme .email-preview {
+  color: #a1a1aa;
+}
+
+.dark-theme .email-meta {
+  color: #a1a1aa;
+}
+
+/* Features Section - Dark */
+.dark-theme .features-section {
+  background: #0a0a0a;
+}
+
+.dark-theme .section-title {
+  color: #ffffff;
+}
+
+.dark-theme .section-subtitle {
+  color: #a1a1aa;
+}
+
+.dark-theme .feature-card {
+  background: #141414;
+  border-color: #27272a;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .feature-card:hover {
+  background: #1a1a1a;
+  border-color: rgba(239, 68, 68, 0.3);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(239, 68, 68, 0.2);
+}
+
+.dark-theme .feature-icon.security,
+.dark-theme .feature-icon.blockchain,
+.dark-theme .feature-icon.spam,
+.dark-theme .feature-icon.decentralized,
+.dark-theme .feature-icon.integration {
+  background: linear-gradient(135deg, #1a1a1a, #27272a);
+  color: #ef4444;
+}
+
+.dark-theme .feature-title {
+  color: #ffffff;
+}
+
+.dark-theme .feature-description {
+  color: #a1a1aa;
+}
+
+/* Testimonials Section - Dark */
+.dark-theme .testimonials-section {
+  background: #141414;
+}
+
+.dark-theme .testimonial {
+  background: #1a1a1a;
+  border-color: #27272a;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .testimonial-content {
+  color: #d4d4d8;
+}
+
+.dark-theme .author-name {
+  color: #ffffff;
+}
+
+.dark-theme .author-title {
+  color: #a1a1aa;
+}
+
+/* CTA Section - Dark (keep red gradient) */
+.dark-theme .cta-section {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.dark-theme .cta-primary.large {
+  background: #0a0a0a;
+  color: #ef4444;
+  border: 1px solid #27272a;
+}
+
+.dark-theme .cta-primary.large:hover {
+  background: #141414;
+  border-color: #ef4444;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Footer - Dark */
+.dark-theme .footer {
+  background: #0a0a0a;
+  color: #a1a1aa;
+  border-top: 1px solid #27272a;
+}
+
+.dark-theme .brand-email {
+  color: #ffffff;
+}
+
+.dark-theme .footer-tagline {
+  color: #71717a;
+}
+
+.dark-theme .link-group h4 {
+  color: #ffffff;
+}
+
+.dark-theme .link-group a {
+  color: #a1a1aa;
+}
+
+.dark-theme .link-group a:hover {
+  color: #ef4444;
+}
+
+.dark-theme .footer-bottom {
+  border-top-color: #27272a;
+}
+
+.dark-theme .footer-copyright {
+  color: #71717a;
+}
+
+.dark-theme .social-link {
+  color: #a1a1aa;
+}
+
+.dark-theme .social-link:hover {
+  color: #ef4444;
+}
+
+/* Enhanced Dark Mode Aesthetics */
+.dark-theme .hero-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(239, 68, 68, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.dark-theme .feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(239, 68, 68, 0.3) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dark-theme .feature-card:hover::before {
+  opacity: 1;
+}
+
+.dark-theme .testimonial::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(239, 68, 68, 0.5) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dark-theme .testimonial:hover::after {
+  opacity: 1;
+}
+
+/* Dark mode specific glows and shadows */
+.dark-theme .bitcoin-symbol {
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.dark-theme .hero-title .title-bitcoin {
+  text-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+.dark-theme .cta-primary {
+  box-shadow: 
+    0 10px 25px rgba(239, 68, 68, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .cta-primary:hover {
+  box-shadow: 
+    0 15px 35px rgba(239, 68, 68, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Subtle animations for dark mode */
+@keyframes darkGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+  }
+}
+
+.dark-theme .feature-icon.bitcoin {
+  animation: darkGlow 3s ease-in-out infinite;
+}
+
+/* Dark scrollbar */
+.dark-theme ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark-theme ::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}

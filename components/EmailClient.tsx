@@ -6,6 +6,8 @@ import './EmailClient.css';
 import { EmailList } from './email/EmailList';
 import { EmailPreview } from './email/EmailPreview';
 import { ComposeModal } from './email/ComposeModal';
+import { ConnectionBadge } from './ConnectionBadge';
+import { ConnectionsModal } from './ConnectionsModal';
 
 const EmailClient: React.FC = () => {
   const [selectedEmail, setSelectedEmail] = useState<any>(null);
@@ -15,6 +17,17 @@ const EmailClient: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [emails, setEmails] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const [showConnectionsModal, setShowConnectionsModal] = useState(false);
+  const [connections, setConnections] = useState<any[]>([
+    // Demo connections
+    {
+      id: 'demo-handcash',
+      type: 'handcash',
+      name: 'HandCash',
+      handle: '$satoshi',
+      status: 'connected'
+    }
+  ]);
 
   const folders = [
     { id: 'inbox', name: 'Inbox', icon: '📥', count: 12 },
@@ -33,36 +46,44 @@ const EmailClient: React.FC = () => {
 
   return (
     <div className="email-client">
-      {/* Header Bar */}
-      <div className="header-bar">
-        <div className="header-left">
-          <div className="logo-button">
-            <span className="bitcoin-symbol">₿</span>
-          </div>
-          <div className="app-title">
-            <span className="title-bitcoin">Bitcoin</span>
-            <span className="title-email">Email</span>
-          </div>
+      {/* Sophisticated Header */}
+      <header className="email-header">
+        <div className="header-actions-left">
+          <button className="icon-button">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </button>
         </div>
 
-        <div className="header-center">
-          <div className="search-bar">
+        <div className="title-section">
+          <div className="app-title-container">
+            <div className="app-logo">
+              <span className="bitcoin-symbol-header">₿</span>
+            </div>
+            <h1 className="app-title-header">
+              <span className="bitcoin-text">Bitcoin</span> Email
+            </h1>
+          </div>
+          <p className="app-subtitle">Decentralized Email on the Blockchain</p>
+        </div>
+
+        <div className="header-actions-right">
+          <div className="search-bar-header">
             <svg className="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <input
               type="text"
-              placeholder="Search emails..."
-              className="search-input"
+              placeholder="Search..."
+              className="search-input-header"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-        </div>
 
-        <div className="header-right">
           <button 
-            className="compose-button"
+            className="compose-button-header"
             onClick={() => setShowCompose(true)}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,24 +92,12 @@ const EmailClient: React.FC = () => {
             <span>Compose</span>
           </button>
 
-          <button className="icon-button">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-          </button>
-
-          <button className="icon-button">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-            </svg>
-          </button>
-
-          <div className="user-menu">
-            <div className="status-indicator"></div>
-            <span className="user-handle">@satoshi</span>
-          </div>
+          <ConnectionBadge
+            connections={connections}
+            onOpenModal={() => setShowConnectionsModal(true)}
+          />
         </div>
-      </div>
+      </header>
 
       {/* Main Content with Resizable Panels */}
       <div className="main-content">
@@ -223,6 +232,28 @@ const EmailClient: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Connections Modal */}
+      <ConnectionsModal
+        isOpen={showConnectionsModal}
+        onClose={() => setShowConnectionsModal(false)}
+        connections={connections}
+        onConnect={(type) => {
+          // Demo connection logic
+          const newConnection = {
+            id: `demo-${type}-${Date.now()}`,
+            type,
+            name: type.charAt(0).toUpperCase() + type.slice(1),
+            email: type !== 'handcash' ? `user@${type}.com` : undefined,
+            handle: type === 'handcash' ? '$user' : undefined,
+            status: 'connected' as const
+          };
+          setConnections(prev => [...prev, newConnection]);
+        }}
+        onDisconnect={(id) => {
+          setConnections(prev => prev.filter(c => c.id !== id));
+        }}
+      />
     </div>
   );
 };
