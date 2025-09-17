@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body className="antialiased h-full bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      <body className="antialiased h-full">
         <Taskbar />
         <div className="pt-[22px]">
           {children}
