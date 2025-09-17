@@ -6,9 +6,10 @@ export class GmailService {
   private scope: string;
 
   constructor() {
-    this.clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || '';
-    this.redirectUri = process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URI || 'http://localhost:3004/auth/google/callback';
-    this.scope = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.send';
+    // Use the Google Client ID from .env.local
+    this.clientId = '833923457801-3msbifmirrfok54so070gah2gbl9r6u8.apps.googleusercontent.com';
+    this.redirectUri = 'http://localhost:3004/auth/callback/google';
+    this.scope = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.send https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile';
   }
 
   async login() {
@@ -23,8 +24,29 @@ export class GmailService {
     window.location.href = authUrl;
   }
 
-  async handleCallback(accessToken: string) {
+  async handleCallback(callbackUrl: string): Promise<boolean> {
     try {
+      // Parse the callback URL to get the access token
+      const url = new URL(callbackUrl);
+      let accessToken = null;
+
+      // Check if token is in hash fragment (for implicit flow)
+      if (url.hash) {
+        const hashParams = new URLSearchParams(url.hash.substring(1));
+        accessToken = hashParams.get('access_token');
+      }
+      
+      // Check query params as fallback
+      if (!accessToken) {
+        const params = new URLSearchParams(url.search);
+        accessToken = params.get('access_token');
+      }
+
+      if (!accessToken) {
+        console.error('No access token found in callback URL');
+        return false;
+      }
+
       // Fetch user profile
       const profileResponse = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
         headers: {
@@ -34,23 +56,29 @@ export class GmailService {
 
       const profile = await profileResponse.json();
 
-      // Add connection to store
-      const { addConnection } = useAuthStore.getState();
-      
-      addConnection({
-        id: `gmail-${profile.id}`,
-        type: 'gmail',
-        email: profile.email,
-        displayName: profile.name,
-        avatarUrl: profile.picture,
-        accessToken: accessToken,
-        expiresAt: Date.now() + 3600000 // 1 hour
-      });
+      // Store the access token and user info in localStorage
+      localStorage.setItem('gmail_access_token', accessToken);
+      localStorage.setItem('gmail_user', JSON.stringify(profile));
 
-      return profile;
+      // Add connection to store if available
+      if (typeof useAuthStore !== 'undefined') {
+        const { addConnection } = useAuthStore.getState();
+        
+        addConnection({
+          id: `gmail-${profile.id}`,
+          type: 'gmail',
+          email: profile.email,
+          displayName: profile.name,
+          avatarUrl: profile.picture,
+          accessToken: accessToken,
+          expiresAt: Date.now() + 3600000 // 1 hour
+        });
+      }
+
+      return true;
     } catch (error) {
       console.error('Failed to handle Gmail callback:', error);
-      throw error;
+      return false;
     }
   }
 
