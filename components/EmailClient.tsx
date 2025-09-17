@@ -8,6 +8,8 @@ import { EmailPreview } from './email/EmailPreview';
 import { ComposeModal } from './email/ComposeModal';
 import { ConnectionBadge } from './ConnectionBadge';
 import { ConnectionsModal } from './ConnectionsModal';
+import { WalletManager } from './WalletManager';
+import './WalletManager.css';
 
 const EmailClient: React.FC = () => {
   const [selectedEmail, setSelectedEmail] = useState<any>(null);
@@ -58,8 +60,16 @@ const EmailClient: React.FC = () => {
 
         <div className="title-section">
           <div className="app-title-container">
-            <div className="app-logo">
-              <span className="bitcoin-symbol-header">₿</span>
+            <div className="app-logo envelope-logo">
+              <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" fill="#2a2a2a" rx="6"/>
+                <g transform="translate(20, 20)">
+                  <path d="M -10 -5 L -10 6 L 10 6 L 10 -5 Z" fill="#ef4444"/>
+                  <path d="M -10 -5 L 0 1 L 10 -5 Z" fill="#ef4444"/>
+                  <path d="M -10 -5 L 0 1 M 10 -5 L 0 1" stroke="#2a2a2a" strokeWidth="0.8" fill="none"/>
+                  <text x="0" y="2" fontFamily="Arial" fontSize="10" fontWeight="bold" fill="#2a2a2a" textAnchor="middle">₿</text>
+                </g>
+              </svg>
             </div>
             <h1 className="app-title-header">
               <span className="bitcoin-text">Bitcoin</span> Email
@@ -92,6 +102,8 @@ const EmailClient: React.FC = () => {
             <span>Compose</span>
           </button>
 
+          <WalletManager className="wallet-manager-header" />
+          
           <ConnectionBadge
             connections={connections}
             onOpenModal={() => setShowConnectionsModal(true)}
