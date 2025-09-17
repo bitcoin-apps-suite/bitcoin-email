@@ -3,9 +3,6 @@
 # Kill Port 3004 - Bitcoin Email Helper
 # This script kills any process running on port 3004
 
-# Show notification that app is running
-osascript -e 'display notification "Checking for processes on port 3004..." with title "Kill Port 3004"'
-
 echo "🔴 Killing processes on port 3004..."
 
 # Find and kill processes on port 3004
@@ -27,7 +24,7 @@ else
     
     if [ -z "$REMAINING" ]; then
         echo "✅ Successfully killed all processes on port 3004"
-        osascript -e 'display notification "Successfully killed all processes on port 3004" with title "Kill Port 3004" sound name "Glass"'
+        osascript -e 'display notification "Successfully killed processes on port 3004" with title "Kill Port 3004" sound name "Glass"'
     else
         echo "⚠️  Some processes may still be running"
         osascript -e 'display notification "Some processes may still be running on port 3004" with title "Kill Port 3004" sound name "Basso"'
@@ -35,3 +32,6 @@ else
 fi
 
 echo "🏁 Done!"
+
+# Keep terminal open for 2 seconds to see output
+sleep 2

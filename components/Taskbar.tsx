@@ -198,6 +198,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
           }}
           className="bitcoin-logo"
           title="Bitcoin Suite Apps"
+          style={{ backgroundColor: showBitcoinSuite ? 'rgba(239, 68, 68, 0.1)' : 'transparent' }}
         >
           <span className="bitcoin-symbol">₿</span>
         </button>

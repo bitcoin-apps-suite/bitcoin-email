@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { InboxPriorityFilter } from './InboxPriorityFilter';
+import '../EmailList.css';
 
 interface Email {
   id: string;
@@ -34,6 +34,7 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
   const [filter, setFilter] = useState<'all' | 'paid' | 'starred'>('all');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [minPaymentFilter, setMinPaymentFilter] = useState(0);
+  const [showSettings, setShowSettings] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -106,136 +107,157 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
   };
 
   return (
-    <div className="flex flex-col h-full bg-gray-900">
-      <div className="border-b border-gray-800 p-4">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold text-white">
+    <div className="email-list">
+      <div className="email-list-header">
+        <div className="email-list-title">
+          <h2>
             Inbox
             {isMockData && (
-              <span className="ml-2 text-xs text-bitcoin-orange-400 font-normal">
-                (Demo Mode)
-              </span>
+              <span className="demo-badge">Demo Mode</span>
             )}
           </h2>
-          <button
-            onClick={() => router.push('/compose')}
-            className="p-2 bg-bitcoin-orange-500 hover:bg-bitcoin-orange-600 rounded transition-colors"
-            title="Compose Email"
-          >
-            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-          </button>
+          <div className="email-header-actions">
+            <button
+              className="email-action-btn"
+              onClick={() => setShowSettings(!showSettings)}
+              title="Filter Settings"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+              </svg>
+            </button>
+            <button
+              onClick={() => router.push('/compose')}
+              className="compose-btn"
+              title="Compose Email"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* Priority Filter */}
-        <div className="mb-4">
-          <InboxPriorityFilter
-            onFilterChange={setMinPaymentFilter}
-            className="mb-4"
-          />
-        </div>
-
-        <div className="flex gap-2 mb-4">
+        <div className="email-filters">
           <button
             onClick={() => setFilter('all')}
-            className={`px-3 py-1 rounded text-sm transition-colors ${
-              filter === 'all' 
-                ? 'bg-bitcoin-orange-500 text-white' 
-                : 'bg-gray-800 text-gray-400 hover:text-white'
-            }`}
+            className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
           >
             All Mail
           </button>
           <button
             onClick={() => setFilter('paid')}
-            className={`px-3 py-1 rounded text-sm transition-colors ${
-              filter === 'paid' 
-                ? 'bg-bitcoin-orange-500 text-white' 
-                : 'bg-gray-800 text-gray-400 hover:text-white'
-            }`}
+            className={`filter-btn ${filter === 'paid' ? 'active' : ''}`}
           >
-            <span className="mr-1">$</span>Paid
+            <span style={{ marginRight: '4px' }}>$</span>Paid
           </button>
           <button
             onClick={() => setFilter('starred')}
-            className={`px-3 py-1 rounded text-sm transition-colors ${
-              filter === 'starred' 
-                ? 'bg-bitcoin-orange-500 text-white' 
-                : 'bg-gray-800 text-gray-400 hover:text-white'
-            }`}
+            className={`filter-btn ${filter === 'starred' ? 'active' : ''}`}
           >
-            <span className="mr-1">★</span>Starred
+            <span style={{ marginRight: '4px' }}>★</span>Starred
           </button>
         </div>
 
-        <div className="relative">
+        <div className="email-search">
+          <svg className="email-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
           <input
             type="text"
             placeholder="Search emails..."
-            className="w-full bg-gray-800 rounded px-4 py-2 pl-10 text-sm text-white placeholder-gray-500"
+            className="email-search-input"
           />
-          <svg className="w-4 h-4 absolute left-3 top-2.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
         </div>
+        
+        {/* Settings Dropdown */}
+        {showSettings && (
+          <div className="email-settings-dropdown">
+            <div className="settings-section">
+              <label className="settings-label">Minimum Payment Filter</label>
+              <div className="payment-filter-row">
+                <input
+                  type="range"
+                  min="0"
+                  max="10"
+                  step="0.01"
+                  value={minPaymentFilter}
+                  onChange={(e) => setMinPaymentFilter(Number(e.target.value))}
+                  className="payment-slider"
+                />
+                <span className="payment-value">${minPaymentFilter.toFixed(2)}</span>
+              </div>
+              <div className="settings-help">Hide emails with payments below this amount</div>
+            </div>
+            <div className="settings-section">
+              <label className="settings-checkbox">
+                <input type="checkbox" defaultChecked />
+                <span>Auto-archive low value emails</span>
+              </label>
+              <label className="settings-checkbox">
+                <input type="checkbox" defaultChecked />
+                <span>Notify for stamped emails</span>
+              </label>
+            </div>
+          </div>
+        )}
       </div>
       
-      <div className="flex-1 overflow-auto">
+      <div className="email-list-items">
         {isLoading ? (
-          <div className="flex items-center justify-center h-64">
-            <div className="w-8 h-8 border-3 border-bitcoin-orange-500 border-t-transparent rounded-full animate-spin"></div>
+          <div className="email-list-loading">
+            <div className="email-list-spinner"></div>
           </div>
         ) : filteredEmails.length === 0 ? (
-          <div className="p-8 text-center text-gray-500">
-            <svg className="w-16 h-16 mx-auto mb-4 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="email-list-empty">
+            <svg className="email-empty-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <p>No emails yet</p>
+            <p className="email-empty-text">No emails yet</p>
             <button
               onClick={() => router.push('/compose')}
-              className="mt-4 px-4 py-2 bg-bitcoin-orange-500 hover:bg-bitcoin-orange-600 text-white rounded transition-colors text-sm"
+              className="email-empty-action"
             >
               Compose First Email
             </button>
           </div>
         ) : (
-          <div className="divide-y divide-gray-800">
+          <div>
             {filteredEmails.map(email => (
               <div
                 key={email.id}
                 onClick={() => handleSelectEmail(email)}
-                className={`p-4 hover:bg-gray-800/50 cursor-pointer transition-colors ${
-                  selectedId === email.id ? 'bg-gray-800/50 border-l-2 border-bitcoin-orange-500' : ''
-                } ${!email.isRead ? 'bg-gray-800/30' : ''}`}
+                className={`email-item ${selectedId === email.id ? 'selected' : ''} ${!email.isRead ? 'unread' : ''}`}
               >
-                <div className="flex items-start justify-between mb-1">
-                  <div className="flex items-center gap-2">
-                    <span className={`font-medium text-sm ${!email.isRead ? 'text-white' : 'text-gray-300'}`}>
+                <div className="email-item-header">
+                  <div className="email-item-from">
+                    <span className="email-item-sender">
                       {email.from}
                     </span>
-                    {email.hasPayment && (
-                      <span className="bg-green-500/20 text-green-400 text-xs px-2 py-0.5 rounded">
-                        ${email.paymentAmount}
-                      </span>
-                    )}
-                    {email.onChain && (
-                      <svg className="w-4 h-4 text-bitcoin-orange-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.715-5.349L11 6.477V16h2a1 1 0 110 2H7a1 1 0 110-2h2V6.477L6.237 7.582l1.715 5.349a1 1 0 01-.285 1.05A3.989 3.989 0 015 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z" />
-                      </svg>
-                    )}
-                    {email.isEncrypted && (
-                      <svg className="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-                      </svg>
-                    )}
+                    <div className="email-item-badges">
+                      {email.hasPayment && (
+                        <span className="email-item-badge badge-payment">
+                          ${email.paymentAmount}
+                        </span>
+                      )}
+                      {email.onChain && (
+                        <svg className="w-4 h-4 badge-onchain" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.715-5.349L11 6.477V16h2a1 1 0 110 2H7a1 1 0 110-2h2V6.477L6.237 7.582l1.715 5.349a1 1 0 01-.285 1.05A3.989 3.989 0 015 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z" />
+                        </svg>
+                      )}
+                      {email.isEncrypted && (
+                        <svg className="w-4 h-4 badge-encrypted" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                        </svg>
+                      )}
+                    </div>
                   </div>
-                  <span className="text-xs text-gray-500">{email.timestamp}</span>
+                  <span className="email-item-time">{email.timestamp}</span>
                 </div>
-                <h3 className={`text-sm mb-1 ${!email.isRead ? 'font-medium text-white' : 'text-gray-200'}`}>
+                <h3 className="email-item-subject">
                   {email.subject || '(No Subject)'}
                 </h3>
-                <p className="text-xs text-gray-500 line-clamp-2">{email.preview}</p>
+                <p className="email-item-preview">{email.preview}</p>
               </div>
             ))}
           </div>
