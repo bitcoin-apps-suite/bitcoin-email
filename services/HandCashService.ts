@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { HandCashDemoService } from './HandCashDemoService';
 
 export interface HandCashUser {
   handle: string;
@@ -24,8 +25,17 @@ export class HandCashService {
   
   private tokens: AuthTokens | null = null;
   private currentUser: HandCashUser | null = null;
+  private demoService: HandCashDemoService | null = null;
+  private isDemoMode: boolean = false;
 
   constructor() {
+    // Check if we should use demo mode
+    if (!this.APP_ID || this.APP_ID === 'your_handcash_app_id' || this.APP_ID === 'demo_mode') {
+      console.log('🎮 HandCash Demo Mode Enabled (no valid credentials found)');
+      this.demoService = new HandCashDemoService();
+      this.isDemoMode = true;
+    }
+    
     // Try to restore session from localStorage
     this.restoreSession();
   }
@@ -90,6 +100,14 @@ export class HandCashService {
   }
 
   public async login(): Promise<void> {
+    // Use demo service if in demo mode
+    if (this.isDemoMode && this.demoService) {
+      await this.demoService.login();
+      // Redirect to callback page to simulate OAuth flow
+      window.location.href = '/auth/callback#demo=true';
+      return;
+    }
+    
     try {
       if (!this.APP_ID) {
         console.error('HandCash App ID is not configured!');
@@ -111,6 +129,14 @@ export class HandCashService {
   }
 
   public async handleCallback(callbackUrl: string): Promise<HandCashUser> {
+    // Use demo service if in demo mode
+    if (this.isDemoMode && this.demoService) {
+      const user = await this.demoService.handleCallback(callbackUrl);
+      this.currentUser = user;
+      this.tokens = { accessToken: this.demoService.getAccessToken() || '', tokenType: 'Bearer' };
+      return user;
+    }
+    
     try {
       console.log('Handling HandCash callback...');
       const url = new URL(callbackUrl);
@@ -190,6 +216,11 @@ export class HandCashService {
   }
 
   public async sendPayment(to: string, amount: number, description?: string): Promise<string> {
+    // Use demo service if in demo mode
+    if (this.isDemoMode && this.demoService) {
+      return await this.demoService.sendPayment(to, amount, description);
+    }
+    
     if (!this.tokens?.accessToken) {
       throw new Error('Not authenticated');
     }
@@ -225,14 +256,27 @@ export class HandCashService {
   }
 
   public isAuthenticated(): boolean {
+    if (this.isDemoMode && this.demoService) {
+      return this.demoService.isAuthenticated();
+    }
     return this.tokens !== null && this.currentUser !== null;
   }
 
   public getCurrentUser(): HandCashUser | null {
+    if (this.isDemoMode && this.demoService) {
+      return this.demoService.getCurrentUser();
+    }
     return this.currentUser;
   }
 
   public getAccessToken(): string | null {
+    if (this.isDemoMode && this.demoService) {
+      return this.demoService.getAccessToken();
+    }
     return this.tokens?.accessToken || null;
+  }
+
+  public getIsDemoMode(): boolean {
+    return this.isDemoMode;
   }
 }
