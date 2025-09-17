@@ -3,15 +3,20 @@
 interface Email {
   id: string;
   from: string;
+  to?: string[];
   subject: string;
-  preview: string;
-  timestamp: string;
+  text?: string;
+  html?: string;
+  date?: string;
+  preview?: string;
+  timestamp?: string;
   hasPayment?: boolean;
   paymentAmount?: number;
-  isRead: boolean;
-  isStarred: boolean;
-  isEncrypted: boolean;
-  onChain: boolean;
+  isRead?: boolean;
+  isStarred?: boolean;
+  isEncrypted?: boolean;
+  onChain?: boolean;
+  attachments?: unknown[];
 }
 
 interface EmailPreviewProps {
@@ -54,7 +59,7 @@ export function EmailPreview({ email }: EmailPreviewProps) {
             </div>
           </div>
           <div className="text-right text-sm text-gray-400">
-            <p>{email.timestamp}</p>
+            <p>{email.timestamp || 'Unknown time'}</p>
             {email.onChain && (
               <a href="#" className="text-bitcoin-red-400 hover:underline flex items-center gap-1 justify-end mt-1">
                 <span>View on chain</span>
@@ -86,7 +91,7 @@ export function EmailPreview({ email }: EmailPreviewProps) {
         <div className="max-w-3xl mx-auto">
           <div className="prose prose-invert max-w-none">
             <p className="text-gray-300 leading-relaxed">
-              {email.preview}
+              {email.preview || email.text || 'No content available'}
             </p>
             <br />
             <p className="text-gray-300 leading-relaxed">

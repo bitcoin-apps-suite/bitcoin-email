@@ -32,7 +32,7 @@ export const EmailComposer: React.FC<EmailComposerProps> = ({
 
     setIsLoading(true);
     try {
-      const emailHtml = render(
+      const emailHtml = await render(
         <EmailTemplate
           subject={subject}
           content={content}

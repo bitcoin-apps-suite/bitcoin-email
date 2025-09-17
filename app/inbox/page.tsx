@@ -7,15 +7,20 @@ import { EmailPreview } from '@/components/email/EmailPreview';
 interface Email {
   id: string;
   from: string;
+  to?: string[];
   subject: string;
-  preview: string;
-  timestamp: string;
+  text?: string;
+  html?: string;
+  date?: string;
+  preview?: string;
+  timestamp?: string;
   hasPayment?: boolean;
   paymentAmount?: number;
-  isRead: boolean;
-  isStarred: boolean;
-  isEncrypted: boolean;
-  onChain: boolean;
+  isRead?: boolean;
+  isStarred?: boolean;
+  isEncrypted?: boolean;
+  onChain?: boolean;
+  attachments?: unknown[];
 }
 
 export default function InboxPage() {

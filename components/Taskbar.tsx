@@ -17,16 +17,19 @@ interface DropdownMenu {
   items: DropdownItem[];
 }
 
+interface TaskbarUser {
+  handle?: string;
+  email?: string;
+}
+
 interface TaskbarProps {
   isAuthenticated?: boolean;
-  currentUser?: any;
-  onLogout?: () => void;
+  currentUser?: TaskbarUser | null;
 }
 
 const Taskbar: React.FC<TaskbarProps> = ({ 
   isAuthenticated = false, 
-  currentUser = null, 
-  onLogout = () => {} 
+  currentUser = null
 }) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [showBitcoinSuite, setShowBitcoinSuite] = useState(false);

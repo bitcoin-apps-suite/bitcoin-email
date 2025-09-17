@@ -43,7 +43,7 @@ export class EmailService {
   }
 
   private setupSMTP() {
-    this.transporter = nodemailer.createTransporter({
+    this.transporter = nodemailer.createTransport({
       host: this.config.smtp.host,
       port: this.config.smtp.port,
       secure: this.config.smtp.secure,
@@ -113,10 +113,16 @@ export class EmailService {
             stream.once('end', async () => {
               try {
                 const parsed = await simpleParser(buffer);
+                const toAddress = parsed.to
+                  ? Array.isArray(parsed.to)
+                    ? parsed.to.map((addr) => addr.text || '').filter(Boolean)
+                    : [parsed.to.text || ''].filter(Boolean)
+                  : [];
+
                 messages.push({
                   id: seqno.toString(),
                   from: parsed.from?.text || '',
-                  to: parsed.to?.text ? [parsed.to.text] : [],
+                  to: toAddress,
                   subject: parsed.subject || '',
                   text: parsed.text,
                   html: parsed.html || undefined,
