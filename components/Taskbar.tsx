@@ -121,6 +121,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
       label: 'Blockchain',
       items: [
         { label: 'Email Lists Exchange', href: '/exchange', icon: '📊' },
+        { label: '$BMAIL Token', href: '/token', icon: '🪙' },
         { divider: true },
         { label: 'Connect Wallet', action: () => console.log('Connect Wallet') },
         { label: 'View Balance', action: () => console.log('View Balance') },
