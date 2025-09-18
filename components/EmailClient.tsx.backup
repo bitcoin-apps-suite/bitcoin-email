@@ -386,26 +386,18 @@ const EmailClient: React.FC = () => {
                               onClick={() => setShowCreateListModal(true)}
                               style={{
                                 width: '100%',
-                                padding: '8px',
-                                background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(0, 0, 0, 0.8))',
+                                padding: '10px',
+                                background: 'var(--email-red-primary)',
                                 color: 'white',
-                                border: '1px solid rgba(239, 68, 68, 0.3)',
-                                borderRadius: '2px',
-                                fontSize: '12px',
-                                fontWeight: '300',
+                                border: 'none',
+                                borderRadius: '8px',
+                                fontSize: '14px',
+                                fontWeight: '600',
                                 cursor: 'pointer',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                gap: '6px',
-                                backdropFilter: 'blur(10px)',
-                                transition: 'all 0.2s'
-                              }}
-                              onMouseEnter={(e) => {
-                                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 1), rgba(0, 0, 0, 0.9))';
-                              }}
-                              onMouseLeave={(e) => {
-                                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(0, 0, 0, 0.8))';
+                                gap: '8px'
                               }}
                             >
                               <span>+</span> Create List NFT
@@ -561,313 +553,8 @@ const EmailClient: React.FC = () => {
             </div>
           </Panel>
 
-          {/* Main Content based on viewMode */}
-          {viewMode === 'exchange' ? (
-            // Exchange View - Full Width
-            <>
-              <Panel defaultSize={82} className="exchange-panel">
-                <div style={{ height: '100%', overflow: 'auto', background: 'var(--email-background-primary)' }}>
-                  {/* Exchange Header */}
-                  <div style={{ 
-                    background: 'linear-gradient(to bottom, var(--email-background-secondary), var(--email-background-primary))',
-                    borderBottom: '1px solid var(--email-border)',
-                    padding: '16px 24px'
-                  }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                      <div>
-                        <h2 style={{ fontSize: '24px', fontWeight: '300', marginBottom: '4px' }}>
-                          <span style={{ color: 'var(--email-red-primary)' }}>Bitcoin</span>{' '}
-                          <span style={{ color: 'white' }}>Email Exchange</span>
-                        </h2>
-                        <p style={{ fontSize: '14px', color: 'var(--email-text-muted)', fontWeight: '300' }}>
-                          Trade tokenized mailing lists • Earn dividends • Build your portfolio
-                        </p>
-                      </div>
-                      <button
-                        onClick={() => setShowCreateListModal(true)}
-                        style={{
-                          padding: '6px 14px',
-                          background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(0, 0, 0, 0.8))',
-                          color: 'white',
-                          border: '1px solid rgba(239, 68, 68, 0.3)',
-                          borderRadius: '2px',
-                          fontSize: '12px',
-                          fontWeight: '300',
-                          cursor: 'pointer',
-                          backdropFilter: 'blur(10px)',
-                          transition: 'all 0.2s'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 1), rgba(0, 0, 0, 0.9))';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(0, 0, 0, 0.8))';
-                        }}
-                      >
-                        + Create List NFT
-                      </button>
-                    </div>
-                    
-                    {/* Exchange View Tabs */}
-                    <div style={{ display: 'flex', gap: '16px' }}>
-                      <button
-                        onClick={() => setExchangeView('exchange')}
-                        style={{
-                          padding: '6px 12px',
-                          background: exchangeView === 'exchange' 
-                            ? 'linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(0, 0, 0, 0.8))' 
-                            : 'rgba(0, 0, 0, 0.3)',
-                          color: exchangeView === 'exchange' ? 'white' : 'var(--email-text-muted)',
-                          border: exchangeView === 'exchange' 
-                            ? '1px solid rgba(239, 68, 68, 0.3)' 
-                            : '1px solid rgba(255, 255, 255, 0.1)',
-                          borderRadius: '2px',
-                          fontSize: '12px',
-                          fontWeight: '300',
-                          cursor: 'pointer',
-                          transition: 'all 0.2s',
-                          backdropFilter: 'blur(10px)'
-                        }}
-                      >
-                        Exchange
-                      </button>
-                      <button
-                        onClick={() => setExchangeView('marketplace')}
-                        style={{
-                          padding: '6px 12px',
-                          background: exchangeView === 'marketplace' 
-                            ? 'linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(0, 0, 0, 0.8))' 
-                            : 'rgba(0, 0, 0, 0.3)',
-                          color: exchangeView === 'marketplace' ? 'white' : 'var(--email-text-muted)',
-                          border: exchangeView === 'marketplace' 
-                            ? '1px solid rgba(239, 68, 68, 0.3)' 
-                            : '1px solid rgba(255, 255, 255, 0.1)',
-                          borderRadius: '2px',
-                          fontSize: '12px',
-                          fontWeight: '300',
-                          cursor: 'pointer',
-                          transition: 'all 0.2s',
-                          backdropFilter: 'blur(10px)'
-                        }}
-                      >
-                        Marketplace
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Exchange Content */}
-                  <div style={{ padding: '24px' }}>
-                    {exchangeView === 'exchange' ? (
-                      <EmailListExchange />
-                    ) : (
-                      <ListMarketplace />
-                    )}
-                  </div>
-                </div>
-              </Panel>
-            </>
-          ) : viewMode === 'lists' ? (
-            // Lists View - Show mailing lists management
-            <>
-              <Panel defaultSize={82} className="lists-panel">
-                <div style={{ height: '100%', overflow: 'auto', background: 'var(--email-background-primary)', padding: '24px' }}>
-                  <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    {/* Lists Header */}
-                    <div style={{ marginBottom: '24px' }}>
-                      <h2 style={{ fontSize: '28px', fontWeight: '300', marginBottom: '8px' }}>
-                        <span style={{ color: 'var(--email-red-primary)' }}>Mailing Lists</span>{' '}
-                        <span style={{ color: 'white' }}>Portfolio</span>
-                      </h2>
-                      <p style={{ fontSize: '14px', color: 'var(--email-text-muted)', fontWeight: '300' }}>
-                        Manage your tokenized mailing lists, track performance, and monitor dividends
-                      </p>
-                    </div>
-
-                    {/* Portfolio Stats */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px', marginBottom: '32px' }}>
-                      <div style={{ background: 'var(--email-background-secondary)', padding: '20px', borderRadius: '12px', border: '1px solid var(--email-border)' }}>
-                        <p style={{ fontSize: '12px', color: 'var(--email-text-muted)', marginBottom: '4px', fontWeight: '300' }}>Total Portfolio Value</p>
-                        <p style={{ fontSize: '24px', fontWeight: '300', color: 'white' }}>$12,450</p>
-                        <p style={{ fontSize: '12px', color: '#4ade80', marginTop: '4px', fontWeight: '300' }}>+15.2% this month</p>
-                      </div>
-                      <div style={{ background: 'var(--email-background-secondary)', padding: '20px', borderRadius: '12px', border: '1px solid var(--email-border)' }}>
-                        <p style={{ fontSize: '12px', color: 'var(--email-text-muted)', marginBottom: '4px', fontWeight: '300' }}>Total Dividends Earned</p>
-                        <p style={{ fontSize: '24px', fontWeight: '300', color: '#4ade80' }}>$342</p>
-                        <p style={{ fontSize: '12px', color: 'var(--email-text-muted)', marginTop: '4px', fontWeight: '300' }}>Last 30 days</p>
-                      </div>
-                      <div style={{ background: 'var(--email-background-secondary)', padding: '20px', borderRadius: '12px', border: '1px solid var(--email-border)' }}>
-                        <p style={{ fontSize: '12px', color: 'var(--email-text-muted)', marginBottom: '4px', fontWeight: '300' }}>Active Lists</p>
-                        <p style={{ fontSize: '24px', fontWeight: '300', color: 'white' }}>{mailingLists.length}</p>
-                        <p style={{ fontSize: '12px', color: 'var(--email-text-muted)', marginTop: '4px', fontWeight: '300' }}>1 owned, 4 shares</p>
-                      </div>
-                      <div style={{ background: 'var(--email-background-secondary)', padding: '20px', borderRadius: '12px', border: '1px solid var(--email-border)' }}>
-                        <p style={{ fontSize: '12px', color: 'var(--email-text-muted)', marginBottom: '4px', fontWeight: '300' }}>Avg. Yield</p>
-                        <p style={{ fontSize: '24px', fontWeight: '300', color: '#fbbf24' }}>6.4%</p>
-                        <p style={{ fontSize: '12px', color: 'var(--email-text-muted)', marginTop: '4px', fontWeight: '300' }}>APY</p>
-                      </div>
-                    </div>
-
-                    {/* Lists Grid */}
-                    <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <h3 style={{ fontSize: '18px', fontWeight: '300', color: 'white' }}>Your Lists</h3>
-                      <button 
-                        onClick={() => router.push('/tokenize')}
-                        style={{ 
-                          padding: '6px 14px',
-                          background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(0, 0, 0, 0.8))',
-                          color: 'white',
-                          border: '1px solid rgba(239, 68, 68, 0.3)',
-                          borderRadius: '2px',
-                          fontSize: '12px',
-                          fontWeight: '300',
-                          cursor: 'pointer',
-                          backdropFilter: 'blur(10px)',
-                          transition: 'all 0.2s'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 1), rgba(0, 0, 0, 0.9))';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(0, 0, 0, 0.8))';
-                        }}
-                      >
-                        + Tokenize New List
-                      </button>
-                    </div>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '16px' }}>
-                      {mailingLists.map((list) => (
-                        <div 
-                          key={list.id}
-                          style={{ 
-                            background: 'var(--email-background-secondary)', 
-                            borderRadius: '12px', 
-                            padding: '20px',
-                            border: '1px solid var(--email-border)',
-                            cursor: 'pointer',
-                            transition: 'all 0.2s'
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.borderColor = 'var(--email-red-primary)';
-                            e.currentTarget.style.transform = 'translateY(-2px)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.borderColor = 'var(--email-border)';
-                            e.currentTarget.style.transform = 'translateY(0)';
-                          }}
-                        >
-                          <div style={{ display: 'flex', alignItems: 'start', marginBottom: '16px' }}>
-                            <span style={{ fontSize: '32px', marginRight: '12px' }}>{list.icon}</span>
-                            <div style={{ flex: 1 }}>
-                              <h4 style={{ fontSize: '16px', fontWeight: '300', color: 'white', marginBottom: '4px' }}>
-                                {list.name}
-                              </h4>
-                              <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                                <span style={{ 
-                                  fontSize: '11px', 
-                                  padding: '2px 8px', 
-                                  background: list.type === 'premium' ? 'rgba(251, 191, 36, 0.2)' : 
-                                             list.type === 'verified' ? 'rgba(74, 222, 128, 0.2)' :
-                                             list.type === 'targeted' ? 'rgba(59, 130, 246, 0.2)' : 
-                                             'rgba(156, 163, 175, 0.2)',
-                                  color: list.type === 'premium' ? '#fbbf24' : 
-                                         list.type === 'verified' ? '#4ade80' :
-                                         list.type === 'targeted' ? '#3b82f6' : 
-                                         '#9ca3af',
-                                  borderRadius: '4px',
-                                  textTransform: 'uppercase'
-                                }}>
-                                  {list.type}
-                                </span>
-                                <span style={{ fontSize: '12px', color: 'var(--email-text-muted)' }}>
-                                  {list.subscribers.toLocaleString()} subscribers
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
-                            <div>
-                              <p style={{ fontSize: '11px', color: 'var(--email-text-muted)', marginBottom: '2px', fontWeight: '300' }}>Shares Owned</p>
-                              <p style={{ fontSize: '14px', color: 'white', fontWeight: '300' }}>
-                                {list.shares > 0 ? `${list.shares} / ${list.totalShares}` : 
-                                 list.isOwner ? `Owner (${list.totalShares})` : '0'}
-                              </p>
-                            </div>
-                            <div>
-                              <p style={{ fontSize: '11px', color: 'var(--email-text-muted)', marginBottom: '2px', fontWeight: '300' }}>Dividend Yield</p>
-                              <p style={{ fontSize: '14px', color: '#fbbf24', fontWeight: '300' }}>{list.dividendYield}% APY</p>
-                            </div>
-                          </div>
-
-                          <div style={{ borderTop: '1px solid var(--email-border)', paddingTop: '12px', display: 'flex', justifyContent: 'space-between' }}>
-                            <button 
-                              onClick={() => setViewMode('exchange')}
-                              style={{ 
-                                fontSize: '12px', 
-                                color: 'var(--email-red-primary)', 
-                                background: 'transparent',
-                                border: 'none',
-                                cursor: 'pointer',
-                                fontWeight: '300'
-                              }}
-                            >
-                              View on Exchange →
-                            </button>
-                            <button 
-                              style={{ 
-                                fontSize: '12px', 
-                                color: 'var(--email-text-muted)', 
-                                background: 'transparent',
-                                border: 'none',
-                                cursor: 'pointer',
-                                fontWeight: '300'
-                              }}
-                            >
-                              Manage
-                            </button>
-                          </div>
-                        </div>
-                      ))}
-
-                      {/* Add New List Card */}
-                      <div 
-                        style={{ 
-                          background: 'transparent', 
-                          borderRadius: '12px', 
-                          padding: '20px',
-                          border: '2px dashed var(--email-border)',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          minHeight: '200px',
-                          cursor: 'pointer',
-                          transition: 'all 0.2s'
-                        }}
-                        onClick={() => router.push('/tokenize')}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.borderColor = 'var(--email-red-primary)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = 'var(--email-border)';
-                        }}
-                      >
-                        <div style={{ fontSize: '48px', marginBottom: '12px', opacity: 0.5 }}>+</div>
-                        <p style={{ fontSize: '14px', color: 'var(--email-text-muted)', textAlign: 'center' }}>
-                          Tokenize a new mailing list
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Panel>
-            </>
-          ) : (
-            // Email View - Split Panels
-            <>
-              {/* Resize Handle between Sidebar and Email List */}
-              <PanelResizeHandle className="resize-handle vertical" />
+          {/* Resize Handle between Sidebar and Email List */}
+          <PanelResizeHandle className="resize-handle vertical" />
 
           {/* Email List Panel */}
           <Panel defaultSize={30} minSize={25} maxSize={50} className="email-list-panel">
@@ -899,8 +586,6 @@ const EmailClient: React.FC = () => {
                 )}
               </div>
             </Panel>
-            </>
-          )}
           </PanelGroup>
         </div>
 
@@ -945,11 +630,6 @@ const EmailClient: React.FC = () => {
           setConnections(prev => prev.filter(c => c.id !== id));
         }}
       />
-
-      {/* Create List Modal for Exchange */}
-      {showCreateListModal && (
-        <CreateListModal onClose={() => setShowCreateListModal(false)} />
-      )}
     </div>
   );
 };

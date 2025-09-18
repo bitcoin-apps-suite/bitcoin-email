@@ -103,6 +103,9 @@ const Taskbar: React.FC<TaskbarProps> = ({
     {
       label: 'View',
       items: [
+        { label: 'Mail Client', href: '/', icon: '📧' },
+        { label: 'Lists Exchange', href: '/exchange', icon: '📊' },
+        { divider: true },
         { label: 'Show Inbox', action: () => console.log('Show Inbox') },
         { label: 'Show Sent', action: () => console.log('Show Sent') },
         { label: 'Show Drafts', action: () => console.log('Show Drafts') },
@@ -132,6 +135,8 @@ const Taskbar: React.FC<TaskbarProps> = ({
     {
       label: 'Tools',
       items: [
+        { label: 'Tokenize List', href: '/tokenize', icon: '🏷️' },
+        { divider: true },
         { label: 'Email Templates', action: () => console.log('Email Templates') },
         { label: 'Signature Manager', action: () => console.log('Signature Manager') },
         { divider: true },
