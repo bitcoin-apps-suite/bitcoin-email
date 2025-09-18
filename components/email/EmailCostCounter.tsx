@@ -92,13 +92,19 @@ export const EmailCostCounter: React.FC<EmailCostCounterProps> = ({
   }, [cost, animatedCost]);
 
   const formatCost = useCallback((value: number) => {
-    // Always show in dollars for consistency
-    if (value < 0.01) {
-      // For amounts less than 1 cent, show more decimal places
-      return `$${value.toFixed(4)}`;
+    // Always show in dollars with enough zeros to show how small it is
+    if (value < 0.0001) {
+      // For super tiny amounts, show 8 decimal places to see all the zeros
+      return `$${value.toFixed(8)}`;
+    } else if (value < 0.001) {
+      // For very small amounts, show 6 decimal places
+      return `$${value.toFixed(6)}`;
+    } else if (value < 0.01) {
+      // For amounts less than 1 cent, show 5 decimal places
+      return `$${value.toFixed(5)}`;
     } else if (value < 1) {
-      // For amounts less than $1, show 2-3 decimal places
-      return `$${value.toFixed(3)}`;
+      // For amounts less than $1, show 4 decimal places
+      return `$${value.toFixed(4)}`;
     } else {
       // For amounts over $1, standard 2 decimal places
       return `$${value.toFixed(2)}`;
