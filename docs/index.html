@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Email - Decentralized Email on BSV Blockchain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0f0f 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 51, 51, 0.3);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff3333, #ff6666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ff3333;
+        }
+        
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background: radial-gradient(ellipse at center, rgba(255, 51, 51, 0.1) 0%, transparent 70%);
+        }
+        
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff3333, #ff9999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: #999;
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff3333, #cc0000);
+            color: white;
+            border: 1px solid rgba(255, 51, 51, 0.5);
+            box-shadow: 0 4px 15px rgba(255, 51, 51, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 51, 51, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 51, 51, 0.5);
+        }
+        
+        .features {
+            padding: 80px 0;
+        }
+        
+        h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #ff6666;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 51, 51, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 51, 51, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 51, 51, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ff9999;
+        }
+        
+        .feature-desc {
+            color: #999;
+            line-height: 1.8;
+        }
+        
+        .tech-stack {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .tech-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .tech-item:hover {
+            background: rgba(255, 51, 51, 0.05);
+            border-color: rgba(255, 51, 51, 0.3);
+        }
+        
+        .getting-started {
+            padding: 80px 0;
+        }
+        
+        .code-block {
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 51, 51, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .code-block pre {
+            color: #ff9999;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .api-section {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .api-endpoint {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 51, 51, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .method {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .method-post {
+            background: #28a745;
+            color: white;
+        }
+        
+        .method-get {
+            background: #007bff;
+            color: white;
+        }
+        
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 51, 51, 0.2);
+            margin-top: 80px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ff3333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <span>₿</span> Bitcoin Email
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tech">Tech Stack</a></li>
+                <li><a href="#api">API</a></li>
+                <li><a href="#getting-started">Get Started</a></li>
+                <li><a href="https://github.com/b0ase/bitcoin-email" target="_blank">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Bitcoin Email</h1>
+            <p class="subtitle">Decentralized Email on the BSV Blockchain</p>
+            <p style="color: #999; max-width: 600px; margin: 0 auto 40px;">
+                Send emails with micropayments to eliminate spam. Store message hashes on-chain for 
+                immutability. Integrate with HandCash for seamless BSV payments.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://github.com/b0ase/bitcoin-email" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                </a>
+                <a href="#getting-started" class="btn btn-secondary">
+                    Get Started
+                </a>
+                <a href="https://bitcoin-email.vercel.app" class="btn btn-secondary">
+                    Live Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Micropayments</h3>
+                    <p class="feature-desc">
+                        Send emails with BSV micropayments attached. Pay fractions of a cent per character
+                        to ensure your message gets through while eliminating spam.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3 class="feature-title">On-Chain Storage</h3>
+                    <p class="feature-desc">
+                        Store email hashes on the BSV blockchain for permanent, tamper-proof records.
+                        Verify message authenticity and timestamp with blockchain proof.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">End-to-End Encryption</h3>
+                    <p class="feature-desc">
+                        All emails are encrypted before transmission. Only the intended recipient
+                        can decrypt and read the message content.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3 class="feature-title">HandCash Integration</h3>
+                    <p class="feature-desc">
+                        Seamlessly connect your HandCash wallet to send and receive payments.
+                        Use $handles for easy addressing and instant BSV transfers.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📮</div>
+                    <h3 class="feature-title">Digital Stamps</h3>
+                    <p class="feature-desc">
+                        Attach collectible digital stamps to your emails. Premium stamps
+                        increase delivery priority and add a personal touch.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">Decentralized</h3>
+                    <p class="feature-desc">
+                        No central server controls your emails. Messages are distributed
+                        across the BSV network for true censorship resistance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-stack" id="tech">
+        <div class="container">
+            <h2>Tech Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Next.js 15</h4>
+                    <p>React Framework</p>
+                </div>
+                <div class="tech-item">
+                    <h4>TypeScript</h4>
+                    <p>Type Safety</p>
+                </div>
+                <div class="tech-item">
+                    <h4>BSV SDK</h4>
+                    <p>Blockchain Integration</p>
+                </div>
+                <div class="tech-item">
+                    <h4>HandCash SDK</h4>
+                    <p>Wallet & Payments</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Tailwind CSS</h4>
+                    <p>Styling</p>
+                </div>
+                <div class="tech-item">
+                    <h4>React Email</h4>
+                    <p>Email Templates</p>
+                </div>
+                <div class="tech-item">
+                    <h4>OAuth 2.0</h4>
+                    <p>Authentication</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Vercel</h4>
+                    <p>Deployment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="getting-started" id="getting-started">
+        <div class="container">
+            <h2>Getting Started</h2>
+            
+            <h3 style="color: #ff9999; margin-top: 40px;">Prerequisites</h3>
+            <ul style="color: #999; line-height: 2; margin-left: 20px;">
+                <li>Node.js 18+ and npm/yarn</li>
+                <li>HandCash Developer Account</li>
+                <li>Google Cloud Console Account (for OAuth)</li>
+                <li>BSV Wallet with small balance for testing</li>
+            </ul>
+
+            <h3 style="color: #ff9999; margin-top: 40px;">Installation</h3>
+            <div class="code-block">
+                <pre># Clone the repository
+git clone https://github.com/b0ase/bitcoin-email.git
+cd bitcoin-email
+
+# Install dependencies
+npm install
+
+# Copy environment variables
+cp .env.example .env.local
+
+# Configure your credentials in .env.local
+# Add your HandCash App ID, Secret, and Google OAuth credentials
+
+# Run the development server
+npm run dev
+
+# Open http://localhost:3000</pre>
+            </div>
+
+            <h3 style="color: #ff9999; margin-top: 40px;">Configuration</h3>
+            <p style="color: #999; margin-bottom: 20px;">
+                Set up your environment variables in `.env.local`:
+            </p>
+            <div class="code-block">
+                <pre># HandCash OAuth
+NEXT_PUBLIC_HANDCASH_APP_ID=your_app_id
+HANDCASH_APP_SECRET=your_app_secret
+
+# Google OAuth
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+# Email Service
+EMAIL_FROM=noreply@yourdomain.com
+EMAIL_PASSWORD=your_app_password
+
+# BSV Network
+BSV_NETWORK=mainnet # or testnet
+BSV_PRIVATE_KEY=your_private_key</pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="api-section" id="api">
+        <div class="container">
+            <h2>API Documentation</h2>
+            
+            <div class="api-endpoint">
+                <span class="method method-post">POST</span>
+                <strong>/api/email/send</strong>
+                <p style="color: #999; margin-top: 10px;">Send an email with BSV micropayment</p>
+                <div class="code-block">
+                    <pre>{
+  "to": ["recipient@example.com"],
+  "subject": "Hello World",
+  "html": "<p>Email content</p>",
+  "text": "Plain text content",
+  "paymentAmount": 0.00001,
+  "encryptEmail": true,
+  "storeOnChain": false
+}</pre>
+                </div>
+            </div>
+
+            <div class="api-endpoint">
+                <span class="method method-get">GET</span>
+                <strong>/api/email/receive</strong>
+                <p style="color: #999; margin-top: 10px;">Retrieve emails from connected accounts</p>
+                <div class="code-block">
+                    <pre>Query Parameters:
+?limit=20&offset=0&folder=inbox</pre>
+                </div>
+            </div>
+
+            <div class="api-endpoint">
+                <span class="method method-post">POST</span>
+                <strong>/api/auth/handcash</strong>
+                <p style="color: #999; margin-top: 10px;">Authenticate with HandCash OAuth</p>
+                <div class="code-block">
+                    <pre>{
+  "authToken": "handcash_auth_token"
+}</pre>
+                </div>
+            </div>
+
+            <div class="api-endpoint">
+                <span class="method method-post">POST</span>
+                <strong>/api/blockchain/store</strong>
+                <p style="color: #999; margin-top: 10px;">Store email hash on BSV blockchain</p>
+                <div class="code-block">
+                    <pre>{
+  "emailHash": "sha256_hash_of_email",
+  "timestamp": 1234567890,
+  "sender": "$handle",
+  "recipient": "user@example.com"
+}</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="getting-started">
+        <div class="container">
+            <h2>Contributing</h2>
+            <p style="color: #999; max-width: 800px; margin: 0 auto; text-align: center; line-height: 1.8;">
+                We welcome contributions! Whether it's bug fixes, new features, or documentation improvements,
+                your help makes Bitcoin Email better for everyone.
+            </p>
+            
+            <div class="features-grid" style="margin-top: 40px;">
+                <div class="feature-card">
+                    <h3 class="feature-title">Report Issues</h3>
+                    <p class="feature-desc">
+                        Found a bug? Have a feature request? Open an issue on GitHub and let us know.
+                    </p>
+                    <a href="https://github.com/b0ase/bitcoin-email/issues" class="btn btn-secondary" style="margin-top: 20px;">
+                        Open Issue
+                    </a>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Submit PRs</h3>
+                    <p class="feature-desc">
+                        Fork the repo, make your changes, and submit a pull request. We review all contributions.
+                    </p>
+                    <a href="https://github.com/b0ase/bitcoin-email/pulls" class="btn btn-secondary" style="margin-top: 20px;">
+                        Create PR
+                    </a>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Join Discord</h3>
+                    <p class="feature-desc">
+                        Connect with other developers, get help, and discuss the future of Bitcoin Email.
+                    </p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 20px;">
+                        Join Community
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="color: #666;">© 2025 Bitcoin Email. Built on BSV.</p>
+            <div class="footer-links">
+                <a href="https://github.com/b0ase/bitcoin-email">GitHub</a>
+                <a href="https://github.com/b0ase/bitcoin-email/issues">Issues</a>
+                <a href="https://bitcoin-email.vercel.app">Demo</a>
+                <a href="https://handcash.io">HandCash</a>
+                <a href="https://bitcoinsv.com">Bitcoin SV</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
