@@ -1,13 +1,27 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Taskbar from "../components/Taskbar";
+import { InstallPrompt } from "../components/InstallPrompt";
 
 export const metadata: Metadata = {
   title: "Bitcoin Email - Blockchain-Powered Email Client",
   description: "The world's first open-source, blockchain-powered email client with native Bitcoin payments and end-to-end encryption.",
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Bitcoin Email',
+  },
   icons: {
-    icon: '/bitcoin-email-icon.jpg',
-    apple: '/bitcoin-email-icon.jpg',
+    icon: [
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-256.png', sizes: '256x256', type: 'image/png' },
+      { url: '/icon-384.png', sizes: '384x384', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
   },
   openGraph: {
     title: "Bitcoin Email",
@@ -20,6 +34,8 @@ export const metadata: Metadata = {
     description: "Decentralized Email on the Blockchain",
     images: ['/bitcoin-email-icon.jpg'],
   },
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover',
+  themeColor: '#ff3333',
 };
 
 export default function RootLayout({
@@ -34,6 +50,7 @@ export default function RootLayout({
         <div className="pt-[22px]">
           {children}
         </div>
+        <InstallPrompt />
       </body>
     </html>
   );
