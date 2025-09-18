@@ -17,6 +17,8 @@ const EmailClient: React.FC = () => {
   const [selectedEmail, setSelectedEmail] = useState<any>(null);
   const [showCompose, setShowCompose] = useState(false);
   const [activeFolder, setActiveFolder] = useState('inbox');
+  const [activeList, setActiveList] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'emails' | 'lists'>('lists');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showConnectionsModal, setShowConnectionsModal] = useState(false);
@@ -31,6 +33,7 @@ const EmailClient: React.FC = () => {
     }
   ]);
 
+  // Default email folders
   const folders = [
     { id: 'inbox', name: 'Inbox', icon: '📥', count: 12 },
     { id: 'sent', name: 'Sent', icon: '📤', count: 0 },
@@ -39,11 +42,66 @@ const EmailClient: React.FC = () => {
     { id: 'trash', name: 'Trash', icon: '🗑️', count: 0 },
   ];
 
-  const labels = [
-    { name: 'Work', color: 'bg-blue-500' },
-    { name: 'Personal', color: 'bg-green-500' },
-    { name: 'Payments', color: 'bg-yellow-500' },
-    { name: 'Bitcoin', color: 'bg-orange-500' },
+  // User's mailing lists (NFTs they own or have shares in)
+  const [mailingLists] = useState([
+    { 
+      id: 'list-001', 
+      name: 'Crypto Investors Premium', 
+      icon: '💎', 
+      subscribers: 45000,
+      shares: 750,
+      totalShares: 10000,
+      type: 'premium',
+      dividendYield: 8.5
+    },
+    { 
+      id: 'list-002', 
+      name: 'Tech Startups', 
+      icon: '🚀', 
+      subscribers: 12000,
+      shares: 200,
+      totalShares: 5000,
+      type: 'verified',
+      dividendYield: 6.2
+    },
+    { 
+      id: 'list-003', 
+      name: 'E-commerce Buyers', 
+      icon: '🛍️', 
+      subscribers: 125000,
+      shares: 1500,
+      totalShares: 20000,
+      type: 'targeted',
+      dividendYield: 5.5
+    },
+    { 
+      id: 'list-004', 
+      name: 'Gaming Community', 
+      icon: '🎮', 
+      subscribers: 85000,
+      shares: 0,
+      totalShares: 15000,
+      type: 'general',
+      dividendYield: 4.8,
+      isOwner: true
+    },
+    { 
+      id: 'list-005', 
+      name: 'DeFi Enthusiasts', 
+      icon: '🏦', 
+      subscribers: 32000,
+      shares: 500,
+      totalShares: 8000,
+      type: 'premium',
+      dividendYield: 7.2
+    },
+  ]);
+
+  const quickActions = [
+    { name: 'Create New List', icon: '➕', action: 'create' },
+    { name: 'Import CSV', icon: '📁', action: 'import' },
+    { name: 'My Portfolio', icon: '📊', action: 'portfolio' },
+    { name: 'Earnings Report', icon: '💰', action: 'earnings' },
   ];
 
   return (
@@ -158,61 +216,182 @@ const EmailClient: React.FC = () => {
               </button>
 
               <div className="sidebar-content">
+                {/* View Mode Toggle */}
+                {!sidebarCollapsed && (
+                  <div style={{ padding: '12px', borderBottom: '1px solid var(--email-border)' }}>
+                    <div style={{ display: 'flex', gap: '4px', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', padding: '4px' }}>
+                      <button
+                        onClick={() => setViewMode('lists')}
+                        style={{
+                          flex: 1,
+                          padding: '6px 12px',
+                          background: viewMode === 'lists' ? 'var(--email-red-primary)' : 'transparent',
+                          color: viewMode === 'lists' ? 'white' : 'var(--email-text-muted)',
+                          border: 'none',
+                          borderRadius: '6px',
+                          fontSize: '13px',
+                          fontWeight: '500',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s'
+                        }}
+                      >
+                        📋 Lists
+                      </button>
+                      <button
+                        onClick={() => setViewMode('emails')}
+                        style={{
+                          flex: 1,
+                          padding: '6px 12px',
+                          background: viewMode === 'emails' ? 'var(--email-red-primary)' : 'transparent',
+                          color: viewMode === 'emails' ? 'white' : 'var(--email-text-muted)',
+                          border: 'none',
+                          borderRadius: '6px',
+                          fontSize: '13px',
+                          fontWeight: '500',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s'
+                        }}
+                      >
+                        📧 Emails
+                      </button>
+                    </div>
+                  </div>
+                )}
+
                 <nav className="sidebar-nav">
-                  {folders.map((folder) => (
-                    <button
-                      key={folder.id}
-                      onClick={() => setActiveFolder(folder.id)}
-                      className={`nav-item ${activeFolder === folder.id ? 'active' : ''}`}
-                    >
-                      <span className="nav-icon">{folder.icon}</span>
-                      {!sidebarCollapsed && (
-                        <>
-                          <span>{folder.name}</span>
-                          {folder.count > 0 && (
-                            <span style={{ marginLeft: 'auto', background: 'var(--email-red-primary)', 
-                              padding: '2px 8px', borderRadius: '12px', fontSize: '11px', fontWeight: '600' }}>
-                              {folder.count}
-                            </span>
-                          )}
-                        </>
-                      )}
-                    </button>
-                  ))}
-
-                  <div className="nav-divider" />
-
-                  {!sidebarCollapsed && (
+                  {viewMode === 'emails' ? (
+                    // Email folders view
                     <>
-                      <div style={{ padding: '8px 12px', fontSize: '11px', opacity: 0.5, 
-                        textTransform: 'uppercase', letterSpacing: '1px' }}>
-                        Labels
-                      </div>
-                      {labels.map((label) => (
-                        <button key={label.name} className="nav-item">
-                          <span className={`w-2 h-2 rounded-full ${label.color}`}></span>
-                          <span>{label.name}</span>
+                      {folders.map((folder) => (
+                        <button
+                          key={folder.id}
+                          onClick={() => setActiveFolder(folder.id)}
+                          className={`nav-item ${activeFolder === folder.id ? 'active' : ''}`}
+                        >
+                          <span className="nav-icon">{folder.icon}</span>
+                          {!sidebarCollapsed && (
+                            <>
+                              <span>{folder.name}</span>
+                              {folder.count > 0 && (
+                                <span style={{ marginLeft: 'auto', background: 'var(--email-red-primary)', 
+                                  padding: '2px 8px', borderRadius: '12px', fontSize: '11px', fontWeight: '600' }}>
+                                  {folder.count}
+                                </span>
+                              )}
+                            </>
+                          )}
                         </button>
                       ))}
                     </>
+                  ) : (
+                    // Mailing lists view
+                    <>
+                      {!sidebarCollapsed && (
+                        <div style={{ padding: '8px 12px', fontSize: '11px', opacity: 0.5, 
+                          textTransform: 'uppercase', letterSpacing: '1px' }}>
+                          My Lists
+                        </div>
+                      )}
+                      {mailingLists.map((list) => (
+                        <button
+                          key={list.id}
+                          onClick={() => setActiveList(list.id)}
+                          className={`nav-item ${activeList === list.id ? 'active' : ''}`}
+                          title={`${list.subscribers.toLocaleString()} subscribers • ${list.dividendYield}% yield`}
+                        >
+                          <span className="nav-icon">{list.icon}</span>
+                          {!sidebarCollapsed && (
+                            <>
+                              <div style={{ flex: 1, textAlign: 'left' }}>
+                                <span style={{ fontSize: '13px' }}>{list.name}</span>
+                                <div style={{ fontSize: '11px', opacity: 0.7, marginTop: '2px' }}>
+                                  {list.isOwner ? '👑 Owner' : `${list.shares}/${list.totalShares} shares`}
+                                </div>
+                              </div>
+                              <div style={{ textAlign: 'right' }}>
+                                <span style={{ 
+                                  fontSize: '11px', 
+                                  color: 'var(--email-text-muted)',
+                                  display: 'block'
+                                }}>
+                                  {(list.subscribers / 1000).toFixed(0)}K
+                                </span>
+                                <span style={{ 
+                                  fontSize: '10px', 
+                                  color: '#4ade80',
+                                  fontWeight: '600'
+                                }}>
+                                  {list.dividendYield}%
+                                </span>
+                              </div>
+                            </>
+                          )}
+                        </button>
+                      ))}
+                      
+                      <div className="nav-divider" />
+                      
+                      {/* Quick Actions */}
+                      {!sidebarCollapsed && (
+                        <>
+                          <div style={{ padding: '8px 12px', fontSize: '11px', opacity: 0.5, 
+                            textTransform: 'uppercase', letterSpacing: '1px' }}>
+                            Quick Actions
+                          </div>
+                          {quickActions.map((action) => (
+                            <button
+                              key={action.action}
+                              className="nav-item"
+                              onClick={() => {
+                                if (action.action === 'create') router.push('/exchange');
+                                else if (action.action === 'portfolio') router.push('/exchange');
+                              }}
+                            >
+                              <span className="nav-icon">{action.icon}</span>
+                              <span>{action.name}</span>
+                            </button>
+                          ))}
+                        </>
+                      )}
+                    </>
                   )}
+
                 </nav>
 
                 {!sidebarCollapsed && (
                   <>
                     <div className="sidebar-stats">
-                      <div className="stat-item">
-                        <span className="stat-label">Storage Used</span>
-                        <span className="stat-value">2.3 GB</span>
-                      </div>
-                      <div className="stat-item">
-                        <span className="stat-label">Chain Status</span>
-                        <span className="stat-value">Connected</span>
-                      </div>
-                      <div className="stat-item">
-                        <span className="stat-label">Pending Payments</span>
-                        <span className="stat-value">$0.42</span>
-                      </div>
+                      {viewMode === 'emails' ? (
+                        <>
+                          <div className="stat-item">
+                            <span className="stat-label">Storage Used</span>
+                            <span className="stat-value">2.3 GB</span>
+                          </div>
+                          <div className="stat-item">
+                            <span className="stat-label">Chain Status</span>
+                            <span className="stat-value">Connected</span>
+                          </div>
+                          <div className="stat-item">
+                            <span className="stat-label">Pending Payments</span>
+                            <span className="stat-value">$0.42</span>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="stat-item">
+                            <span className="stat-label">Portfolio Value</span>
+                            <span className="stat-value">$12,450</span>
+                          </div>
+                          <div className="stat-item">
+                            <span className="stat-label">Total Dividends</span>
+                            <span className="stat-value" style={{ color: '#4ade80' }}>+$342</span>
+                          </div>
+                          <div className="stat-item">
+                            <span className="stat-label">Lists Owned</span>
+                            <span className="stat-value">1 / 5</span>
+                          </div>
+                        </>
+                      )}
                     </div>
 
                     <div className="nav-divider" />
