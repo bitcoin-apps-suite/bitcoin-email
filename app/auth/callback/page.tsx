@@ -1,27 +1,30 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useAuthStore } from '@/hooks/useAuthStore';
-import { HandCashService } from '@/services/HandCashService';
+import { useEffect, useState, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useHandCash } from '@/contexts/HandCashContext';
 
-export default function AuthCallback() {
+function AuthCallbackContent() {
   const router = useRouter();
-  const { login } = useAuthStore();
+  const searchParams = useSearchParams();
+  const { handleAuthCallback } = useHandCash();
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const handleCallback = async () => {
       try {
-        const handcashService = new HandCashService();
-        const user = await handcashService.handleCallback(window.location.href);
-        const accessToken = handcashService.getAccessToken();
+        const code = searchParams.get('code');
+        const errorParam = searchParams.get('error');
         
-        if (user && accessToken) {
-          login(user, accessToken);
-          router.push('/inbox');
+        if (errorParam) {
+          setError('Authorization denied by user');
+          return;
+        }
+        
+        if (code) {
+          await handleAuthCallback(code);
         } else {
-          setError('Failed to authenticate with HandCash');
+          setError('No authorization code received');
         }
       } catch (error) {
         console.error('Auth callback error:', error);
@@ -30,7 +33,7 @@ export default function AuthCallback() {
     };
 
     handleCallback();
-  }, [login, router]);
+  }, [searchParams, handleAuthCallback]);
 
   if (error) {
     return (
@@ -58,9 +61,24 @@ export default function AuthCallback() {
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="text-center">
         <div className="w-16 h-16 border-4 border-bitcoin-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-        <h2 className="text-xl font-semibold mb-2">Authenticating...</h2>
-        <p className="text-gray-400">Please wait while we log you in</p>
+        <h2 className="text-xl font-semibold mb-2">Authenticating with HandCash...</h2>
+        <p className="text-gray-400">Please wait while we complete your login</p>
       </div>
     </div>
+  );
+}
+
+export default function AuthCallback() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-black flex items-center justify-center p-4">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-bitcoin-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading...</p>
+        </div>
+      </div>
+    }>
+      <AuthCallbackContent />
+    </Suspense>
   );
 }
