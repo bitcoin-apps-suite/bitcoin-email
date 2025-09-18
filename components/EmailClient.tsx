@@ -209,7 +209,11 @@ const EmailClient: React.FC = () => {
           {/* Email List Panel */}
           <Panel defaultSize={30} minSize={25} maxSize={50} className="email-list-panel">
             <div className="email-list-container">
-              <EmailList onSelectEmail={setSelectedEmail} />
+              <EmailList 
+                onSelectEmail={setSelectedEmail} 
+                activeFolder={activeFolder}
+                searchQuery={searchQuery}
+              />
             </div>
           </Panel>
 

@@ -379,6 +379,26 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 4px;
+  gap: 8px;
+}
+
+.email-star-btn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.email-star-btn:hover {
+  color: #fbbf24;
+  transform: scale(1.1);
+}
+
+.email-star-btn.starred {
+  color: #fbbf24;
 }
 
 .email-item-from {

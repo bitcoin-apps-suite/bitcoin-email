@@ -25,9 +25,11 @@ interface Email {
 
 interface EmailListProps {
   onSelectEmail: (email: Email) => void;
+  activeFolder?: string;
+  searchQuery?: string;
 }
 
-export function EmailList({ onSelectEmail }: EmailListProps) {
+export function EmailList({ onSelectEmail, activeFolder = 'inbox', searchQuery = '' }: EmailListProps) {
   const [emails, setEmails] = useState<Email[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isMockData, setIsMockData] = useState(false);
@@ -85,6 +87,22 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
   };
 
   const filteredEmails = emails.filter(email => {
+    // Filter by folder
+    if (activeFolder === 'sent' && !email.from?.includes('@me')) return false;
+    if (activeFolder === 'drafts') return false; // No drafts yet
+    if (activeFolder === 'starred' && !email.isStarred) return false;
+    if (activeFolder === 'trash') return false; // No trash yet
+    
+    // Filter by search query
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      const matchesSearch = 
+        email.from?.toLowerCase().includes(query) ||
+        email.subject?.toLowerCase().includes(query) ||
+        email.text?.toLowerCase().includes(query);
+      if (!matchesSearch) return false;
+    }
+    
     // Apply payment filter
     if (minPaymentFilter > 0) {
       const paymentAmount = email.paymentAmount || 0;
@@ -104,6 +122,18 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
     setEmails(prev => prev.map(e => 
       e.id === email.id ? { ...e, isRead: true } : e
     ));
+  };
+
+  const toggleStar = (e: React.MouseEvent, emailId: string) => {
+    e.stopPropagation(); // Prevent email selection
+    setEmails(prev => prev.map(email => 
+      email.id === emailId ? { ...email, isStarred: !email.isStarred } : email
+    ));
+  };
+
+  const deleteEmail = (e: React.MouseEvent, emailId: string) => {
+    e.stopPropagation(); // Prevent email selection
+    setEmails(prev => prev.filter(email => email.id !== emailId));
   };
 
   return (
@@ -230,6 +260,15 @@ export function EmailList({ onSelectEmail }: EmailListProps) {
                 className={`email-item ${selectedId === email.id ? 'selected' : ''} ${!email.isRead ? 'unread' : ''}`}
               >
                 <div className="email-item-header">
+                  <button
+                    onClick={(e) => toggleStar(e, email.id)}
+                    className={`email-star-btn ${email.isStarred ? 'starred' : ''}`}
+                    title={email.isStarred ? 'Unstar' : 'Star'}
+                  >
+                    <svg className="w-4 h-4" fill={email.isStarred ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                  </button>
                   <div className="email-item-from">
                     <span className="email-item-sender">
                       {email.from}
