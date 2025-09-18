@@ -121,7 +121,7 @@ const EmailClient: React.FC = () => {
 
           {/* GitHub Link */}
           <a
-            href="https://github.com/b0ase/bitcoin-email"
+            href="https://github.com/bitcoin-apps-suite/bitcoin-email"
             target="_blank"
             rel="noopener noreferrer"
             className="github-link-header"
@@ -222,7 +222,7 @@ const EmailClient: React.FC = () => {
                         Developers
                       </div>
                       <a 
-                        href="https://b0ase.github.io/bitcoin-email/"
+                        href="https://bitcoin-apps-suite.github.io/bitcoin-email/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="nav-item"
@@ -233,7 +233,7 @@ const EmailClient: React.FC = () => {
                         <span>Documentation</span>
                       </a>
                       <a 
-                        href="https://github.com/b0ase/bitcoin-email"
+                        href="https://github.com/bitcoin-apps-suite/bitcoin-email"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="nav-item"
@@ -244,7 +244,7 @@ const EmailClient: React.FC = () => {
                         <span>GitHub</span>
                       </a>
                       <a 
-                        href="https://github.com/b0ase/bitcoin-email/issues"
+                        href="https://github.com/bitcoin-apps-suite/bitcoin-email/issues"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="nav-item"

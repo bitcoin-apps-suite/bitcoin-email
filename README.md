@@ -1,303 +1,183 @@
-# Bitcoin Email 📧
+# Bitcoin Email 📧 ₿
 
-> The world's first open-source, blockchain-powered email client with native Bitcoin payments and end-to-end encryption.
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-15.5.3-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+[![BSV](https://img.shields.io/badge/BSV-Blockchain-orange)](https://bitcoinsv.com/)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
-[![Bitcoin SV](https://img.shields.io/badge/Bitcoin-SV-red.svg)](https://bitcoinsv.com/)
-[![HandCash](https://img.shields.io/badge/Powered%20by-HandCash-red.svg)](https://handcash.io/)
+**The world's first decentralized email client powered by Bitcoin SV blockchain technology.**
 
-## 🚀 Overview
+Send emails with micropayments to eliminate spam. Store message hashes on-chain for immutability. Experience the future of email with true digital ownership and censorship resistance.
 
-Bitcoin Email revolutionizes digital communication by combining the familiarity of email with the power of blockchain technology. Every email is encrypted, hashed, and optionally stored on the Bitcoin SV blockchain, giving users complete ownership of their communications while enabling native payments through the paymail protocol.
+🌐 **Live Demo**: [https://bitcoin-email.vercel.app](https://bitcoin-email.vercel.app)  
+📖 **Documentation**: [https://bitcoin-apps-suite.github.io/bitcoin-email/](https://bitcoin-apps-suite.github.io/bitcoin-email/)
 
-## ✨ Key Features
+## ✨ Features
 
-- **🔐 Blockchain Security**: Every email hashed and stored on Bitcoin SV
-- **💰 Native Payments**: Send money as easily as sending an email
-- **🛡️ Spam Protection**: Charge micropayments to receive emails
-- **🔒 End-to-End Encryption**: AES-256 encryption by default
-- **👛 HandCash Integration**: Sign in with your Bitcoin wallet
-- **📱 Cross-Platform**: Web, mobile, and desktop support
-- **🔌 Universal Integration**: Plugins for Gmail, Outlook, and more
-- **⚡ Open Source**: MIT licensed for maximum adoption
+### 💰 **Micropayments Anti-Spam System**
+- Pay fractions of a cent per email to ensure delivery
+- $0.0000001 per character (0.00001 cents)
+- Automatic spam prevention through economic incentives
 
-## 🎯 Why Bitcoin Email?
+### 🔗 **Blockchain Integration**
+- Store email hashes on BSV blockchain for permanent records
+- Tamper-proof message verification
+- Decentralized architecture with no central point of failure
 
-### For Users
-- **Own Your Data**: Your emails, your keys, your control
-- **Monetize Your Inbox**: Get paid for your attention
-- **Zero Spam**: Economic disincentives eliminate unwanted emails
-- **Send Money Instantly**: Attach BSV to any email
+### 🔒 **Security & Privacy**
+- End-to-end encryption for all messages
+- Private key management through HandCash
+- Zero-knowledge proof capabilities
 
-### For Developers
-- **Open SDK**: Easy integration with any application
-- **Paymail Protocol**: Standard for blockchain email
-- **REST API**: Simple programmatic access
-- **Plugin Architecture**: Extend functionality easily
+### 💳 **HandCash Wallet Integration**
+- Seamless BSV payments with $handles
+- OAuth 2.0 authentication
+- Instant micropayments
 
-### For Email Providers
-- **Easy Adoption**: Reference implementation and tools
-- **Future-Proof**: Blockchain-ready email infrastructure
-- **New Revenue Streams**: Transaction fees and premium features
-- **User Demand**: Growing market for blockchain features
+### 📮 **Digital Postal Stamps**
+- Collectible stamps for priority delivery
+- Custom stamp marketplace
+- Visual flair for your messages
 
-## 🏗️ Architecture
+### 📱 **Progressive Web App (PWA)**
+- Install as a Chrome app to your dock
+- Offline support with service workers
+- Native app-like experience
 
-```
-┌─────────────────────────────────────────┐
-│          Bitcoin Email Client           │
-├─────────────────────────────────────────┤
-│                                         │
-│  ┌─────────┐  ┌─────────┐  ┌─────────┐│
-│  │Composer │  │  Inbox  │  │Settings ││
-│  └─────────┘  └─────────┘  └─────────┘│
-│                                         │
-├─────────────────────────────────────────┤
-│           Encryption Layer              │
-│         (AES-256 + SHA-256)            │
-├─────────────────────────────────────────┤
-│          HandCash Wallet                │
-│         (Auth & Payments)               │
-├─────────────────────────────────────────┤
-│         Bitcoin SV Blockchain           │
-│     (Immutable Storage & Verification)  │
-└─────────────────────────────────────────┘
-```
-
-## 🚦 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+
-- HandCash account
-- Bitcoin SV wallet with small balance for transactions
+
+- Node.js 18+ and npm
+- HandCash Developer Account
+- Google Cloud Console Account (for OAuth)
+- BSV Wallet with small balance for testing
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/bitcoin-email.git
-
-# Navigate to project directory
+git clone https://github.com/bitcoin-apps-suite/bitcoin-email.git
 cd bitcoin-email
 
 # Install dependencies
 npm install
 
-# Set up environment variables
-cp .env.example .env
-# Edit .env with your HandCash app credentials
+# Copy environment variables
+cp .env.example .env.local
 
-# Start development server
+# Configure your credentials in .env.local
+# Add your HandCash App ID, Secret, and Google OAuth credentials
+
+# Run the development server
 npm run dev
+
+# Open http://localhost:3004
 ```
 
-### Configuration
+### Environment Variables
 
-Create a `.env` file with:
+Create a `.env.local` file with:
 
 ```env
-REACT_APP_HANDCASH_APP_ID=your_app_id
-REACT_APP_HANDCASH_APP_SECRET=your_app_secret
-REACT_APP_BSV_NETWORK=mainnet
-REACT_APP_ENCRYPTION_ENABLED=true
+# HandCash OAuth
+NEXT_PUBLIC_HANDCASH_APP_ID=your_app_id
+HANDCASH_APP_SECRET=your_app_secret
+
+# Google OAuth
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+# Email Service (optional)
+EMAIL_FROM=noreply@yourdomain.com
+EMAIL_PASSWORD=your_app_password
+
+# BSV Network
+BSV_NETWORK=mainnet # or testnet
+BSV_PRIVATE_KEY=your_private_key
 ```
 
-## 🔧 Integration Guide
+## 📦 Installing as a Chrome App
 
-### For Email Providers
+1. Visit [https://bitcoin-email.vercel.app](https://bitcoin-email.vercel.app) in Chrome
+2. Click the install icon in the address bar (or the custom prompt)
+3. Click "Install"
+4. The app will be added to your dock/Applications
 
-#### Gmail Integration
-```javascript
-// Install our Chrome extension
-// Or use our Gmail API wrapper
-import { GmailPaymail } from '@bitcoin-email/gmail-plugin';
+## 🏗️ Tech Stack
 
-const gmail = new GmailPaymail({
-  apiKey: 'your_api_key'
-});
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **Blockchain**: BSV SDK, HandCash Connect
+- **Styling**: Tailwind CSS, Custom Dark Theme
+- **Email**: React Email, Nodemailer
+- **PWA**: next-pwa, Service Workers
+- **Authentication**: OAuth 2.0 (HandCash & Google)
 
-gmail.enablePaymail();
-```
+## 📚 API Documentation
 
-#### Outlook Integration
-```javascript
-// Install our Outlook add-in
-// Or use our Graph API integration
-import { OutlookPaymail } from '@bitcoin-email/outlook-addon';
+### Send Email with Micropayment
+```http
+POST /api/email/send
+Content-Type: application/json
 
-const outlook = new OutlookPaymail({
-  clientId: 'your_client_id'
-});
-
-outlook.enableBlockchainFeatures();
-```
-
-### For Developers
-
-#### SDK Usage
-```javascript
-import { BitcoinEmail } from '@bitcoin-email/sdk';
-
-// Initialize client
-const client = new BitcoinEmail({
-  handcashAppId: 'your_app_id'
-});
-
-// Send blockchain email with payment
-await client.send({
-  to: 'user@handcash.io',
-  subject: 'Payment for services',
-  body: 'Thanks for your work!',
-  attachments: [],
-  payment: {
-    amount: 5.00,
-    currency: 'USD'
-  }
-});
-```
-
-#### REST API
-```bash
-# Send an email
-POST /api/v1/emails
 {
-  "to": "recipient@paymail.com",
-  "subject": "Hello from blockchain",
-  "body": "This email is immutable!",
-  "encrypt": true,
-  "storeOnChain": true
-}
-
-# Get inbox with micropayment filter
-GET /api/v1/inbox?minPayment=0.01
-```
-
-## 🎨 Design System
-
-Bitcoin Email follows our suite's design language with a distinctive red theme:
-
-```css
-:root {
-  --color-primary: #FF4444;     /* Bitcoin Red */
-  --color-secondary: #CC0000;   /* Dark Red */
-  --color-background: #000000;  /* Pure Black */
-  --color-surface: #1a1a1a;     /* Dark Gray */
-  --color-text: #FFFFFF;         /* White */
-  --color-success: #00FF88;     /* Success Green */
+  "to": ["recipient@example.com"],
+  "subject": "Hello World",
+  "html": "<p>Email content</p>",
+  "text": "Plain text content",
+  "paymentAmount": 0.00001,
+  "encryptEmail": true,
+  "storeOnChain": false
 }
 ```
 
-## 📊 Monetization
+### Retrieve Emails
+```http
+GET /api/email/receive?limit=20&offset=0&folder=inbox
+```
 
-### For Users
-- **Free Tier**: 100 emails/month
-- **Pro**: $9.99/month - Unlimited emails
-- **Business**: $29.99/month - Team features
+### Store Email Hash on Blockchain
+```http
+POST /api/blockchain/store
+Content-Type: application/json
 
-### For Developers
-- **API Access**: Pay-per-use or monthly plans
-- **SDK**: Free for open-source projects
-- **Enterprise**: Custom pricing for large implementations
+{
+  "emailHash": "sha256_hash_of_email",
+  "timestamp": 1234567890,
+  "sender": "$handle",
+  "recipient": "user@example.com"
+}
+```
 
-### Revenue Sharing
-- 1% transaction fee on payments
-- Split with wallet providers and miners
-- Referral program for integrations
+## 🎨 Features Roadmap
 
-## 🗺️ Roadmap
-
-### Phase 1: MVP ✅
-- [x] HandCash authentication
-- [x] Basic email send/receive
-- [x] Encryption implementation
-- [x] Payment attachments
-
-### Phase 2: Enhanced Features 🚧
-- [ ] Inbox monetization
-- [ ] Advanced search
-- [ ] Email templates
-- [ ] Mobile apps
-
-### Phase 3: Integration 📅
-- [ ] Gmail plugin
-- [ ] Outlook add-in
-- [ ] Apple Mail extension
-- [ ] Thunderbird addon
-
-### Phase 4: Scale 🔮
-- [ ] Enterprise features
-- [ ] AI spam filtering
-- [ ] Multi-chain support
-- [ ] Decentralized routing
+- [x] PWA Installation Support
+- [x] HandCash OAuth Integration
+- [x] Email Cost Calculator
+- [x] Dark Theme UI
+- [x] Folder Navigation
+- [x] Search Functionality
+- [ ] Real BSV Micropayments
+- [ ] On-Chain Storage
+- [ ] Email Encryption
+- [ ] Digital Stamp Marketplace
+- [ ] Multi-wallet Support
+- [ ] IPFS Integration
+- [ ] Mobile Apps (iOS/Android)
 
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-### Development Setup
-```bash
-# Fork and clone the repo
-git clone https://github.com/yourusername/bitcoin-email.git
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-# Create a feature branch
-git checkout -b feature/amazing-feature
+## 🐛 Bug Reports & Feature Requests
 
-# Make your changes and commit
-git commit -m 'Add amazing feature'
-
-# Push to your fork
-git push origin feature/amazing-feature
-
-# Open a Pull Request
-```
-
-## 📜 Paymail Protocol Extensions
-
-Bitcoin Email extends the paymail protocol with:
-
-```json
-{
-  "capabilities": {
-    "bitcoin-email": "1.0.0",
-    "encrypted-mail": true,
-    "inbox-pricing": true,
-    "attachment-storage": "ipfs",
-    "max-attachment-size": 104857600
-  }
-}
-```
-
-## 🔐 Security
-
-- **Encryption**: AES-256-GCM for all emails
-- **Key Derivation**: PBKDF2 from HandCash auth
-- **Hash Storage**: SHA-256 on blockchain
-- **Zero-Knowledge**: Servers never see plaintext
-- **Audit Trail**: Immutable blockchain records
-
-## 📚 Documentation
-
-- [User Guide](docs/USER_GUIDE.md)
-- [Developer Documentation](docs/DEVELOPER.md)
-- [API Reference](docs/API.md)
-- [Integration Examples](docs/EXAMPLES.md)
-- [Security Whitepaper](docs/SECURITY.md)
-
-## 🌟 Bitcoin Suite
-
-Bitcoin Email is part of the Bitcoin productivity suite:
-
-- **[Bitcoin Writer](https://github.com/bitcoin-writer)** - Blockchain word processor
-- **[Bitcoin Drive](https://github.com/bitcoin-drive)** - Decentralized file storage
-- **[Bitcoin Spreadsheet](https://github.com/bitcoin-spreadsheet)** - On-chain spreadsheets
-- **Bitcoin Email** - Blockchain email client
-
-## 💬 Community & Support
-
-- **Discord**: [Join our server](https://discord.gg/bitcoin-email)
-- **Twitter**: [@BitcoinEmail](https://twitter.com/bitcoinemail)
-- **Email**: support@bitcoin-email.com
-- **GitHub Issues**: [Report bugs](https://github.com/bitcoin-email/issues)
+Please use the [GitHub Issues](https://github.com/bitcoin-apps-suite/bitcoin-email/issues) page to report bugs or request features.
 
 ## 📄 License
 
@@ -305,17 +185,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- HandCash team for wallet infrastructure
-- Bitcoin SV community for blockchain support
-- Our users for feedback and support
-- Open source contributors
+- Bitcoin SV Community
+- HandCash Team
+- Next.js Team
+- All contributors and testers
 
-## ⚠️ Disclaimer
+## 🔗 Links
 
-Bitcoin Email is experimental software. While we implement best practices for security and encryption, users should understand the risks of blockchain technology and cryptocurrency transactions. Never share your private keys and always verify transaction details.
+- **Repository**: [https://github.com/bitcoin-apps-suite/bitcoin-email](https://github.com/bitcoin-apps-suite/bitcoin-email)
+- **Documentation**: [https://bitcoin-apps-suite.github.io/bitcoin-email/](https://bitcoin-apps-suite.github.io/bitcoin-email/)
+- **Live Demo**: [https://bitcoin-email.vercel.app](https://bitcoin-email.vercel.app)
+- **Issues**: [https://github.com/bitcoin-apps-suite/bitcoin-email/issues](https://github.com/bitcoin-apps-suite/bitcoin-email/issues)
+- **Bitcoin Apps Suite**: [https://github.com/bitcoin-apps-suite](https://github.com/bitcoin-apps-suite)
 
 ---
 
-**Built with ❤️ for the Bitcoin community**
-
-*Making email ownership real, one hash at a time.*
+**Built with ❤️ on Bitcoin SV**
