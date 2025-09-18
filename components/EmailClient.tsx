@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 import { useRouter } from 'next/navigation';
 import './EmailClient.css';
@@ -26,6 +26,35 @@ const EmailClient: React.FC = () => {
   const [showCreateListModal, setShowCreateListModal] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Handle hash routing
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1); // Remove #
+      if (hash === 'email' || hash === 'emails') {
+        setViewMode('emails');
+      } else if (hash === 'lists' || hash === 'list') {
+        setViewMode('lists');
+      } else if (hash === 'exchange') {
+        setViewMode('exchange');
+      }
+    };
+
+    // Check hash on mount
+    handleHashChange();
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Update URL hash when view mode changes
+  useEffect(() => {
+    const newHash = viewMode === 'emails' ? 'email' : viewMode;
+    if (window.location.hash !== `#${newHash}`) {
+      window.history.replaceState(null, '', `#${newHash}`);
+    }
+  }, [viewMode]);
   const [showConnectionsModal, setShowConnectionsModal] = useState(false);
   const [connections, setConnections] = useState<any[]>([
     // Demo connections
