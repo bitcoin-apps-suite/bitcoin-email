@@ -10,10 +10,11 @@ interface EmailCostCounterProps {
 }
 
 // Pricing constants (in USD) - Micropayments
-const COST_PER_CHARACTER = 0.000001; // $0.000001 per character (0.0001 cents)
-const COST_PER_RECIPIENT = 0.0005; // $0.0005 per recipient (0.05 cents)
+const COST_PER_CHARACTER = 0.0000001; // $0.0000001 per character (0.00001 cents) - 10x cheaper
+const COST_PER_RECIPIENT = 0.00005; // $0.00005 per recipient (0.005 cents) - 10x cheaper
 const BLOCKCHAIN_STORAGE_MULTIPLIER = 1.5; // 1.5x cost for permanent blockchain storage
 const ENCRYPTION_MULTIPLIER = 1.2; // 1.2x cost for encryption
+const PLATFORM_FEE_MULTIPLIER = 2.0; // 2x platform fee (our cut)
 
 export const EmailCostCounter: React.FC<EmailCostCounterProps> = ({
   content,
@@ -53,6 +54,9 @@ export const EmailCostCounter: React.FC<EmailCostCounterProps> = ({
     if (isEncrypted) {
       totalCost *= ENCRYPTION_MULTIPLIER;
     }
+    
+    // Apply platform fee (our cut)
+    totalCost *= PLATFORM_FEE_MULTIPLIER;
     
     setCost(totalCost);
     
