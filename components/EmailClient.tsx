@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
+import { useRouter } from 'next/navigation';
 import './EmailClient.css';
 import { EmailList } from './email/EmailList';
 import { EmailPreview } from './email/EmailPreview';
@@ -12,6 +13,7 @@ import { WalletManager } from './WalletManager';
 import './WalletManager.css';
 
 const EmailClient: React.FC = () => {
+  const router = useRouter();
   const [selectedEmail, setSelectedEmail] = useState<any>(null);
   const [showCompose, setShowCompose] = useState(false);
   const [activeFolder, setActiveFolder] = useState('inbox');
@@ -35,6 +37,7 @@ const EmailClient: React.FC = () => {
     { id: 'drafts', name: 'Drafts', icon: '📝', count: 3 },
     { id: 'starred', name: 'Starred', icon: '⭐', count: 5 },
     { id: 'trash', name: 'Trash', icon: '🗑️', count: 0 },
+    { id: 'exchange', name: 'Exchange', icon: '📊', count: 0, isLink: true, href: '/exchange' },
   ];
 
   const labels = [
@@ -160,7 +163,13 @@ const EmailClient: React.FC = () => {
                   {folders.map((folder) => (
                     <button
                       key={folder.id}
-                      onClick={() => setActiveFolder(folder.id)}
+                      onClick={() => {
+                        if (folder.isLink && folder.href) {
+                          router.push(folder.href);
+                        } else {
+                          setActiveFolder(folder.id);
+                        }
+                      }}
                       className={`nav-item ${activeFolder === folder.id ? 'active' : ''}`}
                     >
                       <span className="nav-icon">{folder.icon}</span>
