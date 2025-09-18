@@ -28,6 +28,7 @@
     "nodemailer": "^7.0.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-hot-toast": "^2.6.0",
     "react-resizable-panels": "^3.0.6",
     "zustand": "^5.0.2"
   },
