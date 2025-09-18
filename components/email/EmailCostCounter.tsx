@@ -88,20 +88,16 @@ export const EmailCostCounter: React.FC<EmailCostCounterProps> = ({
   }, [cost, animatedCost]);
 
   const formatCost = useCallback((value: number) => {
-    if (value < 0.000001) {
-      return '$0.00000000';
-    } else if (value < 0.01) {
-      // Show in cents with high precision
-      const cents = value * 100;
-      if (cents < 0.0001) {
-        return `${cents.toFixed(8)}¢`;
-      } else if (cents < 0.01) {
-        return `${cents.toFixed(6)}¢`;
-      } else {
-        return `${cents.toFixed(4)}¢`;
-      }
-    } else {
+    // Always show in dollars for consistency
+    if (value < 0.01) {
+      // For amounts less than 1 cent, show more decimal places
       return `$${value.toFixed(4)}`;
+    } else if (value < 1) {
+      // For amounts less than $1, show 2-3 decimal places
+      return `$${value.toFixed(3)}`;
+    } else {
+      // For amounts over $1, standard 2 decimal places
+      return `$${value.toFixed(2)}`;
     }
   }, []);
 
