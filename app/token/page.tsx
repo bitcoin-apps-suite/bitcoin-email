@@ -13,7 +13,7 @@ export default function TokenPage() {
           <p className="token-tagline">
             Open-source development meets sustainable economics
           </p>
-          <div className="token-badge">$BEMAIL</div>
+          <div className="token-badge">$BMAIL</div>
         </section>
 
         {/* Philosophy Section */}
@@ -26,7 +26,7 @@ export default function TokenPage() {
               and features is welcomed and encouraged.
             </p>
             <p>
-              The $BEMAIL token represents our approach to creating a sustainable economic model that 
+              The $BMAIL token represents our approach to creating a sustainable economic model that 
               aims to reward contributors while maintaining transparency and openness.
             </p>
             <div className="philosophy-points">
@@ -48,7 +48,7 @@ export default function TokenPage() {
 
         {/* Token Model Section */}
         <section className="token-model-section">
-          <h2>The $BEMAIL Token Model</h2>
+          <h2>The $BMAIL Token Model</h2>
           <div className="model-card">
             <h3>How It Works</h3>
             <ul>
@@ -82,7 +82,7 @@ export default function TokenPage() {
               </li>
               <li>
                 <strong>Not a Public Offering:</strong> This is not a solicitation for investment or 
-                capital raising. $BEMAIL tokens are rewards for contribution, not investment instruments
+                capital raising. $BMAIL tokens are rewards for contribution, not investment instruments
               </li>
               <li>
                 <strong>Future Equity:</strong> The Bitcoin Software Company may incorporate and offer 
@@ -153,7 +153,7 @@ export default function TokenPage() {
                   <span className="arrow">→</span>
                 </div>
                 <div className="flow-item">
-                  <span>Dividends to $BEMAIL holders</span>
+                  <span>Dividends to $BMAIL holders</span>
                   <span className="arrow">→</span>
                 </div>
                 <div className="flow-item">
@@ -170,7 +170,7 @@ export default function TokenPage() {
 
         {/* How to Contribute Section */}
         <section className="contribute-section">
-          <h2>How to Earn $BEMAIL Tokens</h2>
+          <h2>How to Earn $BMAIL Tokens</h2>
           <div className="contribute-steps">
             <div className="step">
               <div className="step-number">1</div>
@@ -214,7 +214,7 @@ export default function TokenPage() {
             <div className="stat">
               <h3>Total Supply</h3>
               <p className="stat-value">1,000,000,000</p>
-              <p className="stat-label">$BEMAIL tokens</p>
+              <p className="stat-label">$BMAIL tokens</p>
             </div>
             <div className="stat">
               <h3>Distributed</h3>
@@ -239,12 +239,12 @@ export default function TokenPage() {
           <h2>Legal & Regulatory Notice</h2>
           <div className="legal-content">
             <p>
-              <strong>Revenue Sharing Model:</strong> The $BEMAIL token is designed to enable revenue 
+              <strong>Revenue Sharing Model:</strong> The $BMAIL token is designed to enable revenue 
               sharing with contributors through dividend distributions. Token holders may receive dividends 
               based on platform revenues from subscriptions and exchange fees.
             </p>
             <p>
-              <strong>Trading & Liquidity:</strong> The $BEMAIL token is intended to be freely tradable 
+              <strong>Trading & Liquidity:</strong> The $BMAIL token is intended to be freely tradable 
               on the Bitcoin Email Exchange and associated platforms. We encourage an active secondary 
               market to provide liquidity and price discovery for contributors&apos; work.
             </p>
