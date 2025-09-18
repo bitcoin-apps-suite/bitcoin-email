@@ -117,6 +117,8 @@ const Taskbar: React.FC<TaskbarProps> = ({
     {
       label: 'Blockchain',
       items: [
+        { label: 'Email Lists Exchange', href: '/exchange', icon: '📊' },
+        { divider: true },
         { label: 'Connect Wallet', action: () => console.log('Connect Wallet') },
         { label: 'View Balance', action: () => console.log('View Balance') },
         { divider: true },
@@ -183,7 +185,12 @@ const Taskbar: React.FC<TaskbarProps> = ({
     if (item.action) {
       item.action();
     } else if (item.href) {
-      window.open(item.href, '_blank');
+      // Check if it's an internal route
+      if (item.href.startsWith('/')) {
+        window.location.href = item.href;
+      } else {
+        window.open(item.href, '_blank');
+      }
     }
     setActiveMenu(null);
   };
@@ -253,7 +260,10 @@ const Taskbar: React.FC<TaskbarProps> = ({
                         className="dropdown-item"
                         onClick={() => handleItemClick(item)}
                       >
-                        <span className="item-label">{item.label}</span>
+                        <span className="item-label">
+                          {item.icon && <span style={{ marginRight: '8px' }}>{item.icon}</span>}
+                          {item.label}
+                        </span>
                         {item.shortcut && (
                           <span className="item-shortcut">{item.shortcut}</span>
                         )}

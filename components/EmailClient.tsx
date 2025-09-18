@@ -37,7 +37,6 @@ const EmailClient: React.FC = () => {
     { id: 'drafts', name: 'Drafts', icon: '📝', count: 3 },
     { id: 'starred', name: 'Starred', icon: '⭐', count: 5 },
     { id: 'trash', name: 'Trash', icon: '🗑️', count: 0 },
-    { id: 'exchange', name: 'Exchange', icon: '📊', count: 0, isLink: true, href: '/exchange' },
   ];
 
   const labels = [
@@ -163,13 +162,7 @@ const EmailClient: React.FC = () => {
                   {folders.map((folder) => (
                     <button
                       key={folder.id}
-                      onClick={() => {
-                        if (folder.isLink && folder.href) {
-                          router.push(folder.href);
-                        } else {
-                          setActiveFolder(folder.id);
-                        }
-                      }}
+                      onClick={() => setActiveFolder(folder.id)}
                       className={`nav-item ${activeFolder === folder.id ? 'active' : ''}`}
                     >
                       <span className="nav-icon">{folder.icon}</span>
