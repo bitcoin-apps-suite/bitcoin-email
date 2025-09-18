@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 import { useRouter } from 'next/navigation';
 import './EmailClient.css';
+import './EmailClient.mobile.css';
 import { EmailList } from './email/EmailList';
 import { EmailPreview } from './email/EmailPreview';
 import { ComposeModal } from './email/ComposeModal';
@@ -56,6 +57,9 @@ const EmailClient: React.FC = () => {
     }
   }, [viewMode]);
   const [showConnectionsModal, setShowConnectionsModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showEmailPreview, setShowEmailPreview] = useState(false);
   const [connections, setConnections] = useState<any[]>([
     // Demo connections
     {
@@ -66,6 +70,17 @@ const EmailClient: React.FC = () => {
       status: 'connected'
     }
   ]);
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Default email folders
   const folders = [
@@ -183,18 +198,32 @@ const EmailClient: React.FC = () => {
         </div>
 
         <div className="header-actions-right">
-          <div className="search-bar-header">
-            <svg className="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Search..."
-              className="search-input-header"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
+          {isMobile && (
+            <button
+              className="mobile-menu-button"
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              aria-label="Menu"
+            >
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          )}
+          
+          {!isMobile && (
+            <div className="search-bar-header">
+              <svg className="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input
+                type="text"
+                placeholder="Search..."
+                className="search-input-header"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+          )}
 
           <button 
             className="compose-button-header"
@@ -978,6 +1007,85 @@ const EmailClient: React.FC = () => {
       {/* Create List Modal for Exchange */}
       {showCreateListModal && (
         <CreateListModal onClose={() => setShowCreateListModal(false)} />
+      )}
+
+      {/* Mobile Menu Overlay */}
+      {isMobile && showMobileMenu && (
+        <>
+          <div 
+            className={`mobile-menu-overlay ${showMobileMenu ? 'open' : ''}`}
+            onClick={() => setShowMobileMenu(false)}
+          />
+          <div className={`mobile-menu ${showMobileMenu ? 'open' : ''}`}>
+            <div style={{ padding: '20px', borderBottom: '1px solid var(--email-border)' }}>
+              <h2 style={{ fontSize: '20px', fontWeight: '300', color: 'white', marginBottom: '4px' }}>
+                <span style={{ color: '#ef4444' }}>Bitcoin</span> Email
+              </h2>
+              <p style={{ fontSize: '12px', color: 'var(--email-text-muted)' }}>Menu</p>
+            </div>
+            
+            <div style={{ padding: '20px' }}>
+              <div style={{ marginBottom: '24px' }}>
+                <h3 style={{ fontSize: '14px', fontWeight: '400', color: 'var(--email-text-muted)', marginBottom: '12px' }}>Navigation</h3>
+                <button 
+                  onClick={() => { setViewMode('emails'); setShowMobileMenu(false); }}
+                  style={{ width: '100%', padding: '12px', marginBottom: '8px', background: viewMode === 'emails' ? 'rgba(239, 68, 68, 0.1)' : 'transparent', border: '1px solid var(--email-border)', borderRadius: '4px', color: 'white', textAlign: 'left', fontSize: '14px' }}
+                >
+                  📧 Emails
+                </button>
+                <button 
+                  onClick={() => { setViewMode('lists'); setShowMobileMenu(false); }}
+                  style={{ width: '100%', padding: '12px', marginBottom: '8px', background: viewMode === 'lists' ? 'rgba(239, 68, 68, 0.1)' : 'transparent', border: '1px solid var(--email-border)', borderRadius: '4px', color: 'white', textAlign: 'left', fontSize: '14px' }}
+                >
+                  📋 Lists
+                </button>
+                <button 
+                  onClick={() => { setViewMode('exchange'); setShowMobileMenu(false); }}
+                  style={{ width: '100%', padding: '12px', marginBottom: '8px', background: viewMode === 'exchange' ? 'rgba(239, 68, 68, 0.1)' : 'transparent', border: '1px solid var(--email-border)', borderRadius: '4px', color: 'white', textAlign: 'left', fontSize: '14px' }}
+                >
+                  📊 Exchange
+                </button>
+              </div>
+              
+              <div style={{ marginBottom: '24px' }}>
+                <h3 style={{ fontSize: '14px', fontWeight: '400', color: 'var(--email-text-muted)', marginBottom: '12px' }}>Quick Actions</h3>
+                <button 
+                  onClick={() => { router.push('/token'); setShowMobileMenu(false); }}
+                  style={{ width: '100%', padding: '12px', marginBottom: '8px', background: 'transparent', border: '1px solid var(--email-border)', borderRadius: '4px', color: 'white', textAlign: 'left', fontSize: '14px' }}
+                >
+                  🪙 $BMAIL Token
+                </button>
+                <button 
+                  onClick={() => { router.push('/tokenize'); setShowMobileMenu(false); }}
+                  style={{ width: '100%', padding: '12px', marginBottom: '8px', background: 'transparent', border: '1px solid var(--email-border)', borderRadius: '4px', color: 'white', textAlign: 'left', fontSize: '14px' }}
+                >
+                  🏷️ Tokenize List
+                </button>
+                <button 
+                  onClick={() => { setShowConnectionsModal(true); setShowMobileMenu(false); }}
+                  style={{ width: '100%', padding: '12px', marginBottom: '8px', background: 'transparent', border: '1px solid var(--email-border)', borderRadius: '4px', color: 'white', textAlign: 'left', fontSize: '14px' }}
+                >
+                  🔗 Connections
+                </button>
+              </div>
+
+              <div style={{ paddingTop: '20px', borderTop: '1px solid var(--email-border)' }}>
+                <a 
+                  href="https://github.com/bitcoin-apps-suite/bitcoin-email"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px', color: 'var(--email-text-muted)', textDecoration: 'none', fontSize: '14px' }}
+                  onClick={() => setShowMobileMenu(false)}
+                >
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  View on GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );

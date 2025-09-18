@@ -1,0 +1,559 @@
+/* Mobile-specific styles for Email Client */
+
+/* Mobile breakpoint styles */
+@media (max-width: 768px) {
+  /* Main container */
+  .email-client {
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  /* Header adjustments */
+  .email-header {
+    min-height: 60px;
+    padding: 12px 16px;
+    border-radius: 0;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .title-section {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 0;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .app-title-header {
+    font-size: 20px;
+  }
+
+  .app-subtitle {
+    display: none;
+  }
+
+  .app-logo {
+    width: 28px;
+    height: 28px;
+  }
+
+  .header-actions-left,
+  .header-actions-right {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .search-input-header {
+    width: 100%;
+    max-width: none;
+  }
+
+  .compose-button-header {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .compose-button-header span {
+    display: none;
+  }
+
+  .wallet-manager-header {
+    display: none;
+  }
+
+  .github-link-header {
+    display: none;
+  }
+
+  /* Main content area */
+  .main-content {
+    height: calc(100vh - 60px);
+  }
+
+  /* Panels - Stack vertically on mobile */
+  .resizable-panel-group {
+    flex-direction: column !important;
+  }
+
+  /* Sidebar as bottom navigation */
+  .sidebar-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto !important;
+    max-height: none !important;
+    min-height: auto !important;
+    width: 100% !important;
+    z-index: 1000;
+    border-top: 1px solid var(--email-border);
+    background: var(--email-bg-primary);
+  }
+
+  .sidebar {
+    padding: 0;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 56px;
+  }
+
+  .sidebar-toggle {
+    display: none;
+  }
+
+  .sidebar-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 8px;
+  }
+
+  /* Navigation items horizontal */
+  .sidebar-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    gap: 4px;
+  }
+
+  .nav-item {
+    flex-direction: column;
+    padding: 8px 4px;
+    gap: 4px;
+    font-size: 11px;
+    text-align: center;
+    flex: 1;
+    border-radius: 4px;
+  }
+
+  .nav-item span:not(.nav-icon) {
+    display: block !important;
+    font-size: 10px;
+  }
+
+  .nav-icon {
+    font-size: 18px;
+  }
+
+  .nav-divider {
+    display: none;
+  }
+
+  .sidebar-stats {
+    display: none;
+  }
+
+  /* Email list responsive */
+  .email-list-container {
+    width: 100%;
+    border-right: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 56px;
+    z-index: 10;
+  }
+
+  /* Email preview full screen on mobile */
+  .email-preview-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 56px;
+    width: 100%;
+    z-index: 20;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .email-preview-container.active {
+    transform: translateX(0);
+  }
+
+  /* Panel resize handles - hide on mobile */
+  .panel-resize-handle {
+    display: none !important;
+  }
+
+  /* Connection badge mobile */
+  .connection-badge {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .connection-details {
+    display: none;
+  }
+
+  .connection-status-indicator {
+    margin-right: 4px;
+  }
+
+  /* Exchange view mobile */
+  .exchange-container {
+    padding: 12px;
+    padding-bottom: 70px;
+  }
+
+  /* Stats cards stack */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  /* Exchange table scroll */
+  .exchange-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Revenue streams stack */
+  .revenue-streams {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Toggle buttons mobile */
+  .view-mode-toggle {
+    position: fixed;
+    bottom: 56px;
+    left: 0;
+    right: 0;
+    background: var(--email-bg-primary);
+    border-top: 1px solid var(--email-border);
+    padding: 8px;
+    display: flex;
+    gap: 4px;
+    z-index: 999;
+  }
+
+  .view-mode-toggle button {
+    flex: 1;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  /* Modal adjustments */
+  .modal-overlay {
+    padding: 20px;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-width: none;
+    max-height: 90vh;
+    margin: 0;
+  }
+
+  /* Compose modal mobile */
+  .compose-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    border-radius: 0;
+  }
+
+  /* Lists and cards mobile */
+  .list-card {
+    padding: 12px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Touch-friendly buttons */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .cta-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  /* Form inputs mobile */
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 44px;
+  }
+
+  /* Taskbar mobile */
+  .taskbar {
+    display: none; /* Hide desktop taskbar on mobile */
+  }
+
+  /* Mobile-only hamburger menu */
+  .mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid var(--email-border);
+    border-radius: 4px;
+    color: var(--email-text-primary);
+  }
+
+  /* Mobile slide-out menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--email-bg-primary);
+    border-right: 1px solid var(--email-border);
+    z-index: 2000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .mobile-menu.open {
+    left: 0;
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+    display: none;
+  }
+
+  .mobile-menu-overlay.open {
+    display: block;
+  }
+
+  /* Token page mobile */
+  .token-container {
+    padding: 0 16px;
+  }
+
+  .token-hero {
+    padding: 40px 16px;
+    min-height: 30vh;
+  }
+
+  .token-hero h1 {
+    font-size: 28px;
+  }
+
+  .philosophy-points,
+  .contribute-steps,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contribution-examples ul {
+    grid-template-columns: 1fr;
+  }
+
+  /* Portfolio page mobile */
+  .portfolio-header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .portfolio-stats {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .list-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Tokenize page mobile */
+  .tokenize-container {
+    padding: 16px;
+    padding-bottom: 70px;
+  }
+
+  .step-indicator {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .step {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  /* Exchange table mobile optimization */
+  .exchange-table {
+    font-size: 12px;
+  }
+
+  .exchange-table th,
+  .exchange-table td {
+    padding: 8px 4px;
+    white-space: nowrap;
+  }
+
+  /* Hide less important columns on mobile */
+  .hide-mobile {
+    display: none;
+  }
+
+  /* Scroll indicators */
+  .scroll-indicator {
+    position: absolute;
+    right: 8px;
+    bottom: 70px;
+    background: var(--email-red-primary);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .email-client {
+    margin: 10px;
+  }
+
+  .email-header {
+    padding: 16px 20px;
+  }
+
+  .app-title-header {
+    font-size: 28px;
+  }
+
+  .sidebar-panel {
+    min-size: 200px;
+  }
+
+  .email-list-container {
+    width: 320px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .revenue-streams {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Touch interactions */
+@media (pointer: coarse) {
+  /* Larger touch targets */
+  .nav-item {
+    min-height: 48px;
+  }
+
+  button {
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+
+  .close-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Remove hover effects on touch devices */
+  .nav-item:hover::before {
+    display: none;
+  }
+
+  /* Active states for touch */
+  .nav-item:active {
+    background: rgba(255, 51, 51, 0.1);
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .email-header {
+    min-height: 50px;
+    padding: 8px 16px;
+  }
+
+  .sidebar-panel {
+    min-height: 48px;
+  }
+
+  .nav-item {
+    padding: 6px 4px;
+  }
+
+  .main-content {
+    height: calc(100vh - 50px);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .email-client {
+    border: 2px solid var(--email-border);
+  }
+
+  button {
+    border-width: 2px;
+  }
+
+  .nav-item.active {
+    outline: 2px solid var(--email-red-primary);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
