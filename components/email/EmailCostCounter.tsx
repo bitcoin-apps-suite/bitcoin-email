@@ -9,9 +9,9 @@ interface EmailCostCounterProps {
   className?: string;
 }
 
-// Pricing constants (in USD) - Ultra micro-payments
-const COST_PER_CHARACTER = 0.0000001; // $0.0000001 per character (1/100,000th of a penny)
-const COST_PER_RECIPIENT = 0.0001; // $0.0001 per recipient (1/100th of a penny)
+// Pricing constants (in USD) - Micropayments
+const COST_PER_CHARACTER = 0.000001; // $0.000001 per character (0.0001 cents)
+const COST_PER_RECIPIENT = 0.0005; // $0.0005 per recipient (0.05 cents)
 const BLOCKCHAIN_STORAGE_MULTIPLIER = 1.5; // 1.5x cost for permanent blockchain storage
 const ENCRYPTION_MULTIPLIER = 1.2; // 1.2x cost for encryption
 
