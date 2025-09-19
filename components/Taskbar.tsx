@@ -105,7 +105,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
       label: 'View',
       items: [
         { label: 'Mail Client', href: '/' },
-        { label: 'Lists Exchange', href: '/exchange' },
+        { label: 'Lists Exchange', href: '/#exchange' },
         { divider: true },
         { label: 'Show Inbox', action: () => console.log('Show Inbox') },
         { label: 'Show Sent', action: () => console.log('Show Sent') },
@@ -121,7 +121,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
     {
       label: 'Blockchain',
       items: [
-        { label: 'Email Lists Exchange', href: '/exchange' },
+        { label: 'Email Lists Exchange', href: '/#exchange' },
         { label: '$BMAIL Token', href: '/token' },
         { divider: true },
         { label: 'Connect Wallet', action: () => console.log('Connect Wallet') },

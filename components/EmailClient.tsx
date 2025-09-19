@@ -84,11 +84,11 @@ const EmailClient: React.FC = () => {
 
   // Default email folders
   const folders = [
-    { id: 'inbox', name: 'Inbox', icon: '📥', count: 12 },
-    { id: 'sent', name: 'Sent', icon: '📤', count: 0 },
-    { id: 'drafts', name: 'Drafts', icon: '📝', count: 3 },
-    { id: 'starred', name: 'Starred', icon: '⭐', count: 5 },
-    { id: 'trash', name: 'Trash', icon: '🗑️', count: 0 },
+    { id: 'inbox', name: 'Inbox', icon: '', count: 12 },
+    { id: 'sent', name: 'Sent', icon: '', count: 0 },
+    { id: 'drafts', name: 'Drafts', icon: '', count: 3 },
+    { id: 'starred', name: 'Starred', icon: '', count: 5 },
+    { id: 'trash', name: 'Trash', icon: '', count: 0 },
   ];
 
   // User's mailing lists (NFTs they own or have shares in)
@@ -96,7 +96,7 @@ const EmailClient: React.FC = () => {
     { 
       id: 'list-001', 
       name: 'Crypto Investors Premium', 
-      icon: '💎', 
+      icon: '', 
       subscribers: 45000,
       shares: 750,
       totalShares: 10000,
@@ -106,7 +106,7 @@ const EmailClient: React.FC = () => {
     { 
       id: 'list-002', 
       name: 'Tech Startups', 
-      icon: '🚀', 
+      icon: '', 
       subscribers: 12000,
       shares: 200,
       totalShares: 5000,
@@ -116,7 +116,7 @@ const EmailClient: React.FC = () => {
     { 
       id: 'list-003', 
       name: 'E-commerce Buyers', 
-      icon: '🛍️', 
+      icon: '', 
       subscribers: 125000,
       shares: 1500,
       totalShares: 20000,
@@ -126,7 +126,7 @@ const EmailClient: React.FC = () => {
     { 
       id: 'list-004', 
       name: 'Gaming Community', 
-      icon: '🎮', 
+      icon: '', 
       subscribers: 85000,
       shares: 0,
       totalShares: 15000,
@@ -137,7 +137,7 @@ const EmailClient: React.FC = () => {
     { 
       id: 'list-005', 
       name: 'DeFi Enthusiasts', 
-      icon: '🏦', 
+      icon: '', 
       subscribers: 32000,
       shares: 500,
       totalShares: 8000,
@@ -147,10 +147,10 @@ const EmailClient: React.FC = () => {
   ]);
 
   const quickActions = [
-    { name: 'Create New List', icon: '➕', action: 'create' },
-    { name: 'Import CSV', icon: '📁', action: 'import' },
-    { name: 'My Portfolio', icon: '📊', action: 'portfolio' },
-    { name: 'Earnings Report', icon: '💰', action: 'earnings' },
+    { name: 'Create New List', icon: '', action: 'create' },
+    { name: 'Import CSV', icon: '', action: 'import' },
+    { name: 'My Portfolio', icon: '', action: 'portfolio' },
+    { name: 'Earnings Report', icon: '', action: 'earnings' },
   ];
 
   return (
@@ -286,7 +286,7 @@ const EmailClient: React.FC = () => {
                           transition: 'all 0.2s'
                         }}
                       >
-                        📧 Email
+                        Email
                       </button>
                       <button
                         onClick={() => setViewMode('lists')}
@@ -303,7 +303,7 @@ const EmailClient: React.FC = () => {
                           transition: 'all 0.2s'
                         }}
                       >
-                        📋 Lists
+                        Lists
                       </button>
                       <button
                         onClick={() => setViewMode('exchange')}
@@ -320,7 +320,7 @@ const EmailClient: React.FC = () => {
                           transition: 'all 0.2s'
                         }}
                       >
-                        📊 Exchange
+                        Exchange
                       </button>
                     </div>
                   </div>
@@ -336,7 +336,7 @@ const EmailClient: React.FC = () => {
                           onClick={() => setActiveFolder(folder.id)}
                           className={`nav-item ${activeFolder === folder.id ? 'active' : ''}`}
                         >
-                          <span className="nav-icon">{folder.icon}</span>
+                          {folder.icon && <span className="nav-icon">{folder.icon}</span>}
                           {!sidebarCollapsed && (
                             <>
                               <span>{folder.name}</span>
@@ -367,7 +367,7 @@ const EmailClient: React.FC = () => {
                           className={`nav-item ${activeList === list.id ? 'active' : ''}`}
                           title={`${list.subscribers.toLocaleString()} subscribers • ${list.dividendYield}% yield`}
                         >
-                          <span className="nav-icon">{list.icon}</span>
+                          {list.icon && <span className="nav-icon">{list.icon}</span>}
                           {!sidebarCollapsed && (
                             <>
                               <div style={{ flex: 1, textAlign: 'left' }}>
@@ -415,7 +415,7 @@ const EmailClient: React.FC = () => {
                                 else if (action.action === 'portfolio') router.push('/exchange');
                               }}
                             >
-                              <span className="nav-icon">{action.icon}</span>
+                              {action.icon && <span className="nav-icon">{action.icon}</span>}
                               <span>{action.name}</span>
                             </button>
                           ))}
@@ -492,7 +492,7 @@ const EmailClient: React.FC = () => {
                           onClick={() => setActiveList(list.id)}
                           className={`nav-item ${activeList === list.id ? 'active' : ''}`}
                         >
-                          <span className="nav-icon">{list.icon}</span>
+                          {list.icon && <span className="nav-icon">{list.icon}</span>}
                           {!sidebarCollapsed && (
                             <>
                               <span style={{ flex: 1 }}>{list.name}</span>
@@ -803,7 +803,7 @@ const EmailClient: React.FC = () => {
                           }}
                         >
                           <div style={{ display: 'flex', alignItems: 'start', marginBottom: '16px' }}>
-                            <span style={{ fontSize: '32px', marginRight: '12px' }}>{list.icon}</span>
+                            {list.icon && <span style={{ fontSize: '32px', marginRight: '12px' }}>{list.icon}</span>}
                             <div style={{ flex: 1 }}>
                               <h4 style={{ fontSize: '16px', fontWeight: '300', color: 'white', marginBottom: '4px' }}>
                                 {list.name}
@@ -1063,7 +1063,7 @@ const EmailClient: React.FC = () => {
                     onClick={() => { setActiveFolder(folder.id); setShowMobileMenu(false); }}
                     className={`mobile-menu-item ${activeFolder === folder.id ? 'active' : ''}`}
                   >
-                    <span>{folder.icon}</span>
+                    {folder.icon && <span>{folder.icon}</span>}
                     <span style={{ flex: 1 }}>{folder.name}</span>
                     {folder.count > 0 && (
                       <span style={{ 
@@ -1089,7 +1089,7 @@ const EmailClient: React.FC = () => {
                     onClick={() => { setActiveList(list.id); setShowMobileMenu(false); }}
                     className={`mobile-menu-item ${activeList === list.id ? 'active' : ''}`}
                   >
-                    <span>{list.icon}</span>
+                    {list.icon && <span>{list.icon}</span>}
                     <span style={{ flex: 1 }}>{list.name}</span>
                   </button>
                 ))}
