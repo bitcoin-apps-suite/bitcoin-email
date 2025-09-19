@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Taskbar from "../components/Taskbar";
 import { InstallPrompt } from "../components/InstallPrompt";
@@ -6,6 +6,7 @@ import { InstallPrompt } from "../components/InstallPrompt";
 export const metadata: Metadata = {
   title: "Bitcoin Email - Blockchain-Powered Email Client",
   description: "The world's first open-source, blockchain-powered email client with native Bitcoin payments and end-to-end encryption.",
+  metadataBase: new URL('http://localhost:1040'),
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
@@ -34,7 +35,13 @@ export const metadata: Metadata = {
     description: "Decentralized Email on the Blockchain",
     images: ['/bitcoin-email-icon.jpg'],
   },
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
   themeColor: '#ff3333',
 };
 

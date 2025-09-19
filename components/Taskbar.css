@@ -70,6 +70,13 @@
   font-family: inherit;
 }
 
+.menu-home-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 .menu-button:hover,
 .menu-button.active {
   background-color: rgba(255, 255, 255, 0.1);
@@ -201,11 +208,36 @@
   margin-left: 8px;
 }
 
+.github-link,
+.docs-link {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  height: 22px;
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.github-link:hover,
+.docs-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.github-link svg {
+  width: 14px;
+  height: 14px;
+}
+
 .status-area {
   display: flex;
   align-items: center;
   gap: 6px;
   font-size: 12px;
+  margin-left: 8px;
 }
 
 .user-info {
