@@ -621,11 +621,10 @@ const EmailClient: React.FC = () => {
                   }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                       <div>
-                        <h2 style={{ fontSize: '24px', fontWeight: '300', marginBottom: '4px' }}>
-                          <span style={{ color: 'var(--email-red-primary)' }}>Bitcoin</span>{' '}
-                          <span style={{ color: 'white' }}>Email Exchange</span>
-                        </h2>
-                        <p style={{ fontSize: '14px', color: 'var(--email-text-muted)', fontWeight: '300' }}>
+                        <h1 className="app-title-header" style={{ fontSize: '32px', marginBottom: '4px' }}>
+                          <span className="bitcoin-text">Bitcoin</span> Email Lists Exchange
+                        </h1>
+                        <p className="app-subtitle">
                           Trade tokenized mailing lists • Earn dividends • Build your portfolio
                         </p>
                       </div>

@@ -267,21 +267,21 @@ const Taskbar: React.FC<TaskbarProps> = ({
           {menus.map((menu) => (
             <div key={menu.label} className="menu-item">
               {menu.label === 'Bitcoin Email' ? (
-                <a
-                  href="/"
+                <button
                   className={`menu-button menu-home-link ${activeMenu === menu.label ? 'active' : ''}`}
                   onClick={(e) => {
-                    if (e.metaKey || e.ctrlKey) return; // Allow cmd/ctrl+click to open in new tab
                     if (activeMenu === menu.label) {
                       e.preventDefault();
                       setActiveMenu(null);
+                    } else {
+                      window.location.href = '/';
                     }
                   }}
                   onMouseEnter={() => setActiveMenu(menu.label)}
                   title="Click to go home"
                 >
                   {menu.label}
-                </a>
+                </button>
               ) : (
                 <button
                   className={`menu-button ${activeMenu === menu.label ? 'active' : ''}`}

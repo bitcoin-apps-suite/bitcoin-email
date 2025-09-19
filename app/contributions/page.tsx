@@ -54,23 +54,66 @@ const TOKEN_ECONOMICS = {
   }
 };
 
+// Task definitions with token allocations (max 1% = 10M tokens per task)
+const AVAILABLE_TASKS = {
+  major: [
+    { id: 'blockchain-storage', title: 'Blockchain Email Storage System', description: 'Implement full BSV blockchain storage for emails with encryption', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#1' },
+    { id: 'handcash-integration', title: 'Complete HandCash Wallet Integration', description: 'Full HandCash Connect integration with payment flows', tokens: 10_000_000, claimed: true, claimedBy: 'satoshi_dev', githubIssue: '#2' },
+    { id: 'end-to-end-encryption', title: 'End-to-End Encryption System', description: 'Implement PGP-based E2E encryption for all emails', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#3' },
+    { id: 'mobile-app', title: 'React Native Mobile App', description: 'Full-featured iOS/Android mobile application', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#4' },
+    { id: 'nft-marketplace', title: 'Email List NFT Marketplace', description: 'Complete NFT minting and trading system for email lists', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#5' },
+    { id: 'ai-spam-filter', title: 'AI-Powered Spam Detection', description: 'Machine learning spam filter with blockchain verification', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#6' },
+    { id: 'defi-integration', title: 'DeFi Yield Generation', description: 'Integrate DeFi protocols for email list revenue sharing', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#7' },
+    { id: 'ipfs-attachments', title: 'IPFS Attachment Storage', description: 'Decentralized file storage for email attachments', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#8' },
+    { id: 'desktop-app', title: 'Electron Desktop Application', description: 'Native desktop app for Windows/Mac/Linux', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#9' },
+    { id: 'calendar-integration', title: 'Blockchain Calendar System', description: 'Decentralized calendar with smart contract events', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#10' }
+  ],
+  minor: [
+    { id: 'dark-mode', title: 'Dark Mode Theme System', description: 'Complete dark mode with theme switching', tokens: 3_000_000, claimed: true, claimedBy: 'alice_dev', githubIssue: '#11' },
+    { id: 'search-functionality', title: 'Advanced Search & Filters', description: 'Full-text search with advanced filtering options', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#12' },
+    { id: 'email-templates', title: 'Email Template Builder', description: 'Drag-and-drop email template creation system', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#13' },
+    { id: 'contact-management', title: 'Contact Management System', description: 'Full CRM-style contact management', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#14' },
+    { id: 'analytics-dashboard', title: 'Analytics Dashboard', description: 'Email analytics and engagement tracking', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#15' },
+    { id: 'api-documentation', title: 'API Documentation Site', description: 'Complete API docs with interactive examples', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#16' },
+    { id: 'keyboard-shortcuts', title: 'Keyboard Shortcuts System', description: 'Gmail-style keyboard navigation', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#17' },
+    { id: 'notification-system', title: 'Push Notifications', description: 'Web push and mobile notifications', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#18' },
+    { id: 'import-export', title: 'Import/Export System', description: 'Bulk email import/export functionality', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#19' },
+    { id: 'multi-language', title: 'Internationalization (i18n)', description: 'Multi-language support system', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#20' }
+  ],
+  maintenance: [
+    { id: 'unit-tests', title: 'Unit Test Coverage (80%)', description: 'Comprehensive unit test suite', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#21' },
+    { id: 'e2e-tests', title: 'E2E Test Suite', description: 'Cypress/Playwright end-to-end tests', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#22' },
+    { id: 'performance-optimization', title: 'Performance Optimization', description: 'Code splitting and lazy loading', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#23' },
+    { id: 'accessibility', title: 'WCAG 2.1 Accessibility', description: 'Full accessibility compliance', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#24' },
+    { id: 'security-audit', title: 'Security Audit & Fixes', description: 'Comprehensive security review', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#25' },
+    { id: 'docker-setup', title: 'Docker Configuration', description: 'Complete Docker deployment setup', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#26' },
+    { id: 'ci-cd', title: 'CI/CD Pipeline', description: 'GitHub Actions deployment pipeline', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#27' },
+    { id: 'error-handling', title: 'Error Handling System', description: 'Comprehensive error boundaries and logging', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#28' },
+    { id: 'rate-limiting', title: 'Rate Limiting', description: 'API rate limiting and throttling', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#29' },
+    { id: 'monitoring', title: 'Monitoring & Alerting', description: 'Application monitoring setup', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#30' }
+  ]
+};
+
 const ContributionsPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'tokenomics' | 'leaderboard' | 'how-to'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'tasks' | 'tokenomics' | 'leaderboard' | 'how-to'>('overview');
   const [contributors, setContributors] = useState<Contributor[]>([]);
   const [loading, setLoading] = useState(false);
   const [prsAllocated, setPrsAllocated] = useState({ major: 3, minor: 8, maintenance: 15 });
+  const [tasks, setTasks] = useState(AVAILABLE_TASKS);
+  const [showClaimModal, setShowClaimModal] = useState(false);
+  const [selectedTask, setSelectedTask] = useState<any>(null);
 
   useEffect(() => {
     // Check URL hash on mount and handle navigation
     const hash = window.location.hash.substring(1);
-    if (hash === 'leaderboard' || hash === 'tokenomics' || hash === 'how-to') {
+    if (hash === 'leaderboard' || hash === 'tokenomics' || hash === 'how-to' || hash === 'tasks') {
       setActiveTab(hash as any);
     }
 
     // Listen for hash changes
     const handleHashChange = () => {
       const newHash = window.location.hash.substring(1);
-      if (newHash === 'leaderboard' || newHash === 'tokenomics' || newHash === 'how-to' || newHash === 'overview') {
+      if (newHash === 'leaderboard' || newHash === 'tokenomics' || newHash === 'how-to' || newHash === 'overview' || newHash === 'tasks') {
         setActiveTab(newHash as any);
       }
     };
@@ -138,6 +181,32 @@ const ContributionsPage: React.FC = () => {
   const tokensRemaining = TOKEN_ECONOMICS.communityPool - tokensAllocated;
   const prsRemaining = TOKEN_ECONOMICS.targetPRs - (prsAllocated.major + prsAllocated.minor + prsAllocated.maintenance);
 
+  const handleClaimTask = (task: any, tier: string) => {
+    setSelectedTask({ ...task, tier });
+    setShowClaimModal(true);
+  };
+
+  const handleClaimSubmit = (githubUsername: string, handcashHandle: string) => {
+    if (!selectedTask) return;
+    
+    // Update task as claimed
+    const updatedTasks = { ...tasks };
+    const taskList = updatedTasks[selectedTask.tier as keyof typeof updatedTasks];
+    const taskIndex = taskList.findIndex(t => t.id === selectedTask.id);
+    
+    if (taskIndex !== -1) {
+      taskList[taskIndex] = {
+        ...taskList[taskIndex],
+        claimed: true,
+        claimedBy: githubUsername
+      };
+      setTasks(updatedTasks);
+    }
+    
+    setShowClaimModal(false);
+    setSelectedTask(null);
+  };
+
   return (
     <div className="contributions-page">
       <div className="contributions-header">
@@ -153,7 +222,16 @@ const ContributionsPage: React.FC = () => {
             window.location.hash = 'overview';
           }}
         >
-          📊 Overview
+          Overview
+        </button>
+        <button 
+          className={`tab ${activeTab === 'tasks' ? 'active' : ''}`}
+          onClick={() => {
+            setActiveTab('tasks');
+            window.location.hash = 'tasks';
+          }}
+        >
+          Tasks
         </button>
         <button 
           className={`tab ${activeTab === 'tokenomics' ? 'active' : ''}`}
@@ -162,7 +240,7 @@ const ContributionsPage: React.FC = () => {
             window.location.hash = 'tokenomics';
           }}
         >
-          🪙 Token Economics
+          Token Economics
         </button>
         <button 
           className={`tab ${activeTab === 'leaderboard' ? 'active' : ''}`}
@@ -171,7 +249,7 @@ const ContributionsPage: React.FC = () => {
             window.location.hash = 'leaderboard';
           }}
         >
-          🏆 Leaderboard
+          Leaderboard
         </button>
         <button 
           className={`tab ${activeTab === 'how-to' ? 'active' : ''}`}
@@ -180,7 +258,7 @@ const ContributionsPage: React.FC = () => {
             window.location.hash = 'how-to';
           }}
         >
-          🚀 How to Contribute
+          How to Contribute
         </button>
       </div>
 
@@ -393,6 +471,156 @@ const ContributionsPage: React.FC = () => {
           </div>
         )}
 
+        {activeTab === 'tasks' && (
+          <div className="content-section">
+            <h2>Available Tasks</h2>
+            <p>Claim a task by connecting your GitHub account and HandCash wallet. Maximum 1% equity (10M tokens) per task.</p>
+            
+            <div className="task-sections">
+              <div className="task-tier">
+                <h3>Major Features (10M $BMAIL each)</h3>
+                <div className="task-list">
+                  {tasks.major.map((task) => (
+                    <div key={task.id} className={`task-row major ${task.claimed ? 'claimed' : ''}`}>
+                      <div className="task-main">
+                        <div className="task-title-section">
+                          <h4>{task.title}</h4>
+                          <div className="task-reward">10M $BMAIL</div>
+                        </div>
+                        <p className="task-description">{task.description}</p>
+                      </div>
+                      <div className="task-actions">
+                        <a 
+                          href={`https://github.com/bitcoin-apps-suite/bitcoin-email/issues/${task.githubIssue.replace('#', '')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="github-issue-button"
+                        >
+                          View Issue {task.githubIssue}
+                        </a>
+                        {task.claimed ? (
+                          <div className="claimed-status">
+                            <span className="claimed-text">Claimed by @{task.claimedBy}</span>
+                          </div>
+                        ) : (
+                          <div className="claim-actions">
+                            <button 
+                              className="claim-button github"
+                              onClick={() => handleClaimTask(task, 'major')}
+                            >
+                              Sign in with GitHub
+                            </button>
+                            <button 
+                              className="claim-button handcash"
+                              onClick={() => handleClaimTask(task, 'major')}
+                            >
+                              Sign in with HandCash
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="task-tier">
+                <h3>Minor Features (3M $BMAIL each)</h3>
+                <div className="task-list">
+                  {tasks.minor.map((task) => (
+                    <div key={task.id} className={`task-row minor ${task.claimed ? 'claimed' : ''}`}>
+                      <div className="task-main">
+                        <div className="task-title-section">
+                          <h4>{task.title}</h4>
+                          <div className="task-reward">3M $BMAIL</div>
+                        </div>
+                        <p className="task-description">{task.description}</p>
+                      </div>
+                      <div className="task-actions">
+                        <a 
+                          href={`https://github.com/bitcoin-apps-suite/bitcoin-email/issues/${task.githubIssue.replace('#', '')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="github-issue-button"
+                        >
+                          View Issue {task.githubIssue}
+                        </a>
+                        {task.claimed ? (
+                          <div className="claimed-status">
+                            <span className="claimed-text">Claimed by @{task.claimedBy}</span>
+                          </div>
+                        ) : (
+                          <div className="claim-actions">
+                            <button 
+                              className="claim-button github"
+                              onClick={() => handleClaimTask(task, 'minor')}
+                            >
+                              Sign in with GitHub
+                            </button>
+                            <button 
+                              className="claim-button handcash"
+                              onClick={() => handleClaimTask(task, 'minor')}
+                            >
+                              Sign in with HandCash
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="task-tier">
+                <h3>Maintenance Tasks (1M $BMAIL each)</h3>
+                <div className="task-list">
+                  {tasks.maintenance.map((task) => (
+                    <div key={task.id} className={`task-row maintenance ${task.claimed ? 'claimed' : ''}`}>
+                      <div className="task-main">
+                        <div className="task-title-section">
+                          <h4>{task.title}</h4>
+                          <div className="task-reward">1M $BMAIL</div>
+                        </div>
+                        <p className="task-description">{task.description}</p>
+                      </div>
+                      <div className="task-actions">
+                        <a 
+                          href={`https://github.com/bitcoin-apps-suite/bitcoin-email/issues/${task.githubIssue.replace('#', '')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="github-issue-button"
+                        >
+                          View Issue {task.githubIssue}
+                        </a>
+                        {task.claimed ? (
+                          <div className="claimed-status">
+                            <span className="claimed-text">Claimed by @{task.claimedBy}</span>
+                          </div>
+                        ) : (
+                          <div className="claim-actions">
+                            <button 
+                              className="claim-button github"
+                              onClick={() => handleClaimTask(task, 'maintenance')}
+                            >
+                              Sign in with GitHub
+                            </button>
+                            <button 
+                              className="claim-button handcash"
+                              onClick={() => handleClaimTask(task, 'maintenance')}
+                            >
+                              Sign in with HandCash
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {activeTab === 'how-to' && (
           <div className="content-section">
             <h2>🚀 How to Start Contributing</h2>
@@ -480,6 +708,93 @@ const ContributionsPage: React.FC = () => {
           </div>
         )}
       </div>
+
+      {/* Task Claiming Modal */}
+      {showClaimModal && selectedTask && (
+        <div className="modal-overlay" onClick={() => setShowClaimModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Claim Task: {selectedTask.title}</h3>
+              <button 
+                className="modal-close"
+                onClick={() => setShowClaimModal(false)}
+              >
+                ×
+              </button>
+            </div>
+            
+            <div className="modal-body">
+              <div className="task-info">
+                <p><strong>Reward:</strong> {(selectedTask.tokens / 1_000_000).toFixed(0)}M $BMAIL</p>
+                <p><strong>Description:</strong> {selectedTask.description}</p>
+                <p><strong>GitHub Issue:</strong> {selectedTask.githubIssue}</p>
+              </div>
+              
+              <div className="claim-requirements">
+                <h4>Requirements to Claim:</h4>
+                <div className="requirement-item">
+                  <input type="checkbox" id="github-connected" />
+                  <label htmlFor="github-connected">
+                    Connect GitHub Account
+                    <span className="requirement-status">✓ Connected</span>
+                  </label>
+                </div>
+                <div className="requirement-item">
+                  <input type="checkbox" id="handcash-connected" />
+                  <label htmlFor="handcash-connected">
+                    Connect HandCash Wallet
+                    <span className="requirement-status">⚠ Required</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div className="claim-form">
+                <div className="form-group">
+                  <label>GitHub Username:</label>
+                  <input 
+                    type="text" 
+                    placeholder="your-github-username"
+                    className="form-input"
+                  />
+                </div>
+                <div className="form-group">
+                  <label>HandCash Handle:</label>
+                  <input 
+                    type="text" 
+                    placeholder="$your-handcash-handle"
+                    className="form-input"
+                  />
+                </div>
+              </div>
+              
+              <div className="claim-agreement">
+                <p>By claiming this task, you agree to:</p>
+                <ul>
+                  <li>Complete the task within 30 days</li>
+                  <li>Follow the project's contribution guidelines</li>
+                  <li>Submit a pull request for review</li>
+                  <li>Provide your HandCash wallet for token distribution</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="modal-footer">
+              <button 
+                className="btn-secondary"
+                onClick={() => setShowClaimModal(false)}
+              >
+                Cancel
+              </button>
+              <button 
+                className="btn-primary"
+                onClick={() => handleClaimSubmit('placeholder-user', '$placeholder')}
+              >
+                Claim Task
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

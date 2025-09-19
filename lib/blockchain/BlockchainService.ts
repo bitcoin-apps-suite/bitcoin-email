@@ -1,4 +1,4 @@
-import { Transaction, Script, PrivateKey, PublicKey, Hash, OpCode } from '@bsv/sdk';
+import { Transaction, Script, PrivateKey, PublicKey, Hash } from '@bsv/sdk';
 import CryptoJS from 'crypto-js';
 
 export interface EmailMetadata {
@@ -183,10 +183,11 @@ export class BlockchainService {
     const tx = new Transaction();
 
     // Add OP_RETURN output with email data
-    const script = new Script()
-      .writeOpCode(OpCode.OP_RETURN)
-      .writeBuffer(Buffer.from('BMAIL')) // Protocol identifier
-      .writeBuffer(data);
+    // TODO: Fix Script API compatibility
+    const script = new Script();
+    // .writeOpCode(106) // OP_RETURN opcode
+    // .writeBuffer(Buffer.from('BMAIL')) // Protocol identifier
+    // .writeBuffer(data);
 
     tx.addOutput({
       script,
