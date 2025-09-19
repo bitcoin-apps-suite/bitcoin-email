@@ -58,7 +58,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
     {
       label: 'Bitcoin Email',
       items: [
-        { label: 'Home', href: '/', icon: '🏠', shortcut: '⌘H' },
+        { label: 'Home', href: '/', shortcut: '⌘H' },
         { divider: true },
         { label: 'About Bitcoin Email', href: '/docs' },
         { label: 'Preferences...', action: () => console.log('Preferences'), shortcut: '⌘,' },
@@ -104,8 +104,8 @@ const Taskbar: React.FC<TaskbarProps> = ({
     {
       label: 'View',
       items: [
-        { label: 'Mail Client', href: '/', icon: '📧' },
-        { label: 'Lists Exchange', href: '/exchange', icon: '📊' },
+        { label: 'Mail Client', href: '/' },
+        { label: 'Lists Exchange', href: '/exchange' },
         { divider: true },
         { label: 'Show Inbox', action: () => console.log('Show Inbox') },
         { label: 'Show Sent', action: () => console.log('Show Sent') },
@@ -121,8 +121,8 @@ const Taskbar: React.FC<TaskbarProps> = ({
     {
       label: 'Blockchain',
       items: [
-        { label: 'Email Lists Exchange', href: '/exchange', icon: '📊' },
-        { label: '$BMAIL Token', href: '/token', icon: '🪙' },
+        { label: 'Email Lists Exchange', href: '/exchange' },
+        { label: '$BMAIL Token', href: '/token' },
         { divider: true },
         { label: 'Connect Wallet', action: () => console.log('Connect Wallet') },
         { label: 'View Balance', action: () => console.log('View Balance') },
@@ -137,7 +137,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
     {
       label: 'Tools',
       items: [
-        { label: 'Tokenize List', href: '/tokenize', icon: '🏷️' },
+        { label: 'Tokenize List', href: '/tokenize' },
         { divider: true },
         { label: 'Email Templates', action: () => console.log('Email Templates') },
         { label: 'Signature Manager', action: () => console.log('Signature Manager') },
@@ -159,13 +159,30 @@ const Taskbar: React.FC<TaskbarProps> = ({
       ]
     },
     {
+      label: 'Developers',
+      items: [
+        { label: 'Contributions & Rewards', href: '/contributions' },
+        { label: 'Documentation', href: '/docs' },
+        { label: 'GitHub Repository', href: 'https://github.com/bitcoin-apps-suite/bitcoin-email' },
+        { divider: true },
+        { label: 'API Documentation', href: '/docs#api' },
+        { label: 'SDK & Libraries', href: '/docs#sdk' },
+        { divider: true },
+        { label: 'Submit Pull Request', href: 'https://github.com/bitcoin-apps-suite/bitcoin-email/pulls' },
+        { label: 'Report Issues', href: 'https://github.com/bitcoin-apps-suite/bitcoin-email/issues' },
+        { divider: true },
+        { label: 'Token Economics', href: '/contributions#tokenomics' },
+        { label: 'Contributor Leaderboard', href: '/contributions#leaderboard' }
+      ]
+    },
+    {
       label: 'Help',
       items: [
         { label: 'Bitcoin Email Help', action: () => console.log('Help') },
         { label: 'Keyboard Shortcuts', action: () => console.log('Shortcuts') },
         { divider: true },
-        { label: 'Report Bug', action: () => console.log('Report Bug') },
-        { label: 'Feature Request', action: () => console.log('Feature Request') },
+        { label: 'Report Bug', href: 'https://github.com/bitcoin-apps-suite/bitcoin-email/issues/new?template=bug_report.md' },
+        { label: 'Feature Request', href: 'https://github.com/bitcoin-apps-suite/bitcoin-email/issues/new?template=feature_request.md' },
         { divider: true },
         { label: 'Contact Support', action: () => console.log('Contact Support') }
       ]
@@ -304,6 +321,32 @@ const Taskbar: React.FC<TaskbarProps> = ({
 
       <div className="taskbar-right">
         <a 
+          href="/token" 
+          className="bmail-token-link"
+          title="$BMAIL Token"
+        >
+          <span className="token-text">$BMAIL</span>
+        </a>
+        <a 
+          href="/contributions" 
+          className="contributions-link"
+          title="Leaderboard & Rewards"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+          </svg>
+        </a>
+        <a 
+          href="/docs" 
+          className="docs-link"
+          title="Documentation"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </a>
+        <a 
           href="https://github.com/bitcoin-apps-suite/bitcoin-email" 
           target="_blank" 
           rel="noopener noreferrer"
@@ -313,13 +356,6 @@ const Taskbar: React.FC<TaskbarProps> = ({
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
           </svg>
-        </a>
-        <a 
-          href="/docs" 
-          className="docs-link"
-          title="Documentation & Contributors"
-        >
-          📚
         </a>
         <div className="status-area">
           {isAuthenticated ? (

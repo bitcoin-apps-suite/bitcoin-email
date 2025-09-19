@@ -1,31 +1,36 @@
 .docs-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  background: #0a0a0a;
   color: #ffffff;
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  position: relative;
 }
 
 .docs-header {
   text-align: center;
   margin-bottom: 3rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #27272a;
+  position: relative;
+  z-index: 2;
 }
 
 .docs-header h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #ef4444 0%, #ff6500 100%);
+  font-size: 3.5rem;
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 
 .docs-header p {
   font-size: 1.2rem;
-  color: #cccccc;
+  color: #a1a1aa;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -40,25 +45,31 @@
 
 .docs-tab {
   padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #141414;
+  border: 1px solid #27272a;
   border-radius: 8px;
-  color: #cccccc;
+  color: #a1a1aa;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
 .docs-tab:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #1a1a1a;
   color: #ffffff;
+  border-color: rgba(239, 68, 68, 0.3);
 }
 
 .docs-tab.active {
-  background: linear-gradient(135deg, #ef4444 0%, #ff6500 100%);
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   color: #ffffff;
+  font-weight: 400;
   border-color: transparent;
+  letter-spacing: 0.5px;
 }
 
 .docs-content {
@@ -67,37 +78,49 @@
 }
 
 .docs-section {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #141414;
+  border: 1px solid #27272a;
   border-radius: 12px;
   padding: 2rem;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .docs-section h2 {
   color: #ef4444;
   font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.01em;
   margin-bottom: 1.5rem;
   border-bottom: 2px solid rgba(239, 68, 68, 0.3);
   padding-bottom: 0.5rem;
+  text-transform: uppercase;
 }
 
 .docs-section h3 {
-  color: #ff6500;
+  color: #ef4444;
   font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: -0.01em;
   margin: 2rem 0 1rem 0;
+  text-transform: uppercase;
 }
 
 .docs-section h4 {
   color: #ffffff;
   font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: -0.01em;
   margin: 1.5rem 0 0.5rem 0;
+  text-transform: uppercase;
 }
 
 .docs-section p {
   line-height: 1.6;
   margin-bottom: 1rem;
-  color: #e5e5e5;
+  color: #a1a1aa;
 }
 
 .docs-section ul, .docs-section ol {
@@ -107,7 +130,7 @@
 
 .docs-section li {
   margin-bottom: 0.5rem;
-  color: #e5e5e5;
+  color: #a1a1aa;
   line-height: 1.6;
 }
 
@@ -115,10 +138,12 @@
   color: #ef4444;
   text-decoration: none;
   transition: color 0.2s ease;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 .docs-section a:hover {
-  color: #ff6500;
+  color: #dc2626;
 }
 
 /* Token Stats */
@@ -130,7 +155,7 @@
 }
 
 .stat-card {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(255, 101, 0, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%);
   border: 1px solid rgba(239, 68, 68, 0.3);
   border-radius: 12px;
   padding: 1.5rem;
@@ -140,22 +165,26 @@
 
 .stat-card h3 {
   color: #ef4444;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-weight: 400;
   margin: 0 0 1rem 0;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .stat-value {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 200;
   color: #ffffff;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
 }
 
 .stat-label {
-  color: #cccccc;
+  color: #a1a1aa;
   font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Earning Methods */
@@ -167,26 +196,37 @@
 }
 
 .method-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1a1a1a;
+  border: 1px solid #27272a;
   border-radius: 12px;
   padding: 1.5rem;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .method-card:hover {
   transform: translateY(-5px);
   border-color: rgba(239, 68, 68, 0.5);
+  background: #141414;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(239, 68, 68, 0.2);
 }
 
 .method-card h4 {
-  color: #ff6500;
+  color: #ef4444;
   margin: 0 0 1rem 0;
   font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
 }
 
 .method-card p {
-  color: #e5e5e5;
+  color: #a1a1aa;
   font-size: 0.9rem;
   margin: 0;
 }
@@ -272,7 +312,7 @@
 .token-amount {
   font-size: 2rem;
   font-weight: 700;
-  color: #ff6500;
+  color: #ef4444;
 }
 
 .token-label {
@@ -359,7 +399,7 @@
   display: inline-block;
   padding: 1rem 2rem;
   background: linear-gradient(135deg, #ef4444 0%, #ff6500 100%);
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   border-radius: 8px;
   font-weight: 600;
@@ -369,6 +409,33 @@
 .contribute-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+}
+
+.method-examples {
+  font-size: 0.85rem;
+  color: #999;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.sub-item {
+  margin-left: 2rem;
+  color: #cccccc;
+  font-size: 0.95rem;
+}
+
+.token-cta {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(255, 101, 0, 0.1) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.token-cta h4 {
+  color: #ef4444;
+  margin-bottom: 0.5rem;
 }
 
 .loading-message {

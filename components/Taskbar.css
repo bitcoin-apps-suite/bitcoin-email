@@ -209,7 +209,9 @@
 }
 
 .github-link,
-.docs-link {
+.contributions-link,
+.docs-link,
+.bmail-token-link {
   display: flex;
   align-items: center;
   padding: 0 8px;
@@ -221,15 +223,45 @@
   font-size: 14px;
 }
 
+.bmail-token-link {
+  background: linear-gradient(90deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  margin-right: 8px;
+}
+
+.bmail-token-link .token-text {
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .github-link:hover,
+.contributions-link:hover,
 .docs-link:hover {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.github-link svg {
+.bmail-token-link:hover {
+  background: linear-gradient(90deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2));
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.github-link svg,
+.contributions-link svg,
+.docs-link svg {
   width: 14px;
   height: 14px;
+}
+
+.contributions-link svg,
+.docs-link svg {
+  stroke: currentColor;
+  fill: none;
 }
 
 .status-area {

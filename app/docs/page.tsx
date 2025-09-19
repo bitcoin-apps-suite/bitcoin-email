@@ -40,6 +40,25 @@ const DocsPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // Check URL hash on mount and handle navigation
+    const hash = window.location.hash.substring(1);
+    if (hash === 'contributors' || hash === 'bmail') {
+      setActiveTab(hash as any);
+    }
+
+    // Listen for hash changes
+    const handleHashChange = () => {
+      const newHash = window.location.hash.substring(1);
+      if (newHash === 'contributors' || newHash === 'bmail' || newHash === 'docs') {
+        setActiveTab(newHash as any);
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  useEffect(() => {
     if (activeTab === 'contributors') {
       fetchContributors();
     }
@@ -55,14 +74,28 @@ const DocsPage: React.FC = () => {
       
       const githubContributors: GitHubContributor[] = await response.json();
       
-      // Transform GitHub data to our format
+      // Transform GitHub data to our format with new token system
       const transformedContributors: Contributor[] = githubContributors
         .filter(c => c.type === 'User') // Filter out bots
         .map((contributor, index) => {
           const details = contributorDetails[contributor.login] || {};
-          const baseTokens = 100; // Base tokens per contribution
-          const multiplier = details.bmailMultiplier || 1;
-          const bmailTokens = Math.round(contributor.contributions * baseTokens * multiplier);
+          
+          // Determine tier and tokens based on contribution level
+          let bmailTokens = 0;
+          let tier = '';
+          if (contributor.contributions > 100) {
+            bmailTokens = 10_000_000; // 10M for major contributors
+            tier = 'Major';
+          } else if (contributor.contributions > 50) {
+            bmailTokens = 3_000_000; // 3M for minor contributors
+            tier = 'Minor';
+          } else if (contributor.contributions > 10) {
+            bmailTokens = 1_000_000; // 1M for maintenance
+            tier = 'Maintenance';
+          } else {
+            bmailTokens = 0; // Not yet eligible
+            tier = 'Pending';
+          }
           
           return {
             handle: details.handle || `$${contributor.login.toLowerCase()}`,
@@ -74,7 +107,7 @@ const DocsPage: React.FC = () => {
             bmailTokens: bmailTokens,
             contributions: details.contributions || [
               `${contributor.contributions} commits`,
-              'Code contributions'
+              `${tier} contributor`
             ],
             joinDate: '2024-01-01' // Would need separate API call for actual date
           };
@@ -116,19 +149,28 @@ const DocsPage: React.FC = () => {
       <div className="docs-tabs">
         <button 
           className={`docs-tab ${activeTab === 'docs' ? 'active' : ''}`}
-          onClick={() => setActiveTab('docs')}
+          onClick={() => {
+            setActiveTab('docs');
+            window.location.hash = 'docs';
+          }}
         >
           📖 Documentation
         </button>
         <button 
           className={`docs-tab ${activeTab === 'bmail' ? 'active' : ''}`}
-          onClick={() => setActiveTab('bmail')}
+          onClick={() => {
+            setActiveTab('bmail');
+            window.location.hash = 'bmail';
+          }}
         >
           🪙 $BMAIL Token
         </button>
         <button 
           className={`docs-tab ${activeTab === 'contributors' ? 'active' : ''}`}
-          onClick={() => setActiveTab('contributors')}
+          onClick={() => {
+            setActiveTab('contributors');
+            window.location.hash = 'contributors';
+          }}
         >
           👥 Contributors
         </button>
@@ -149,7 +191,7 @@ const DocsPage: React.FC = () => {
               <li><strong>End-to-End Encryption:</strong> Military-grade encryption using AES-256</li>
               <li><strong>Micropayments:</strong> Send and receive Bitcoin with every email</li>
               <li><strong>HandCash Integration:</strong> Seamless wallet authentication and payments</li>
-              <li><strong>Token Economics:</strong> Earn $BMAIL tokens for contributing to the ecosystem</li>
+              <li><strong>Token Economics:</strong> Earn $BMAIL tokens for contributing to the codebase</li>
               <li><strong>Mobile Optimized:</strong> Responsive design for all devices</li>
             </ul>
 
@@ -189,55 +231,71 @@ const DocsPage: React.FC = () => {
             <div className="token-stats">
               <div className="stat-card">
                 <h3>Total Supply</h3>
-                <div className="stat-value">21,000,000</div>
+                <div className="stat-value">1B</div>
                 <div className="stat-label">$BMAIL Tokens</div>
               </div>
               <div className="stat-card">
-                <h3>Distributed</h3>
-                <div className="stat-value">{totalTokensDistributed.toLocaleString()}</div>
-                <div className="stat-label">To Contributors</div>
+                <h3>Community Pool</h3>
+                <div className="stat-value">490M</div>
+                <div className="stat-label">49% for Contributors</div>
               </div>
               <div className="stat-card">
-                <h3>Per PR</h3>
-                <div className="stat-value">100</div>
-                <div className="stat-label">Base Reward</div>
+                <h3>Team Reserve</h3>
+                <div className="stat-value">510M</div>
+                <div className="stat-label">51% Reserved</div>
               </div>
             </div>
 
-            <h3>🎯 How to Earn $BMAIL</h3>
+            <h3>🎯 Three-Tier Reward System</h3>
             <div className="earning-methods">
               <div className="method-card">
-                <h4>💻 Code Contributions</h4>
-                <p>Submit pull requests and earn 100-500 $BMAIL per merged PR based on complexity</p>
+                <h4>⭐ Major Features</h4>
+                <p>10M $BMAIL per PR • Max 20 PRs</p>
+                <p className="method-examples">Core features, blockchain integration, major UI overhauls</p>
               </div>
               <div className="method-card">
-                <h4>🐛 Bug Reports</h4>
-                <p>Report valid bugs and earn 25-100 $BMAIL depending on severity</p>
+                <h4>✨ Minor Features</h4>
+                <p>3M $BMAIL per PR • Max 30 PRs</p>
+                <p className="method-examples">New components, enhancements, optimizations</p>
               </div>
               <div className="method-card">
-                <h4>📝 Documentation</h4>
-                <p>Improve documentation and earn 50-200 $BMAIL per contribution</p>
+                <h4>🔧 Maintenance</h4>
+                <p>1M $BMAIL per PR • Max 50 PRs</p>
+                <p className="method-examples">Bug fixes, tests, refactoring, dependencies</p>
               </div>
               <div className="method-card">
-                <h4>🎨 Design</h4>
-                <p>Create UI/UX improvements and earn 200-1000 $BMAIL per accepted design</p>
+                <h4>🚀 First 100 PRs</h4>
+                <p>340M $BMAIL allocated</p>
+                <p className="method-examples">150M reserved for future initiatives</p>
               </div>
             </div>
 
             <h3>📊 Token Distribution</h3>
             <ul>
-              <li><strong>50%</strong> - Contributors &amp; Community</li>
-              <li><strong>20%</strong> - Development Team</li>
-              <li><strong>15%</strong> - Future Development</li>
-              <li><strong>10%</strong> - Marketing &amp; Partnerships</li>
-              <li><strong>5%</strong> - Reserve Fund</li>
+              <li><strong>51%</strong> - Team Reserve (510M $BMAIL)</li>
+              <li><strong>49%</strong> - Community Contributors (490M $BMAIL)</li>
+              <li className="sub-item"><strong>20%</strong> of total - Major Features (200M)</li>
+              <li className="sub-item"><strong>9%</strong> of total - Minor Features (90M)</li>
+              <li className="sub-item"><strong>5%</strong> of total - Maintenance (50M)</li>
+              <li className="sub-item"><strong>15%</strong> of total - Future Initiatives (150M)</li>
             </ul>
 
-            <h3>🔄 Utility</h3>
+            <h3>🔄 Token Utility</h3>
             <p>
-              $BMAIL tokens will be used for premium features, inbox monetization, 
-              governance voting, and as a medium of exchange within the Bitcoin Email ecosystem.
+              $BMAIL tokens power the Bitcoin Email codebase:
             </p>
+            <ul>
+              <li>Inbox monetization - Set minimum token requirements to receive emails</li>
+              <li>Premium features - Access advanced functionality</li>
+              <li>Governance voting - Shape the future of Bitcoin Email</li>
+              <li>Email payments - Send/receive tokens with emails</li>
+              <li>Priority support - Token holders get faster response times</li>
+            </ul>
+
+            <div className="token-cta">
+              <h4>Ready to earn $BMAIL?</h4>
+              <p>Check out our <a href="/contributions">Contributions & Rewards</a> page to start earning tokens!</p>
+            </div>
           </div>
         )}
 
