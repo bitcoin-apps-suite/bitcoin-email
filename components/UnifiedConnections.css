@@ -1,0 +1,449 @@
+/* Unified Connections Component */
+.unified-connections {
+  position: relative;
+  z-index: 100;
+}
+
+.connection-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: var(--email-text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.connection-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.connection-toggle.full {
+  border-color: var(--email-green);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.connection-toggle.partial {
+  border-color: var(--email-yellow);
+  background: rgba(251, 191, 36, 0.1);
+}
+
+.connection-toggle.disconnected {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Status Indicator */
+.connection-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6b7280;
+  transition: all 0.3s ease;
+}
+
+.status-dot.full {
+  background: var(--email-green);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+.status-dot.partial {
+  background: var(--email-yellow);
+  box-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
+}
+
+.status-dot.disconnected {
+  background: #6b7280;
+}
+
+.handcash-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: #00d4aa;
+  border-radius: 50%;
+  margin-left: 2px;
+}
+
+.handcash-symbol {
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.wallet-indicator {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 4px;
+  background: rgba(139, 92, 246, 0.2);
+  border-radius: 8px;
+  font-size: 11px;
+}
+
+.wallet-icon {
+  font-size: 12px;
+}
+
+.token-count {
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+/* Connection Details */
+.connection-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.connection-count {
+  font-weight: 600;
+  color: white;
+}
+
+.connection-subtitle {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* Chevron */
+.chevron {
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+
+.chevron.expanded {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.unified-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 360px;
+  background: var(--email-bg);
+  border: 1px solid var(--email-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown Header */
+.dropdown-header {
+  padding: 12px;
+  border-bottom: 1px solid var(--email-border);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  color: var(--email-text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+  background: var(--email-red-primary);
+  color: white;
+}
+
+.tab-badge {
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Connections Tab */
+.connections-tab {
+  padding: 12px;
+}
+
+.connection-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.connection-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.connection-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.connection-item.connected {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.connection-icon {
+  font-size: 20px;
+}
+
+.connection-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.connection-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--email-text-primary);
+}
+
+.connection-identifier {
+  font-size: 11px;
+  color: var(--email-text-muted);
+}
+
+.status-indicator {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+.status-indicator.connected {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--email-green);
+}
+
+.status-indicator.disconnected {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--email-text-muted);
+}
+
+/* Wallets Tab */
+.wallets-tab {
+  padding: 12px;
+}
+
+.wallet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.wallet-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.wallet-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.wallet-icon-badge {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.wallet-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wallet-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--email-text-primary);
+  text-transform: capitalize;
+}
+
+.wallet-address {
+  font-size: 11px;
+  color: var(--email-text-muted);
+  font-family: monospace;
+}
+
+.wallet-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.token-badge {
+  padding: 2px 8px;
+  background: rgba(139, 92, 246, 0.2);
+  color: #a78bfa;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.disconnect-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--email-text-muted);
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.disconnect-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+/* Empty State */
+.empty-state {
+  padding: 24px;
+  text-align: center;
+}
+
+.empty-state p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--email-text-primary);
+  margin-bottom: 4px;
+}
+
+.empty-state span {
+  font-size: 12px;
+  color: var(--email-text-muted);
+}
+
+/* Buttons */
+.manage-connections-btn {
+  width: 100%;
+  padding: 10px;
+  background: var(--email-red-primary);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.manage-connections-btn:hover {
+  background: var(--email-red-hover);
+  transform: translateY(-1px);
+}
+
+/* Footer */
+.wallet-footer {
+  padding-top: 12px;
+  border-top: 1px solid var(--email-border);
+}
+
+.wallet-info-text {
+  font-size: 11px;
+  color: var(--email-text-muted);
+  text-align: center;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .unified-dropdown {
+    width: calc(100vw - 32px);
+    right: -120px;
+    max-width: 360px;
+  }
+
+  .connection-toggle {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .connection-subtitle {
+    display: none;
+  }
+}
