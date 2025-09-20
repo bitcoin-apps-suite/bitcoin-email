@@ -28,6 +28,12 @@
   padding-right: 12px;
 }
 
+.desktop-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .bitcoin-logo {
   padding: 0 12px;
   cursor: pointer;
@@ -292,27 +298,40 @@
 /* Responsive design for mobile */
 @media (max-width: 768px) {
   .taskbar {
-    height: 28px;
+    height: 44px; /* Touch-friendly height */
     font-size: 14px;
-  }
-  
-  .menu-button {
-    height: 28px;
     padding: 0 8px;
   }
   
+  /* Keep Bitcoin logo visible and on far left */
   .bitcoin-logo {
-    padding: 0 8px;
-    height: 28px;
+    order: -1; /* Move to far left */
+    padding: 0 12px;
+    height: 44px;
+    display: flex !important;
   }
   
-  .dropdown-menu {
-    top: 28px;
-  }
-  
-  /* Hide some menu items on small screens */
-  .menu-items .menu-item:nth-child(n+6) {
+  /* Hide all desktop menu items on mobile */
+  .menu-items {
     display: none;
+  }
+  
+  /* Hide desktop links, show only mobile menu */
+  .desktop-links {
+    display: none;
+  }
+  
+  .taskbar-right {
+    flex: 1;
+    justify-content: flex-end;
+  }
+  
+  /* Bitcoin suite dropdown adjustments */
+  .bitcoin-suite-dropdown {
+    left: 0;
+    right: auto;
+    top: 44px;
+    max-width: 90vw;
   }
 }
 

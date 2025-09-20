@@ -9,12 +9,12 @@
   /* Full screen app container */
   .email-client {
     position: fixed;
-    top: 22px; /* Account for taskbar */
+    top: 44px; /* Account for mobile taskbar height */
     left: 0;
     right: 0;
     bottom: 60px; /* Account for mobile bottom nav */
     width: 100vw;
-    height: calc(100vh - 22px - 60px);
+    height: calc(100vh - 44px - 60px);
     margin: 0;
     border-radius: 0;
     box-shadow: none;
