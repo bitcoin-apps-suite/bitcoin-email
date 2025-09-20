@@ -14,7 +14,7 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    async jwt({ token, account, profile }) {
+    async jwt({ token, account, profile }: any) {
       // Persist the OAuth access_token and user profile to the token
       if (account) {
         token.accessToken = account.access_token;
@@ -25,13 +25,13 @@ const handler = NextAuth({
       }
       return token;
     },
-    async session({ session, token }) {
+    async session({ session, token }: any) {
       // Send properties to the client
       if (token) {
-        session.accessToken = token.accessToken as string;
-        session.provider = token.provider as string;
+        (session as any).accessToken = token.accessToken as string;
+        (session as any).provider = token.provider as string;
         if (token.profile) {
-          session.profile = token.profile;
+          (session as any).profile = token.profile;
         }
       }
       return session;
