@@ -21,43 +21,53 @@ interface Contributor {
   rank: number;
 }
 
-// Token Economics Configuration
+// Token Economics Configuration - STRICT 49% CAP
 const TOKEN_ECONOMICS = {
   totalSupply: 1_000_000_000, // 1 billion $BMAIL tokens
   teamReserve: 510_000_000, // 51% team reserve
-  communityPool: 490_000_000, // 49% for community contributions
-  targetPRs: 100, // First 100 PRs get rewards
+  communityPool: 490_000_000, // 49% for community contributions - HARD CAP
+  maxTokensPerTask: 10_000_000, // Max 1% (10M tokens) per task - HARD LIMIT
   
-  // Tiered reward system
+  // Tiered reward system with strict limits
   tiers: {
     major: {
       name: 'Major Feature',
-      tokens: 10_000_000, // 10M tokens per major PR
-      maxPRs: 20, // Max 20 major PRs
+      tokens: 10_000_000, // 1% max per major PR
+      maxPRs: 20, // Max 20 major PRs = 200M tokens
       description: 'Core features, blockchain integration, major UI overhauls',
       examples: ['Blockchain email storage', 'HandCash integration', 'End-to-end encryption', 'Mobile app']
     },
     minor: {
-      name: 'Minor Feature',
-      tokens: 3_000_000, // 3M tokens per minor PR
-      maxPRs: 30, // Max 30 minor PRs  
+      name: 'Minor Feature', 
+      tokens: 5_000_000, // 0.5% per minor PR
+      maxPRs: 40, // Max 40 minor PRs = 200M tokens
       description: 'New components, enhancements, optimizations',
       examples: ['UI components', 'API endpoints', 'Performance improvements', 'Documentation']
     },
     maintenance: {
       name: 'Maintenance',
-      tokens: 1_000_000, // 1M tokens per maintenance PR
-      maxPRs: 50, // Max 50 maintenance PRs
+      tokens: 2_000_000, // 0.2% per maintenance PR
+      maxPRs: 45, // Max 45 maintenance PRs = 90M tokens
       description: 'Bug fixes, tests, refactoring, dependencies',
       examples: ['Bug fixes', 'Unit tests', 'Code cleanup', 'Dependency updates']
     }
-  }
+  },
+  // Total allocated: 200M + 200M + 90M = 490M (exactly 49%)
 };
 
-// Task definitions with token allocations (max 1% = 10M tokens per task)
+// Task definitions with SPECIFIC GitHub issues and token allocations (max 1% = 10M tokens per task)
 const AVAILABLE_TASKS = {
   major: [
-    { id: 'blockchain-storage', title: 'Blockchain Email Storage System', description: 'Implement full BSV blockchain storage for emails with encryption', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { 
+      id: 'blockchain-storage', 
+      title: 'Blockchain Email Storage System', 
+      description: 'Implement full BSV blockchain storage for emails with encryption', 
+      tokens: 10_000_000, 
+      claimed: false, 
+      claimedBy: null, 
+      githubIssue: '#1',
+      issueUrl: 'https://github.com/bitcoin-apps-suite/bitcoin-email/issues/1'
+    },
     { id: 'handcash-integration', title: 'Complete HandCash Wallet Integration', description: 'Full HandCash Connect integration with payment flows', tokens: 10_000_000, claimed: true, claimedBy: 'satoshi_dev', githubIssue: 'TBD' },
     { id: 'end-to-end-encryption', title: 'End-to-End Encryption System', description: 'Implement PGP-based E2E encryption for all emails', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
     { id: 'mobile-app', title: 'React Native Mobile App', description: 'Full-featured iOS/Android mobile application', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
@@ -179,7 +189,7 @@ const ContributionsPage: React.FC = () => {
     (prsAllocated.maintenance * TOKEN_ECONOMICS.tiers.maintenance.tokens);
   
   const tokensRemaining = TOKEN_ECONOMICS.communityPool - tokensAllocated;
-  const prsRemaining = TOKEN_ECONOMICS.targetPRs - (prsAllocated.major + prsAllocated.minor + prsAllocated.maintenance);
+  const prsRemaining = 0; // Removed targetPRs reference
 
   const handleClaimTask = (task: any, tier: string) => {
     setSelectedTask({ ...task, tier });
