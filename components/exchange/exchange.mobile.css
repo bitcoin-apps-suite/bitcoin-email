@@ -1,0 +1,397 @@
+/* Exchange & Lists Mobile Styles */
+
+@media (max-width: 768px) {
+  /* Exchange Container */
+  .exchange-container {
+    padding: 12px !important;
+  }
+
+  /* Exchange Header */
+  .exchange-header {
+    padding: 16px 12px !important;
+  }
+
+  .exchange-header h2 {
+    font-size: 24px !important;
+  }
+
+  .exchange-subtitle {
+    font-size: 12px !important;
+  }
+
+  /* Stats Grid - 2 columns on mobile */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .stat-card {
+    padding: 12px !important;
+    min-height: auto !important;
+  }
+
+  .stat-value {
+    font-size: 18px !important;
+  }
+
+  .stat-label {
+    font-size: 10px !important;
+  }
+
+  .stat-change {
+    font-size: 10px !important;
+  }
+
+  /* Exchange Tabs */
+  .exchange-tabs {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px !important;
+    padding-bottom: 8px;
+    margin-bottom: 16px !important;
+  }
+
+  .exchange-tab {
+    flex-shrink: 0;
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+    white-space: nowrap;
+  }
+
+  /* Table Container - Horizontal scroll */
+  .exchange-table-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -12px !important;
+    padding: 0 12px !important;
+  }
+
+  .exchange-table {
+    min-width: 600px !important;
+    font-size: 12px !important;
+  }
+
+  .exchange-table th {
+    padding: 8px 6px !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+  }
+
+  .exchange-table td {
+    padding: 10px 6px !important;
+    font-size: 11px !important;
+  }
+
+  /* List badges in table */
+  .list-badge {
+    padding: 2px 6px !important;
+    font-size: 9px !important;
+  }
+
+  /* Action buttons in table */
+  .table-action-btn {
+    padding: 4px 8px !important;
+    font-size: 10px !important;
+  }
+
+  /* Revenue Streams */
+  .revenue-streams {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .revenue-card {
+    padding: 12px !important;
+  }
+
+  .revenue-amount {
+    font-size: 20px !important;
+  }
+
+  .revenue-label {
+    font-size: 11px !important;
+  }
+
+  /* Create List Modal on mobile */
+  .create-list-modal {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .modal-content {
+    padding: 16px !important;
+  }
+
+  .modal-header {
+    padding: 12px 16px !important;
+  }
+
+  .modal-title {
+    font-size: 18px !important;
+  }
+
+  /* Form inputs */
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 14px !important;
+    padding: 10px !important;
+  }
+
+  .form-label {
+    font-size: 12px !important;
+  }
+
+  /* Marketplace View */
+  .marketplace-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .marketplace-card {
+    padding: 16px !important;
+  }
+
+  .marketplace-card-header {
+    margin-bottom: 12px !important;
+  }
+
+  .marketplace-card-title {
+    font-size: 14px !important;
+  }
+
+  .marketplace-card-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 20px !important;
+  }
+
+  .marketplace-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .marketplace-stat {
+    padding: 8px !important;
+  }
+
+  .marketplace-stat-value {
+    font-size: 14px !important;
+  }
+
+  .marketplace-stat-label {
+    font-size: 9px !important;
+  }
+
+  /* Trading View */
+  .trading-panel {
+    padding: 12px !important;
+  }
+
+  .order-book {
+    font-size: 11px !important;
+  }
+
+  .order-row {
+    padding: 4px !important;
+  }
+
+  .price-chart {
+    height: 150px !important;
+  }
+
+  /* Filters */
+  .filter-dropdown {
+    width: 100% !important;
+  }
+
+  .filter-options {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Search Bar */
+  .search-container {
+    width: 100% !important;
+    margin-bottom: 12px !important;
+  }
+
+  .search-input {
+    font-size: 14px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+/* Mobile-specific list cards */
+@media (max-width: 768px) {
+  .mobile-list-card {
+    background: linear-gradient(145deg, rgba(31, 41, 55, 0.9), rgba(17, 24, 39, 0.95));
+    border: 1px solid rgba(55, 65, 81, 0.3);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mobile-list-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .mobile-list-icon {
+    font-size: 28px;
+  }
+
+  .mobile-list-info {
+    flex: 1;
+  }
+
+  .mobile-list-title {
+    font-size: 14px;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .mobile-list-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mobile-list-badge {
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  .mobile-list-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .mobile-list-stat {
+    text-align: center;
+  }
+
+  .mobile-list-stat-value {
+    font-size: 13px;
+    color: white;
+    font-weight: 300;
+  }
+
+  .mobile-list-stat-label {
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .mobile-list-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .mobile-list-action {
+    flex: 1;
+    padding: 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .mobile-list-action.primary {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(0, 0, 0, 0.3));
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+  }
+}
+
+/* Bottom navigation for exchange */
+@media (max-width: 768px) {
+  .mobile-exchange-nav {
+    position: fixed;
+    bottom: 56px; /* Above main bottom nav */
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: linear-gradient(to top, rgba(17, 24, 39, 0.98), rgba(31, 41, 55, 0.95));
+    border-top: 1px solid rgba(239, 68, 68, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 16px;
+    z-index: 40;
+  }
+
+  .mobile-exchange-nav-item {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .mobile-exchange-nav-item.active {
+    color: #ef4444;
+    border-bottom: 2px solid #ef4444;
+  }
+
+  /* Adjust content padding for fixed nav */
+  .exchange-content {
+    padding-bottom: 120px !important; /* Account for both navs */
+  }
+}
+
+/* Performance optimizations */
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Landscape adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  .marketplace-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .mobile-exchange-nav {
+    height: 40px;
+  }
+
+  .exchange-header {
+    padding: 8px 12px !important;
+  }
+
+  .exchange-header h2 {
+    font-size: 20px !important;
+  }
+}

@@ -5,6 +5,7 @@ import Taskbar from '@/components/Taskbar';
 import { ConnectionBadge } from '@/components/ConnectionBadge';
 import { ConnectionsModal } from '@/components/ConnectionsModal';
 import { useRouter } from 'next/navigation';
+import './portfolio.mobile.css';
 
 export default function PortfolioPage() {
   const router = useRouter();

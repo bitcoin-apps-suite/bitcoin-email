@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import './exchange.mobile.css';
 
 interface MarketplaceListing {
   id: string;
