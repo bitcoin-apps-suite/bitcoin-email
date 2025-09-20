@@ -1,0 +1,167 @@
+{
+  "campaigns": [
+    {
+      "id": "spam-001",
+      "date": "2024-01-20",
+      "subject": "🥫 Have You Had Your SPAM Today? - BTC Fee Edition",
+      "from": "chef@spam-kitchen.bsv",
+      "to": "hungry-for-scaling@bitcoin.email",
+      "image": "/spam-campaigns/images/spam-can-fees.png",
+      "tagline": "Serving Fresh Block Space Since Never!",
+      "content": {
+        "headline": "TODAY'S SPECIAL: $89 Transaction Fees!",
+        "body": "Folks, our competitors at BTC Diner are serving up some real expensive SPAM! Their 'Lightning Fast' service still requires a $50 deposit just to open the can. Meanwhile, at BSV Kitchen, we're serving unlimited transactions for fractions of a penny. No waiting, no bidding wars, just pure uncanned potential!",
+        "punchline": "Warning: BTC SPAM may contain traces of Ordinals, causing severe blockchain constipation.",
+        "cta": "Try Bitcoin Email - Where Your Messages Actually Arrive!"
+      },
+      "vintageStyle": {
+        "primaryColor": "#FFD700",
+        "accentColor": "#FF6B6B",
+        "fontFamily": "1950s Diner",
+        "borderStyle": "enamel-sign"
+      }
+    },
+    {
+      "id": "spam-002",
+      "date": "2024-01-21",
+      "subject": "🍖 Mempool Meat Loaf - Aged 3 Days and Counting!",
+      "from": "mempool-chef@congestion.btc",
+      "to": "still-waiting@bitcoin.email",
+      "image": "/spam-campaigns/images/mempool-meatloaf.png",
+      "tagline": "Aged to Imperfection in the Mempool!",
+      "content": {
+        "headline": "MEMPOOL SPECIAL: Your TX is #287,542 in Line!",
+        "body": "Our premium BTC Mempool aging process ensures your transaction marinates for days in a pool of 300,000 other waiting orders. Each transaction is carefully ignored until you pay the ransom... err, 'priority fee' of only $127! Compare that to BSV's instant settlement - boring!",
+        "punchline": "BTC: Where 'Peer-to-Peer Electronic Cash' became 'Peer-to-Peer Waiting Room'",
+        "cta": "Bitcoin Email - Instant Delivery, No Marinating Required!"
+      }
+    },
+    {
+      "id": "spam-003",
+      "date": "2024-01-22",
+      "subject": "🎪 Step Right Up! Win 7 Whole Transactions Per Second!",
+      "from": "carnival-barker@btc-circus.lol",
+      "to": "gullible@bitcoin.email",
+      "image": "/spam-campaigns/images/btc-carnival.png",
+      "tagline": "The Greatest Slowdown on Earth!",
+      "content": {
+        "headline": "AMAZING! Watch BTC Process 7 TPS!",
+        "body": "Ladies and gentlemen, boys and girls! Witness the INCREDIBLE spectacle of Bitcoin Core processing SEVEN whole transactions per second! That's right, the same throughput as a 1990s dial-up modem! Meanwhile, BSV is doing 50,000+ TPS, but who's counting?",
+        "punchline": "Side effects of BTC include: High blood pressure from fees, chronic waiting syndrome, and Ordinal infections.",
+        "cta": "Join Bitcoin Email - Where Scaling Isn't a Circus Act!"
+      }
+    },
+    {
+      "id": "spam-004",
+      "date": "2024-01-23",
+      "subject": "💊 Enlarge Your Block Size With This ONE WEIRD TRICK!",
+      "from": "dr-satoshi@real-bitcoin.bsv",
+      "to": "size-matters@bitcoin.email",
+      "image": "/spam-campaigns/images/block-size-pills.png",
+      "tagline": "Doctors HATE This Simple Scaling Solution!",
+      "content": {
+        "headline": "SHOCKING: Man Discovers Blocks Can Be Bigger Than 1MB!",
+        "body": "Local man STUNS Bitcoin Core developers by revealing this ONE SIMPLE TRICK: Just make the blocks bigger! Core devs FURIOUS! 'We spent 10 years avoiding the obvious solution,' admits anonymous developer. BSV users report 4GB blocks with ZERO side effects!",
+        "punchline": "Warning: Large blocks may cause extreme throughput and dangerously low fees.",
+        "cta": "Bitcoin Email - Size DOES Matter!"
+      }
+    },
+    {
+      "id": "spam-005",
+      "date": "2024-01-24",
+      "subject": "🏦 Your BTC is TOTALLY Safe With Us (Trust Me Bro)",
+      "from": "definitely-not-ftx@custodian.btc",
+      "to": "not-your-keys@bitcoin.email",
+      "image": "/spam-campaigns/images/custodian-spam.png",
+      "tagline": "Because On-Chain is Too Expensive Anyway!",
+      "content": {
+        "headline": "Why Move BTC When Fees Cost More Than Your Stack?",
+        "body": "Since it costs $75 to move your BTC on-chain, why not just leave it with us? We're DEFINITELY not like Mt. Gox, QuadrigaCX, FTX, Celsius, BlockFi, or those other 47 exchanges. We're different! We promise! *fingers crossed behind back*",
+        "punchline": "BTC: Turning 'Be Your Own Bank' into 'Please Be My Bank'",
+        "cta": "Bitcoin Email - Your Keys, Your Coins, Your Emails!"
+      }
+    },
+    {
+      "id": "spam-006",
+      "date": "2024-01-25",
+      "subject": "🖼️ Hot Single JPEGs Looking to Clog Your Blockchain!",
+      "from": "ordinals@jpeg-pollution.btc",
+      "to": "clean-blocks@bitcoin.email",
+      "image": "/spam-campaigns/images/ordinals-spam.png",
+      "tagline": "Turning Money into Monkey Pictures Since 2023!",
+      "content": {
+        "headline": "EXCLUSIVE: Inscribe JPEGs for Only $500 Per Image!",
+        "body": "Lonely monkey JPEGs in your area want to meet YOUR blockchain! Each 'artistic' image only costs $500 in fees to permanently store where financial transactions should go. It's like graffiti, but more expensive and less artistic!",
+        "punchline": "Ordinals: Proving BTC can't even be digital cash OR digital gold properly.",
+        "cta": "Bitcoin Email - We Store Emails, Not Expensive JPEGs!"
+      }
+    },
+    {
+      "id": "spam-007",
+      "date": "2024-01-26",
+      "subject": "⚡ Lightning Network: Still Loading... (Day 2,847)",
+      "from": "still-syncing@lightning.btc",
+      "to": "gave-up@bitcoin.email",
+      "image": "/spam-campaigns/images/lightning-loading.png",
+      "tagline": "Lightning Fast! (Terms and Conditions Apply)",
+      "content": {
+        "headline": "BREAKTHROUGH: Lightning Only Needs $50 to Open Channel!",
+        "body": "Revolutionary news! The Lightning Network now ONLY requires $50 to open a channel, $30 to close it, and constant online presence to not lose funds! Plus, routing failures are down to just 40%! Who needs instant, cheap, on-chain transactions anyway?",
+        "punchline": "Lightning Network: It's not broken, it's just 'differently functional'",
+        "cta": "Bitcoin Email - Actual Instant Payments, No Channels Required!"
+      }
+    },
+    {
+      "id": "spam-008",
+      "date": "2024-01-27",
+      "subject": "🎭 BTC Conference 2025: Same Cope, Different Year!",
+      "from": "echo-chamber@btc-conf.com",
+      "to": "free-thinker@bitcoin.email",
+      "image": "/spam-campaigns/images/btc-conference.png",
+      "tagline": "Hear Why High Fees Are Actually Good!",
+      "content": {
+        "headline": "EXCLUSIVE: 5 Speakers Explain Why 1MB is Perfect!",
+        "body": "Join us for 3 days of mental gymnastics! Watch 'experts' explain why: Bitcoin isn't meant for payments, high fees mean security, Lightning will work 'soon', and Ordinals are actually innovation! Ticket: 0.001 BTC (+ $300 network fee).",
+        "punchline": "Sponsored by BlockStream and Cognitive Dissonance™",
+        "cta": "Bitcoin Email - We Scale First, Make Excuses Never!"
+      }
+    },
+    {
+      "id": "spam-009",
+      "date": "2024-01-28",
+      "subject": "🤖 Nigerian Prince Has 10,000 BTC Stuck in SegWit!",
+      "from": "prince@nigerian-btc.scam",
+      "to": "helpful-soul@bitcoin.email",
+      "image": "/spam-campaigns/images/nigerian-prince-btc.png",
+      "tagline": "A Classic Scam for a Classic Failure!",
+      "content": {
+        "headline": "URGENT: Need 1 BSV to Pay $3000 BTC Fees!",
+        "body": "Dearest friend, I am Prince of Nigeria with 10,000 BTC trapped in SegWit wallet. The curse of small blocks means I need $3,000 just to move it! Please send 1 BSV (worth actual money) and I will share my immovable fortune with you!",
+        "punchline": "Even Nigerian Princes can't afford BTC transaction fees.",
+        "cta": "Bitcoin Email - Scam-Free, Fee-Free, Hassle-Free!"
+      }
+    },
+    {
+      "id": "spam-010",
+      "date": "2024-01-29",
+      "subject": "📊 STUDY: 99% of BTC is Just Sitting There",
+      "from": "researcher@obvious-facts.lol",
+      "to": "shocked@bitcoin.email",
+      "image": "/spam-campaigns/images/btc-furniture.png",
+      "tagline": "Digital Gold or Digital Paperweight?",
+      "content": {
+        "headline": "BREAKING: BTC Achieves Perfect Score in Doing Nothing!",
+        "body": "New research reveals what we already knew: BTC has evolved from 'peer-to-peer electronic cash' to 'peer-to-peer digital furniture'. Average time between moves: 4.7 years. Primary use case: Screenshots of wallet balance. Revolutionary!",
+        "punchline": "BTC: It's not a bug, it's a feature that it doesn't work!",
+        "cta": "Bitcoin Email - We Actually USE the Blockchain!"
+      }
+    }
+  ],
+  "twitterTemplates": [
+    "🥫 Have you had your SPAM today?\n\n{headline}\n\n{punchline}\n\n#BitcoinEmail #BSV #ScalingMatters",
+    "📧 Fresh from the can!\n\n{headline}\n\n💸 BTC Fee: ${fee}\n⚡ BSV Fee: $0.0001\n\n{punchline}\n\n#BitcoinEmail",
+    "🎪 Today's Special at the BTC Circus:\n\n{headline}\n\n{body_excerpt}\n\n#HaveYouHadYourSPAMToday #BitcoinEmail",
+    "⚠️ WARNING: {headline}\n\nSide effects of BTC include:\n• Chronic waiting\n• Fee anxiety\n• Scaling denial\n\nTry #BitcoinEmail instead!",
+    "🍖 Mempool Special:\n\n{headline}\n\nYour transaction: #{position}\nEstimated wait: {days} days\nRequired bribe: ${fee}\n\n#BitcoinEmail #InstantDelivery"
+  ]
+}
