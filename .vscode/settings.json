@@ -126,7 +126,6 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "fluent-icons",
   "workbench.sideBar.location": "left",
-  "workbench.activityBar.visible": true,
   "workbench.statusBar.visible": true,
   "workbench.layoutControl.enabled": false,
   "breadcrumbs.enabled": true,
