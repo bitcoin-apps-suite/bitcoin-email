@@ -4,6 +4,7 @@ import "./mobile.css";
 import Taskbar from "../components/Taskbar";
 import MobileBottomNav from "../components/MobileBottomNav";
 import { InstallPrompt } from "../components/InstallPrompt";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Bitcoin Email - Blockchain-Powered Email Client",
@@ -55,12 +56,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="antialiased h-full">
-        <Taskbar />
-        <div className="pt-[22px] md:pt-[22px] mobile-content-wrapper">
-          {children}
-        </div>
-        <MobileBottomNav />
-        <InstallPrompt />
+        <Providers>
+          <Taskbar />
+          <div className="pt-[22px] md:pt-[22px] mobile-content-wrapper">
+            {children}
+          </div>
+          <MobileBottomNav />
+          <InstallPrompt />
+        </Providers>
       </body>
     </html>
   );

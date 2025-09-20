@@ -23,6 +23,7 @@
     "googleapis": "^160.0.0",
     "mailparser": "^3.7.4",
     "next": "15.5.3",
+    "next-auth": "^4.24.11",
     "next-pwa": "^5.6.0",
     "node-imap": "^0.9.6",
     "nodemailer": "^7.0.6",
