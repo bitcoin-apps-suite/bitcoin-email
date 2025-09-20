@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./mobile.css";
 import Taskbar from "../components/Taskbar";
+import MobileBottomNav from "../components/MobileBottomNav";
 import { InstallPrompt } from "../components/InstallPrompt";
 
 export const metadata: Metadata = {
@@ -54,9 +56,10 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className="antialiased h-full">
         <Taskbar />
-        <div className="pt-[22px]">
+        <div className="pt-[22px] md:pt-[22px] mobile-content-wrapper">
           {children}
         </div>
+        <MobileBottomNav />
         <InstallPrompt />
       </body>
     </html>

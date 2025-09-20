@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import MobileMenu from './MobileMenu';
 import './Taskbar.css';
 
 interface DropdownItem {
@@ -34,6 +36,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [showBitcoinSuite, setShowBitcoinSuite] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   const bitcoinApps = [
     { name: 'Bitcoin Auth', color: '#ef4444', url: '#' },
@@ -370,6 +373,9 @@ const Taskbar: React.FC<TaskbarProps> = ({
             </>
           )}
         </div>
+        
+        {/* Mobile Menu */}
+        <MobileMenu currentPath={pathname} />
       </div>
     </div>
   );

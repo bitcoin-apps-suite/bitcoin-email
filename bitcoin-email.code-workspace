@@ -1,0 +1,376 @@
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "Bitcoin Email",
+    },
+    {
+      "path": "../../../../Users/b0ase/bitcoin-spreadsheets",
+    },
+    {
+      "path": "../../../../Users/b0ase/Projects/bitcoin-apps-suite",
+    },
+    {
+      "path": "../../../../Users/b0ase/Projects/bitcoin-drive",
+    },
+    {
+      "path": "../../../../Users/b0ase/Projects/bitcoin-exchange",
+    },
+    {
+      "path": "../../../../Users/b0ase/Projects/bitcoin-music",
+    },
+    {
+      "path": "../../../../Users/b0ase/Projects/bitcoin-wallet",
+    },
+    {
+      "path": "../../../../Users/b0ase/Projects/bitcoin-writer",
+    },
+  ],
+  "settings": {
+    // Editor Settings
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit",
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.rulers": [80, 120],
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "strings": true,
+    },
+
+    // TypeScript/JavaScript Settings
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+
+    // CSS Settings
+    "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "css.lint.unknownAtRules": "ignore",
+
+    // JSON Settings
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+
+    // ESLint Settings
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+    "eslint.workingDirectories": [
+      {
+        "mode": "auto",
+      },
+    ],
+
+    // Files Settings
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/out": true,
+      "**/build": true,
+      "**/dist": true,
+      "**/.turbo": true,
+      "**/*.tsbuildinfo": true,
+      "**/._*": true,
+      "**/.env.local": false,
+      "**/.env.production": false,
+    },
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true,
+      "**/.next/**": true,
+      "**/out/**": true,
+      "**/build/**": true,
+      "**/dist/**": true,
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/out": true,
+      "**/build": true,
+      "**/dist": true,
+      "**/.turbo": true,
+      "**/package-lock.json": true,
+      "**/yarn.lock": true,
+      "**/pnpm-lock.yaml": true,
+      "**/*.min.js": true,
+      "**/*.min.css": true,
+    },
+
+    // Prettier Settings
+    "prettier.semi": true,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "es5",
+    "prettier.printWidth": 100,
+    "prettier.tabWidth": 2,
+
+    // Git Settings
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+
+    // Terminal Settings
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.fontSize": 14,
+
+    // Tailwind CSS Settings
+    "tailwindCSS.includeLanguages": {
+      "plaintext": "html",
+    },
+    "tailwindCSS.emmetCompletions": true,
+
+    // Next.js Specific
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact",
+      "typescript": "typescriptreact",
+    },
+
+    // Project Specific Colors (Bitcoin Email Red Theme)
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#1a0a0a",
+      "activityBar.foreground": "#ef4444",
+      "activityBar.inactiveForeground": "#666666",
+      "activityBarBadge.background": "#ef4444",
+      "activityBarBadge.foreground": "#ffffff",
+      "sideBar.background": "#0a0a0a",
+      "sideBar.foreground": "#cccccc",
+      "sideBar.border": "#2a2a2a",
+      "sideBarTitle.foreground": "#ef4444",
+      "sideBarSectionHeader.background": "#1a1a1a",
+      "sideBarSectionHeader.foreground": "#ef4444",
+      "list.activeSelectionBackground": "#ef444433",
+      "list.activeSelectionForeground": "#ffffff",
+      "list.inactiveSelectionBackground": "#ef444422",
+      "list.hoverBackground": "#ef444411",
+      "list.highlightForeground": "#ef4444",
+      "editor.background": "#0a0a0a",
+      "editor.foreground": "#ffffff",
+      "editor.lineHighlightBackground": "#1a1a1a",
+      "editor.selectionBackground": "#ef444433",
+      "editorCursor.foreground": "#ef4444",
+      "editorLineNumber.foreground": "#666666",
+      "editorLineNumber.activeForeground": "#ef4444",
+      "tab.activeBackground": "#1a1a1a",
+      "tab.activeForeground": "#ffffff",
+      "tab.activeBorder": "#ef4444",
+      "tab.inactiveBackground": "#0a0a0a",
+      "tab.inactiveForeground": "#888888",
+      "statusBar.background": "#ef4444",
+      "statusBar.foreground": "#ffffff",
+      "statusBar.debuggingBackground": "#ff6666",
+      "statusBarItem.hoverBackground": "#ff6666",
+      "titleBar.activeBackground": "#1a1a1a",
+      "titleBar.activeForeground": "#ffffff",
+      "titleBar.inactiveBackground": "#0a0a0a",
+      "titleBar.inactiveForeground": "#888888",
+      "button.background": "#ef4444",
+      "button.foreground": "#ffffff",
+      "button.hoverBackground": "#ff6666",
+      "input.background": "#1a1a1a",
+      "input.foreground": "#ffffff",
+      "input.border": "#2a2a2a",
+      "inputOption.activeBorder": "#ef4444",
+      "focusBorder": "#ef4444",
+      "progressBar.background": "#ef4444",
+      "badge.background": "#ef4444",
+      "badge.foreground": "#ffffff",
+      "terminal.background": "#0a0a0a",
+      "terminal.foreground": "#ffffff",
+      "terminal.ansiRed": "#ef4444",
+      "terminal.ansiBrightRed": "#ff6666",
+      "terminalCursor.foreground": "#ef4444",
+      "panelTitle.activeBorder": "#ef4444",
+      "panel.background": "#0a0a0a",
+      "panel.border": "#2a2a2a",
+      "notifications.background": "#1a1a1a",
+      "notificationLink.foreground": "#ef4444",
+      "gitDecoration.modifiedResourceForeground": "#ef4444",
+      "gitDecoration.deletedResourceForeground": "#ff6666",
+    },
+
+    // Custom File Associations
+    "files.associations": {
+      "*.css": "css",
+      "*.module.css": "css",
+      ".env*": "dotenv",
+    },
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "dsznajder.es7-react-js-snippets",
+      "formulahendry.auto-rename-tag",
+      "christian-kohler.path-intellisense",
+      "mikestead.dotenv",
+      "yoavbls.pretty-ts-errors",
+      "prisma.prisma",
+      "ms-vscode.vscode-typescript-next",
+      "styled-components.vscode-styled-components",
+      "github.copilot",
+      "eamodio.gitlens",
+      "usernamehw.errorlens",
+      "wix.vscode-import-cost",
+      "christian-kohler.npm-intellisense",
+      "eg2.vscode-npm-script",
+      "csstools.postcss",
+      "unifiedjs.vscode-mdx",
+    ],
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Next.js: debug server-side",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "npm",
+        "runtimeArgs": ["run", "dev"],
+        "skipFiles": ["<node_internals>/**"],
+        "console": "integratedTerminal",
+        "env": {
+          "NODE_OPTIONS": "--inspect",
+        },
+      },
+      {
+        "name": "Next.js: debug client-side",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}",
+        "sourceMapPathOverrides": {
+          "webpack://_N_E/*": "${workspaceFolder}/*",
+        },
+      },
+      {
+        "name": "Next.js: debug full stack",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "npm",
+        "runtimeArgs": ["run", "dev"],
+        "skipFiles": ["<node_internals>/**"],
+        "serverReadyAction": {
+          "pattern": "- Local:.+(https?://.+)",
+          "uriFormat": "%s",
+          "action": "debugWithChrome",
+        },
+        "console": "integratedTerminal",
+        "env": {
+          "NODE_OPTIONS": "--inspect",
+        },
+      },
+    ],
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "dev",
+        "type": "npm",
+        "script": "dev",
+        "problemMatcher": [],
+        "isBackground": true,
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated",
+          "group": "develop",
+        },
+        "group": {
+          "kind": "build",
+          "isDefault": true,
+        },
+      },
+      {
+        "label": "build",
+        "type": "npm",
+        "script": "build",
+        "problemMatcher": [],
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated",
+          "group": "build",
+        },
+      },
+      {
+        "label": "start",
+        "type": "npm",
+        "script": "start",
+        "problemMatcher": [],
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated",
+          "group": "production",
+        },
+      },
+      {
+        "label": "lint",
+        "type": "npm",
+        "script": "lint",
+        "problemMatcher": ["$eslint-stylish"],
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated",
+          "group": "test",
+        },
+      },
+      {
+        "label": "type-check",
+        "type": "shell",
+        "command": "npx tsc --noEmit",
+        "problemMatcher": ["$tsc"],
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated",
+          "group": "test",
+        },
+      },
+      {
+        "label": "clean",
+        "type": "shell",
+        "command": "rm -rf .next out node_modules/.cache",
+        "problemMatcher": [],
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated",
+          "group": "maintain",
+        },
+      },
+      {
+        "label": "install",
+        "type": "npm",
+        "script": "install",
+        "problemMatcher": [],
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated",
+          "group": "maintain",
+        },
+      },
+    ],
+  },
+}

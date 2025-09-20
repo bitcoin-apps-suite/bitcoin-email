@@ -28,7 +28,7 @@ export class EmailEncryption {
 
     return {
       privateKey: privateKey.toWif(),
-      publicKey: publicKey.toHex()
+      publicKey: publicKey.toString()
     };
   }
 
@@ -50,7 +50,7 @@ export class EmailEncryption {
 
     return {
       privateKey: privateKey.toWif(),
-      publicKey: publicKey.toHex(),
+      publicKey: publicKey.toString(),
       encryptionKey
     };
   }
@@ -83,7 +83,7 @@ export class EmailEncryption {
 
     // Get sender's public key
     const senderPK = PrivateKey.fromWif(senderPrivateKey);
-    const senderPublicKey = senderPK.toPublicKey().toHex();
+    const senderPublicKey = senderPK.toPublicKey().toString();
 
     // Create signature for integrity
     const dataToSign = encryptedContent + encryptedSubject + recipientPublicKeys.join('');
@@ -135,7 +135,7 @@ export class EmailEncryption {
 
     // Get recipient's public key
     const recipientPK = PrivateKey.fromWif(recipientPrivateKey);
-    const recipientPublicKey = recipientPK.toPublicKey().toHex();
+    const recipientPublicKey = recipientPK.toPublicKey().toString();
 
     // Check if recipient is authorized
     if (!encryptedEmail.recipientPublicKeys.includes(recipientPublicKey)) {
@@ -177,7 +177,7 @@ export class EmailEncryption {
   /**
    * Encrypt data with AES
    */
-  private static encryptWithAES(data: string, key: string, iv: string): string {
+  public static encryptWithAES(data: string, key: string, iv: string): string {
     const encrypted = CryptoJS.AES.encrypt(data, key, {
       iv: CryptoJS.enc.Hex.parse(iv),
       mode: CryptoJS.mode.CBC,
@@ -190,7 +190,7 @@ export class EmailEncryption {
   /**
    * Decrypt data with AES
    */
-  private static decryptWithAES(encryptedData: string, key: string, iv: string): string {
+  public static decryptWithAES(encryptedData: string, key: string, iv: string): string {
     const decrypted = CryptoJS.AES.decrypt(encryptedData, key, {
       iv: CryptoJS.enc.Hex.parse(iv),
       mode: CryptoJS.mode.CBC,
@@ -267,7 +267,7 @@ export class EmailEncryption {
     
     // In production, use proper ECDSA signing
     // For demo, create a simple signature
-    const signature = CryptoJS.HmacSHA256(hash, privateKey.toHex()).toString();
+    const signature = CryptoJS.HmacSHA256(hash, privateKey.toString()).toString();
     
     return signature;
   }
@@ -298,7 +298,7 @@ export class EmailEncryption {
     senderPrivateKey: string
   ): EncryptedEmail {
     const senderPK = PrivateKey.fromWif(senderPrivateKey);
-    const senderPublicKey = senderPK.toPublicKey().toHex();
+    const senderPublicKey = senderPK.toPublicKey().toString();
 
     // When encrypting for self, sender is also recipient
     return this.encryptEmail(

@@ -1,0 +1,20 @@
+  {
+    "manifest_version": 3,
+    "name": "Bitcoin Email Red",
+    "version": "1.0",
+    "theme": {
+      "colors": {
+        "frame": [239, 68, 68],
+        "frame_inactive": [200, 50, 50],
+        "frame_incognito": [91, 33, 182],
+        "frame_incognito_inactive": [69, 26, 138],
+        "toolbar": [26, 26, 26],
+        "tab_background_text": [200, 200, 200],
+        "tab_selected": [42, 42, 42],
+        "tab_text": [255, 255, 255],
+        "bookmark_text": [255, 255, 255],
+        "ntp_background": [10, 10, 10],
+        "ntp_text": [255, 255, 255]
+      }
+    }
+  }

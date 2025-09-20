@@ -43,9 +43,10 @@ export class HandCashService {
   private profile: HandCashProfile | null = null;
   private readonly APP_ID = process.env.NEXT_PUBLIC_HANDCASH_APP_ID || '';
   private readonly APP_SECRET = process.env.NEXT_PUBLIC_HANDCASH_APP_SECRET || '';
-  private readonly REDIRECT_URL = process.env.NEXT_PUBLIC_HANDCASH_REDIRECT_URL || 'http://localhost:3000/auth/callback';
+  private readonly REDIRECT_URL = process.env.NEXT_PUBLIC_HANDCASH_REDIRECT_URL || 'http://localhost:3004/auth/callback';
   private readonly API_BASE = 'https://cloud.handcash.io';
   private readonly CONNECT_API = 'https://connect.handcash.io/v3';
+  private readonly DEMO_MODE = !this.APP_ID || this.APP_ID === 'demo_app_id';
 
   /**
    * Get OAuth authorization URL

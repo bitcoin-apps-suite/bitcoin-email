@@ -222,11 +222,11 @@ export class EmailService {
         emails = emails.filter(e => e.starred === filter.starred);
       }
       if (filter.from) {
-        emails = emails.filter(e => e.from.includes(filter.from));
+        emails = emails.filter(e => e.from && e.from.includes(filter.from!));
       }
       if (filter.subject) {
         emails = emails.filter(e => 
-          e.subject.toLowerCase().includes(filter.subject.toLowerCase())
+          e.subject.toLowerCase().includes(filter.subject!.toLowerCase())
         );
       }
       if (filter.hasPayment !== undefined) {
@@ -363,7 +363,7 @@ export class EmailService {
     return recipients.map(r => {
       const seed = CryptoJS.SHA256(r).toString();
       const pk = PrivateKey.fromString(seed);
-      return pk.toPublicKey().toHex();
+      return pk.toPublicKey().toString();
     });
   }
 

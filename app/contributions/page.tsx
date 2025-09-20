@@ -57,40 +57,40 @@ const TOKEN_ECONOMICS = {
 // Task definitions with token allocations (max 1% = 10M tokens per task)
 const AVAILABLE_TASKS = {
   major: [
-    { id: 'blockchain-storage', title: 'Blockchain Email Storage System', description: 'Implement full BSV blockchain storage for emails with encryption', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#1' },
-    { id: 'handcash-integration', title: 'Complete HandCash Wallet Integration', description: 'Full HandCash Connect integration with payment flows', tokens: 10_000_000, claimed: true, claimedBy: 'satoshi_dev', githubIssue: '#2' },
-    { id: 'end-to-end-encryption', title: 'End-to-End Encryption System', description: 'Implement PGP-based E2E encryption for all emails', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#3' },
-    { id: 'mobile-app', title: 'React Native Mobile App', description: 'Full-featured iOS/Android mobile application', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#4' },
-    { id: 'nft-marketplace', title: 'Email List NFT Marketplace', description: 'Complete NFT minting and trading system for email lists', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#5' },
-    { id: 'ai-spam-filter', title: 'AI-Powered Spam Detection', description: 'Machine learning spam filter with blockchain verification', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#6' },
-    { id: 'defi-integration', title: 'DeFi Yield Generation', description: 'Integrate DeFi protocols for email list revenue sharing', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#7' },
-    { id: 'ipfs-attachments', title: 'IPFS Attachment Storage', description: 'Decentralized file storage for email attachments', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#8' },
-    { id: 'desktop-app', title: 'Electron Desktop Application', description: 'Native desktop app for Windows/Mac/Linux', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#9' },
-    { id: 'calendar-integration', title: 'Blockchain Calendar System', description: 'Decentralized calendar with smart contract events', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: '#10' }
+    { id: 'blockchain-storage', title: 'Blockchain Email Storage System', description: 'Implement full BSV blockchain storage for emails with encryption', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'handcash-integration', title: 'Complete HandCash Wallet Integration', description: 'Full HandCash Connect integration with payment flows', tokens: 10_000_000, claimed: true, claimedBy: 'satoshi_dev', githubIssue: 'TBD' },
+    { id: 'end-to-end-encryption', title: 'End-to-End Encryption System', description: 'Implement PGP-based E2E encryption for all emails', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'mobile-app', title: 'React Native Mobile App', description: 'Full-featured iOS/Android mobile application', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'nft-marketplace', title: 'Email List NFT Marketplace', description: 'Complete NFT minting and trading system for email lists', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'ai-spam-filter', title: 'AI-Powered Spam Detection', description: 'Machine learning spam filter with blockchain verification', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'defi-integration', title: 'DeFi Yield Generation', description: 'Integrate DeFi protocols for email list revenue sharing', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'ipfs-attachments', title: 'IPFS Attachment Storage', description: 'Decentralized file storage for email attachments', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'desktop-app', title: 'Electron Desktop Application', description: 'Native desktop app for Windows/Mac/Linux', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'calendar-integration', title: 'Blockchain Calendar System', description: 'Decentralized calendar with smart contract events', tokens: 10_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' }
   ],
   minor: [
-    { id: 'dark-mode', title: 'Dark Mode Theme System', description: 'Complete dark mode with theme switching', tokens: 3_000_000, claimed: true, claimedBy: 'alice_dev', githubIssue: '#11' },
-    { id: 'search-functionality', title: 'Advanced Search & Filters', description: 'Full-text search with advanced filtering options', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#12' },
-    { id: 'email-templates', title: 'Email Template Builder', description: 'Drag-and-drop email template creation system', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#13' },
-    { id: 'contact-management', title: 'Contact Management System', description: 'Full CRM-style contact management', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#14' },
-    { id: 'analytics-dashboard', title: 'Analytics Dashboard', description: 'Email analytics and engagement tracking', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#15' },
-    { id: 'api-documentation', title: 'API Documentation Site', description: 'Complete API docs with interactive examples', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#16' },
-    { id: 'keyboard-shortcuts', title: 'Keyboard Shortcuts System', description: 'Gmail-style keyboard navigation', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#17' },
-    { id: 'notification-system', title: 'Push Notifications', description: 'Web push and mobile notifications', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#18' },
-    { id: 'import-export', title: 'Import/Export System', description: 'Bulk email import/export functionality', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#19' },
-    { id: 'multi-language', title: 'Internationalization (i18n)', description: 'Multi-language support system', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: '#20' }
+    { id: 'dark-mode', title: 'Dark Mode Theme System', description: 'Complete dark mode with theme switching', tokens: 3_000_000, claimed: true, claimedBy: 'alice_dev', githubIssue: 'TBD' },
+    { id: 'search-functionality', title: 'Advanced Search & Filters', description: 'Full-text search with advanced filtering options', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'email-templates', title: 'Email Template Builder', description: 'Drag-and-drop email template creation system', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'contact-management', title: 'Contact Management System', description: 'Full CRM-style contact management', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'analytics-dashboard', title: 'Analytics Dashboard', description: 'Email analytics and engagement tracking', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'api-documentation', title: 'API Documentation Site', description: 'Complete API docs with interactive examples', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'keyboard-shortcuts', title: 'Keyboard Shortcuts System', description: 'Gmail-style keyboard navigation', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'notification-system', title: 'Push Notifications', description: 'Web push and mobile notifications', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'import-export', title: 'Import/Export System', description: 'Bulk email import/export functionality', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'multi-language', title: 'Internationalization (i18n)', description: 'Multi-language support system', tokens: 3_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' }
   ],
   maintenance: [
-    { id: 'unit-tests', title: 'Unit Test Coverage (80%)', description: 'Comprehensive unit test suite', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#21' },
-    { id: 'e2e-tests', title: 'E2E Test Suite', description: 'Cypress/Playwright end-to-end tests', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#22' },
-    { id: 'performance-optimization', title: 'Performance Optimization', description: 'Code splitting and lazy loading', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#23' },
-    { id: 'accessibility', title: 'WCAG 2.1 Accessibility', description: 'Full accessibility compliance', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#24' },
-    { id: 'security-audit', title: 'Security Audit & Fixes', description: 'Comprehensive security review', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#25' },
-    { id: 'docker-setup', title: 'Docker Configuration', description: 'Complete Docker deployment setup', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#26' },
-    { id: 'ci-cd', title: 'CI/CD Pipeline', description: 'GitHub Actions deployment pipeline', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#27' },
-    { id: 'error-handling', title: 'Error Handling System', description: 'Comprehensive error boundaries and logging', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#28' },
-    { id: 'rate-limiting', title: 'Rate Limiting', description: 'API rate limiting and throttling', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#29' },
-    { id: 'monitoring', title: 'Monitoring & Alerting', description: 'Application monitoring setup', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: '#30' }
+    { id: 'unit-tests', title: 'Unit Test Coverage (80%)', description: 'Comprehensive unit test suite', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'e2e-tests', title: 'E2E Test Suite', description: 'Cypress/Playwright end-to-end tests', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'performance-optimization', title: 'Performance Optimization', description: 'Code splitting and lazy loading', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'accessibility', title: 'WCAG 2.1 Accessibility', description: 'Full accessibility compliance', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'security-audit', title: 'Security Audit & Fixes', description: 'Comprehensive security review', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'docker-setup', title: 'Docker Configuration', description: 'Complete Docker deployment setup', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'ci-cd', title: 'CI/CD Pipeline', description: 'GitHub Actions deployment pipeline', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'error-handling', title: 'Error Handling System', description: 'Comprehensive error boundaries and logging', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'rate-limiting', title: 'Rate Limiting', description: 'API rate limiting and throttling', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' },
+    { id: 'monitoring', title: 'Monitoring & Alerting', description: 'Application monitoring setup', tokens: 1_000_000, claimed: false, claimedBy: null, githubIssue: 'TBD' }
   ]
 };
 
@@ -491,12 +491,12 @@ const ContributionsPage: React.FC = () => {
                       </div>
                       <div className="task-actions">
                         <a 
-                          href={`https://github.com/bitcoin-apps-suite/bitcoin-email/issues/${task.githubIssue.replace('#', '')}`}
+                          href="https://github.com/bitcoin-apps-suite/bitcoin-email/issues"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="github-issue-button"
                         >
-                          View Issue {task.githubIssue}
+                          View on GitHub
                         </a>
                         {task.claimed ? (
                           <div className="claimed-status">
@@ -538,12 +538,12 @@ const ContributionsPage: React.FC = () => {
                       </div>
                       <div className="task-actions">
                         <a 
-                          href={`https://github.com/bitcoin-apps-suite/bitcoin-email/issues/${task.githubIssue.replace('#', '')}`}
+                          href="https://github.com/bitcoin-apps-suite/bitcoin-email/issues"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="github-issue-button"
                         >
-                          View Issue {task.githubIssue}
+                          View on GitHub
                         </a>
                         {task.claimed ? (
                           <div className="claimed-status">
@@ -585,12 +585,12 @@ const ContributionsPage: React.FC = () => {
                       </div>
                       <div className="task-actions">
                         <a 
-                          href={`https://github.com/bitcoin-apps-suite/bitcoin-email/issues/${task.githubIssue.replace('#', '')}`}
+                          href="https://github.com/bitcoin-apps-suite/bitcoin-email/issues"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="github-issue-button"
                         >
-                          View Issue {task.githubIssue}
+                          View on GitHub
                         </a>
                         {task.claimed ? (
                           <div className="claimed-status">
@@ -724,57 +724,66 @@ const ContributionsPage: React.FC = () => {
             </div>
             
             <div className="modal-body">
-              <div className="task-info">
-                <p><strong>Reward:</strong> {(selectedTask.tokens / 1_000_000).toFixed(0)}M $BMAIL</p>
-                <p><strong>Description:</strong> {selectedTask.description}</p>
-                <p><strong>GitHub Issue:</strong> {selectedTask.githubIssue}</p>
-              </div>
-              
-              <div className="claim-requirements">
-                <h4>Requirements to Claim:</h4>
-                <div className="requirement-item">
-                  <input type="checkbox" id="github-connected" />
-                  <label htmlFor="github-connected">
-                    Connect GitHub Account
-                    <span className="requirement-status">✓ Connected</span>
-                  </label>
+              {/* Left Column - Task Details */}
+              <div className="modal-column">
+                <div className="task-info">
+                  <h4>Task Details</h4>
+                  <p><strong>Reward:</strong> {(selectedTask.tokens / 1_000_000).toFixed(0)}M $BMAIL</p>
+                  <p><strong>Description:</strong> {selectedTask.description}</p>
+                  <p><strong>Repository:</strong> <a href="https://github.com/bitcoin-apps-suite/bitcoin-email" target="_blank" rel="noopener noreferrer" className="text-bitcoin-red-500 hover:text-bitcoin-red-600">bitcoin-apps-suite/bitcoin-email</a></p>
                 </div>
-                <div className="requirement-item">
-                  <input type="checkbox" id="handcash-connected" />
-                  <label htmlFor="handcash-connected">
-                    Connect HandCash Wallet
-                    <span className="requirement-status">⚠ Required</span>
-                  </label>
-                </div>
-              </div>
-              
-              <div className="claim-form">
-                <div className="form-group">
-                  <label>GitHub Username:</label>
-                  <input 
-                    type="text" 
-                    placeholder="your-github-username"
-                    className="form-input"
-                  />
-                </div>
-                <div className="form-group">
-                  <label>HandCash Handle:</label>
-                  <input 
-                    type="text" 
-                    placeholder="$your-handcash-handle"
-                    className="form-input"
-                  />
+                
+                <div className="claim-requirements">
+                  <h4>Requirements to Claim:</h4>
+                  <div className="requirement-item">
+                    <input type="checkbox" id="github-connected" />
+                    <label htmlFor="github-connected">
+                      Connect GitHub Account
+                      <span className="requirement-status">✓ Connected</span>
+                    </label>
+                  </div>
+                  <div className="requirement-item">
+                    <input type="checkbox" id="handcash-connected" />
+                    <label htmlFor="handcash-connected">
+                      Connect HandCash Wallet
+                      <span className="requirement-status">⚠ Required</span>
+                    </label>
+                  </div>
                 </div>
               </div>
               
-              <div className="claim-agreement">
-                <p>By claiming this task, you agree to:</p>
-                <ul>
-                  <li>Complete the task within 30 days</li>
-                  <li>Follow the project's contribution guidelines</li>
-                  <li>Submit a pull request for review</li>
-                  <li>Provide your HandCash wallet for token distribution</li>
-                </ul>
+              {/* Right Column - Form and Agreement */}
+              <div className="modal-column">
+                <div className="claim-form">
+                  <h4>Connect Your Accounts</h4>
+                  <div className="form-group">
+                    <label>GitHub Username:</label>
+                    <input 
+                      type="text" 
+                      placeholder="your-github-username"
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>HandCash Handle:</label>
+                    <input 
+                      type="text" 
+                      placeholder="$your-handcash-handle"
+                      className="form-input"
+                    />
+                  </div>
+                </div>
+                
+                <div className="claim-agreement">
+                  <h4>Agreement</h4>
+                  <p>By claiming this task, you agree to:</p>
+                  <ul>
+                    <li>Complete the task within 30 days</li>
+                    <li>Follow the project's contribution guidelines</li>
+                    <li>Submit a pull request for review</li>
+                    <li>Provide your HandCash wallet for token distribution</li>
+                  </ul>
+                </div>
               </div>
             </div>
             

@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Bitcoin Email Red Theme",
+  "version": "1.0",
+  "description": "A dark red theme matching Bitcoin Email's design",
+  "theme": {
+    "colors": {
+      "frame": [10, 10, 10],
+      "frame_inactive": [20, 20, 20],
+      "frame_incognito": [10, 10, 10],
+      "frame_incognito_inactive": [20, 20, 20],
+      "toolbar": [26, 26, 26],
+      "tab_text": [255, 255, 255],
+      "tab_background_text": [170, 170, 170],
+      "tab_background_text_inactive": [136, 136, 136],
+      "tab_background_text_incognito": [170, 170, 170],
+      "tab_background_text_incognito_inactive": [136, 136, 136],
+      "bookmark_text": [255, 255, 255],
+      "ntp_background": [10, 10, 10],
+      "ntp_text": [255, 255, 255],
+      "ntp_link": [239, 68, 68],
+      "ntp_header": [239, 68, 68],
+      "ntp_logo_alternate": [239, 68, 68],
+      "ntp_section": [26, 26, 26],
+      "ntp_section_text": [255, 255, 255],
+      "ntp_section_link": [239, 68, 68],
+      "ntp_section_link_underline": [239, 68, 68],
+      "button_background": [239, 68, 68],
+      "omnibox_text": [255, 255, 255],
+      "omnibox_background": [26, 26, 26],
+      "toolbar_button_icon": [255, 255, 255],
+      "toolbar_text": [255, 255, 255],
+      "tab_highlight": [239, 68, 68],
+      "tab_selected": [26, 26, 26],
+      "sidebar": [10, 10, 10],
+      "sidebar_text": [255, 255, 255],
+      "sidebar_border": [42, 42, 42]
+    },
+    "tints": {
+      "buttons": [0, 1, 0.5],
+      "frame": [-1, -1, -1],
+      "frame_inactive": [-1, -1, 0.6],
+      "frame_incognito": [-1, -1, -1],
+      "frame_incognito_inactive": [-1, -1, 0.6]
+    },
+    "properties": {
+      "ntp_background_alignment": "center",
+      "ntp_background_repeat": "no-repeat"
+    }
+  }
+}
