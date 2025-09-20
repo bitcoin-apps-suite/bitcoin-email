@@ -24,30 +24,30 @@ interface Contributor {
 // Token Economics Configuration - STRICT 49% CAP
 const TOKEN_ECONOMICS = {
   totalSupply: 1_000_000_000, // 1 billion $BMAIL tokens
-  teamReserve: 510_000_000, // 51% team reserve
-  communityPool: 490_000_000, // 49% for community contributions - HARD CAP
-  maxTokensPerTask: 10_000_000, // Max 1% (10M tokens) per task - HARD LIMIT
+  teamReserve: 877_500_000, // 87.75% team reserve
+  communityPool: 122_500_000, // 12.25% for community contributions - HARD CAP
+  maxTokensPerTask: 2_500_000, // Max 0.25% (2.5M tokens) per task - HARD LIMIT
   
   // Tiered reward system with strict limits
   tiers: {
     major: {
       name: 'Major Feature',
-      tokens: 10_000_000, // 1% max per major PR
-      maxPRs: 20, // Max 20 major PRs = 200M tokens
+      tokens: 2_500_000, // 0.25% max per major PR
+      maxPRs: 20, // Max 20 major PRs = 50M tokens
       description: 'Core features, blockchain integration, major UI overhauls',
       examples: ['Blockchain email storage', 'HandCash integration', 'End-to-end encryption', 'Mobile app']
     },
     minor: {
       name: 'Minor Feature', 
-      tokens: 5_000_000, // 0.5% per minor PR
-      maxPRs: 40, // Max 40 minor PRs = 200M tokens
+      tokens: 1_250_000, // 0.125% per minor PR
+      maxPRs: 40, // Max 40 minor PRs = 50M tokens
       description: 'New components, enhancements, optimizations',
       examples: ['UI components', 'API endpoints', 'Performance improvements', 'Documentation']
     },
     maintenance: {
       name: 'Maintenance',
-      tokens: 2_000_000, // 0.2% per maintenance PR
-      maxPRs: 45, // Max 45 maintenance PRs = 90M tokens
+      tokens: 500_000, // 0.05% per maintenance PR
+      maxPRs: 45, // Max 45 maintenance PRs = 22.5M tokens
       description: 'Bug fixes, tests, refactoring, dependencies',
       examples: ['Bug fixes', 'Unit tests', 'Code cleanup', 'Dependency updates']
     }
