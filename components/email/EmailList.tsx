@@ -29,7 +29,7 @@ interface EmailListProps {
   searchQuery?: string;
 }
 
-export function EmailList({ onSelectEmail, activeFolder = 'inbox', searchQuery = '' }: EmailListProps) {
+export function EmailList({ onSelectEmail, activeFolder = 'inbox', searchQuery: externalSearchQuery = '' }: EmailListProps) {
   const [emails, setEmails] = useState<Email[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isMockData, setIsMockData] = useState(false);
@@ -37,6 +37,7 @@ export function EmailList({ onSelectEmail, activeFolder = 'inbox', searchQuery =
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [minPaymentFilter, setMinPaymentFilter] = useState(0);
   const [showSettings, setShowSettings] = useState(false);
+  const [localSearchQuery, setLocalSearchQuery] = useState('');
   const router = useRouter();
 
   const fetchEmails = useCallback(async () => {
@@ -86,6 +87,8 @@ export function EmailList({ onSelectEmail, activeFolder = 'inbox', searchQuery =
     return date.toLocaleDateString();
   };
 
+  const searchQuery = localSearchQuery || externalSearchQuery;
+  
   const filteredEmails = emails.filter(email => {
     // Filter by folder
     if (activeFolder === 'sent' && !email.from?.includes('@me')) return false;
@@ -197,6 +200,8 @@ export function EmailList({ onSelectEmail, activeFolder = 'inbox', searchQuery =
             type="text"
             placeholder="Search emails..."
             className="email-search-input"
+            value={localSearchQuery}
+            onChange={(e) => setLocalSearchQuery(e.target.value)}
           />
         </div>
         

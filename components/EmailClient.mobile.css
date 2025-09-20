@@ -9,12 +9,12 @@
   /* Full screen app container */
   .email-client {
     position: fixed;
-    top: 44px; /* Account for mobile taskbar height */
+    top: 0;
     left: 0;
     right: 0;
-    bottom: 60px; /* Account for mobile bottom nav */
+    bottom: 0;
     width: 100vw;
-    height: calc(100vh - 44px - 60px);
+    height: 100vh;
     margin: 0;
     border-radius: 0;
     box-shadow: none;
@@ -30,10 +30,10 @@
   .email-header {
     position: relative;
     z-index: 100;
-    height: 60px;
-    min-height: 60px;
+    height: 56px;
+    min-height: 56px;
     padding: 12px 16px;
-    margin-top: 8px; /* Add margin to bring header down */
+    margin-top: 0;
     border-bottom: 1px solid var(--email-border);
     display: flex;
     align-items: center;
@@ -124,6 +124,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    padding-top: 0;
   }
 
   /* Hide panel system on mobile */
@@ -210,11 +211,13 @@
   /* Email list panel */
   .email-list-container {
     width: 100% !important;
-    height: calc(100vh - 56px - 56px) !important;
+    height: 100% !important;
     border: none !important;
     position: relative !important;
     background: var(--email-bg-primary);
-    padding-top: 10px !important; /* Add padding to bring content down */
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow-y: auto !important;
   }
 
   /* Email preview panel */
@@ -253,19 +256,36 @@
   
   .email-list {
     padding: 0;
+    padding-top: 20px !important; /* Add spacing at top of list */
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .email-list-items {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 20px;
   }
   
   /* Inbox toolbar/header */
   .inbox-header,
   .email-list-header,
   .email-toolbar {
-    margin-top: 10px !important;
+    margin-top: 0 !important;
     padding-top: 10px !important;
+    position: sticky;
+    top: 0;
+    background: var(--email-bg-primary);
+    z-index: 10;
   }
 
   .email-item {
     padding: 12px 16px;
     border-bottom: 1px solid var(--email-border);
+    display: block !important;
+    cursor: pointer;
   }
 
   .email-item-header {
