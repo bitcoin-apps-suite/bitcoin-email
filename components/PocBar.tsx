@@ -21,7 +21,7 @@ export default function PocBar({ color = '#ff3333' }: PocBarProps) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between', // Space between left and right content
-        zIndex: 9999,
+        zIndex: 99999,
         fontSize: '14px',
         fontWeight: '400',
         color: '#1a1a1a',

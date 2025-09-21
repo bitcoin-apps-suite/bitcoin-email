@@ -21,6 +21,24 @@
   padding: 0;
 }
 
+/* Ensure PocBar and TaskBar links are clickable */
+.poc-banner a,
+.taskbar a,
+.taskbar-right a,
+.desktop-links a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  position: relative;
+  z-index: 10001 !important;
+  display: inline-flex !important;
+}
+
+.poc-banner,
+.taskbar {
+  pointer-events: auto !important;
+  z-index: 10000 !important;
+}
+
 body {
   background: #0a0a0a; /* Dark charcoal/almost black */
   color: var(--text-primary);
