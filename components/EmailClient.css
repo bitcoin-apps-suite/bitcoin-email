@@ -108,6 +108,7 @@
   text-align: center;
   white-space: nowrap;
   min-width: max-content;
+  z-index: 1;
 }
 
 .app-title-container {
@@ -179,13 +180,21 @@
 }
 
 /* Header Actions */
-.header-actions-left,
+.header-actions-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  z-index: 101;
+}
+
 .header-actions-right {
   display: flex;
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
   z-index: 101;
+  margin-left: auto;
 }
 
 .github-link-header {
@@ -249,6 +258,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  z-index: 10;
 }
 
 .search-input-header {
