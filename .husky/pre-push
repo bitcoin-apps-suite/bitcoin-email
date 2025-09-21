@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Remove macOS resource fork files before push
+find . -name "._*" -type f -delete
+
+# Run build to catch errors before push
+npm run build
