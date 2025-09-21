@@ -25,7 +25,7 @@
 .taskbar-right {
   display: flex;
   align-items: center;
-  padding-right: 12px;
+  padding-right: 8px;
 }
 
 .desktop-links {

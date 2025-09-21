@@ -21,38 +21,38 @@ interface Contributor {
   rank: number;
 }
 
-// Token Economics Configuration - STRICT 49% CAP
+// Token Economics Configuration - UNIFIED COMMUNITY SYSTEM
 const TOKEN_ECONOMICS = {
   totalSupply: 1_000_000_000, // 1 billion $BMAIL tokens
-  teamReserve: 877_500_000, // 87.75% team reserve
-  communityPool: 122_500_000, // 12.25% for community contributions - HARD CAP
-  maxTokensPerTask: 2_500_000, // Max 0.25% (2.5M tokens) per task - HARD LIMIT
+  teamReserve: 0, // No team reserve - we're all one community
+  communityPool: 1_000_000_000, // 100% for all contributors - ALL TOKENS AVAILABLE FOR GRANTS
+  maxTokensPerTask: null, // No limits - grant-based allocation
   
-  // Tiered reward system with strict limits
+  // Grant-based system - existing posted amounts maintained
   tiers: {
     major: {
-      name: 'Major Feature',
-      tokens: 2_500_000, // 0.25% max per major PR
-      maxPRs: 20, // Max 20 major PRs = 50M tokens
-      description: 'Core features, blockchain integration, major UI overhauls',
+      name: 'Major Grant',
+      tokens: 5_000_000, // Keep existing posted amounts
+      maxPRs: null, // No limits on number of grants
+      description: 'Major features, blockchain integration, platform overhauls',
       examples: ['Blockchain email storage', 'HandCash integration', 'End-to-end encryption', 'Mobile app']
     },
     minor: {
-      name: 'Minor Feature', 
-      tokens: 1_250_000, // 0.125% per minor PR
-      maxPRs: 40, // Max 40 minor PRs = 50M tokens
+      name: 'Minor Grant', 
+      tokens: 2_500_000, // Keep existing posted amounts
+      maxPRs: null, // No limits on number of grants
       description: 'New components, enhancements, optimizations',
       examples: ['UI components', 'API endpoints', 'Performance improvements', 'Documentation']
     },
     maintenance: {
-      name: 'Maintenance',
-      tokens: 500_000, // 0.05% per maintenance PR
-      maxPRs: 45, // Max 45 maintenance PRs = 22.5M tokens
+      name: 'Maintenance Grant',
+      tokens: 1_000_000, // Keep existing posted amounts
+      maxPRs: null, // No limits on number of grants
       description: 'Bug fixes, tests, refactoring, dependencies',
       examples: ['Bug fixes', 'Unit tests', 'Code cleanup', 'Dependency updates']
     }
   },
-  // Total allocated: 200M + 200M + 90M = 490M (exactly 49%)
+  // Total available: 1B tokens (100%) - all tokens available for contributors
 };
 
 // Task definitions with SPECIFIC GitHub issues and token allocations (max 1% = 10M tokens per task)
@@ -279,7 +279,7 @@ const ContributionsPage: React.FC = () => {
               <div className="allocation-card highlight">
                 <h3>Community Pool</h3>
                 <div className="big-number">{(TOKEN_ECONOMICS.communityPool / 1_000_000).toFixed(0)}M</div>
-                <div className="label">$BMAIL Tokens (49%)</div>
+                <div className="label">$BMAIL Tokens (100%)</div>
               </div>
               <div className="allocation-card">
                 <h3>Allocated So Far</h3>
@@ -310,8 +310,8 @@ const ContributionsPage: React.FC = () => {
                   </ul>
                 </div>
                 <div className="tier-stats">
-                  <span className="allocated">{prsAllocated.major}/{TOKEN_ECONOMICS.tiers.major.maxPRs} allocated</span>
-                  <span className="remaining">{TOKEN_ECONOMICS.tiers.major.maxPRs - prsAllocated.major} spots left</span>
+                  <span className="allocated">{prsAllocated.major} allocated</span>
+                  <span className="remaining">Unlimited spots available</span>
                 </div>
               </div>
 
@@ -330,8 +330,8 @@ const ContributionsPage: React.FC = () => {
                   </ul>
                 </div>
                 <div className="tier-stats">
-                  <span className="allocated">{prsAllocated.minor}/{TOKEN_ECONOMICS.tiers.minor.maxPRs} allocated</span>
-                  <span className="remaining">{TOKEN_ECONOMICS.tiers.minor.maxPRs - prsAllocated.minor} spots left</span>
+                  <span className="allocated">{prsAllocated.minor} allocated</span>
+                  <span className="remaining">Unlimited spots available</span>
                 </div>
               </div>
 
@@ -350,8 +350,8 @@ const ContributionsPage: React.FC = () => {
                   </ul>
                 </div>
                 <div className="tier-stats">
-                  <span className="allocated">{prsAllocated.maintenance}/{TOKEN_ECONOMICS.tiers.maintenance.maxPRs} allocated</span>
-                  <span className="remaining">{TOKEN_ECONOMICS.tiers.maintenance.maxPRs - prsAllocated.maintenance} spots left</span>
+                  <span className="allocated">{prsAllocated.maintenance} allocated</span>
+                  <span className="remaining">Unlimited spots available</span>
                 </div>
               </div>
             </div>
@@ -368,8 +368,8 @@ const ContributionsPage: React.FC = () => {
                   <div className="slice team" style={{ '--percentage': '51%' } as React.CSSProperties}>
                     <span className="slice-label">Team Reserve<br/>51%</span>
                   </div>
-                  <div className="slice community" style={{ '--percentage': '49%' } as React.CSSProperties}>
-                    <span className="slice-label">Community<br/>49%</span>
+                  <div className="slice community" style={{ '--percentage': '100%' } as React.CSSProperties}>
+                    <span className="slice-label">Community<br/>100%</span>
                   </div>
                 </div>
               </div>
@@ -386,7 +386,7 @@ const ContributionsPage: React.FC = () => {
                 <div className="distribution-item">
                   <div className="dist-label">
                     <span className="dot community"></span>
-                    Community Contributions (49%)
+                    Community Contributions (100%)
                   </div>
                   <div className="dist-value">490,000,000 $BMAIL</div>
                 </div>

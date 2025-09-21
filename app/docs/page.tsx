@@ -236,48 +236,48 @@ const DocsPage: React.FC = () => {
               </div>
               <div className="stat-card">
                 <h3>Community Pool</h3>
-                <div className="stat-value">490M</div>
-                <div className="stat-label">49% for Contributors</div>
+                <div className="stat-value">1000M</div>
+                <div className="stat-label">100% for Contributors</div>
               </div>
               <div className="stat-card">
-                <h3>Team Reserve</h3>
-                <div className="stat-value">510M</div>
-                <div className="stat-label">51% Reserved</div>
+                <h3>One Community</h3>
+                <div className="stat-value">1B</div>
+                <div className="stat-label">All Contributors United</div>
               </div>
             </div>
 
-            <h3>🎯 Three-Tier Reward System</h3>
+            <h3>🎯 Grant-Based Contribution System</h3>
             <div className="earning-methods">
               <div className="method-card">
-                <h4>⭐ Major Features</h4>
-                <p>10M $BMAIL per PR • Max 20 PRs</p>
-                <p className="method-examples">Core features, blockchain integration, major UI overhauls</p>
+                <h4>⭐ Major Grants</h4>
+                <p>Variable $BMAIL • No Limits</p>
+                <p className="method-examples">Major features, blockchain integration, platform overhauls - grant amounts determined by scope and impact</p>
               </div>
               <div className="method-card">
-                <h4>✨ Minor Features</h4>
-                <p>3M $BMAIL per PR • Max 30 PRs</p>
-                <p className="method-examples">New components, enhancements, optimizations</p>
+                <h4>✨ Minor Grants</h4>
+                <p>Variable $BMAIL • No Limits</p>
+                <p className="method-examples">New components, enhancements, optimizations - grant amounts based on complexity and value</p>
               </div>
               <div className="method-card">
-                <h4>🔧 Maintenance</h4>
-                <p>1M $BMAIL per PR • Max 50 PRs</p>
-                <p className="method-examples">Bug fixes, tests, refactoring, dependencies</p>
+                <h4>🔧 Maintenance Grants</h4>
+                <p>Variable $BMAIL • No Limits</p>
+                <p className="method-examples">Bug fixes, tests, refactoring, dependencies - grant amounts based on urgency and impact</p>
               </div>
               <div className="method-card">
-                <h4>🚀 First 100 PRs</h4>
-                <p>340M $BMAIL allocated</p>
-                <p className="method-examples">150M reserved for future initiatives</p>
+                <h4>🚀 Total Available</h4>
+                <p>1B $BMAIL available</p>
+                <p className="method-examples">100% of total supply - all tokens distributed to contributors who do the work</p>
               </div>
             </div>
 
             <h3>📊 Token Distribution</h3>
             <ul>
-              <li><strong>51%</strong> - Team Reserve (510M $BMAIL)</li>
-              <li><strong>49%</strong> - Community Contributors (490M $BMAIL)</li>
-              <li className="sub-item"><strong>20%</strong> of total - Major Features (200M)</li>
-              <li className="sub-item"><strong>9%</strong> of total - Minor Features (90M)</li>
-              <li className="sub-item"><strong>5%</strong> of total - Maintenance (50M)</li>
-              <li className="sub-item"><strong>15%</strong> of total - Future Initiatives (150M)</li>
+              <li><strong>100%</strong> - All Contributors (1B $BMAIL)</li>
+              <li><strong>0%</strong> - No team/community divide - we're one unified community</li>
+              <li className="sub-item">All 1B tokens available for those who contribute work</li>
+              <li className="sub-item">Existing task amounts maintained: 5M/2.5M/1M for Major/Minor/Maintenance</li>
+              <li className="sub-item">No limits on number of grants - unlimited opportunities</li>
+              <li className="sub-item">All tokens distributed based on contribution value</li>
             </ul>
 
             <h3>🔄 Token Utility</h3>
