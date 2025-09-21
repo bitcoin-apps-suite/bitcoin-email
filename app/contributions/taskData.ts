@@ -66,34 +66,14 @@ export const AVAILABLE_TASKS = {
       issueUrl: `${GITHUB_REPO}/issues/6`
     },
     { 
-      id: 'defi-integration', 
-      title: 'DeFi Yield Generation', 
-      description: 'Integrate DeFi protocols for email list revenue sharing', 
-      tokens: 2_500_000, 
-      claimed: false, 
-      claimedBy: null, 
-      githubIssue: '#7',
-      issueUrl: `${GITHUB_REPO}/issues/7`
-    },
-    { 
-      id: 'ipfs-attachments', 
-      title: 'IPFS Attachment Storage', 
-      description: 'Decentralized file storage for email attachments', 
-      tokens: 2_500_000, 
-      claimed: false, 
-      claimedBy: null, 
-      githubIssue: '#8',
-      issueUrl: `${GITHUB_REPO}/issues/8`
-    },
-    { 
       id: 'desktop-app', 
       title: 'Electron Desktop Application', 
       description: 'Native desktop app for Windows/Mac/Linux', 
       tokens: 2_500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#9',
-      issueUrl: `${GITHUB_REPO}/issues/9`
+      githubIssue: '#7',
+      issueUrl: `${GITHUB_REPO}/issues/7`
     },
     { 
       id: 'calendar-integration', 
@@ -102,8 +82,8 @@ export const AVAILABLE_TASKS = {
       tokens: 2_500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#10',
-      issueUrl: `${GITHUB_REPO}/issues/10`
+      githubIssue: '#8',
+      issueUrl: `${GITHUB_REPO}/issues/8`
     },
     { 
       id: 'p2p-messaging', 
@@ -112,8 +92,8 @@ export const AVAILABLE_TASKS = {
       tokens: 2_500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#11',
-      issueUrl: `${GITHUB_REPO}/issues/11`
+      githubIssue: '#9',
+      issueUrl: `${GITHUB_REPO}/issues/9`
     },
     { 
       id: 'multi-chain', 
@@ -122,8 +102,8 @@ export const AVAILABLE_TASKS = {
       tokens: 2_500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#12',
-      issueUrl: `${GITHUB_REPO}/issues/12`
+      githubIssue: '#10',
+      issueUrl: `${GITHUB_REPO}/issues/10`
     }
   ],
   minor: [
@@ -134,8 +114,8 @@ export const AVAILABLE_TASKS = {
       tokens: 1_250_000, // 0.5%
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#13',
-      issueUrl: `${GITHUB_REPO}/issues/13`
+      githubIssue: '#11',
+      issueUrl: `${GITHUB_REPO}/issues/11`
     },
     { 
       id: 'search-functionality', 
@@ -144,8 +124,8 @@ export const AVAILABLE_TASKS = {
       tokens: 1_250_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#14',
-      issueUrl: `${GITHUB_REPO}/issues/14`
+      githubIssue: '#12',
+      issueUrl: `${GITHUB_REPO}/issues/12`
     },
     { 
       id: 'email-templates', 
@@ -154,8 +134,8 @@ export const AVAILABLE_TASKS = {
       tokens: 1_250_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#15',
-      issueUrl: `${GITHUB_REPO}/issues/15`
+      githubIssue: '#13',
+      issueUrl: `${GITHUB_REPO}/issues/13`
     },
     { 
       id: 'contact-management', 
@@ -164,8 +144,8 @@ export const AVAILABLE_TASKS = {
       tokens: 1_250_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#16',
-      issueUrl: `${GITHUB_REPO}/issues/16`
+      githubIssue: '#14',
+      issueUrl: `${GITHUB_REPO}/issues/14`
     },
     { 
       id: 'analytics-dashboard', 
@@ -174,8 +154,8 @@ export const AVAILABLE_TASKS = {
       tokens: 1_250_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#17',
-      issueUrl: `${GITHUB_REPO}/issues/17`
+      githubIssue: '#15',
+      issueUrl: `${GITHUB_REPO}/issues/15`
     },
     { 
       id: 'api-documentation', 
@@ -184,8 +164,8 @@ export const AVAILABLE_TASKS = {
       tokens: 1_250_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#18',
-      issueUrl: `${GITHUB_REPO}/issues/18`
+      githubIssue: '#16',
+      issueUrl: `${GITHUB_REPO}/issues/16`
     },
     { 
       id: 'keyboard-shortcuts', 
@@ -194,8 +174,8 @@ export const AVAILABLE_TASKS = {
       tokens: 1_250_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#19',
-      issueUrl: `${GITHUB_REPO}/issues/19`
+      githubIssue: '#17',
+      issueUrl: `${GITHUB_REPO}/issues/17`
     },
     { 
       id: 'notification-system', 
@@ -204,8 +184,8 @@ export const AVAILABLE_TASKS = {
       tokens: 1_250_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#20',
-      issueUrl: `${GITHUB_REPO}/issues/20`
+      githubIssue: '#18',
+      issueUrl: `${GITHUB_REPO}/issues/18`
     },
     { 
       id: 'import-export', 
@@ -214,8 +194,8 @@ export const AVAILABLE_TASKS = {
       tokens: 1_250_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#21',
-      issueUrl: `${GITHUB_REPO}/issues/21`
+      githubIssue: '#19',
+      issueUrl: `${GITHUB_REPO}/issues/19`
     },
     { 
       id: 'multi-language', 
@@ -224,8 +204,8 @@ export const AVAILABLE_TASKS = {
       tokens: 1_250_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#22',
-      issueUrl: `${GITHUB_REPO}/issues/22`
+      githubIssue: '#20',
+      issueUrl: `${GITHUB_REPO}/issues/20`
     }
   ],
   maintenance: [
@@ -236,8 +216,8 @@ export const AVAILABLE_TASKS = {
       tokens: 500_000, // 0.2%
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#23',
-      issueUrl: `${GITHUB_REPO}/issues/23`
+      githubIssue: '#21',
+      issueUrl: `${GITHUB_REPO}/issues/21`
     },
     { 
       id: 'e2e-tests', 
@@ -246,8 +226,8 @@ export const AVAILABLE_TASKS = {
       tokens: 500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#24',
-      issueUrl: `${GITHUB_REPO}/issues/24`
+      githubIssue: '#22',
+      issueUrl: `${GITHUB_REPO}/issues/22`
     },
     { 
       id: 'performance-optimization', 
@@ -256,8 +236,8 @@ export const AVAILABLE_TASKS = {
       tokens: 500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#25',
-      issueUrl: `${GITHUB_REPO}/issues/25`
+      githubIssue: '#23',
+      issueUrl: `${GITHUB_REPO}/issues/23`
     },
     { 
       id: 'accessibility', 
@@ -266,8 +246,8 @@ export const AVAILABLE_TASKS = {
       tokens: 500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#26',
-      issueUrl: `${GITHUB_REPO}/issues/26`
+      githubIssue: '#24',
+      issueUrl: `${GITHUB_REPO}/issues/24`
     },
     { 
       id: 'security-audit', 
@@ -276,8 +256,8 @@ export const AVAILABLE_TASKS = {
       tokens: 500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#27',
-      issueUrl: `${GITHUB_REPO}/issues/27`
+      githubIssue: '#25',
+      issueUrl: `${GITHUB_REPO}/issues/25`
     },
     { 
       id: 'docker-setup', 
@@ -286,8 +266,8 @@ export const AVAILABLE_TASKS = {
       tokens: 500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#28',
-      issueUrl: `${GITHUB_REPO}/issues/28`
+      githubIssue: '#26',
+      issueUrl: `${GITHUB_REPO}/issues/26`
     },
     { 
       id: 'ci-cd', 
@@ -296,8 +276,8 @@ export const AVAILABLE_TASKS = {
       tokens: 500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#29',
-      issueUrl: `${GITHUB_REPO}/issues/29`
+      githubIssue: '#27',
+      issueUrl: `${GITHUB_REPO}/issues/27`
     },
     { 
       id: 'error-handling', 
@@ -306,8 +286,8 @@ export const AVAILABLE_TASKS = {
       tokens: 500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#30',
-      issueUrl: `${GITHUB_REPO}/issues/30`
+      githubIssue: '#28',
+      issueUrl: `${GITHUB_REPO}/issues/28`
     },
     { 
       id: 'rate-limiting', 
@@ -316,8 +296,8 @@ export const AVAILABLE_TASKS = {
       tokens: 500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#31',
-      issueUrl: `${GITHUB_REPO}/issues/31`
+      githubIssue: '#29',
+      issueUrl: `${GITHUB_REPO}/issues/29`
     },
     { 
       id: 'monitoring', 
@@ -326,8 +306,8 @@ export const AVAILABLE_TASKS = {
       tokens: 500_000, 
       claimed: false, 
       claimedBy: null, 
-      githubIssue: '#32',
-      issueUrl: `${GITHUB_REPO}/issues/32`
+      githubIssue: '#30',
+      issueUrl: `${GITHUB_REPO}/issues/30`
     }
   ]
 };

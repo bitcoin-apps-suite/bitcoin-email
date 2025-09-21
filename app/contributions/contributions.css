@@ -1505,3 +1505,111 @@
     width: 100%;
   }
 }
+
+/* Grant-based tokenomics styling */
+.grant-allocation-info {
+  margin: 2rem 0;
+}
+
+.grant-principle {
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.grant-principle h4 {
+  color: #ffd700;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.grant-principle p {
+  color: #a8a8a8;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.grant-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.grant-tier {
+  background: #1a1a1a;
+  border: 2px solid #27272a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.grant-tier::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ffd700 0%, #ff6500 100%);
+}
+
+.grant-tier:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 215, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.grant-tier h4 {
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.grant-tier p {
+  margin: 0.5rem 0;
+  color: #a8a8a8;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.grant-tier p strong {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.grant-description {
+  font-size: 0.85rem !important;
+  color: #808080 !important;
+  margin-top: 0.75rem !important;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.total-available {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 101, 0, 0.1) 100%);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.total-available h4 {
+  color: #ffd700;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.total-available p {
+  color: #a8a8a8;
+  margin: 0;
+  font-size: 0.95rem;
+}

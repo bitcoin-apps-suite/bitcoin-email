@@ -329,7 +329,7 @@ const ContributionsPage: React.FC = () => {
                 </div>
                 <div className="tier-stats">
                   <span className="allocated">{prsAllocated.major} allocated</span>
-                  <span className="remaining">Unlimited spots available</span>
+                  <span className="remaining">{10 - prsAllocated.major} spots remaining</span>
                 </div>
               </div>
 
@@ -349,7 +349,7 @@ const ContributionsPage: React.FC = () => {
                 </div>
                 <div className="tier-stats">
                   <span className="allocated">{prsAllocated.minor} allocated</span>
-                  <span className="remaining">Unlimited spots available</span>
+                  <span className="remaining">{10 - prsAllocated.minor} spots remaining</span>
                 </div>
               </div>
 
@@ -369,7 +369,7 @@ const ContributionsPage: React.FC = () => {
                 </div>
                 <div className="tier-stats">
                   <span className="allocated">{prsAllocated.maintenance} allocated</span>
-                  <span className="remaining">Unlimited spots available</span>
+                  <span className="remaining">{10 - prsAllocated.maintenance} spots remaining</span>
                 </div>
               </div>
             </div>
@@ -414,7 +414,7 @@ const ContributionsPage: React.FC = () => {
               <div className="grant-examples">
                 <div className="grant-tier">
                   <h4>🚀 Major Features</h4>
-                  <p><strong>2.5M $BMAIL</strong> per task • 12 tasks available</p>
+                  <p><strong>2.5M $BMAIL</strong> per task • 10 tasks available</p>
                   <p className="grant-description">Blockchain integration, HandCash wallet, encryption, mobile apps, NFT marketplace</p>
                 </div>
                 
@@ -666,7 +666,7 @@ const ContributionsPage: React.FC = () => {
                 <div className="grant-examples">
                   <div className="grant-tier">
                     <h4>🚀 Major Features</h4>
-                    <p><strong>2.5M $BMAIL</strong> per task • 12 tasks available</p>
+                    <p><strong>2.5M $BMAIL</strong> per task • 10 tasks available</p>
                     <p className="grant-description">Blockchain integration, HandCash wallet, encryption, mobile apps, NFT marketplace</p>
                   </div>
                   
