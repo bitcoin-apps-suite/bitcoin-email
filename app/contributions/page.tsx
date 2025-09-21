@@ -244,15 +244,6 @@ const ContributionsPage: React.FC = () => {
           Tasks
         </button>
         <button 
-          className={`tab ${activeTab === 'tokenomics' ? 'active' : ''}`}
-          onClick={() => {
-            setActiveTab('tokenomics');
-            window.location.hash = 'tokenomics';
-          }}
-        >
-          Token Economics
-        </button>
-        <button 
           className={`tab ${activeTab === 'leaderboard' ? 'active' : ''}`}
           onClick={() => {
             setActiveTab('leaderboard');
@@ -376,7 +367,7 @@ const ContributionsPage: React.FC = () => {
           </div>
         )}
 
-        {activeTab === 'tokenomics' && (
+        {false && activeTab === 'tokenomics' && (
           <div className="content-section" id="tokenomics">
             <h2>📈 $BMAIL Token Distribution</h2>
             
@@ -649,7 +640,7 @@ const ContributionsPage: React.FC = () => {
                 <div className="allocation-card">
                   <h3>Remaining</h3>
                   <div className="big-number">{(tokensRemaining / 1_000_000).toFixed(0)}M</div>
-                  <div className="label">For unlimited opportunities</div>
+                  <div className="label">Available for distribution</div>
                 </div>
               </div>
             </div>
