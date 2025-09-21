@@ -27,7 +27,12 @@
 .taskbar-right a,
 .desktop-links a,
 .mobile-menu a,
-.mobile-menu-item {
+.mobile-menu-item,
+.connections-modal button,
+.connections-modal a,
+.connection-toggle,
+.unified-dropdown button,
+.unified-dropdown a {
   pointer-events: auto !important;
   cursor: pointer !important;
   position: relative;

@@ -1448,11 +1448,12 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(4px);
-  z-index: 1000;
+  z-index: 100020 !important;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  pointer-events: auto !important;
 }
 
 .connections-modal {
@@ -1468,6 +1469,8 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  z-index: 100021 !important;
+  pointer-events: auto !important;
 }
 
 .connections-modal-header {

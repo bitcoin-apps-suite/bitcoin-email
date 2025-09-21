@@ -1,7 +1,7 @@
 /* Unified Connections Component */
 .unified-connections {
   position: relative;
-  z-index: 100;
+  z-index: 100010 !important;
 }
 
 .connection-toggle {
@@ -18,6 +18,9 @@
   cursor: pointer;
   transition: all 0.2s ease;
   backdrop-filter: blur(10px);
+  pointer-events: auto !important;
+  z-index: 100011 !important;
+  position: relative;
 }
 
 .connection-toggle:hover {
@@ -144,6 +147,8 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   animation: slideDown 0.2s ease;
+  z-index: 100012 !important;
+  pointer-events: auto !important;
 }
 
 @keyframes slideDown {
@@ -187,6 +192,9 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
+  pointer-events: auto !important;
+  z-index: 100013 !important;
+  position: relative;
 }
 
 .tab-btn:hover {
@@ -373,6 +381,9 @@
   font-size: 18px;
   cursor: pointer;
   transition: all 0.2s ease;
+  pointer-events: auto !important;
+  z-index: 100013 !important;
+  position: relative;
 }
 
 .disconnect-btn:hover {
@@ -411,6 +422,9 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
+  pointer-events: auto !important;
+  z-index: 100013 !important;
+  position: relative;
 }
 
 .manage-connections-btn:hover {
