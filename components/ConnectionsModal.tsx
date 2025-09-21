@@ -218,8 +218,8 @@ export function ConnectionsModal({
   };
 
   return (
-    <div className="connections-modal-overlay">
-      <div className="connections-modal">
+    <div className="connections-modal-overlay" onClick={onClose}>
+      <div className="connections-modal" onClick={(e) => e.stopPropagation()}>
         <div className="connections-modal-header">
           <h2>Account Connections</h2>
           <p>{activeTab === 'email' ? 'Connect your email accounts' : 'Connect your BSV wallets and manage token messages'}</p>
