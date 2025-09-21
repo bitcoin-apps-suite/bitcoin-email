@@ -262,6 +262,24 @@ const ContributionsPage: React.FC = () => {
           Leaderboard
         </button>
         <button 
+          className={`tab ${activeTab === 'all' ? 'active' : ''}`}
+          onClick={() => {
+            setActiveTab('all');
+            window.location.hash = 'all';
+          }}
+        >
+          ALL
+        </button>
+        <button 
+          className={`tab ${activeTab === 'grants' ? 'active' : ''}`}
+          onClick={() => {
+            setActiveTab('grants');
+            window.location.hash = 'grants';
+          }}
+        >
+          GRANTS
+        </button>
+        <button 
           className={`tab ${activeTab === 'how-to' ? 'active' : ''}`}
           onClick={() => {
             setActiveTab('how-to');
@@ -365,11 +383,8 @@ const ContributionsPage: React.FC = () => {
             <div className="distribution-chart">
               <div className="chart-visual">
                 <div className="pie-chart">
-                  <div className="slice team" style={{ '--percentage': '51%' } as React.CSSProperties}>
-                    <span className="slice-label">Team Reserve<br/>51%</span>
-                  </div>
                   <div className="slice community" style={{ '--percentage': '100%' } as React.CSSProperties}>
-                    <span className="slice-label">Community<br/>100%</span>
+                    <span className="slice-label">All Contributors<br/>100%</span>
                   </div>
                 </div>
               </div>
@@ -378,65 +393,47 @@ const ContributionsPage: React.FC = () => {
                 <h3>Total Supply: 1 Billion $BMAIL</h3>
                 <div className="distribution-item">
                   <div className="dist-label">
-                    <span className="dot team"></span>
-                    Team Reserve (51%)
-                  </div>
-                  <div className="dist-value">510,000,000 $BMAIL</div>
-                </div>
-                <div className="distribution-item">
-                  <div className="dist-label">
                     <span className="dot community"></span>
-                    Community Contributions (100%)
+                    All Contributors (100%)
                   </div>
-                  <div className="dist-value">490,000,000 $BMAIL</div>
+                  <div className="dist-value">1,000,000,000 $BMAIL</div>
+                </div>
+                <div className="distribution-principle">
+                  <strong>Unified Community Principle:</strong> No team/community divide. All tokens distributed to those who contribute work and value to the project.
                 </div>
               </div>
             </div>
 
-            <h3>🎁 Community Allocation Breakdown</h3>
-            <div className="allocation-breakdown">
-              <div className="breakdown-item">
-                <h4>Major Features (20 PRs)</h4>
-                <div className="breakdown-bar">
-                  <div className="bar-fill major" style={{ width: '40.8%' }}></div>
+            <h3>🎁 Grant-Based Token Distribution</h3>
+            <div className="grant-allocation-info">
+              <div className="grant-principle">
+                <h4>🌟 No Fixed Allocations - All Tokens Available Through Grants</h4>
+                <p>We've eliminated fixed percentage splits. All 1 billion $BMAIL tokens are available for contributors who do the work. Grant amounts are determined by project scope, impact, and value created.</p>
+              </div>
+              
+              <div className="grant-examples">
+                <div className="grant-tier">
+                  <h4>🚀 Major Grants</h4>
+                  <p><strong>Variable $BMAIL</strong> • Unlimited opportunities</p>
+                  <p className="grant-description">Blockchain integration, mobile apps, core infrastructure - grant amounts based on complexity and strategic value</p>
                 </div>
-                <div className="breakdown-stats">
-                  <span>200,000,000 $BMAIL</span>
-                  <span>40.8% of community pool</span>
+                
+                <div className="grant-tier">
+                  <h4>✨ Minor Grants</h4>
+                  <p><strong>Variable $BMAIL</strong> • Unlimited opportunities</p>
+                  <p className="grant-description">New features, UI enhancements, integrations - grant amounts reflect development effort and user impact</p>
+                </div>
+                
+                <div className="grant-tier">
+                  <h4>🔧 Maintenance Grants</h4>
+                  <p><strong>Variable $BMAIL</strong> • Unlimited opportunities</p>
+                  <p className="grant-description">Bug fixes, tests, optimizations - grant amounts based on urgency, complexity, and technical value</p>
                 </div>
               </div>
               
-              <div className="breakdown-item">
-                <h4>Minor Features (30 PRs)</h4>
-                <div className="breakdown-bar">
-                  <div className="bar-fill minor" style={{ width: '18.4%' }}></div>
-                </div>
-                <div className="breakdown-stats">
-                  <span>90,000,000 $BMAIL</span>
-                  <span>18.4% of community pool</span>
-                </div>
-              </div>
-              
-              <div className="breakdown-item">
-                <h4>Maintenance (50 PRs)</h4>
-                <div className="breakdown-bar">
-                  <div className="bar-fill maintenance" style={{ width: '10.2%' }}></div>
-                </div>
-                <div className="breakdown-stats">
-                  <span>50,000,000 $BMAIL</span>
-                  <span>10.2% of community pool</span>
-                </div>
-              </div>
-              
-              <div className="breakdown-item">
-                <h4>Future Reserves</h4>
-                <div className="breakdown-bar">
-                  <div className="bar-fill future" style={{ width: '30.6%' }}></div>
-                </div>
-                <div className="breakdown-stats">
-                  <span>150,000,000 $BMAIL</span>
-                  <span>30.6% of community pool</span>
-                </div>
+              <div className="total-available">
+                <h4>💎 Total Available: 1,000,000,000 $BMAIL</h4>
+                <p>100% of total supply available for those who contribute work and value to Bitcoin Email</p>
               </div>
             </div>
           </div>
@@ -625,6 +622,335 @@ const ContributionsPage: React.FC = () => {
                       </div>
                     </div>
                   ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'all' && (
+          <div className="content-section">
+            <h2>Complete $BMAIL Token Program Overview</h2>
+            
+            {/* Overview Section */}
+            <div className="all-section">
+              <h3>🎯 Program Overview</h3>
+              <div className="token-allocation-summary">
+                <div className="allocation-card highlight">
+                  <h3>Community Pool</h3>
+                  <div className="big-number">{(TOKEN_ECONOMICS.communityPool / 1_000_000).toFixed(0)}M</div>
+                  <div className="label">$BMAIL Tokens (100%)</div>
+                </div>
+                <div className="allocation-card">
+                  <h3>Allocated So Far</h3>
+                  <div className="big-number">{(tokensAllocated / 1_000_000).toFixed(0)}M</div>
+                  <div className="label">Across {prsAllocated.major + prsAllocated.minor + prsAllocated.maintenance} PRs</div>
+                </div>
+                <div className="allocation-card">
+                  <h3>Remaining</h3>
+                  <div className="big-number">{(tokensRemaining / 1_000_000).toFixed(0)}M</div>
+                  <div className="label">For unlimited opportunities</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Grant-Based Distribution */}
+            <div className="all-section">
+              <h3>🎁 Grant-Based Token Distribution</h3>
+              <div className="grant-allocation-info">
+                <div className="grant-principle">
+                  <h4>🌟 No Fixed Allocations - All Tokens Available Through Grants</h4>
+                  <p>We've eliminated fixed percentage splits. All 1 billion $BMAIL tokens are available for contributors who do the work. Grant amounts are determined by project scope, impact, and value created.</p>
+                </div>
+                
+                <div className="grant-examples">
+                  <div className="grant-tier">
+                    <h4>🚀 Major Grants</h4>
+                    <p><strong>Variable $BMAIL</strong> • Unlimited opportunities</p>
+                    <p className="grant-description">Blockchain integration, mobile apps, core infrastructure - grant amounts based on complexity and strategic value</p>
+                  </div>
+                  
+                  <div className="grant-tier">
+                    <h4>✨ Minor Grants</h4>
+                    <p><strong>Variable $BMAIL</strong> • Unlimited opportunities</p>
+                    <p className="grant-description">New features, UI enhancements, integrations - grant amounts reflect development effort and user impact</p>
+                  </div>
+                  
+                  <div className="grant-tier">
+                    <h4>🔧 Maintenance Grants</h4>
+                    <p><strong>Variable $BMAIL</strong> • Unlimited opportunities</p>
+                    <p className="grant-description">Bug fixes, tests, optimizations - grant amounts based on urgency, complexity, and technical value</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Available Tasks Preview */}
+            <div className="all-section">
+              <h3>🎯 Sample Available Tasks</h3>
+              <p>Current structured tasks with preset values (full grant system coming soon):</p>
+              
+              <div className="task-preview">
+                <h4>Major Features (2.5M $BMAIL each)</h4>
+                <div className="task-preview-list">
+                  {tasks.major.slice(0, 3).map((task) => (
+                    <div key={task.id} className="task-preview-item major">
+                      <h5>{task.title}</h5>
+                      <p>{task.description}</p>
+                    </div>
+                  ))}
+                  <div className="task-preview-more">+ {tasks.major.length - 3} more major tasks available</div>
+                </div>
+              </div>
+              
+              <div className="task-preview">
+                <h4>Minor Features (1.25M $BMAIL each)</h4>
+                <div className="task-preview-list">
+                  {tasks.minor.slice(0, 3).map((task) => (
+                    <div key={task.id} className="task-preview-item minor">
+                      <h5>{task.title}</h5>
+                      <p>{task.description}</p>
+                    </div>
+                  ))}
+                  <div className="task-preview-more">+ {tasks.minor.length - 3} more minor tasks available</div>
+                </div>
+              </div>
+            </div>
+
+            {/* How to Contribute */}
+            <div className="all-section">
+              <h3>🚀 How to Contribute</h3>
+              <div className="contribution-steps">
+                <div className="step">
+                  <div className="step-number">1</div>
+                  <div className="step-content">
+                    <h4>Choose a Task</h4>
+                    <p>Browse available tasks or apply for custom grants</p>
+                  </div>
+                </div>
+                
+                <div className="step">
+                  <div className="step-number">2</div>
+                  <div className="step-content">
+                    <h4>Connect Accounts</h4>
+                    <p>Sign in with GitHub and connect your HandCash wallet</p>
+                  </div>
+                </div>
+                
+                <div className="step">
+                  <div className="step-number">3</div>
+                  <div className="step-content">
+                    <h4>Start Working</h4>
+                    <p>Fork the repository and start implementing</p>
+                  </div>
+                </div>
+                
+                <div className="step">
+                  <div className="step-number">4</div>
+                  <div className="step-content">
+                    <h4>Submit & Get Paid</h4>
+                    <p>Create a PR, get it merged, receive your $BMAIL tokens</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Top Contributors Preview */}
+            <div className="all-section">
+              <h3>🏆 Top Contributors</h3>
+              <div className="contributors-preview">
+                {!loading && contributors.slice(0, 5).map((contributor) => (
+                  <div key={contributor.githubUsername} className={`contributor-preview tier-${contributor.tier}`}>
+                    {contributor.avatar && (
+                      <img src={contributor.avatar} alt={contributor.githubUsername} className="contributor-avatar-small" />
+                    )}
+                    <div className="contributor-info-preview">
+                      <div className="username">@{contributor.githubUsername}</div>
+                      <div className="tokens">{(contributor.bmailTokens / 1_000_000).toFixed(0)}M $BMAIL</div>
+                    </div>
+                  </div>
+                ))}
+                <div className="see-all-contributors">
+                  <button onClick={() => setActiveTab('leaderboard')}>View All Contributors</button>
+                </div>
+              </div>
+            </div>
+
+            <div className="cta-section">
+              <h3>Ready to Contribute?</h3>
+              <p>Join our community of developers building the future of decentralized email</p>
+              <div className="cta-buttons">
+                <a href="https://github.com/bitcoin-apps-suite/bitcoin-email" target="_blank" rel="noopener noreferrer" className="cta-button primary">
+                  View Repository
+                </a>
+                <button onClick={() => setActiveTab('grants')} className="cta-button secondary">
+                  Apply for Grant
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'grants' && (
+          <div className="content-section">
+            <h2>Grant Applications</h2>
+            
+            <div className="grants-header">
+              <h3>Apply for Custom $BMAIL Grants</h3>
+              <p>Have an idea that goes beyond our predefined tasks? Apply for a custom grant with flexible token amounts based on your project's scope and impact.</p>
+            </div>
+
+            <div className="grant-application-form">
+              <div className="form-section">
+                <h4>Project Information</h4>
+                <div className="form-group">
+                  <label>Project Title</label>
+                  <input type="text" placeholder="e.g., Advanced AI Email Categorization System" className="form-input" />
+                </div>
+                
+                <div className="form-group">
+                  <label>Project Description</label>
+                  <textarea 
+                    placeholder="Describe your project in detail, including technical approach, expected timeline, and deliverables..."
+                    className="form-textarea"
+                    rows={6}
+                  ></textarea>
+                </div>
+                
+                <div className="form-group">
+                  <label>Grant Category</label>
+                  <select className="form-select">
+                    <option value="">Select category</option>
+                    <option value="major">Major Grant (Complex features, infrastructure)</option>
+                    <option value="minor">Minor Grant (New features, enhancements)</option>
+                    <option value="maintenance">Maintenance Grant (Fixes, optimization)</option>
+                    <option value="research">Research Grant (Exploration, prototyping)</option>
+                  </select>
+                </div>
+                
+                <div className="form-group">
+                  <label>Requested Token Amount</label>
+                  <input type="number" placeholder="e.g., 5000000" className="form-input" />
+                  <small className="form-hint">Amount in $BMAIL tokens. Justify your request in the description above.</small>
+                </div>
+                
+                <div className="form-group">
+                  <label>Timeline</label>
+                  <input type="text" placeholder="e.g., 4-6 weeks" className="form-input" />
+                </div>
+              </div>
+
+              <div className="form-section">
+                <h4>Your Information</h4>
+                <div className="form-group">
+                  <label>GitHub Username</label>
+                  <input type="text" placeholder="your-github-username" className="form-input" />
+                </div>
+                
+                <div className="form-group">
+                  <label>HandCash Handle</label>
+                  <input type="text" placeholder="$your-handcash-handle" className="form-input" />
+                </div>
+                
+                <div className="form-group">
+                  <label>Experience Level</label>
+                  <select className="form-select">
+                    <option value="">Select experience</option>
+                    <option value="beginner">Beginner (0-1 years)</option>
+                    <option value="intermediate">Intermediate (2-5 years)</option>
+                    <option value="advanced">Advanced (5+ years)</option>
+                    <option value="expert">Expert (10+ years)</option>
+                  </select>
+                </div>
+                
+                <div className="form-group">
+                  <label>Portfolio/Previous Work</label>
+                  <textarea 
+                    placeholder="Share links to your GitHub projects, portfolio, or relevant experience..."
+                    className="form-textarea"
+                    rows={4}
+                  ></textarea>
+                </div>
+              </div>
+
+              <div className="form-section">
+                <h4>Technical Details</h4>
+                <div className="form-group">
+                  <label>Technologies You'll Use</label>
+                  <input type="text" placeholder="e.g., React, TypeScript, Node.js, BSV SDK" className="form-input" />
+                </div>
+                
+                <div className="form-group">
+                  <label>Dependencies/Requirements</label>
+                  <textarea 
+                    placeholder="List any external dependencies, APIs, or special requirements for your project..."
+                    className="form-textarea"
+                    rows={3}
+                  ></textarea>
+                </div>
+                
+                <div className="form-group">
+                  <label>Success Metrics</label>
+                  <textarea 
+                    placeholder="How will we measure the success of your project? Include specific, measurable outcomes..."
+                    className="form-textarea"
+                    rows={3}
+                  ></textarea>
+                </div>
+              </div>
+
+              <div className="form-section">
+                <div className="form-group checkbox-group">
+                  <label className="checkbox-label">
+                    <input type="checkbox" />
+                    I agree to the contribution guidelines and understand that grants are awarded based on merit and project value
+                  </label>
+                </div>
+                
+                <div className="form-group checkbox-group">
+                  <label className="checkbox-label">
+                    <input type="checkbox" />
+                    I commit to providing regular progress updates and maintaining open communication throughout development
+                  </label>
+                </div>
+                
+                <div className="form-group checkbox-group">
+                  <label className="checkbox-label">
+                    <input type="checkbox" />
+                    I understand that grants are paid upon successful completion and merge of the project
+                  </label>
+                </div>
+              </div>
+
+              <div className="form-actions">
+                <button type="submit" className="btn-primary grant-submit">Submit Grant Application</button>
+                <button type="button" className="btn-secondary">Save as Draft</button>
+              </div>
+            </div>
+
+            <div className="grants-info">
+              <h4>Grant Review Process</h4>
+              <div className="process-steps">
+                <div className="process-step">
+                  <span className="step-number">1</span>
+                  <div className="step-content">
+                    <h5>Initial Review</h5>
+                    <p>Applications reviewed within 48-72 hours for completeness and feasibility</p>
+                  </div>
+                </div>
+                <div className="process-step">
+                  <span className="step-number">2</span>
+                  <div className="step-content">
+                    <h5>Technical Assessment</h5>
+                    <p>Core team evaluates technical merit, alignment with project goals, and resource requirements</p>
+                  </div>
+                </div>
+                <div className="process-step">
+                  <span className="step-number">3</span>
+                  <div className="step-content">
+                    <h5>Grant Award</h5>
+                    <p>Approved applicants receive grant details and can begin work immediately</p>
+                  </div>
                 </div>
               </div>
             </div>
