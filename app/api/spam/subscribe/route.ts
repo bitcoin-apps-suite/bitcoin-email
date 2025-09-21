@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { promises as fs } from 'fs';
+import path from 'path';
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,8 +14,6 @@ export async function POST(request: NextRequest) {
     }
 
     // For now, store in a JSON file (later can use database)
-    const fs = require('fs').promises;
-    const path = require('path');
     const subscribersPath = path.join(process.cwd(), 'data', 'spam-subscribers.json');
     
     // Ensure data directory exists
@@ -86,11 +86,9 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Admin endpoint to get subscriber count
-    const fs = require('fs').promises;
-    const path = require('path');
     const subscribersPath = path.join(process.cwd(), 'data', 'spam-subscribers.json');
     
     let subscribers = [];
