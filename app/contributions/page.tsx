@@ -367,68 +367,6 @@ const ContributionsPage: React.FC = () => {
           </div>
         )}
 
-        {false && activeTab === 'tokenomics' && (
-          <div className="content-section" id="tokenomics">
-            <h2>📈 $BMAIL Token Distribution</h2>
-            
-            <div className="distribution-chart">
-              <div className="chart-visual">
-                <div className="pie-chart">
-                  <div className="slice community" style={{ '--percentage': '100%' } as React.CSSProperties}>
-                    <span className="slice-label">All Contributors<br/>100%</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="distribution-details">
-                <h3>Total Supply: 1 Billion $BMAIL</h3>
-                <div className="distribution-item">
-                  <div className="dist-label">
-                    <span className="dot community"></span>
-                    All Contributors (100%)
-                  </div>
-                  <div className="dist-value">1,000,000,000 $BMAIL</div>
-                </div>
-                <div className="distribution-principle">
-                  <strong>Unified Community Principle:</strong> No team/community divide. All tokens distributed to those who contribute work and value to the project.
-                </div>
-              </div>
-            </div>
-
-            <h3>🎁 Token Distribution for Contributors</h3>
-            <div className="grant-allocation-info">
-              <div className="grant-principle">
-                <h4>🌟 100% Community Owned - No Team Reserve</h4>
-                <p>All 1 billion $BMAIL tokens are available to contributors. We're all one community - those who do the work earn the tokens.</p>
-              </div>
-              
-              <div className="grant-examples">
-                <div className="grant-tier">
-                  <h4>🚀 Major Features</h4>
-                  <p><strong>2.5M $BMAIL</strong> per task • 10 tasks available</p>
-                  <p className="grant-description">Blockchain integration, HandCash wallet, encryption, mobile apps, NFT marketplace</p>
-                </div>
-                
-                <div className="grant-tier">
-                  <h4>✨ Minor Features</h4>
-                  <p><strong>1.25M $BMAIL</strong> per task • 10 tasks available</p>
-                  <p className="grant-description">Dark mode, search, templates, contact management, analytics dashboard</p>
-                </div>
-                
-                <div className="grant-tier">
-                  <h4>🔧 Maintenance Tasks</h4>
-                  <p><strong>500K $BMAIL</strong> per task • 10 tasks available</p>
-                  <p className="grant-description">Testing, optimization, accessibility, security audits, CI/CD setup</p>
-                </div>
-              </div>
-              
-              <div className="total-available">
-                <h4>💎 Total Supply: 1,000,000,000 $BMAIL</h4>
-                <p>All tokens available for contributors - no limits on future opportunities beyond current tasks</p>
-              </div>
-            </div>
-          </div>
-        )}
 
         {activeTab === 'leaderboard' && (
           <div className="content-section" id="leaderboard">
