@@ -105,7 +105,7 @@ const AVAILABLE_TASKS = {
 };
 
 const ContributionsPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'tasks' | 'tokenomics' | 'leaderboard' | 'how-to'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'tasks' | 'leaderboard' | 'all' | 'grants' | 'how-to'>('overview');
   const [contributors, setContributors] = useState<Contributor[]>([]);
   const [loading, setLoading] = useState(false);
   const [prsAllocated, setPrsAllocated] = useState({ major: 3, minor: 8, maintenance: 15 });
