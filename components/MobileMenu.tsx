@@ -13,12 +13,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ currentPath = '/' }) => {
   const router = useRouter();
 
   const menuItems = [
-    { path: '/', label: 'Email', icon: '📧' },
-    { path: '/exchange', label: 'Exchange', icon: '💰' },
-    { path: '/tokenize', label: 'Tokenize', icon: '🪙' },
-    { path: '/portfolio', label: 'Portfolio', icon: '📊' },
-    { path: '/contributions', label: 'Contribute', icon: '⚡' },
-    { path: '/docs', label: 'Docs', icon: '📚' }
+    { path: '/', label: 'Email' },
+    { path: '/exchange', label: 'Exchange' },
+    { path: '/tokenize', label: 'Tokenize' },
+    { path: '/portfolio', label: 'Portfolio' },
+    { path: '/contributions', label: 'Contribute' },
+    { path: '/docs', label: 'Docs' }
   ];
 
   const handleMenuClick = (path: string) => {
@@ -75,7 +75,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ currentPath = '/' }) => {
                 className={`mobile-menu-item ${currentPath === item.path ? 'active' : ''}`}
                 onClick={() => handleMenuClick(item.path)}
               >
-                <span className="mobile-menu-icon">{item.icon}</span>
                 <span className="mobile-menu-label">{item.label}</span>
               </button>
             ))}
@@ -87,15 +86,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ currentPath = '/' }) => {
               router.push('/compose');
               setIsOpen(false);
             }}>
-              <span className="mobile-menu-icon">✍️</span>
               <span className="mobile-menu-label">Compose Email</span>
             </button>
             <button className="mobile-menu-item">
-              <span className="mobile-menu-icon">📥</span>
               <span className="mobile-menu-label">Check Inbox</span>
             </button>
             <button className="mobile-menu-item">
-              <span className="mobile-menu-icon">📤</span>
               <span className="mobile-menu-label">View Sent</span>
             </button>
           </div>
@@ -103,15 +99,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ currentPath = '/' }) => {
           <div className="mobile-menu-section">
             <div className="mobile-menu-section-title">Blockchain & Security</div>
             <button className="mobile-menu-item">
-              <span className="mobile-menu-icon">🔗</span>
               <span className="mobile-menu-label">Connect Wallet</span>
             </button>
             <button className="mobile-menu-item">
-              <span className="mobile-menu-icon">🔒</span>
               <span className="mobile-menu-label">Encrypt Email</span>
             </button>
             <button className="mobile-menu-item">
-              <span className="mobile-menu-icon">💰</span>
               <span className="mobile-menu-label">Send Bitcoin</span>
             </button>
           </div>
@@ -119,7 +112,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ currentPath = '/' }) => {
           <div className="mobile-menu-section">
             <div className="mobile-menu-section-title">Tools & Help</div>
             <button className="mobile-menu-item">
-              <span className="mobile-menu-icon">⚙️</span>
               <span className="mobile-menu-label">Settings</span>
             </button>
             <a 
@@ -129,14 +121,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ currentPath = '/' }) => {
               className="mobile-menu-item"
               onClick={() => setIsOpen(false)}
             >
-              <span className="mobile-menu-icon">📂</span>
               <span className="mobile-menu-label">GitHub Repository</span>
             </a>
             <button className="mobile-menu-item" onClick={() => {
               router.push('/docs');
               setIsOpen(false);
             }}>
-              <span className="mobile-menu-icon">📚</span>
               <span className="mobile-menu-label">Documentation</span>
             </button>
           </div>
