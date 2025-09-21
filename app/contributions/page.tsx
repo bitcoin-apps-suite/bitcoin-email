@@ -328,8 +328,8 @@ const ContributionsPage: React.FC = () => {
                   </ul>
                 </div>
                 <div className="tier-stats">
-                  <span className="allocated">{prsAllocated.major} allocated</span>
-                  <span className="remaining">{10 - prsAllocated.major} spots remaining</span>
+                  <span className="allocated">{prsAllocated.major} completed</span>
+                  <span className="remaining">{tasks.major.length} tasks offered</span>
                 </div>
               </div>
 
@@ -348,8 +348,8 @@ const ContributionsPage: React.FC = () => {
                   </ul>
                 </div>
                 <div className="tier-stats">
-                  <span className="allocated">{prsAllocated.minor} allocated</span>
-                  <span className="remaining">{10 - prsAllocated.minor} spots remaining</span>
+                  <span className="allocated">{prsAllocated.minor} completed</span>
+                  <span className="remaining">{tasks.minor.length} tasks offered</span>
                 </div>
               </div>
 
@@ -368,8 +368,8 @@ const ContributionsPage: React.FC = () => {
                   </ul>
                 </div>
                 <div className="tier-stats">
-                  <span className="allocated">{prsAllocated.maintenance} allocated</span>
-                  <span className="remaining">{10 - prsAllocated.maintenance} spots remaining</span>
+                  <span className="allocated">{prsAllocated.maintenance} completed</span>
+                  <span className="remaining">{tasks.maintenance.length} tasks offered</span>
                 </div>
               </div>
             </div>
