@@ -404,36 +404,36 @@ const ContributionsPage: React.FC = () => {
               </div>
             </div>
 
-            <h3>🎁 Grant-Based Token Distribution</h3>
+            <h3>🎁 Token Distribution for Contributors</h3>
             <div className="grant-allocation-info">
               <div className="grant-principle">
-                <h4>🌟 No Fixed Allocations - All Tokens Available Through Grants</h4>
-                <p>We've eliminated fixed percentage splits. All 1 billion $BMAIL tokens are available for contributors who do the work. Grant amounts are determined by project scope, impact, and value created.</p>
+                <h4>🌟 100% Community Owned - No Team Reserve</h4>
+                <p>All 1 billion $BMAIL tokens are available to contributors. We're all one community - those who do the work earn the tokens.</p>
               </div>
               
               <div className="grant-examples">
                 <div className="grant-tier">
-                  <h4>🚀 Major Grants</h4>
-                  <p><strong>Variable $BMAIL</strong> • Unlimited opportunities</p>
-                  <p className="grant-description">Blockchain integration, mobile apps, core infrastructure - grant amounts based on complexity and strategic value</p>
+                  <h4>🚀 Major Features</h4>
+                  <p><strong>2.5M $BMAIL</strong> per task • 12 tasks available</p>
+                  <p className="grant-description">Blockchain integration, HandCash wallet, encryption, mobile apps, NFT marketplace</p>
                 </div>
                 
                 <div className="grant-tier">
-                  <h4>✨ Minor Grants</h4>
-                  <p><strong>Variable $BMAIL</strong> • Unlimited opportunities</p>
-                  <p className="grant-description">New features, UI enhancements, integrations - grant amounts reflect development effort and user impact</p>
+                  <h4>✨ Minor Features</h4>
+                  <p><strong>1.25M $BMAIL</strong> per task • 10 tasks available</p>
+                  <p className="grant-description">Dark mode, search, templates, contact management, analytics dashboard</p>
                 </div>
                 
                 <div className="grant-tier">
-                  <h4>🔧 Maintenance Grants</h4>
-                  <p><strong>Variable $BMAIL</strong> • Unlimited opportunities</p>
-                  <p className="grant-description">Bug fixes, tests, optimizations - grant amounts based on urgency, complexity, and technical value</p>
+                  <h4>🔧 Maintenance Tasks</h4>
+                  <p><strong>500K $BMAIL</strong> per task • 10 tasks available</p>
+                  <p className="grant-description">Testing, optimization, accessibility, security audits, CI/CD setup</p>
                 </div>
               </div>
               
               <div className="total-available">
-                <h4>💎 Total Available: 1,000,000,000 $BMAIL</h4>
-                <p>100% of total supply available for those who contribute work and value to Bitcoin Email</p>
+                <h4>💎 Total Supply: 1,000,000,000 $BMAIL</h4>
+                <p>All tokens available for contributors - no limits on future opportunities beyond current tasks</p>
               </div>
             </div>
           </div>
@@ -654,32 +654,32 @@ const ContributionsPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Grant-Based Distribution */}
+            {/* Token Distribution */}
             <div className="all-section">
-              <h3>🎁 Grant-Based Token Distribution</h3>
+              <h3>🎁 Token Distribution for Contributors</h3>
               <div className="grant-allocation-info">
                 <div className="grant-principle">
-                  <h4>🌟 No Fixed Allocations - All Tokens Available Through Grants</h4>
-                  <p>We've eliminated fixed percentage splits. All 1 billion $BMAIL tokens are available for contributors who do the work. Grant amounts are determined by project scope, impact, and value created.</p>
+                  <h4>🌟 100% Community Owned - No Team Reserve</h4>
+                  <p>All 1 billion $BMAIL tokens are available to contributors. We're all one community - those who do the work earn the tokens.</p>
                 </div>
                 
                 <div className="grant-examples">
                   <div className="grant-tier">
-                    <h4>🚀 Major Grants</h4>
-                    <p><strong>Variable $BMAIL</strong> • Unlimited opportunities</p>
-                    <p className="grant-description">Blockchain integration, mobile apps, core infrastructure - grant amounts based on complexity and strategic value</p>
+                    <h4>🚀 Major Features</h4>
+                    <p><strong>2.5M $BMAIL</strong> per task • 12 tasks available</p>
+                    <p className="grant-description">Blockchain integration, HandCash wallet, encryption, mobile apps, NFT marketplace</p>
                   </div>
                   
                   <div className="grant-tier">
-                    <h4>✨ Minor Grants</h4>
-                    <p><strong>Variable $BMAIL</strong> • Unlimited opportunities</p>
-                    <p className="grant-description">New features, UI enhancements, integrations - grant amounts reflect development effort and user impact</p>
+                    <h4>✨ Minor Features</h4>
+                    <p><strong>1.25M $BMAIL</strong> per task • 10 tasks available</p>
+                    <p className="grant-description">Dark mode, search, templates, contact management, analytics dashboard</p>
                   </div>
                   
                   <div className="grant-tier">
-                    <h4>🔧 Maintenance Grants</h4>
-                    <p><strong>Variable $BMAIL</strong> • Unlimited opportunities</p>
-                    <p className="grant-description">Bug fixes, tests, optimizations - grant amounts based on urgency, complexity, and technical value</p>
+                    <h4>🔧 Maintenance Tasks</h4>
+                    <p><strong>500K $BMAIL</strong> per task • 10 tasks available</p>
+                    <p className="grant-description">Testing, optimization, accessibility, security audits, CI/CD setup</p>
                   </div>
                 </div>
               </div>
@@ -796,8 +796,8 @@ const ContributionsPage: React.FC = () => {
             <h2>Grant Applications</h2>
             
             <div className="grants-header">
-              <h3>Apply for Custom $BMAIL Grants</h3>
-              <p>Have an idea that goes beyond our predefined tasks? Apply for a custom grant with flexible token amounts based on your project's scope and impact.</p>
+              <h3>Apply for Future $BMAIL Grants</h3>
+              <p>Have an idea beyond our current 32 predefined tasks? Apply for a grant from the remaining token pool. All 1B tokens are available to the community.</p>
             </div>
 
             <div className="grant-application-form">
