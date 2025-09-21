@@ -3,27 +3,32 @@
   margin: 0 auto;
   padding: 80px 20px 40px;
   min-height: 100vh;
+  background: #000000;
 }
 
 .jobs-header {
   text-align: center;
   margin-bottom: 40px;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #0a0a0a;
+  border: 2px solid rgba(255, 51, 51, 0.5);
   border-radius: 20px;
-  color: white;
+  color: #ff3333;
+  box-shadow: 0 10px 40px rgba(255, 51, 51, 0.1);
 }
 
 .jobs-header h1 {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 10px;
+  color: #ff3333;
+  text-shadow: 0 0 20px rgba(255, 51, 51, 0.5);
 }
 
 .jobs-subtitle {
   font-size: 20px;
-  opacity: 0.95;
   margin-bottom: 30px;
+  color: #ff6666;
 }
 
 /* Authentication Status */
@@ -36,9 +41,10 @@
 }
 
 .auth-item {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.8);
   padding: 15px 20px;
   border-radius: 12px;
+  border: 1px solid rgba(255, 51, 51, 0.3);
   backdrop-filter: blur(10px);
 }
 
@@ -46,11 +52,13 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  color: #ffffff;
 }
 
 .connected .icon {
   width: 20px;
   height: 20px;
+  color: #ff6666;
 }
 
 .connect-btn {
@@ -67,38 +75,43 @@
 }
 
 .github-btn {
-  background: #24292e;
+  background: #1a1a1a;
   color: white;
+  border: 1px solid #333333;
 }
 
 .github-btn:hover {
-  background: #1a1e22;
+  background: #2a2a2a;
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 51, 51, 0.3);
 }
 
 .handcash-btn {
-  background: #38CB7C;
+  background: linear-gradient(135deg, #38CB7C, #2ea866);
   color: white;
+  border: 1px solid rgba(56, 203, 124, 0.3);
 }
 
 .handcash-btn:hover {
-  background: #2ea866;
+  background: linear-gradient(135deg, #2ea866, #38CB7C);
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(56, 203, 124, 0.3);
 }
 
 .disconnect-btn {
   padding: 4px 10px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 51, 51, 0.2);
+  border: 1px solid rgba(255, 51, 51, 0.3);
   border-radius: 6px;
-  color: white;
+  color: #ff6666;
   font-size: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .disconnect-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 51, 51, 0.3);
+  color: #ffffff;
 }
 
 .connect-btn .icon {
@@ -111,7 +124,7 @@
   display: flex;
   gap: 10px;
   margin-bottom: 30px;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid rgba(255, 51, 51, 0.2);
   padding-bottom: 0;
 }
 
@@ -121,18 +134,19 @@
   border: none;
   font-size: 16px;
   font-weight: 500;
-  color: #64748b;
+  color: #808080;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
 }
 
 .tab-btn:hover {
-  color: #334155;
+  color: #ff6666;
 }
 
 .tab-btn.active {
-  color: #667eea;
+  color: #ff3333;
+  font-weight: 600;
 }
 
 .tab-btn.active::after {
@@ -142,7 +156,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #667eea;
+  background: linear-gradient(90deg, #ff3333, #ff6666);
 }
 
 /* Job Grid */
@@ -154,18 +168,39 @@
 }
 
 .job-card {
-  background: white;
-  border: 1px solid #e2e8f0;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 51, 51, 0.2);
   border-radius: 12px;
   padding: 20px;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff3333, #cc0000, #ff3333);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
 
 .job-card:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 51, 51, 0.5);
+  box-shadow: 0 10px 30px rgba(255, 51, 51, 0.2);
   transform: translateY(-4px);
+  background: #2a2a2a;
 }
 
 .job-header {
@@ -173,28 +208,34 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 15px;
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
 }
 
 .job-header h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #1e293b;
+  color: #ffffff;
   flex: 1;
   margin-right: 10px;
+  text-shadow: none;
 }
 
 .token-badge {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #ff3333, #ff6666);
   color: white;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(255, 51, 51, 0.3);
 }
 
 .job-description {
-  color: #64748b;
+  color: #b0b0b0;
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 20px;
@@ -209,24 +250,26 @@
 }
 
 .github-link {
-  color: #667eea;
+  color: #ff6666;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
   display: flex;
   align-items: center;
   gap: 5px;
+  transition: all 0.2s ease;
 }
 
 .github-link:hover {
+  color: #ff3333;
   text-decoration: underline;
 }
 
 .accept-btn {
-  background: #38CB7C;
+  background: linear-gradient(135deg, #ff3333, #cc0000);
   color: white;
   padding: 8px 16px;
-  border: none;
+  border: 1px solid rgba(255, 51, 51, 0.3);
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
@@ -235,12 +278,15 @@
 }
 
 .accept-btn:hover:not(:disabled) {
-  background: #2ea866;
+  background: linear-gradient(135deg, #ff6666, #ff3333);
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 51, 51, 0.3);
 }
 
 .accept-btn:disabled {
-  background: #cbd5e1;
+  background: #333333;
+  border-color: #444444;
+  color: #666666;
   cursor: not-allowed;
 }
 
@@ -252,15 +298,28 @@
 }
 
 .contract-card {
-  background: white;
-  border: 1px solid #e2e8f0;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 51, 51, 0.2);
   border-radius: 12px;
   padding: 24px;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.contract-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #ff3333, #cc0000);
 }
 
 .contract-card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: #2a2a2a;
+  border-color: rgba(255, 51, 51, 0.5);
+  box-shadow: 0 5px 15px rgba(255, 51, 51, 0.2);
 }
 
 .contract-header {
@@ -268,12 +327,17 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
 }
 
 .contract-header h3 {
   font-size: 20px;
   font-weight: 600;
-  color: #1e293b;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .status-badge {
@@ -285,18 +349,21 @@
 }
 
 .status-badge.in_progress {
-  background: #fef3c7;
-  color: #92400e;
+  background: rgba(255, 204, 0, 0.2);
+  color: #ffcc00;
+  border: 1px solid rgba(255, 204, 0, 0.3);
 }
 
 .status-badge.under_review {
-  background: #dbeafe;
-  color: #1e3a8a;
+  background: rgba(0, 153, 255, 0.2);
+  color: #0099ff;
+  border: 1px solid rgba(0, 153, 255, 0.3);
 }
 
 .status-badge.completed {
-  background: #d1fae5;
-  color: #065f46;
+  background: rgba(0, 255, 127, 0.2);
+  color: #00ff7f;
+  border: 1px solid rgba(0, 255, 127, 0.3);
 }
 
 .contract-details {
@@ -307,7 +374,7 @@
 }
 
 .contract-details p {
-  color: #64748b;
+  color: #b0b0b0;
   font-size: 14px;
 }
 
@@ -317,7 +384,7 @@
 }
 
 .pr-link {
-  color: #10b981;
+  color: #00ff7f;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -331,7 +398,10 @@
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  color: #94a3b8;
+  color: #808080;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 51, 51, 0.1);
+  border-radius: 12px;
 }
 
 .empty-state p {
@@ -341,7 +411,7 @@
 
 .hint {
   font-size: 14px;
-  color: #cbd5e1;
+  color: #666666;
 }
 
 /* Modal */
@@ -351,29 +421,33 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 10002;
   padding: 20px;
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
-  background: white;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 51, 51, 0.3);
   border-radius: 16px;
   max-width: 600px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   padding: 30px;
+  box-shadow: 0 20px 60px rgba(255, 51, 51, 0.3);
 }
 
 .modal-content h2 {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 20px;
-  color: #1e293b;
+  color: #ff3333;
+  text-align: center;
 }
 
 .contract-terms {
@@ -384,17 +458,18 @@
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #334155;
+  color: #ffffff;
 }
 
 .contract-terms .description {
-  color: #64748b;
+  color: #b0b0b0;
   margin-bottom: 20px;
   line-height: 1.6;
 }
 
 .terms-section {
-  background: #f8fafc;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 51, 51, 0.2);
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 20px;
@@ -404,7 +479,7 @@
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 15px;
-  color: #334155;
+  color: #ff6666;
 }
 
 .terms-section ul {
@@ -414,20 +489,21 @@
 
 .terms-section li {
   padding: 8px 0;
-  color: #64748b;
+  color: #b0b0b0;
   display: flex;
   align-items: flex-start;
 }
 
 .terms-section li::before {
-  content: '✓';
-  color: #38CB7C;
+  content: '▶';
+  color: #ff3333;
   margin-right: 10px;
-  font-weight: bold;
+  font-size: 12px;
 }
 
 .contractor-info {
-  background: #f0fdf4;
+  background: rgba(255, 51, 51, 0.1);
+  border: 1px solid rgba(255, 51, 51, 0.2);
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 20px;
@@ -437,27 +513,27 @@
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #14532d;
+  color: #ff6666;
 }
 
 .contractor-info p {
-  color: #166534;
+  color: #ffffff;
   margin: 5px 0;
 }
 
 .warning-box {
-  background: #fef2f2;
-  border: 1px solid #fecaca;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 51, 51, 0.3);
   padding: 15px;
   border-radius: 12px;
   margin-bottom: 20px;
-  color: #991b1b;
+  color: #ffcccc;
   font-size: 14px;
   line-height: 1.6;
 }
 
 .warning-box strong {
-  color: #7f1d1d;
+  color: #ff6666;
 }
 
 .modal-actions {
@@ -468,24 +544,26 @@
 
 .cancel-btn {
   padding: 12px 24px;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
+  background: #2a2a2a;
+  border: 1px solid #444444;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 500;
-  color: #64748b;
+  color: #b0b0b0;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .cancel-btn:hover {
-  background: #e2e8f0;
+  background: #333333;
+  border-color: #666666;
+  color: #ffffff;
 }
 
 .confirm-btn {
   padding: 12px 24px;
-  background: #38CB7C;
-  border: none;
+  background: linear-gradient(135deg, #ff3333, #cc0000);
+  border: 1px solid rgba(255, 51, 51, 0.3);
   border-radius: 8px;
   font-size: 16px;
   font-weight: 500;
@@ -495,8 +573,9 @@
 }
 
 .confirm-btn:hover {
-  background: #2ea866;
+  background: linear-gradient(135deg, #ff6666, #ff3333);
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 51, 51, 0.3);
 }
 
 /* Completed List */
@@ -507,23 +586,53 @@
 }
 
 .completed-card {
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
+  background: #1a1a1a;
+  border: 1px solid rgba(0, 255, 127, 0.2);
   border-radius: 12px;
   padding: 20px;
+  position: relative;
+}
+
+.completed-card::before {
+  content: '✓';
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #00ff7f;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .completed-card h4 {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #14532d;
+  color: #ffffff;
 }
 
 .completed-card p {
-  color: #166534;
+  color: #b0b0b0;
   font-size: 14px;
   margin: 5px 0;
+}
+
+/* Scrollbar Styling */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: rgba(255, 51, 51, 0.1);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 51, 51, 0.3);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 51, 51, 0.5);
 }
 
 /* Responsive Design */
