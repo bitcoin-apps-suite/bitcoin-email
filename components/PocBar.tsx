@@ -9,29 +9,30 @@ interface PocBarProps {
 
 export default function PocBar({ color = '#ff3333' }: PocBarProps) {
   return (
-    <div 
-      className="poc-banner"
-      style={{
-        position: 'fixed',
-        top: 22, // Below taskbar
-        left: 0,
-        right: 0,
-        height: '48px',
-        background: 'linear-gradient(135deg, #dc2626, #ef4444)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between', // Space between left and right content
-        zIndex: 99999,
-        fontSize: '14px',
-        fontWeight: '400',
-        color: '#1a1a1a',
-        letterSpacing: '0.5px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-        borderBottom: '1px solid rgba(0,0,0,0.1)',
-        padding: '12px 24px',
-        boxSizing: 'border-box',
-      }}
-    >
+    <>
+      <div 
+        className="poc-banner"
+        style={{
+          position: 'fixed',
+          top: 22, // Below taskbar
+          left: 0,
+          right: 0,
+          height: '48px',
+          background: 'linear-gradient(135deg, #dc2626, #ef4444)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between', // Space between left and right content
+          zIndex: 99999,
+          fontSize: '14px',
+          fontWeight: '400',
+          color: '#1a1a1a',
+          letterSpacing: '0.5px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+          borderBottom: '1px solid rgba(0,0,0,0.1)',
+          padding: '12px 24px',
+          boxSizing: 'border-box',
+        }}
+      >
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', flexShrink: 0 }}>
           <span style={{ fontSize: '20px' }}>⚠️</span>
@@ -181,5 +182,45 @@ export default function PocBar({ color = '#ff3333' }: PocBarProps) {
         </a>
       </div>
     </div>
+    
+    {/* Mobile styles for PocBar */}
+    <style jsx>{`
+      @media (max-width: 768px) {
+        .poc-banner {
+          height: auto !important;
+          min-height: 48px !important;
+          padding: 8px 12px !important;
+          font-size: 12px !important;
+          top: 44px !important; /* Below mobile taskbar */
+        }
+        
+        .poc-banner > div:first-child {
+          flex-wrap: wrap !important;
+        }
+        
+        .poc-banner > div:last-child {
+          display: none !important; /* Hide links on small mobile */
+        }
+      }
+      
+      @media (min-width: 481px) and (max-width: 768px) {
+        .poc-banner > div:last-child {
+          display: flex !important; /* Show links on tablets */
+          flex-wrap: wrap !important;
+          margin-top: 8px !important;
+          width: 100% !important;
+          justify-content: center !important;
+        }
+        
+        .poc-banner > div:last-child a {
+          margin: 2px 4px !important;
+        }
+        
+        .poc-banner > div:last-child span[style*="opacity: 0.5"] {
+          display: none !important; /* Hide bullet separators on mobile */
+        }
+      }
+    `}</style>
+    </>
   );
 }

@@ -25,7 +25,9 @@
 .poc-banner a,
 .taskbar a,
 .taskbar-right a,
-.desktop-links a {
+.desktop-links a,
+.mobile-menu a,
+.mobile-menu-item {
   pointer-events: auto !important;
   cursor: pointer !important;
   position: relative;
@@ -37,6 +39,32 @@
 .taskbar {
   pointer-events: auto !important;
   z-index: 10000 !important;
+}
+
+/* Mobile-specific link enhancements */
+@media (max-width: 768px) {
+  .poc-banner a,
+  .taskbar a {
+    min-height: 44px; /* Touch-friendly target size */
+    min-width: 44px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 8px !important;
+  }
+  
+  /* Ensure mobile menu is above everything */
+  .mobile-menu-overlay {
+    z-index: 100001 !important;
+  }
+  
+  .mobile-menu {
+    z-index: 100002 !important;
+  }
+  
+  .mobile-menu-trigger {
+    z-index: 100003 !important;
+  }
 }
 
 body {

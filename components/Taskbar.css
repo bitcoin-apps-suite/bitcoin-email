@@ -301,6 +301,9 @@
     height: 44px; /* Touch-friendly height */
     font-size: 14px;
     padding: 0 8px;
+    top: 0;
+    position: fixed;
+    z-index: 100000 !important;
   }
   
   /* Keep Bitcoin logo visible and on far left */
@@ -309,6 +312,12 @@
     padding: 0 12px;
     height: 44px;
     display: flex !important;
+    min-width: 44px;
+    pointer-events: auto !important;
+  }
+  
+  .bitcoin-symbol {
+    font-size: 20px !important;
   }
   
   /* Hide all desktop menu items on mobile */
@@ -328,10 +337,21 @@
   
   /* Bitcoin suite dropdown adjustments */
   .bitcoin-suite-dropdown {
-    left: 0;
+    position: fixed !important;
+    left: 8px !important;
     right: auto;
-    top: 44px;
-    max-width: 90vw;
+    top: 50px !important; /* Below mobile taskbar */
+    max-width: calc(100vw - 16px);
+    width: 280px;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+    z-index: 100005 !important;
+  }
+  
+  .bitcoin-app-item {
+    padding: 10px 16px !important;
+    min-height: 44px;
+    pointer-events: auto !important;
   }
 }
 
