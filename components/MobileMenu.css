@@ -72,13 +72,13 @@
 /* Mobile Menu - Bitcoin Writer Style */
 .mobile-menu {
   position: fixed;
-  top: 80px; /* Below taskbar (22px) and PocBar (48px) with spacing */
+  top: 100px; /* Below PocBar (48px) and taskbar (44px on mobile) with spacing */
   right: 10px;
   background: #0a0a0a;
   border-radius: 12px;
   max-width: 90vw;
   width: 350px;
-  max-height: calc(100vh - 100px);
+  max-height: calc(100vh - 110px);
   overflow-y: auto;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);

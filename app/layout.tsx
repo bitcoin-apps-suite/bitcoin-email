@@ -58,9 +58,9 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className="antialiased h-full">
         <Providers>
-          <PocBar color="#ff3333" />
           <Taskbar />
-          <div className="pt-[54px] md:pt-[54px] mobile-content-wrapper">
+          <PocBar color="#ff3333" />
+          <div className="pt-[70px] md:pt-[70px] mobile-content-wrapper">
             {children}
           </div>
           <MobileBottomNav />

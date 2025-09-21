@@ -1,6 +1,6 @@
 .taskbar {
   position: fixed;
-  top: 0;
+  top: 48px; /* Below PocBar */
   left: 0;
   right: 0;
   height: 22px;
@@ -301,7 +301,7 @@
     height: 44px; /* Touch-friendly height */
     font-size: 14px;
     padding: 0 8px;
-    top: 0;
+    top: 48px; /* Below PocBar on mobile too */
     position: fixed;
     z-index: 100000 !important;
   }
@@ -340,10 +340,10 @@
     position: fixed !important;
     left: 8px !important;
     right: auto;
-    top: 50px !important; /* Below mobile taskbar */
+    top: 98px !important; /* Below PocBar (48px) + mobile taskbar (44px) + spacing */
     max-width: calc(100vw - 16px);
     width: 280px;
-    max-height: calc(100vh - 60px);
+    max-height: calc(100vh - 110px);
     overflow-y: auto;
     z-index: 100005 !important;
   }

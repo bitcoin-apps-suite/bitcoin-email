@@ -14,7 +14,7 @@ export default function PocBar({ color = '#ff3333' }: PocBarProps) {
         className="poc-banner"
         style={{
           position: 'fixed',
-          top: 22, // Below taskbar
+          top: 0, // At the top
           left: 0,
           right: 0,
           height: '48px',
@@ -191,7 +191,7 @@ export default function PocBar({ color = '#ff3333' }: PocBarProps) {
           min-height: 48px !important;
           padding: 8px 12px !important;
           font-size: 12px !important;
-          top: 44px !important; /* Below mobile taskbar */
+          top: 0 !important; /* At the top on mobile */
         }
         
         .poc-banner > div:first-child {
