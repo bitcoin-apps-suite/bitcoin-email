@@ -8,12 +8,13 @@ import './EmailClient.mobile.css';
 import { EmailList } from './email/EmailList';
 import { EmailPreview } from './email/EmailPreview';
 import { ComposeModal } from './email/ComposeModal';
-import { UnifiedConnections } from './UnifiedConnections';
+import { ConnectionBadge } from './ConnectionBadge';
 import { ConnectionsModal } from './ConnectionsModal';
+import { WalletManager } from './WalletManager';
 import { EmailListExchange } from './exchange/EmailListExchange';
 import { ListMarketplace } from './exchange/ListMarketplace';
 import { CreateListModal } from './exchange/CreateListModal';
-import './UnifiedConnections.css';
+import './WalletManager.css';
 
 const EmailClient: React.FC = () => {
   const router = useRouter();
@@ -222,10 +223,11 @@ const EmailClient: React.FC = () => {
             <span>Compose</span>
           </button>
 
-          <UnifiedConnections
+          <WalletManager className="wallet-manager-header" />
+          
+          <ConnectionBadge
             connections={connections}
             onOpenModal={() => setShowConnectionsModal(true)}
-            className="unified-connections-header"
           />
 
           {/* Twitter/X Link */}
