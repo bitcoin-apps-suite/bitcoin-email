@@ -114,6 +114,8 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
   padding: 8px 0;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
 }
 
 .bitcoin-suite-header {
@@ -136,6 +138,7 @@
   transition: background 0.15s ease;
   cursor: pointer;
   font-weight: 400;
+  width: 100%;
 }
 
 .bitcoin-app-item:hover {
