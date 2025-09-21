@@ -46,8 +46,21 @@
   z-index: 10000 !important;
 }
 
+/* Developer sidebar content adjustment */
+.dev-sidebar-content {
+  transition: margin-left 0.3s ease;
+}
+
+body:has(.dev-sidebar.collapsed) .dev-sidebar-content {
+  margin-left: 60px !important;
+}
+
 /* Mobile-specific link enhancements */
 @media (max-width: 768px) {
+  .dev-sidebar-content {
+    margin-left: 0 !important;
+  }
+  
   .poc-banner a,
   .taskbar a {
     min-height: 44px; /* Touch-friendly target size */

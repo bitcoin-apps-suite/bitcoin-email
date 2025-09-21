@@ -6,6 +6,7 @@ import MobileBottomNav from "../components/MobileBottomNav";
 import { InstallPrompt } from "../components/InstallPrompt";
 import { Providers } from "./providers";
 import PocBar from "../components/PocBar";
+import DevSidebar from "../components/DevSidebar";
 
 export const metadata: Metadata = {
   title: "Bitcoin Email - Blockchain-Powered Email Client",
@@ -60,7 +61,8 @@ export default function RootLayout({
         <Providers>
           <Taskbar />
           <PocBar color="#ff3333" />
-          <div className="pt-[70px] md:pt-[70px] mobile-content-wrapper">
+          <DevSidebar />
+          <div className="pt-[70px] md:pt-[70px] mobile-content-wrapper ml-[260px] dev-sidebar-content">
             {children}
           </div>
           <MobileBottomNav />
