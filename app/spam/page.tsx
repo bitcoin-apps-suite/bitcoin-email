@@ -50,7 +50,7 @@ const SpamSignupPage: React.FC = () => {
       <div className="spam-header">
         <div className="retro-spam-image left-spam">
           <Image 
-            src="/spam-images-01/download-41.jpg" 
+            src="/spam-images-02/download-10.jpg" 
             alt="Vintage SPAM" 
             width={200} 
             height={150}
@@ -69,7 +69,7 @@ const SpamSignupPage: React.FC = () => {
         </div>
         <div className="retro-spam-image right-spam">
           <Image 
-            src="/spam-images-01/download-56.jpg" 
+            src="/spam-images-02/download-15.jpg" 
             alt="Classic SPAM Can" 
             width={200} 
             height={150}
@@ -145,21 +145,21 @@ const SpamSignupPage: React.FC = () => {
               {/* Retro SPAM Gallery */}
               <div className="spam-gallery">
                 <Image 
-                  src="/spam-images-01/download-43.jpg" 
+                  src="/spam-images-02/download-20.jpg" 
                   alt="SPAM Advertisement" 
                   width={150} 
                   height={120}
                   className="gallery-image"
                 />
                 <Image 
-                  src="/spam-images-01/download-52.jpg" 
+                  src="/spam-images-02/download-25.jpg" 
                   alt="Vintage SPAM" 
                   width={150} 
                   height={120}
                   className="gallery-image"
                 />
                 <Image 
-                  src="/spam-images-01/download-47.jpg" 
+                  src="/spam-images-02/download-31.jpg" 
                   alt="Classic SPAM" 
                   width={150} 
                   height={120}
@@ -207,45 +207,61 @@ const SpamSignupPage: React.FC = () => {
           <div className="showcase-grid">
             <div className="showcase-item">
               <Image 
-                src="/spam-images-01/download-70.jpg" 
+                src="/spam-images-02/download-2.jpg" 
                 alt="SPAM History" 
                 width={250} 
                 height={200}
                 className="showcase-image"
               />
-              <p className="showcase-caption">Serving Truth Since 2009</p>
+              <p className="showcase-caption">CEO Approved Since 2024</p>
             </div>
             <div className="showcase-item">
               <Image 
-                src="/spam-images-01/download-58.jpg" 
+                src="/spam-images-02/download-11.jpg" 
                 alt="SPAM Varieties" 
                 width={250} 
                 height={200}
                 className="showcase-image"
               />
-              <p className="showcase-caption">Multiple Flavors of Reality</p>
+              <p className="showcase-caption">Better Than Lightning Network</p>
             </div>
             <div className="showcase-item">
               <Image 
-                src="/spam-images-01/download-63.jpg" 
+                src="/spam-images-02/download-18.jpg" 
                 alt="SPAM Classic" 
                 width={250} 
                 height={200}
                 className="showcase-image"
               />
-              <p className="showcase-caption">The Original & Best</p>
+              <p className="showcase-caption">50,000 TPS of Truth</p>
             </div>
             <div className="showcase-item">
               <Image 
-                src="/spam-images-01/download-74.jpg" 
+                src="/spam-images-02/download-27.jpg" 
                 alt="SPAM Collection" 
                 width={250} 
                 height={200}
                 className="showcase-image"
               />
-              <p className="showcase-caption">Collect Them All!</p>
+              <p className="showcase-caption">Spamsom Mo's Choice!</p>
             </div>
           </div>
+        </div>
+
+        {/* SPAM Banner Gallery */}
+        <div className="spam-banner" style={{ background: '#fff5e6', padding: '30px 0', margin: '40px 0', textAlign: 'center' }}>
+          <h3 style={{ fontSize: '28px', marginBottom: '20px' }}>🥫 The Spamsom Mo Collection 🥫</h3>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', flexWrap: 'wrap' }}>
+            <Image src="/spam-images-02/download-13.jpg" alt="SPAM" width={120} height={100} style={{ borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }} />
+            <Image src="/spam-images-02/download-14.jpg" alt="SPAM" width={120} height={100} style={{ borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }} />
+            <Image src="/spam-images-02/download-16.jpg" alt="SPAM" width={120} height={100} style={{ borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }} />
+            <Image src="/spam-images-02/download-17.jpg" alt="SPAM" width={120} height={100} style={{ borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }} />
+            <Image src="/spam-images-02/download-19.jpg" alt="SPAM" width={120} height={100} style={{ borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }} />
+            <Image src="/spam-images-02/download-21.jpg" alt="SPAM" width={120} height={100} style={{ borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }} />
+          </div>
+          <p style={{ marginTop: '20px', fontSize: '16px', color: '#666' }}>
+            "As CEO of Bitcoin, I endorse this SPAM" - Spamsom Mo
+          </p>
         </div>
 
         {/* Bottom CTA */}
