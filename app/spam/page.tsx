@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import './spam.css';
 
 const SpamSignupPage: React.FC = () => {
@@ -47,6 +48,15 @@ const SpamSignupPage: React.FC = () => {
     <div className="spam-container">
       {/* Retro Header */}
       <div className="spam-header">
+        <div className="retro-spam-image left-spam">
+          <Image 
+            src="/spam-images-01/download-41.jpg" 
+            alt="Vintage SPAM" 
+            width={200} 
+            height={150}
+            className="spam-decoration"
+          />
+        </div>
         <div className="enamel-sign">
           <div className="sign-border">
             <h1 className="sign-title">
@@ -56,6 +66,15 @@ const SpamSignupPage: React.FC = () => {
             </h1>
             <div className="sign-subtitle">EST. 2009 · SERVING SCALING SINCE GENESIS</div>
           </div>
+        </div>
+        <div className="retro-spam-image right-spam">
+          <Image 
+            src="/spam-images-01/download-56.jpg" 
+            alt="Classic SPAM Can" 
+            width={200} 
+            height={150}
+            className="spam-decoration"
+          />
         </div>
       </div>
 
@@ -122,6 +141,31 @@ const SpamSignupPage: React.FC = () => {
                 <p>✅ No BTC transaction fees required</p>
                 <p>✅ Instant delivery (unlike BTC)</p>
               </div>
+              
+              {/* Retro SPAM Gallery */}
+              <div className="spam-gallery">
+                <Image 
+                  src="/spam-images-01/download-43.jpg" 
+                  alt="SPAM Advertisement" 
+                  width={150} 
+                  height={120}
+                  className="gallery-image"
+                />
+                <Image 
+                  src="/spam-images-01/download-52.jpg" 
+                  alt="Vintage SPAM" 
+                  width={150} 
+                  height={120}
+                  className="gallery-image"
+                />
+                <Image 
+                  src="/spam-images-01/download-47.jpg" 
+                  alt="Classic SPAM" 
+                  width={150} 
+                  height={120}
+                  className="gallery-image"
+                />
+              </div>
             </>
           ) : (
             <div className="success-message">
@@ -154,6 +198,53 @@ const SpamSignupPage: React.FC = () => {
             <div className="feature-icon">📈</div>
             <h4>Investor Updates</h4>
             <p>Be first to know about funding rounds and token distribution</p>
+          </div>
+        </div>
+
+        {/* Retro SPAM Showcase */}
+        <div className="spam-showcase">
+          <h3 className="showcase-title">Gallery of SPAM Excellence</h3>
+          <div className="showcase-grid">
+            <div className="showcase-item">
+              <Image 
+                src="/spam-images-01/download-70.jpg" 
+                alt="SPAM History" 
+                width={250} 
+                height={200}
+                className="showcase-image"
+              />
+              <p className="showcase-caption">Serving Truth Since 2009</p>
+            </div>
+            <div className="showcase-item">
+              <Image 
+                src="/spam-images-01/download-58.jpg" 
+                alt="SPAM Varieties" 
+                width={250} 
+                height={200}
+                className="showcase-image"
+              />
+              <p className="showcase-caption">Multiple Flavors of Reality</p>
+            </div>
+            <div className="showcase-item">
+              <Image 
+                src="/spam-images-01/download-63.jpg" 
+                alt="SPAM Classic" 
+                width={250} 
+                height={200}
+                className="showcase-image"
+              />
+              <p className="showcase-caption">The Original & Best</p>
+            </div>
+            <div className="showcase-item">
+              <Image 
+                src="/spam-images-01/download-74.jpg" 
+                alt="SPAM Collection" 
+                width={250} 
+                height={200}
+                className="showcase-image"
+              />
+              <p className="showcase-caption">Collect Them All!</p>
+            </div>
           </div>
         </div>
 
