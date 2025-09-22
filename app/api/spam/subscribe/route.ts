@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,35 +11,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // For now, store in a JSON file (later can use database)
-    const subscribersPath = path.join(process.cwd(), 'data', 'spam-subscribers.json');
+    // For production, we'll store subscribers in memory or use a database service
+    // In Vercel serverless functions, filesystem writes are not persistent
     
-    // Ensure data directory exists
-    const dataDir = path.join(process.cwd(), 'data');
-    try {
-      await fs.mkdir(dataDir, { recursive: true });
-    } catch (error) {
-      // Directory might already exist
-    }
-
-    // Load existing subscribers
-    let subscribers = [];
-    try {
-      const data = await fs.readFile(subscribersPath, 'utf8');
-      subscribers = JSON.parse(data);
-    } catch (error) {
-      // File doesn't exist yet
-    }
-
-    // Check if already subscribed
-    if (subscribers.find((s: any) => s.email === email)) {
-      return NextResponse.json({
-        message: 'Already subscribed!',
-        alreadySubscribed: true
-      });
-    }
-
-    // Add new subscriber
+    // Log the subscription (this will appear in Vercel logs)
+    console.log(`🥫 New SPAM subscriber: ${email}`);
+    
+    // In production, you would:
+    // 1. Use Vercel KV, Postgres, or another database
+    // 2. Send to a third-party email service (SendGrid, Mailgun, etc.)
+    // 3. Store in a Google Sheet via API
+    // 4. Use Supabase, Firebase, or similar
+    
+    // For now, we'll just acknowledge the subscription
     const newSubscriber = {
       email,
       subscribedAt: new Date().toISOString(),
@@ -54,14 +36,6 @@ export async function POST(request: NextRequest) {
         investorNews: true
       }
     };
-
-    subscribers.push(newSubscriber);
-
-    // Save updated list
-    await fs.writeFile(
-      subscribersPath,
-      JSON.stringify(subscribers, null, 2)
-    );
 
     // Send welcome email (mock for now)
     console.log(`🥫 New SPAM subscriber: ${email}`);
@@ -89,19 +63,12 @@ export async function POST(request: NextRequest) {
 export async function GET() {
   try {
     // Admin endpoint to get subscriber count
-    const subscribersPath = path.join(process.cwd(), 'data', 'spam-subscribers.json');
+    // In production, this would query your database
     
-    let subscribers = [];
-    try {
-      const data = await fs.readFile(subscribersPath, 'utf8');
-      subscribers = JSON.parse(data);
-    } catch (error) {
-      // File doesn't exist yet
-    }
-
     return NextResponse.json({
-      count: subscribers.length,
-      recentSubscribers: subscribers.slice(-5).reverse()
+      count: 0,
+      recentSubscribers: [],
+      message: 'Subscriber storage not configured for production. Check Vercel logs for subscriptions.'
     });
 
   } catch (error) {
