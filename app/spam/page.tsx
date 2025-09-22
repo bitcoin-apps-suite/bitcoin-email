@@ -64,6 +64,28 @@ const SpamSignupPage: React.FC = () => {
         <div className="vintage-card">
           <h2 className="vintage-headline">Have You Had Your SPAM Today?</h2>
           
+          {/* Today's SPAM Preview - MOVED UP */}
+          {dailySpam && (
+            <div className="daily-spam-preview" style={{ margin: '20px 0' }}>
+              <h3 className="preview-title">Today's Special:</h3>
+              <div className="spam-email-card">
+                <div className="email-header">
+                  <span className="from">From: {dailySpam.from}</span>
+                  <span className="date">Fresh Today!</span>
+                </div>
+                <h4 className="email-subject">{dailySpam.subject}</h4>
+                <div className="email-content">
+                  <p className="headline">{dailySpam.content.headline}</p>
+                  <p className="body">{dailySpam.content.body}</p>
+                  <p className="punchline">⚠️ {dailySpam.content.punchline}</p>
+                </div>
+                <div className="email-cta">
+                  {dailySpam.content.cta}
+                </div>
+              </div>
+            </div>
+          )}
+          
           {!isSubscribed ? (
             <>
               <div className="spam-description">
@@ -110,28 +132,6 @@ const SpamSignupPage: React.FC = () => {
             </div>
           )}
         </div>
-
-        {/* Today's SPAM Preview */}
-        {dailySpam && (
-          <div className="daily-spam-preview">
-            <h3 className="preview-title">Today's Special:</h3>
-            <div className="spam-email-card">
-              <div className="email-header">
-                <span className="from">From: {dailySpam.from}</span>
-                <span className="date">Fresh Today!</span>
-              </div>
-              <h4 className="email-subject">{dailySpam.subject}</h4>
-              <div className="email-content">
-                <p className="headline">{dailySpam.content.headline}</p>
-                <p className="body">{dailySpam.content.body}</p>
-                <p className="punchline">⚠️ {dailySpam.content.punchline}</p>
-              </div>
-              <div className="email-cta">
-                {dailySpam.content.cta}
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Features Grid */}
         <div className="features-grid">
