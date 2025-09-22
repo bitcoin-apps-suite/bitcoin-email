@@ -180,6 +180,7 @@
   border: 3px solid #8B4513;
   border-radius: 10px;
   background: #FFFEF9;
+  color: #333333;  /* Fix text color */
   transition: all 0.3s ease;
 }
 
