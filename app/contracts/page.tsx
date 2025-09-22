@@ -105,7 +105,7 @@ export default function ContractsPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 mt-4 md:mt-0">
         {/* Header */}
         <div className="mb-12 text-center">
           <h1 className="text-5xl font-bold mb-4">

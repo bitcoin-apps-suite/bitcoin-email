@@ -17,7 +17,7 @@
   body {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    padding-top: 50px; /* Add padding for fixed header */
+    padding-top: 80px; /* Increased padding for fixed header + breathing room */
     padding-bottom: 60px; /* Add padding for bottom nav */
   }
   
@@ -30,6 +30,16 @@
   /* Mobile content wrapper - removes desktop taskbar padding */
   .mobile-content-wrapper {
     padding-top: 0 !important;
+  }
+  
+  /* Ensure page content isn't hidden under taskbar */
+  .container {
+    padding-top: 1rem !important;
+  }
+  
+  /* Fix for specific pages with large headers */
+  h1:first-child {
+    margin-top: 0.5rem;
   }
   
   /* ============================================
