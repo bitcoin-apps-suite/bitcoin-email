@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { sendSpamEmail, getWelcomeEmailHtml } from '@/lib/email/gmail-sender';
 
 export async function POST(request: NextRequest) {
   try {
@@ -37,11 +38,27 @@ export async function POST(request: NextRequest) {
       }
     };
 
-    // Send welcome email (mock for now)
-    console.log(`🥫 New SPAM subscriber: ${email}`);
-    
-    // TODO: Actually send welcome email with first SPAM
-    // await sendWelcomeSpam(email);
+    // Send welcome email if Gmail is configured
+    if (process.env.GMAIL_APP_PASSWORD) {
+      try {
+        const emailResult = await sendSpamEmail({
+          to: email,
+          subject: '🥫 Welcome to the SPAM Kitchen! Your First Serving is Here',
+          html: getWelcomeEmailHtml(email)
+        });
+        
+        if (emailResult.success) {
+          console.log(`✅ Welcome email sent to ${email}`);
+        } else {
+          console.error(`❌ Failed to send welcome email to ${email}`);
+        }
+      } catch (emailError) {
+        console.error('Email send error:', emailError);
+        // Don't fail the subscription if email fails
+      }
+    } else {
+      console.log(`⚠️ Gmail not configured. Would send welcome email to: ${email}`);
+    }
 
     return NextResponse.json({
       message: 'Welcome to the SPAM family!',
