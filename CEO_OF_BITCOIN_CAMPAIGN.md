@@ -10,8 +10,8 @@ Let that sink in. Every BTC maxi's head just exploded.
 ### Primary Signature
 ```
 Regards,
-[Your Name]
-CEO, The Bitcoin Corporation LTD.
+Spamsom Mo
+CEO, THE BITCOIN CORPORATION LTD (16735102).
 "The only legitimate Bitcoin CEO"
 ```
 
@@ -53,7 +53,7 @@ FOR IMMEDIATE RELEASE
 The Bitcoin Corporation LTD. Announces Leadership Change
 
 [CITY], [DATE] - The Bitcoin Corporation LTD. is pleased to announce 
-that [Your Name] has assumed the role of Chief Executive Officer, 
+that Spamsom Mo has assumed the role of Chief Executive Officer, 
 effective immediately.
 
 "After years of mismanagement by BTC Core, Bitcoin needed real 
@@ -100,8 +100,8 @@ The Bitcoin Corporation will be implementing BSV effective immediately.
 
 This decision is final.
 
-[Your Signature]
-CEO, The Bitcoin Corporation LTD.
+Spamsom Mo
+CEO, THE BITCOIN CORPORATION LTD (16735102).
 ```
 
 ## 🎯 Marketing Campaigns

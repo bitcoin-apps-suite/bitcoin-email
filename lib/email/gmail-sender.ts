@@ -68,7 +68,7 @@ export function getWelcomeEmailHtml(email: string): string {
     <div class="header">
       <div class="spam-can">🥫</div>
       <h1>Welcome to the SPAM Kitchen!</h1>
-      <p>The Official Newsletter of The Bitcoin Corporation LTD.</p>
+      <p>The Official Newsletter of THE BITCOIN CORPORATION LTD (UK Company #16735102)</p>
     </div>
     
     <div class="content">
@@ -76,7 +76,7 @@ export function getWelcomeEmailHtml(email: string): string {
       <div class="ceo-announcement">
         <div style="font-size: 32px;">🎩</div>
         <div class="ceo-title">BREAKING: BITCOIN IS UNDER NEW MANAGEMENT</div>
-        <p>The Bitcoin Corporation LTD. has been officially registered.</p>
+        <p>THE BITCOIN CORPORATION LTD (16735102) has been officially registered in the UK.</p>
         <p class="company-reg">I am now legally the CEO of Bitcoin.</p>
         <p class="company-reg">(Yes, really. Check Companies House.)</p>
       </div>
@@ -86,11 +86,11 @@ export function getWelcomeEmailHtml(email: string): string {
         "After reviewing BTC's abysmal performance (7 TPS, $300 fees, Lightning Network failures), 
         The Bitcoin Corporation has decided to terminate BTC's employment. BSV is now the approved 
         implementation. This decision is final."<br><br>
-        - CEO of Bitcoin
+        - Spamsom Mo, CEO of Bitcoin
       </div>
       
       <h2>Welcome ${email}!</h2>
-      <p>You're now subscribed to receive official communications from The Bitcoin Corporation LTD., including:</p>
+      <p>You're now subscribed to receive official communications from THE BITCOIN CORPORATION LTD (16735102), including:</p>
       
       <ul>
         <li>🎩 <strong>Executive Orders from the CEO of Bitcoin</strong></li>
@@ -160,7 +160,7 @@ export function getWelcomeEmailHtml(email: string): string {
     
     <div class="footer">
       <p style="font-size: 16px; font-weight: bold;">
-        🎩 The Bitcoin Corporation LTD. 🎩
+        🎩 THE BITCOIN CORPORATION LTD (16735102) 🎩
       </p>
       <p style="font-size: 14px;">
         "Making Bitcoin Work Again"
@@ -174,7 +174,7 @@ export function getWelcomeEmailHtml(email: string): string {
       <p style="font-size: 11px; color: #999; margin-top: 20px;">
         You're receiving this because you signed up at bitcoin-email.vercel.app/spam<br>
         Unlike BTC transactions, unsubscribing is instant and free.<br>
-        The Bitcoin Corporation LTD. is a registered company. BTC employment has been terminated.<br>
+        THE BITCOIN CORPORATION LTD is a UK registered company (#16735102). BTC employment has been terminated.<br>
         This email may contain trace amounts of satire and uncomfortable truths.
       </p>
     </div>
