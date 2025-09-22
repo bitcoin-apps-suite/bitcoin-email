@@ -39,43 +39,66 @@ export async function sendSpamEmail(options: EmailOptions) {
   }
 }
 
-// Welcome email template
+// Welcome email template - CEO EDITION
 export function getWelcomeEmailHtml(email: string): string {
   return `
 <!DOCTYPE html>
 <html>
 <head>
   <style>
-    body { font-family: 'Comic Sans MS', cursive, sans-serif; background: #f0f0f0; }
+    body { font-family: Georgia, serif; background: #f0f0f0; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 0 auto; background: white; border: 3px solid #ef4444; }
-    .header { background: #ef4444; color: white; padding: 20px; text-align: center; }
+    .header { background: linear-gradient(135deg, #1a1a1a, #ef4444); color: white; padding: 30px; text-align: center; }
     .content { padding: 30px; }
+    .ceo-announcement { background: #fff9e6; border: 3px solid #d4af37; padding: 20px; margin: 20px 0; text-align: center; }
+    .ceo-title { font-size: 24px; font-weight: bold; color: #1a1a1a; margin: 10px 0; }
+    .company-reg { font-size: 14px; color: #666; font-style: italic; }
     .spam-can { font-size: 48px; }
     .comparison { display: flex; gap: 20px; margin: 20px 0; }
     .comparison-col { flex: 1; padding: 15px; border: 2px solid #ddd; }
     .btc { background: #ffeeee; }
     .bsv { background: #eeffee; }
     .footer { background: #333; color: white; padding: 20px; text-align: center; }
-    .cta-button { background: #ef4444; color: white; padding: 15px 30px; text-decoration: none; display: inline-block; margin: 20px 0; font-size: 18px; }
+    .cta-button { background: #ef4444; color: white; padding: 15px 30px; text-decoration: none; display: inline-block; margin: 20px 0; font-size: 18px; border-radius: 5px; }
+    .breaking-news { background: #ffeeee; border-left: 5px solid #ff0000; padding: 15px; margin: 20px 0; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <div class="spam-can">🥫</div>
-      <h1>Welcome to the SPAM Family!</h1>
-      <p>Your Daily Dose of Blockchain Reality</p>
+      <h1>Welcome to the SPAM Kitchen!</h1>
+      <p>The Official Newsletter of The Bitcoin Corporation LTD.</p>
     </div>
     
     <div class="content">
-      <h2>Congratulations ${email}!</h2>
-      <p>You've just joined the most exclusive mailing list in crypto - where we serve up hot, fresh SPAM about:</p>
+      
+      <div class="ceo-announcement">
+        <div style="font-size: 32px;">🎩</div>
+        <div class="ceo-title">BREAKING: BITCOIN IS UNDER NEW MANAGEMENT</div>
+        <p>The Bitcoin Corporation LTD. has been officially registered.</p>
+        <p class="company-reg">I am now legally the CEO of Bitcoin.</p>
+        <p class="company-reg">(Yes, really. Check Companies House.)</p>
+      </div>
+
+      <div class="breaking-news">
+        <strong>🚨 OFFICIAL STATEMENT FROM THE CEO:</strong><br><br>
+        "After reviewing BTC's abysmal performance (7 TPS, $300 fees, Lightning Network failures), 
+        The Bitcoin Corporation has decided to terminate BTC's employment. BSV is now the approved 
+        implementation. This decision is final."<br><br>
+        - CEO of Bitcoin
+      </div>
+      
+      <h2>Welcome ${email}!</h2>
+      <p>You're now subscribed to receive official communications from The Bitcoin Corporation LTD., including:</p>
       
       <ul>
-        <li>🎭 BTC's Comedy of Errors ($300 fees! 7 TPS! "Store of value!")</li>
-        <li>📧 Bitcoin Email - The ONLY blockchain email client that actually works</li>
-        <li>💼 $BMAIL token opportunities and job postings</li>
-        <li>🚀 Real scaling updates (50,000+ TPS on BSV)</li>
+        <li>🎩 <strong>Executive Orders from the CEO of Bitcoin</strong></li>
+        <li>📋 <strong>BTC Performance Reviews</strong> (Spoiler: They're all F's)</li>
+        <li>⚰️ <strong>Lightning Network Obituaries</strong></li>
+        <li>💼 <strong>$BMAIL Token Allocations</strong> for builders</li>
+        <li>🛠️ <strong>Contracts & Bounties</strong> to fix what BTC broke</li>
+        <li>📊 <strong>Real scaling updates</strong> (50,000+ TPS on BSV)</li>
       </ul>
 
       <div class="comparison">
@@ -101,38 +124,58 @@ export function getWelcomeEmailHtml(email: string): string {
         </div>
       </div>
 
-      <h3>Today's SPAM Special:</h3>
+      <h3>This Week's Corporate Agenda:</h3>
       <blockquote style="background: #f9f9f9; padding: 20px; border-left: 4px solid #ef4444;">
-        <p><strong>"BTC Maximalist Discovers Transaction Fees"</strong></p>
-        <p>Local HODLer Jim spent more on fees than coffee this morning. "I tried to buy a $5 latte with Bitcoin," Jim explained, "but the $287 transaction fee really killed the vibe. The barista suggested I just use cash, but I told him that's not the future of money. Then he showed me Bitcoin Email working instantly for $0.0001 and I had to leave."</p>
-        <p><em>- Another satisfied BTC user discovers reality</em></p>
+        <p><strong>Monday:</strong> "Mempool Monday - Weekend Disaster Report"</p>
+        <p><strong>Wednesday:</strong> "BTC Termination Hearings Continue"</p>
+        <p><strong>Friday:</strong> "Lightning Network Final Obituary"</p>
+        <p><em>Plus breaking news whenever BTC fails (so... constantly)</em></p>
       </blockquote>
 
+      <h3>🔨 Help Build the Future (Get Paid in $BMAIL)</h3>
       <center>
-        <a href="https://bitcoin-email.vercel.app" class="cta-button">
-          Try Bitcoin Email - It Actually Works! 
+        <a href="https://bitcoin-email.vercel.app/contracts" class="cta-button">
+          View Open Contracts
+        </a>
+        <a href="https://github.com/bitcoin-apps-suite/bitcoin-email" class="cta-button">
+          Claim GitHub Bounties
         </a>
       </center>
 
-      <p><strong>What's Next?</strong></p>
+      <p><strong>Current Opportunities:</strong></p>
       <ul>
-        <li>📧 Daily SPAM emails with fresh BTC roasts</li>
-        <li>🎁 Early access to $BMAIL token</li>
-        <li>💼 Job opportunities in our growing team</li>
-        <li>🚀 Be part of the email revolution</li>
+        <li>🛠️ <strong>Frontend Developers:</strong> Help build Bitcoin Email UI</li>
+        <li>⚡ <strong>BSV Developers:</strong> Scale our infrastructure</li>
+        <li>🎨 <strong>Meme Lords:</strong> Roast BTC with visual content</li>
+        <li>📝 <strong>Writers:</strong> Contribute to The Daily SPAM</li>
       </ul>
+      
+      <p style="background: #e6ffe6; padding: 15px; border-radius: 5px;">
+        <strong>💰 Token Allocation Update:</strong><br>
+        40% of $BMAIL tokens reserved for contributors<br>
+        Early contributors get 2x allocation<br>
+        No VC funding - 100% community owned
+      </p>
     </div>
     
     <div class="footer">
-      <p>🥫 Brought to you by Bitcoin Email - Where Satoshi's Vision Actually Works 🥫</p>
-      <p>
+      <p style="font-size: 16px; font-weight: bold;">
+        🎩 The Bitcoin Corporation LTD. 🎩
+      </p>
+      <p style="font-size: 14px;">
+        "Making Bitcoin Work Again"
+      </p>
+      <p style="margin: 20px 0;">
         <a href="https://twitter.com/bitcoin_email" style="color: #ef4444;">Twitter</a> | 
         <a href="https://github.com/bitcoin-apps-suite/bitcoin-email" style="color: #ef4444;">GitHub</a> | 
+        <a href="https://bitcoin-email.vercel.app/contracts" style="color: #ef4444;">Contracts</a> |
         <a href="https://bitcoin-email.vercel.app/jobs" style="color: #ef4444;">Jobs</a>
       </p>
-      <p style="font-size: 12px; margin-top: 20px;">
+      <p style="font-size: 11px; color: #999; margin-top: 20px;">
         You're receiving this because you signed up at bitcoin-email.vercel.app/spam<br>
-        Unlike BTC transactions, unsubscribing is instant and free.
+        Unlike BTC transactions, unsubscribing is instant and free.<br>
+        The Bitcoin Corporation LTD. is a registered company. BTC employment has been terminated.<br>
+        This email may contain trace amounts of satire and uncomfortable truths.
       </p>
     </div>
   </div>
