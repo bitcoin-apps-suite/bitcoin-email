@@ -285,16 +285,28 @@ const SpamSignupPage: React.FC = () => {
           <h3>What People Are Saying:</h3>
           <div className="testimonials">
             <div className="testimonial">
-              <p>"Finally, someone said what we're all thinking about BTC fees!"</p>
-              <span>- Frustrated BTC User</span>
+              <p>"I sold my cat to pay for a BTC transaction. Luke Dashjr offered to eat it. Now I read SPAM instead."</p>
+              <span>- Reformed Maxi, Cat Owner</span>
             </div>
             <div className="testimonial">
-              <p>"I came for the memes, stayed for the actual scaling."</p>
-              <span>- Former Lightning Network Developer</span>
+              <p>"Spent 3 years arguing about OP_CAT activation. BSV just has it. My therapist subscribes to SPAM now."</p>
+              <span>- Former Core Developer</span>
             </div>
             <div className="testimonial">
-              <p>"My transaction from 2021 finally confirmed. Thanks SPAM!"</p>
-              <span>- Mempool Survivor</span>
+              <p>"My Lightning channel closed during my wedding. The on-chain fee was more than the honeymoon. SPAM saved my marriage."</p>
+              <span>- Lightning Network Refugee</span>
+            </div>
+            <div className="testimonial">
+              <p>"I run 47 Raspberry Pi nodes to 'verify don't trust.' They all crashed opening this email. 10/10 would crash again."</p>
+              <span>- Node Runner #58,291</span>
+            </div>
+            <div className="testimonial">
+              <p>"Waited 6 months for Taproot Wizards to do something. They made JPEGs. SPAM delivers actual content daily."</p>
+              <span>- Ordinals Victim</span>
+            </div>
+            <div className="testimonial">
+              <p>"I mortgaged my house to inscribe a monkey JPEG. The fee was $4,800. The monkey is racist. SPAM is free."</p>
+              <span>- NFT 'Investor'</span>
             </div>
           </div>
         </div>

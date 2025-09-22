@@ -507,6 +507,16 @@
   font-family: 'Oswald', sans-serif;
   font-size: 16px;
   padding: 8px 0;
+  color: #1a1a1a; /* Fix: Make text dark and readable */
+  font-weight: 500;
+}
+
+.comparison-item.btc li {
+  color: #8B0000; /* Darker red text for contrast */
+}
+
+.comparison-item.bsv li {
+  color: #004d00; /* Darker green text for contrast */
 }
 
 /* Testimonials */
@@ -524,8 +534,10 @@
 
 .testimonials {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  max-width: 1400px;
+  margin: 30px auto 0;
 }
 
 .testimonial {
@@ -538,10 +550,11 @@
 
 .testimonial p {
   font-family: Georgia, serif;
-  font-size: 16px;
+  font-size: 15px;
   font-style: italic;
-  color: #4B5563;
+  color: #2a2a2a; /* Darker for better readability */
   margin-bottom: 10px;
+  line-height: 1.4;
 }
 
 .testimonial span {
