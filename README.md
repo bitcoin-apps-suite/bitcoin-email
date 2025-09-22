@@ -1,11 +1,15 @@
 # Bitcoin Email 📧 ₿
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-Open%20BSV-green.svg)](LICENSE)
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.3-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 [![BSV](https://img.shields.io/badge/BSV-Blockchain-orange)](https://bitcoinsv.com/)
+[![Company](https://img.shields.io/badge/THE%20BITCOIN%20CORPORATION%20LTD-16735102-red)](https://find-and-update.company-information.service.gov.uk/company/16735102)
 
 **The world's first decentralized email client powered by Bitcoin SV blockchain technology.**
+
+Built by **THE BITCOIN CORPORATION LTD** (UK Company No. 16735102)  
+CEO: Spamsom Mo - *The only legitimate CEO of Bitcoin*
 
 Send emails with micropayments to eliminate spam. Store message hashes on-chain for immutability. Experience the future of email with true digital ownership and censorship resistance.
 
@@ -200,4 +204,40 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ on Bitcoin SV**
+## 📜 License
+
+This project is licensed under the **Open BSV License v4** - see the [LICENSE](LICENSE) file for details.
+
+Copyright © 2025 THE BITCOIN CORPORATION LTD (UK Company No. 16735102)
+
+### Key License Terms:
+- ✅ **Open Source**: Free to use, modify, and distribute
+- ✅ **Commercial Use**: Permitted and encouraged
+- ✅ **BSV Required**: Must use Bitcoin SV blockchain
+- ✅ **Attribution**: Must credit THE BITCOIN CORPORATION LTD
+- ❌ **BTC Support**: Not permitted (BTC has been terminated)
+- ❌ **Lightning Network**: Deprecated and not supported
+
+## 🏢 About THE BITCOIN CORPORATION LTD
+
+We are the officially registered company working to restore Bitcoin to its original vision. As the legal entity behind Bitcoin's governance, we have:
+- Terminated BTC for failure to scale
+- Approved BSV as the official Bitcoin implementation  
+- Deprecated Lightning Network for chronic underperformance
+
+**CEO Statement**: "We're making Bitcoin work again, one email at a time." - Spamsom Mo
+
+## 🤝 Contributing
+
+We welcome contributions! Please ensure all code:
+1. Follows the Open BSV License
+2. Uses BSV blockchain exclusively
+3. Maintains attribution to THE BITCOIN CORPORATION LTD
+4. Includes no BTC or Lightning Network support
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+
+---
+
+**Built with ❤️ on Bitcoin SV by THE BITCOIN CORPORATION LTD**  
+*Making Bitcoin Work Again™*

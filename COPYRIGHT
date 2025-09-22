@@ -1,0 +1,42 @@
+COPYRIGHT AND ATTRIBUTION
+==========================
+
+Copyright (c) 2025 THE BITCOIN CORPORATION LTD
+UK Company Registration No. 16735102
+Registered in England and Wales
+
+All rights reserved.
+
+Primary Author: Spamsom Mo, CEO of Bitcoin
+Repository: https://github.com/bitcoin-apps-suite/bitcoin-email
+Website: https://bitcoin-email.vercel.app
+
+This software is part of the Bitcoin Apps Suite, developed by THE BITCOIN 
+CORPORATION LTD to restore Bitcoin to its original vision as described in 
+the Bitcoin whitepaper.
+
+TRADEMARKS
+----------
+"Bitcoin Email", "Bitcoin Drive", "Bitcoin Spreadsheets", and "$BMAIL" are 
+trademarks of THE BITCOIN CORPORATION LTD. While the software is open source,
+these names may only be used when:
+1. Referring to this official implementation
+2. Clearly indicating it is a fork or derivative
+3. With written permission from THE BITCOIN CORPORATION LTD
+
+CONTRIBUTIONS
+-------------
+All contributions to this project become the property of THE BITCOIN 
+CORPORATION LTD while remaining open source under the Open BSV License.
+Contributors retain attribution rights and will be credited in the 
+contributors file.
+
+OFFICIAL STATEMENT
+------------------
+This software is built on BSV (Bitcoin Satoshi Vision) as it is the only 
+implementation that follows the original Bitcoin protocol. BTC has been 
+officially terminated by THE BITCOIN CORPORATION LTD for failure to scale
+and violation of the Bitcoin whitepaper specifications.
+
+For licensing questions: legal@thebitcoincorporation.com
+For business inquiries: ceo@thebitcoincorporation.com

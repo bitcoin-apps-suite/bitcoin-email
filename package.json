@@ -1,6 +1,27 @@
 {
-  "name": "bitcoin-email-app",
+  "name": "bitcoin-email",
   "version": "0.1.0",
+  "description": "The world's first blockchain-powered email client by THE BITCOIN CORPORATION LTD",
+  "author": "THE BITCOIN CORPORATION LTD <ceo@thebitcoincorporation.com>",
+  "license": "Open-BSV-4.0",
+  "copyright": "Copyright (c) 2025 THE BITCOIN CORPORATION LTD (UK Company No. 16735102)",
+  "homepage": "https://bitcoin-email.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitcoin-apps-suite/bitcoin-email.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bitcoin-apps-suite/bitcoin-email/issues"
+  },
+  "keywords": [
+    "bitcoin",
+    "bsv",
+    "email",
+    "blockchain",
+    "micropayments",
+    "decentralized",
+    "the-bitcoin-corporation"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev -p 3004",
