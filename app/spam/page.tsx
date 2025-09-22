@@ -21,16 +21,26 @@ const SpamSignupPage: React.FC = () => {
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Store in localStorage for now (will integrate with backend later)
-    const subscribers = JSON.parse(localStorage.getItem('spamSubscribers') || '[]');
-    subscribers.push({
-      email,
-      subscribedAt: new Date().toISOString(),
-      source: 'spam-signup'
-    });
-    localStorage.setItem('spamSubscribers', JSON.stringify(subscribers));
-    
-    setIsSubscribed(true);
+    try {
+      const response = await fetch('/api/spam/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        setIsSubscribed(true);
+      } else {
+        alert(data.error || 'Failed to subscribe');
+      }
+    } catch (error) {
+      console.error('Subscription error:', error);
+      alert('Failed to subscribe. Please try again.');
+    }
   };
 
   return (
