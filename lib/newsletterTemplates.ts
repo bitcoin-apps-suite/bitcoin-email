@@ -34,7 +34,7 @@ export const newsletterTemplates: NewsletterTemplate[] = [
     </div>
     
     <div class="content">
-      <img src="https://bitcoin-email.vercel.app/$SPAM/download-64.jpg" class="meme-img" alt="Have You Eaten Your SPAM Today?" />
+      <img src="https://bitcoin-email.vercel.app/spam-images-02/download-64.jpg" class="meme-img" alt="Have You Eaten Your SPAM Today?" />
       
       <h2>Dear ${data.email || 'Fellow SPAM Enthusiast'},</h2>
       
@@ -50,7 +50,7 @@ export const newsletterTemplates: NewsletterTemplate[] = [
         </ul>
       </div>
       
-      <img src="https://bitcoin-email.vercel.app/$SPAM/download-66.jpg" class="meme-img" alt="Have You Gated Your SPAM?" />
+      <img src="https://bitcoin-email.vercel.app/spam-images-02/download-66.jpg" class="meme-img" alt="Have You Gated Your SPAM?" />
       
       <h3>What You'll Get:</h3>
       <ul>
@@ -65,7 +65,7 @@ export const newsletterTemplates: NewsletterTemplate[] = [
         <p>"BTC maximalists say 'not your keys, not your coins' but with $50 fees, it's more like 'not your money, period!'"</p>
       </div>
       
-      <img src="https://bitcoin-email.vercel.app/$SPAM/download-69.jpg" class="meme-img" alt="Eaten Your SPAM Today?" />
+      <img src="https://bitcoin-email.vercel.app/spam-images-02/download-69.jpg" class="meme-img" alt="Eaten Your SPAM Today?" />
       
       <center style="margin: 30px 0;">
         <a href="https://bitcoin-email.vercel.app" class="cta-button">Visit the SPAM Kitchen</a>
@@ -112,7 +112,7 @@ export const newsletterTemplates: NewsletterTemplate[] = [
     </div>
     
     <div class="content">
-      <img src="https://bitcoin-email.vercel.app/$SPAM/download-65.jpg" style="width: 100%; height: auto;" alt="SPAM News" />
+      <img src="https://bitcoin-email.vercel.app/spam-images-02/download-65.jpg" style="width: 100%; height: auto;" alt="SPAM News" />
       
       <h2>This Week's Failures:</h2>
       
@@ -135,7 +135,7 @@ export const newsletterTemplates: NewsletterTemplate[] = [
       </div>
       
       <div class="meme-break">
-        <img src="https://bitcoin-email.vercel.app/$SPAM/download-41.jpg" style="max-width: 300px; height: auto;" alt="SPAM Wisdom" />
+        <img src="https://bitcoin-email.vercel.app/spam-images-02/download-41.jpg" style="max-width: 300px; height: auto;" alt="SPAM Wisdom" />
         <p><em>"At least SPAM has utility!"</em></p>
       </div>
       
@@ -204,7 +204,7 @@ export const newsletterTemplates: NewsletterTemplate[] = [
         <p><strong>Cause of Death:</strong> ${data.causeOfDeath || 'Blockstream Core Disease'}</p>
       </div>
       
-      <img src="https://bitcoin-email.vercel.app/$SPAM/download-69.jpg" style="width: 100%; height: auto;" alt="Memorial SPAM" />
+      <img src="https://bitcoin-email.vercel.app/spam-images-02/download-69.jpg" style="width: 100%; height: auto;" alt="Memorial SPAM" />
       
       <div class="memorial">
         <h3>Remembering the Good Times:</h3>
@@ -229,7 +229,7 @@ export const newsletterTemplates: NewsletterTemplate[] = [
         <p>Please send your condolences via BSV (instant and virtually free) since BTC transactions would cost more than the flowers themselves.</p>
       </div>
       
-      <img src="https://bitcoin-email.vercel.app/$SPAM/download-65.jpg" style="width: 100%; height: auto;" alt="SPAM Memorial" />
+      <img src="https://bitcoin-email.vercel.app/spam-images-02/download-65.jpg" style="width: 100%; height: auto;" alt="SPAM Memorial" />
       
       <div class="memorial">
         <p style="text-align: center; font-style: italic;">
@@ -284,7 +284,7 @@ export const newsletterTemplates: NewsletterTemplate[] = [
     <div class="content">
       <div class="big-text">ACT NOW!</div>
       
-      <img src="https://bitcoin-email.vercel.app/$SPAM/download-66.jpg" style="width: 100%; height: auto;" alt="SPAM Special" />
+      <img src="https://bitcoin-email.vercel.app/spam-images-02/download-66.jpg" style="width: 100%; height: auto;" alt="SPAM Special" />
       
       <div class="offer-box">
         <h2>🎯 Today's EXCLUSIVE Deal:</h2>
@@ -316,7 +316,7 @@ export const newsletterTemplates: NewsletterTemplate[] = [
         </ul>
       </div>
       
-      <img src="https://bitcoin-email.vercel.app/$SPAM/download-64.jpg" style="width: 100%; height: auto;" alt="More SPAM" />
+      <img src="https://bitcoin-email.vercel.app/spam-images-02/download-64.jpg" style="width: 100%; height: auto;" alt="More SPAM" />
       
       <div class="big-text" style="font-size: 32px;">Don't Be Like BTC!</div>
       <p style="text-align: center; font-size: 18px;">Be fast, be scalable, be SPAM!</p>

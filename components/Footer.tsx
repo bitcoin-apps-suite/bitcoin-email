@@ -14,8 +14,7 @@ const Footer: React.FC = () => {
             Making Bitcoin Work Again™
           </p>
           <p className="footer-ceo">
-            Richard Boase, CEO<br/>
-            <span style={{fontSize: '12px', opacity: 0.8}}>Spamsom Mo, CSO</span>
+            Professional Team
           </p>
         </div>
 

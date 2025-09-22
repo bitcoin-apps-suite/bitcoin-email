@@ -151,14 +151,37 @@
 
     // Project Specific Colors (Bitcoin Email Red Theme)
     "workbench.colorCustomizations": {
-      "activityBar.background": "#1a0a0a",
-      "activityBar.foreground": "#ef4444",
-      "activityBar.inactiveForeground": "#666666",
-      "activityBarBadge.background": "#ef4444",
-      "activityBarBadge.foreground": "#ffffff",
+      // Title Bar (Header)
+      "titleBar.activeBackground": "#ef4444",
+      "titleBar.activeForeground": "#ffffff",
+      "titleBar.inactiveBackground": "#dc2626",
+      "titleBar.inactiveForeground": "#ffffff",
+      "titleBar.border": "#ef4444",
+      
+      // Status Bar (Footer)
+      "statusBar.background": "#ef4444",
+      "statusBar.foreground": "#ffffff",
+      "statusBar.border": "#ef4444",
+      "statusBar.debuggingBackground": "#ef4444",
+      "statusBar.debuggingForeground": "#ffffff",
+      "statusBar.noFolderBackground": "#ef4444",
+      "statusBar.noFolderForeground": "#ffffff",
+      "statusBarItem.hoverBackground": "#dc2626",
+      "statusBarItem.activeBackground": "#dc2626",
+      "statusBarItem.remoteBackground": "#ef4444",
+      "statusBarItem.remoteForeground": "#ffffff",
+      
+      // Activity Bar (far left icon bar)
+      "activityBar.background": "#ef4444",
+      "activityBar.foreground": "#ffffff",
+      "activityBar.inactiveForeground": "#ffcccc",
+      "activityBar.border": "#ef4444",
+      "activityBarBadge.background": "#ffffff",
+      "activityBarBadge.foreground": "#ef4444",
+      
+      // Existing settings
       "sideBar.background": "#0a0a0a",
       "sideBar.foreground": "#cccccc",
-      "sideBar.border": "#2a2a2a",
       "sideBarTitle.foreground": "#ef4444",
       "sideBarSectionHeader.background": "#1a1a1a",
       "sideBarSectionHeader.foreground": "#ef4444",
@@ -176,17 +199,8 @@
       "editorLineNumber.activeForeground": "#ef4444",
       "tab.activeBackground": "#1a1a1a",
       "tab.activeForeground": "#ffffff",
-      "tab.activeBorder": "#ef4444",
       "tab.inactiveBackground": "#0a0a0a",
       "tab.inactiveForeground": "#888888",
-      "statusBar.background": "#ef4444",
-      "statusBar.foreground": "#ffffff",
-      "statusBar.debuggingBackground": "#ff6666",
-      "statusBarItem.hoverBackground": "#ff6666",
-      "titleBar.activeBackground": "#1a1a1a",
-      "titleBar.activeForeground": "#ffffff",
-      "titleBar.inactiveBackground": "#0a0a0a",
-      "titleBar.inactiveForeground": "#888888",
       "button.background": "#ef4444",
       "button.foreground": "#ffffff",
       "button.hoverBackground": "#ff6666",
@@ -205,11 +219,10 @@
       "terminalCursor.foreground": "#ef4444",
       "panelTitle.activeBorder": "#ef4444",
       "panel.background": "#0a0a0a",
-      "panel.border": "#2a2a2a",
       "notifications.background": "#1a1a1a",
       "notificationLink.foreground": "#ef4444",
       "gitDecoration.modifiedResourceForeground": "#ef4444",
-      "gitDecoration.deletedResourceForeground": "#ff6666",
+      "gitDecoration.deletedResourceForeground": "#ff6666"
     },
 
     // Custom File Associations

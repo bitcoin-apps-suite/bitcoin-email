@@ -1,0 +1,264 @@
+.about-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.about-dialog {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 520px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-header {
+  text-align: center;
+  padding: 30px 30px 20px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  border-bottom: 1px solid #ddd;
+}
+
+.about-logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 15px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.about-logo .bitcoin-symbol {
+  font-size: 48px;
+  color: white;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.about-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.about-header .version {
+  margin: 5px 0 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.about-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 25px 30px;
+}
+
+.company-info {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.company-info h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+  color: #1a1a1a;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.company-info p {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.about-section {
+  margin-bottom: 20px;
+}
+
+.about-section:last-child {
+  margin-bottom: 0;
+}
+
+.about-section h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+.about-section p {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.about-section p:last-child {
+  margin-bottom: 0;
+}
+
+.about-section a {
+  color: #ef4444;
+  text-decoration: none;
+}
+
+.about-section a:hover {
+  text-decoration: underline;
+}
+
+.about-section.legal {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.about-section.legal p {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.copyright {
+  font-size: 12px !important;
+  color: #888 !important;
+}
+
+.about-footer {
+  padding: 20px 30px;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: center;
+  background: #f9f9f9;
+}
+
+.about-close-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 32px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.about-close-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.about-close-btn:active {
+  transform: translateY(0);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .about-dialog {
+    background: #1a1a1a;
+    color: #e5e5e5;
+  }
+  
+  .about-header {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+    border-bottom-color: #333;
+  }
+  
+  .about-header h2 {
+    color: #e5e5e5;
+  }
+  
+  .about-header .version {
+    color: #999;
+  }
+  
+  .company-info {
+    border-bottom-color: #333;
+  }
+  
+  .company-info h3 {
+    color: #e5e5e5;
+  }
+  
+  .company-info p {
+    color: #999;
+  }
+  
+  .about-section h4 {
+    color: #e5e5e5;
+  }
+  
+  .about-section p {
+    color: #999;
+  }
+  
+  .about-section.legal {
+    border-top-color: #333;
+  }
+  
+  .about-section.legal p {
+    color: #777;
+  }
+  
+  .about-footer {
+    background: #1f1f1f;
+    border-top-color: #333;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .about-dialog {
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  .about-header {
+    padding: 20px 20px 15px;
+  }
+  
+  .about-content {
+    padding: 20px;
+  }
+  
+  .about-footer {
+    padding: 15px 20px;
+  }
+}

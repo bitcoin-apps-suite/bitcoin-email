@@ -1,5 +1,7 @@
 {
-  "workbench.colorCustomizations": {
+  "name": "Bitcoin Email Red Theme",
+  "description": "Custom red theme for Bitcoin Email project by THE BITCOIN CORPORATION LTD",
+  "colors": {
     "titleBar.activeBackground": "#ef4444",
     "titleBar.activeForeground": "#ffffff",
     "titleBar.inactiveBackground": "#cc3333",
@@ -8,6 +10,7 @@
     "statusBar.foreground": "#ffffff",
     "statusBar.debuggingBackground": "#ff6666",
     "statusBar.debuggingForeground": "#ffffff",
+    "statusBar.noFolderBackground": "#2a2a2a",
     "statusBarItem.hoverBackground": "#ff6666",
     "statusBarItem.remoteBackground": "#ef4444",
     "statusBarItem.remoteForeground": "#ffffff",
@@ -37,7 +40,6 @@
     "tab.inactiveForeground": "#888888",
     "tab.hoverBackground": "#2a2a2a",
     "tab.hoverForeground": "#ffffff",
-    "statusBar.noFolderBackground": "#2a2a2a",
     "menu.background": "#1a1a1a",
     "menu.foreground": "#ffffff",
     "menu.selectionBackground": "#ef444433",
@@ -90,64 +92,5 @@
     "gitDecoration.untrackedResourceForeground": "#66ff66",
     "gitDecoration.conflictingResourceForeground": "#ffaa00",
     "gitDecoration.addedResourceForeground": "#66ff66"
-  },
-  "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "Default Dark Modern",
-  "editor.fontFamily": "'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace",
-  "editor.fontSize": 13,
-  "editor.lineHeight": 22,
-  "editor.letterSpacing": 0.5,
-  "editor.fontWeight": "400",
-  "editor.fontLigatures": true,
-  "editor.cursorStyle": "line",
-  "editor.cursorWidth": 2,
-  "editor.cursorBlinking": "smooth",
-  "editor.renderWhitespace": "selection",
-  "editor.renderLineHighlight": "all",
-  "editor.smoothScrolling": true,
-  "editor.minimap.enabled": true,
-  "editor.minimap.renderCharacters": false,
-  "editor.minimap.maxColumn": 80,
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": true,
-  "terminal.integrated.fontFamily": "'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace",
-  "terminal.integrated.fontSize": 12,
-  "terminal.integrated.lineHeight": 1.5,
-  "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.cursorStyle": "line",
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.productIconTheme": "fluent-icons",
-  "workbench.sideBar.location": "left",
-  "workbench.statusBar.visible": true,
-  "workbench.layoutControl.enabled": false,
-  "breadcrumbs.enabled": true,
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 1000,
-  "prettier.semi": true,
-  "prettier.singleQuote": true,
-  "prettier.tabWidth": 2,
-  "prettier.printWidth": 100,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

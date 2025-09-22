@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import MobileMenu from './MobileMenu';
+import AboutDialog from './AboutDialog';
 import './Taskbar.css';
 
 interface DropdownItem {
@@ -35,6 +36,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
 }) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [showBitcoinSuite, setShowBitcoinSuite] = useState(false);
+  const [showAboutDialog, setShowAboutDialog] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
@@ -63,7 +65,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
       items: [
         { label: 'Home', href: '/', shortcut: '⌘H' },
         { divider: true },
-        { label: 'About Bitcoin Email', href: '/docs' },
+        { label: 'About Bitcoin Email', action: () => setShowAboutDialog(true) },
         { label: 'Preferences...', action: () => console.log('Preferences'), shortcut: '⌘,' },
         { divider: true },
         { label: 'Hide Bitcoin Email', shortcut: '⌥⌘H' },
@@ -379,6 +381,9 @@ const Taskbar: React.FC<TaskbarProps> = ({
         {/* Mobile Menu */}
         <MobileMenu currentPath={pathname} />
       </div>
+      
+      {/* About Dialog */}
+      <AboutDialog isOpen={showAboutDialog} onClose={() => setShowAboutDialog(false)} />
     </div>
   );
 };

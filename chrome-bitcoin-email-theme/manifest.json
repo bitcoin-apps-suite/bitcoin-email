@@ -5,11 +5,11 @@
   "description": "A dark red theme matching Bitcoin Email's design",
   "theme": {
     "colors": {
-      "frame": [10, 10, 10],
-      "frame_inactive": [20, 20, 20],
-      "frame_incognito": [10, 10, 10],
-      "frame_incognito_inactive": [20, 20, 20],
-      "toolbar": [26, 26, 26],
+      "frame": [139, 0, 0],
+      "frame_inactive": [100, 0, 0],
+      "frame_incognito": [139, 0, 0],
+      "frame_incognito_inactive": [100, 0, 0],
+      "toolbar": [180, 20, 20],
       "tab_text": [255, 255, 255],
       "tab_background_text": [170, 170, 170],
       "tab_background_text_inactive": [136, 136, 136],
@@ -31,8 +31,8 @@
       "toolbar_button_icon": [255, 255, 255],
       "toolbar_text": [255, 255, 255],
       "tab_highlight": [239, 68, 68],
-      "tab_selected": [26, 26, 26],
-      "sidebar": [10, 10, 10],
+      "tab_selected": [100, 10, 10],
+      "sidebar": [80, 0, 0],
       "sidebar_text": [255, 255, 255],
       "sidebar_border": [42, 42, 42]
     },
