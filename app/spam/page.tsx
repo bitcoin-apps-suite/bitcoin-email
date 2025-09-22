@@ -213,7 +213,7 @@ const SpamSignupPage: React.FC = () => {
                 height={200}
                 className="showcase-image"
               />
-              <p className="showcase-caption">CEO Approved Since 2024</p>
+              <p className="showcase-caption">CEO Approved Since 2025</p>
             </div>
             <div className="showcase-item">
               <Image 

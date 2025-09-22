@@ -347,7 +347,7 @@ const DarkMarketingPage: React.FC = () => {
         
         <div className="footer-bottom">
           <div className="footer-copyright">
-            © 2024 Bitcoin Email. Built on Bitcoin blockchain technology.
+            © 2025 THE BITCOIN CORPORATION LTD (16735102). Built on Bitcoin blockchain technology.
           </div>
           <div className="footer-social">
             <a href="#" className="social-link">

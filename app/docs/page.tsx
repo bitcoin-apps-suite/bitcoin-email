@@ -109,7 +109,7 @@ const DocsPage: React.FC = () => {
               `${contributor.contributions} commits`,
               `${tier} contributor`
             ],
-            joinDate: '2024-01-01' // Would need separate API call for actual date
+            joinDate: '2025-01-01' // Would need separate API call for actual date
           };
         });
       
@@ -127,7 +127,7 @@ const DocsPage: React.FC = () => {
           commits: 50,
           bmailTokens: 1000,
           contributions: ['Core features', 'Documentation', 'Bug fixes'],
-          joinDate: '2024-01-01'
+          joinDate: '2025-01-01'
         }
       ]);
     } finally {

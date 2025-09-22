@@ -7,10 +7,11 @@ import { InstallPrompt } from "../components/InstallPrompt";
 import { Providers } from "./providers";
 import PocBar from "../components/PocBar";
 import DevSidebar from "../components/DevSidebar";
+import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "Bitcoin Email - Blockchain-Powered Email Client",
-  description: "The world's first open-source, blockchain-powered email client with native Bitcoin payments and end-to-end encryption.",
+  title: "Bitcoin Email - THE BITCOIN CORPORATION LTD",
+  description: "The world's first open-source, blockchain-powered email client. Built by THE BITCOIN CORPORATION LTD (UK Company No. 16735102).",
   metadataBase: new URL('http://localhost:1040'),
   manifest: '/manifest.json',
   appleWebApp: {
@@ -62,8 +63,9 @@ export default function RootLayout({
           <Taskbar />
           <PocBar color="#ff3333" />
           <DevSidebar />
-          <div className="pt-[70px] md:pt-[70px] mobile-content-wrapper ml-[260px] dev-sidebar-content">
+          <div className="pt-[70px] md:pt-[70px] mobile-content-wrapper ml-[260px] dev-sidebar-content min-h-screen">
             {children}
+            <Footer />
           </div>
           <MobileBottomNav />
           <InstallPrompt />

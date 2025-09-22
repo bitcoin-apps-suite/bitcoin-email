@@ -65,7 +65,7 @@ export function EmailListExchange() {
       description: 'Ultra high-net-worth crypto investors',
       tags: ['crypto', 'premium', 'whales'],
       verified: true,
-      createdAt: '2024-01-02',
+      createdAt: '2025-01-02',
       payoutAddress: '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
       openInterest: 15000,
       avgVolume: 38000
@@ -152,7 +152,7 @@ export function EmailListExchange() {
       description: 'Premium e-commerce buyers $10k+ annual',
       tags: ['ecommerce', 'retail', 'premium'],
       verified: false,
-      createdAt: '2024-01-08',
+      createdAt: '2025-01-08',
       payoutAddress: 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh',
       openInterest: 22000,
       avgVolume: 75000
@@ -239,7 +239,7 @@ export function EmailListExchange() {
       description: 'High-spending gamers $1k+ monthly',
       tags: ['gaming', 'entertainment', 'whales'],
       verified: false,
-      createdAt: '2024-01-22',
+      createdAt: '2025-01-22',
       payoutAddress: '1GQdrgqAbkeEPUef1UpiTc4X1mUHMcyuGW',
       openInterest: 18000,
       avgVolume: 40000
@@ -413,7 +413,7 @@ export function EmailListExchange() {
       description: 'Active online learners and educators',
       tags: ['education', 'edtech', 'learning'],
       verified: false,
-      createdAt: '2024-01-10',
+      createdAt: '2025-01-10',
       payoutAddress: '1FeexV6bAHb8ybZjqQMjJrcCrHGW9sb6uF',
       openInterest: 32000,
       avgVolume: 35000
@@ -471,7 +471,7 @@ export function EmailListExchange() {
       description: 'Professional streamers and content creators',
       tags: ['streaming', 'content', 'creators'],
       verified: false,
-      createdAt: '2024-01-05',
+      createdAt: '2025-01-05',
       payoutAddress: '1EYTDnm7RB3pzFjegQkjSwvLpH6PGzChEp',
       openInterest: 24500,
       avgVolume: 36000
@@ -587,7 +587,7 @@ export function EmailListExchange() {
       description: 'Professional sports bettors and analysts',
       tags: ['sports', 'betting', 'gambling'],
       verified: false,
-      createdAt: '2024-01-18',
+      createdAt: '2025-01-18',
       payoutAddress: '1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs',
       openInterest: 28700,
       avgVolume: 42000
