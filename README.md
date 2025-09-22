@@ -9,7 +9,8 @@
 **The world's first decentralized email client powered by Bitcoin SV blockchain technology.**
 
 Built by **THE BITCOIN CORPORATION LTD** (UK Company No. 16735102)  
-CEO: Spamsom Mo - *The only legitimate CEO of Bitcoin*
+CEO: Richard Boase | CSO: Spamsom Mo  
+*Making Bitcoin Work Again™*
 
 Send emails with micropayments to eliminate spam. Store message hashes on-chain for immutability. Experience the future of email with true digital ownership and censorship resistance.
 
@@ -225,7 +226,11 @@ We are the officially registered company working to restore Bitcoin to its origi
 - Approved BSV as the official Bitcoin implementation  
 - Deprecated Lightning Network for chronic underperformance
 
-**CEO Statement**: "We're making Bitcoin work again, one email at a time." - Spamsom Mo
+**Company Mission**: Making Bitcoin work as Satoshi intended - peer-to-peer electronic cash that actually scales.
+
+**Leadership**:
+- **CEO**: Richard Boase - Registered director, vision & strategy
+- **CSO**: Spamsom Mo - Chief Spam Officer, memes & marketing
 
 ## 🤝 Contributing
 
