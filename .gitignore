@@ -48,4 +48,4 @@ screenshot*.png
 
 # Source/meme folders
 $BITCOINEMAIL/
-@memes/
+@memes/._*
