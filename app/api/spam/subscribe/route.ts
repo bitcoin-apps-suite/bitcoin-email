@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendSpamEmail, getWelcomeEmailHtml } from '@/lib/email/gmail-sender';
+import { SubscribersStore } from '@/lib/subscribers-store';
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,31 +13,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // For production, we'll store subscribers in memory or use a database service
-    // In Vercel serverless functions, filesystem writes are not persistent
-    
     // Log the subscription (this will appear in Vercel logs)
     console.log(`🥫 New SPAM subscriber: ${email}`);
     
-    // In production, you would:
-    // 1. Use Vercel KV, Postgres, or another database
-    // 2. Send to a third-party email service (SendGrid, Mailgun, etc.)
-    // 3. Store in a Google Sheet via API
-    // 4. Use Supabase, Firebase, or similar
-    
-    // For now, we'll just acknowledge the subscription
+    // Store subscriber in file system (works locally, limited in Vercel)
     const newSubscriber = {
       email,
       subscribedAt: new Date().toISOString(),
       source: 'spam-signup',
-      tags: ['spam-campaign', 'btc-trolling', 'bsv-advocate'],
-      preferences: {
-        dailySpam: true,
-        projectUpdates: true,
-        jobAlerts: true,
-        investorNews: true
-      }
+      welcomeEmailSent: false
     };
+
+    try {
+      await SubscribersStore.add(newSubscriber);
+    } catch (error) {
+      console.error('Failed to store subscriber:', error);
+      // Continue even if storage fails
+    }
 
     // Send welcome email if Gmail is configured
     if (process.env.GMAIL_APP_PASSWORD) {
@@ -49,6 +42,8 @@ export async function POST(request: NextRequest) {
         
         if (emailResult.success) {
           console.log(`✅ Welcome email sent to ${email}`);
+          newSubscriber.welcomeEmailSent = true;
+          await SubscribersStore.add(newSubscriber); // Update with email sent status
         } else {
           console.error(`❌ Failed to send welcome email to ${email}`);
         }
@@ -79,16 +74,21 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
-    // Admin endpoint to get subscriber count
-    // In production, this would query your database
+    // Get subscriber stats from file storage
+    const stats = await SubscribersStore.getStats();
     
     return NextResponse.json({
-      count: 0,
-      recentSubscribers: [],
-      message: 'Subscriber storage not configured for production. Check Vercel logs for subscriptions.'
+      count: stats.total,
+      recentSubscribers: stats.recentSubscribers,
+      stats: {
+        today: stats.today,
+        thisWeek: stats.thisWeek,
+        thisMonth: stats.thisMonth
+      }
     });
 
   } catch (error) {
+    console.error('Error fetching subscribers:', error);
     return NextResponse.json(
       { error: 'Failed to get subscribers' },
       { status: 500 }

@@ -1,0 +1,10 @@
+{
+  "subscribers": [
+    {
+      "email": "your-email@example.com",
+      "subscribedAt": "2025-01-23T10:00:00Z",
+      "source": "spam-signup",
+      "welcomeEmailSent": true
+    }
+  ]
+}
