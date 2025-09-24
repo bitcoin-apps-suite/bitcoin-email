@@ -95,7 +95,7 @@ function sendWelcomeEmailFromScript(email) {
     const subject = '🥫 Welcome to the SPAM Kitchen - Spamsom Mo, CEO of Bitcoin';
     const htmlBody = `
       <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto;">
-        <h1 style="color: #ef4444;">🎩 Welcome to THE BITCOIN CORPORATION LTD (16735102)</h1>
+        <h1 style="color: #ef4444;">🎩 Welcome to The Bitcoin Corporation LTD (16735102)</h1>
         <p>Dear ${email},</p>
         <p>As the legally registered CEO of Bitcoin, I personally welcome you to our SPAM Kitchen.</p>
         <p>You'll receive our premium content 3x per week:</p>
@@ -107,7 +107,7 @@ function sendWelcomeEmailFromScript(email) {
         <p>Remember: BTC has been officially terminated. BSV is the approved implementation.</p>
         <p>Regards,<br>
         Spamsom Mo<br>
-        CEO, THE BITCOIN CORPORATION LTD (16735102)<br>
+        CEO, The Bitcoin Corporation LTD (16735102)<br>
         "The only legitimate Bitcoin CEO"</p>
       </div>
     `;

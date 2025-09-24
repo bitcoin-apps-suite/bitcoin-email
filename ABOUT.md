@@ -1,8 +1,8 @@
-# About Bitcoin Email & THE BITCOIN CORPORATION LTD
+# About Bitcoin Email & The Bitcoin Corporation LTD
 
 ## The Real Story
 
-In 2025, frustrated with Bitcoin's descent into unusable "digital gold" with $300 fees and 7 TPS, Richard Boase did something unprecedented: he legally registered "THE BITCOIN CORPORATION LTD" (UK Company No. 16735102).
+In 2025, frustrated with Bitcoin's descent into unusable "digital gold" with $300 fees and 7 TPS, Richard Boase did something unprecedented: he legally registered "The Bitcoin Corporation LTD" (UK Company No. 16735102).
 
 This isn't a joke. It's real. Check Companies House.
 
@@ -17,7 +17,7 @@ By creating a legal entity for Bitcoin governance, we're making a statement:
 ## The Team
 
 ### Richard Boase - CEO & Founder
-The actual registered director of THE BITCOIN CORPORATION LTD. Yes, legally "the CEO of Bitcoin." Building real products on BSV because someone has to make Bitcoin work again.
+The actual registered director of The Bitcoin Corporation LTD. Yes, legally "the CEO of Bitcoin." Building real products on BSV because someone has to make Bitcoin work again.
 
 ### Spamsom Mo - Chief Spam Officer (CSO)
 Our satirical alter-ego handling the SPAM newsletter campaign. A parody of Blockstream's Samson Mow, because if they can destroy Bitcoin with small blocks, we can save it with humor.
@@ -52,7 +52,7 @@ Simple:
 
 ## The Humor
 
-Yes, we registered "THE BITCOIN CORPORATION LTD" partly for the meme. But we're also dead serious about fixing Bitcoin. The humor gets attention; the technology delivers value.
+Yes, we registered "The Bitcoin Corporation LTD" partly for the meme. But we're also dead serious about fixing Bitcoin. The humor gets attention; the technology delivers value.
 
 ## Get Involved
 
@@ -72,6 +72,6 @@ Yes, we registered "THE BITCOIN CORPORATION LTD" partly for the meme. But we're 
 
 *"We're not the heroes Bitcoin deserves, but we're the corporation it's legally registered to have."*
 
-THE BITCOIN CORPORATION LTD  
+The Bitcoin Corporation LTD  
 Making Bitcoin Work Again™  
 Since 2025

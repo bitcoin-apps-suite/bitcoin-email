@@ -1,6 +1,6 @@
 {
   "name": "Bitcoin Email Red Theme",
-  "description": "Custom red theme for Bitcoin Email project by THE BITCOIN CORPORATION LTD",
+  "description": "Custom red theme for Bitcoin Email project by The Bitcoin Corporation LTD",
   "colors": {
     "titleBar.activeBackground": "#ef4444",
     "titleBar.activeForeground": "#ffffff",

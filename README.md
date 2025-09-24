@@ -8,7 +8,7 @@
 
 **The world's first decentralized email client powered by Bitcoin SV blockchain technology.**
 
-Built by **THE BITCOIN CORPORATION LTD** (UK Company No. 16735102)  
+Built by **The Bitcoin Corporation LTD** (UK Company No. 16735102)  
 CEO: Richard Boase | CSO: Spamsom Mo  
 *Making Bitcoin Work Again™*
 
@@ -209,17 +209,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 This project is licensed under the **Open BSV License v4** - see the [LICENSE](LICENSE) file for details.
 
-Copyright © 2025 THE BITCOIN CORPORATION LTD (UK Company No. 16735102)
+Copyright © 2025 The Bitcoin Corporation LTD (UK Company No. 16735102)
 
 ### Key License Terms:
 - ✅ **Open Source**: Free to use, modify, and distribute
 - ✅ **Commercial Use**: Permitted and encouraged
 - ✅ **BSV Required**: Must use Bitcoin SV blockchain
-- ✅ **Attribution**: Must credit THE BITCOIN CORPORATION LTD
+- ✅ **Attribution**: Must credit The Bitcoin Corporation LTD
 - ❌ **BTC Support**: Not permitted (BTC has been terminated)
 - ❌ **Lightning Network**: Deprecated and not supported
 
-## 🏢 About THE BITCOIN CORPORATION LTD
+## 🏢 About The Bitcoin Corporation LTD
 
 We are the officially registered company working to restore Bitcoin to its original vision. As the legal entity behind Bitcoin's governance, we have:
 - Terminated BTC for failure to scale
@@ -237,12 +237,12 @@ We are the officially registered company working to restore Bitcoin to its origi
 We welcome contributions! Please ensure all code:
 1. Follows the Open BSV License
 2. Uses BSV blockchain exclusively
-3. Maintains attribution to THE BITCOIN CORPORATION LTD
+3. Maintains attribution to The Bitcoin Corporation LTD
 4. Includes no BTC or Lightning Network support
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
 ---
 
-**Built with ❤️ on Bitcoin SV by THE BITCOIN CORPORATION LTD**  
+**Built with ❤️ on Bitcoin SV by The Bitcoin Corporation LTD**  
 *Making Bitcoin Work Again™*

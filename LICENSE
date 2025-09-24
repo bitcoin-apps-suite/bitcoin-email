@@ -1,5 +1,5 @@
 Open BSV License version 4
-Copyright (c) 2025 THE BITCOIN CORPORATION LTD (UK Company No. 16735102)
+Copyright (c) 2025 The Bitcoin Corporation LTD (UK Company No. 16735102)
 CEO: Richard Boase
 All rights reserved.
 
@@ -13,7 +13,7 @@ are permitted provided that the following conditions are met:
    this list of conditions and the following disclaimer in the documentation
    and/or other materials provided with the distribution.
 
-3. Neither the name of THE BITCOIN CORPORATION LTD nor the names of its
+3. Neither the name of The Bitcoin Corporation LTD nor the names of its
    contributors may be used to endorse or promote products derived from this
    software without specific prior written permission.
 
@@ -23,11 +23,11 @@ are permitted provided that the following conditions are met:
    closely follows the original protocol.
 
 5. Any modifications to this software must be clearly marked as such and must
-   include prominent notice that THE BITCOIN CORPORATION LTD is the original
+   include prominent notice that The Bitcoin Corporation LTD is the original
    author of the base software.
 
 6. Commercial use is permitted and encouraged, provided that:
-   a. Attribution to THE BITCOIN CORPORATION LTD is maintained
+   a. Attribution to The Bitcoin Corporation LTD is maintained
    b. Any fees charged must be reasonable and not inhibit adoption
    c. The software remains accessible to individual users
 
@@ -46,7 +46,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ADDITIONAL TERMS:
 
-THE BITCOIN CORPORATION LTD hereby declares:
+The Bitcoin Corporation LTD hereby declares:
 - BTC's employment has been terminated for cause
 - BSV is the approved Bitcoin implementation
 - Lightning Network support is deprecated and will not be added

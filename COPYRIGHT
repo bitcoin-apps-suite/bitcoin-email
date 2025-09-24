@@ -1,7 +1,7 @@
 COPYRIGHT AND ATTRIBUTION
 ==========================
 
-Copyright (c) 2025 THE BITCOIN CORPORATION LTD
+Copyright (c) 2025 The Bitcoin Corporation LTD
 UK Company Registration No. 16735102
 Registered in England and Wales
 
@@ -20,11 +20,11 @@ the Bitcoin whitepaper.
 TRADEMARKS
 ----------
 "Bitcoin Email", "Bitcoin Drive", "Bitcoin Spreadsheets", and "$BMAIL" are 
-trademarks of THE BITCOIN CORPORATION LTD. While the software is open source,
+trademarks of The Bitcoin Corporation LTD. While the software is open source,
 these names may only be used when:
 1. Referring to this official implementation
 2. Clearly indicating it is a fork or derivative
-3. With written permission from THE BITCOIN CORPORATION LTD
+3. With written permission from The Bitcoin Corporation LTD
 
 CONTRIBUTIONS
 -------------
@@ -37,7 +37,7 @@ OFFICIAL STATEMENT
 ------------------
 This software is built on BSV (Bitcoin Satoshi Vision) as it is the only 
 implementation that follows the original Bitcoin protocol. BTC has been 
-officially terminated by THE BITCOIN CORPORATION LTD for failure to scale
+officially terminated by The Bitcoin Corporation LTD for failure to scale
 and violation of the Bitcoin whitepaper specifications.
 
 For licensing questions: legal@thebitcoincorporation.com

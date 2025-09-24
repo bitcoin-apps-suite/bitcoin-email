@@ -1,6 +1,6 @@
 /**
  * CEO of Bitcoin™ Email Signatures
- * THE BITCOIN CORPORATION LTD (UK Company #16735102)
+ * The Bitcoin Corporation LTD (UK Company #16735102)
  */
 
 export function getCEOSignature(style: 'formal' | 'savage' | 'corporate' = 'formal'): string {
@@ -15,7 +15,7 @@ export function getCEOSignature(style: 'formal' | 'savage' | 'corporate' = 'form
       Chief Executive Officer
     </div>
     <div style="font-size: 14px; color: #666;">
-      THE BITCOIN CORPORATION LTD (16735102).
+      The Bitcoin Corporation LTD (16735102).
     </div>
     <div style="font-size: 12px; color: #999; margin-top: 10px; font-style: italic;">
       "Making Bitcoin Work Again"
@@ -39,7 +39,7 @@ export function getCEOSignature(style: 'formal' | 'savage' | 'corporate' = 'form
       Yes, really. Check Companies House.
     </div>
     <div style="font-size: 16px; margin-top: 10px; border-top: 2px solid white; padding-top: 10px;">
-      📜 THE BITCOIN CORPORATION LTD (16735102)<br>
+      📜 The Bitcoin Corporation LTD (16735102)<br>
       ⚡ BTC Status: FIRED<br>
       ✅ BSV Status: APPROVED<br>
       💸 Fees Under My Watch: $0.0001
@@ -65,7 +65,7 @@ export function getCEOSignature(style: 'formal' | 'savage' | 'corporate' = 'form
           Chief Executive Officer & Chairman
         </div>
         <div style="font-size: 11px; color: #666;">
-          THE BITCOIN CORPORATION LTD.<br>
+          The Bitcoin Corporation LTD.<br>
           Registration No: 16735102<br>
           Email: ceo@bitcoincorp.com<br>
           Web: www.thebitcoincorporation.com
@@ -95,7 +95,7 @@ RE: Unacceptable Fee Situation
 It has come to my attention that BTC is charging $${Math.floor(Math.random() * 200) + 50} 
 for basic transactions. This is a violation of corporate policy.
 
-Effective immediately, THE BITCOIN CORPORATION LTD mandates:
+Effective immediately, The Bitcoin Corporation LTD mandates:
 - All fees must be under $0.01
 - Violations will result in termination
 - BSV is the approved implementation
@@ -103,7 +103,7 @@ Effective immediately, THE BITCOIN CORPORATION LTD mandates:
 This is not a request.
 
 [CEO Signature]
-THE BITCOIN CORPORATION LTD (16735102)`,
+The Bitcoin Corporation LTD (16735102)`,
 
     scaling: `
 EXECUTIVE ORDER #001
@@ -123,7 +123,7 @@ IT IS HEREBY ORDERED:
 Non-compliance will result in cease and desist.
 
 [Official Seal]
-THE BITCOIN CORPORATION LTD (16735102)`,
+The Bitcoin Corporation LTD (16735102)`,
 
     lightning: `
 TERMINATION NOTICE
@@ -268,14 +268,14 @@ export function getCEOEmailTemplate(campaign: string): string {
     </div>
     <div style="font-size: 12px; color: #666;">
       Chief Executive Officer<br>
-      THE BITCOIN CORPORATION LTD (16735102).<br>
+      The Bitcoin Corporation LTD (16735102).<br>
       "The only legitimate Bitcoin CEO"
     </div>
   </div>
   
   <div class="corporate-footer">
     <p>
-      THE BITCOIN CORPORATION LTD (16735102). is a registered company.<br>
+      The Bitcoin Corporation LTD (16735102). is a registered company.<br>
       BTC employment has been terminated. BSV is the approved implementation.<br>
       This message is legally binding (probably).
     </p>

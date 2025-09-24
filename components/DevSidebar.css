@@ -2,7 +2,7 @@
 .dev-sidebar {
   position: fixed;
   left: 0;
-  top: 72px; /* Below taskbar (32px) and PoC banner (40px) */
+  top: 70px; /* Below PoC banner (48px) and Taskbar (22px) */
   bottom: 0;
   width: 260px;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);

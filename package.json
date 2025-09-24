@@ -1,10 +1,10 @@
 {
   "name": "bitcoin-email",
   "version": "0.1.0",
-  "description": "The world's first blockchain-powered email client by THE BITCOIN CORPORATION LTD",
-  "author": "THE BITCOIN CORPORATION LTD <ceo@thebitcoincorporation.com>",
+  "description": "The world's first blockchain-powered email client by The Bitcoin Corporation LTD",
+  "author": "The Bitcoin Corporation LTD <ceo@thebitcoincorporation.com>",
   "license": "Open-BSV-4.0",
-  "copyright": "Copyright (c) 2025 THE BITCOIN CORPORATION LTD (UK Company No. 16735102)",
+  "copyright": "Copyright (c) 2025 The Bitcoin Corporation LTD (UK Company No. 16735102)",
   "homepage": "https://bitcoin-email.vercel.app",
   "repository": {
     "type": "git",

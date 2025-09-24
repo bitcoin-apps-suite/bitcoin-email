@@ -6,15 +6,15 @@ import MobileBottomNav from "../components/MobileBottomNav";
 import { InstallPrompt } from "../components/InstallPrompt";
 import { Providers } from "./providers";
 import PocBar from "../components/PocBar";
-import DevSidebar from "../components/DevSidebar";
+import DevSidebar from "../components/DevSidebarWorking";
 import Footer from "../components/Footer";
 import BitcoinOSProvider from "../components/BitcoinOSProvider";
 import ConditionalNav from "../components/ConditionalNav";
 import ServiceWorkerRegistration from "../components/ServiceWorkerRegistration";
 
 export const metadata: Metadata = {
-  title: "Bitcoin Email - THE BITCOIN CORPORATION LTD",
-  description: "The world's first open-source, blockchain-powered email client. Built by THE BITCOIN CORPORATION LTD (UK Company No. 16735102).",
+  title: "Bitcoin Email - The Bitcoin Corporation LTD",
+  description: "The world's first open-source, blockchain-powered email client. Built by The Bitcoin Corporation LTD (UK Company No. 16735102).",
   metadataBase: new URL('http://localhost:1040'),
   manifest: '/manifest.json',
   appleWebApp: {

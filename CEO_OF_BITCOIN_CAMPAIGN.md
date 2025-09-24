@@ -11,7 +11,7 @@ Let that sink in. Every BTC maxi's head just exploded.
 ```
 Regards,
 Spamsom Mo
-CEO, THE BITCOIN CORPORATION LTD (16735102).
+CEO, The Bitcoin Corporation LTD (16735102).
 "The only legitimate Bitcoin CEO"
 ```
 
@@ -101,7 +101,7 @@ The Bitcoin Corporation will be implementing BSV effective immediately.
 This decision is final.
 
 Spamsom Mo
-CEO, THE BITCOIN CORPORATION LTD (16735102).
+CEO, The Bitcoin Corporation LTD (16735102).
 ```
 
 ## 🎯 Marketing Campaigns

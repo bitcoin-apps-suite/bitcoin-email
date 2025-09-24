@@ -37,7 +37,7 @@ const AboutDialog: React.FC<AboutDialogProps> = ({ isOpen, onClose }) => {
         
         <div className="about-content">
           <div className="company-info">
-            <h3>THE BITCOIN CORPORATION LTD</h3>
+            <h3>The Bitcoin Corporation LTD</h3>
             <p>UK Company No. 16735102</p>
           </div>
           
@@ -49,7 +49,7 @@ const AboutDialog: React.FC<AboutDialogProps> = ({ isOpen, onClose }) => {
           <div className="about-section">
             <h4>License</h4>
             <p>Open BSV License 4.0</p>
-            <p className="copyright">Copyright © 2025 THE BITCOIN CORPORATION LTD</p>
+            <p className="copyright">Copyright © 2025 The Bitcoin Corporation LTD</p>
             <p className="copyright">All rights reserved</p>
           </div>
           
@@ -63,7 +63,7 @@ const AboutDialog: React.FC<AboutDialogProps> = ({ isOpen, onClose }) => {
           <div className="about-section legal">
             <h4>Legal Notice</h4>
             <p>This software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement.</p>
-            <p>In no event shall THE BITCOIN CORPORATION LTD or contributors be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.</p>
+            <p>In no event shall The Bitcoin Corporation LTD or contributors be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.</p>
           </div>
         </div>
         

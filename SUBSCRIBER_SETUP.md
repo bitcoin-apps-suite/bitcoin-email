@@ -117,6 +117,6 @@ Create `/spam/dashboard` page showing:
 
 ---
 
-**Remember**: As CEO of THE BITCOIN CORPORATION LTD (16735102), you have executive authority to implement any solution you deem fit. BTC's opinion doesn't matter - it's been terminated.
+**Remember**: As CEO of The Bitcoin Corporation LTD (16735102), you have executive authority to implement any solution you deem fit. BTC's opinion doesn't matter - it's been terminated.
 
 -Spamsom Mo

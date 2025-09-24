@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <footer className="site-footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h3 className="footer-title">THE BITCOIN CORPORATION LTD</h3>
+          <h3 className="footer-title">The Bitcoin Corporation LTD</h3>
           <p className="footer-company-info">
             UK Company No. 16735102<br />
             Registered in England and Wales<br />
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
       <div className="footer-bottom">
         <div className="footer-bottom-content">
           <p className="footer-copyright">
-            © 2025 THE BITCOIN CORPORATION LTD (16735102). All rights reserved.
+            © 2025 The Bitcoin Corporation LTD (16735102). All rights reserved.
           </p>
           <p className="footer-tagline">
             BTC has been terminated for cause. BSV is the approved implementation.
