@@ -26,9 +26,10 @@ const DevSidebar: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('devSidebarCollapsed');
-      return saved === 'true';
+      // Default to collapsed if no preference is saved
+      return saved !== null ? saved === 'true' : true;
     }
-    return false;
+    return true;
   });
   const pathname = usePathname();
 
