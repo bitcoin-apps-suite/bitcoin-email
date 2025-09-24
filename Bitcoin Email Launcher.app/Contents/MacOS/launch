@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# Bitcoin Email Launcher
+# Opens project in Cursor, starts dev server, and launches Chrome with specific profile
+
+PROJECT_DIR="/Volumes/Extreme SSD/Projects/bitcoin-email"
+PORT=2040
+
+# Configuration - EDIT THESE TO MATCH YOUR SETUP
+CHROME_PROFILE_DIR="Profile 22"  # Bitcoin Email profile
+# To find your profile directory:
+# 1. Open Chrome with desired profile
+# 2. Go to chrome://version
+# 3. Look for "Profile Path" - the last folder is your profile directory
+
+echo "🚀 Launching Bitcoin Email Development Environment..."
+
+# 1. Open project in Cursor
+open -a "Cursor" "$PROJECT_DIR"
+
+# 2. Check if npm dev is already running on the port
+if lsof -Pi :$PORT -sTCP:LISTEN -t >/dev/null ; then
+    echo "✅ Development server already running on port $PORT"
+else
+    # Start dev server in Terminal
+    osascript <<EOF
+tell application "Terminal"
+    activate
+    do script "cd '$PROJECT_DIR' && npm run dev"
+    set custom title of front window to "Bitcoin Email Dev Server"
+end tell
+EOF
+    
+    # Wait for server to start
+    echo "⏳ Waiting for server to start..."
+    for i in {1..10}; do
+        if lsof -Pi :$PORT -sTCP:LISTEN -t >/dev/null ; then
+            echo "✅ Server started!"
+            break
+        fi
+        sleep 1
+    done
+fi
+
+# 3. Open Chrome with specific profile
+# Check if Chrome is installed
+if [ -d "/Applications/Google Chrome.app" ]; then
+    open -a "Google Chrome" --args \
+        --profile-directory="$CHROME_PROFILE_DIR" \
+        --new-window \
+        "http://localhost:$PORT"
+else
+    # Fallback to default browser
+    open "http://localhost:$PORT"
+fi
+
+echo "✅ Bitcoin Email development environment launched!"

@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Bitcoin Email Red Theme",
+  "description": "Red and black theme matching Bitcoin Email VSCode workspace",
+  "theme": {
+    "colors": {
+      "frame": [239, 68, 68],
+      "frame_inactive": [204, 0, 0],
+      "frame_incognito": [139, 0, 0],
+      "frame_incognito_inactive": [100, 0, 0],
+      "toolbar": [26, 26, 26],
+      "tab_text": [255, 255, 255],
+      "tab_background_text": [204, 204, 204],
+      "bookmark_text": [255, 255, 255],
+      "ntp_background": [10, 10, 10],
+      "ntp_text": [255, 255, 255],
+      "ntp_link": [239, 68, 68],
+      "ntp_header": [239, 68, 68],
+      "button_background": [239, 68, 68],
+      "omnibox_text": [255, 255, 255],
+      "omnibox_background": [26, 26, 26],
+      "tab_selected": [26, 26, 26],
+      "tab_background": [10, 10, 10],
+      "toolbar_button_icon": [204, 204, 204],
+      "toolbar_text": [255, 255, 255],
+      "download_shelf": [26, 26, 26],
+      "download_shelf_button_text": [255, 255, 255],
+      "download_shelf_button_background": [239, 68, 68],
+      "status_bar": [239, 68, 68],
+      "sidebar": [10, 10, 10],
+      "background_tab": [10, 10, 10],
+      "background_tab_inactive": [10, 10, 10],
+      "background_tab_incognito": [10, 10, 10],
+      "background_tab_incognito_inactive": [10, 10, 10]
+    },
+    "tints": {
+      "buttons": [0.0, 0.0, 0.9],
+      "frame": [-1, -1, -1],
+      "frame_inactive": [-1, -1, 0.7],
+      "frame_incognito": [-1, -1, -1],
+      "frame_incognito_inactive": [-1, -1, 0.5]
+    },
+    "properties": {
+      "ntp_background_alignment": "center",
+      "ntp_background_repeat": "no-repeat"
+    },
+    "images": {}
+  }
+}

@@ -8,6 +8,7 @@ import { Providers } from "./providers";
 import PocBar from "../components/PocBar";
 import DevSidebar from "../components/DevSidebar";
 import Footer from "../components/Footer";
+import BitcoinOSNav from "../components/BitcoinOSNav";
 
 export const metadata: Metadata = {
   title: "Bitcoin Email - THE BITCOIN CORPORATION LTD",
@@ -60,6 +61,7 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className="antialiased h-full">
         <Providers>
+          <BitcoinOSNav />
           <Taskbar />
           <PocBar color="#ff3333" />
           <DevSidebar />
