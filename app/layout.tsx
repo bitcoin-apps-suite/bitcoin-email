@@ -8,7 +8,9 @@ import { Providers } from "./providers";
 import PocBar from "../components/PocBar";
 import DevSidebar from "../components/DevSidebar";
 import Footer from "../components/Footer";
-import BitcoinOSNav from "../components/BitcoinOSNav";
+import BitcoinOSProvider from "../components/BitcoinOSProvider";
+import ConditionalNav from "../components/ConditionalNav";
+import ServiceWorkerRegistration from "../components/ServiceWorkerRegistration";
 
 export const metadata: Metadata = {
   title: "Bitcoin Email - THE BITCOIN CORPORATION LTD",
@@ -60,17 +62,20 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="antialiased h-full">
+        <ServiceWorkerRegistration />
         <Providers>
-          <BitcoinOSNav />
-          <Taskbar />
-          <PocBar color="#ff3333" />
-          <DevSidebar />
-          <div className="pt-[70px] md:pt-[70px] mobile-content-wrapper ml-[260px] dev-sidebar-content min-h-screen">
-            {children}
-            <Footer />
-          </div>
-          <MobileBottomNav />
-          <InstallPrompt />
+          <BitcoinOSProvider>
+            <ConditionalNav />
+            <Taskbar />
+            <PocBar color="#ff3333" />
+            <DevSidebar />
+            <div className="pt-[70px] md:pt-[70px] mobile-content-wrapper ml-[260px] dev-sidebar-content min-h-screen">
+              {children}
+              <Footer />
+            </div>
+            <MobileBottomNav />
+            <InstallPrompt />
+          </BitcoinOSProvider>
         </Providers>
       </body>
     </html>

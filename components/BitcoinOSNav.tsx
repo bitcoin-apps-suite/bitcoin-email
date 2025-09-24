@@ -2,10 +2,12 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { Bitcoin, Grid, X } from 'lucide-react'
+import { useBitcoinOSContext } from './BitcoinOSProvider'
 
 export default function BitcoinOSNav() {
   const [showAppsMenu, setShowAppsMenu] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
+  const { isInOS, openApp, navigateHome } = useBitcoinOSContext()
 
   const bitcoinApps = [
     { name: 'Bitcoin OS', color: '#000000', url: 'https://bitcoin-os.vercel.app', icon: Grid },
@@ -59,11 +61,39 @@ export default function BitcoinOSNav() {
               const isOS = app.name === 'Bitcoin OS'
               const Icon = app.icon || Bitcoin
               
+              const handleAppClick = (e: React.MouseEvent) => {
+                e.preventDefault()
+                setShowAppsMenu(false)
+                
+                if (isInOS) {
+                  if (isOS) {
+                    navigateHome()
+                  } else {
+                    // Map app names to internal app identifiers
+                    const appMap: { [key: string]: string } = {
+                      'Bitcoin Wallet': 'bitcoin-wallet',
+                      'Bitcoin Email': 'bitcoin-email',
+                      'Bitcoin Music': 'bitcoin-music',
+                      'Bitcoin Writer': 'bitcoin-writer',
+                      'Bitcoin Drive': 'bitcoin-drive',
+                      'Bitcoin Jobs': 'bitcoin-jobs'
+                    }
+                    const appId = appMap[app.name]
+                    if (appId) {
+                      openApp(appId)
+                    }
+                  }
+                } else {
+                  // Not in OS, navigate normally
+                  window.open(app.url, '_blank')
+                }
+              }
+              
               return (
-                <a
+                <button
                   key={app.name}
-                  href={app.url}
-                  className={`flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded transition-colors ${
+                  onClick={handleAppClick}
+                  className={`w-full flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded transition-colors ${
                     app.current ? 'bg-gray-800/50 border border-gray-700' : ''
                   } ${isOS ? 'border-b border-gray-700 mb-2 pb-3' : ''}`}
                   title={app.name}
@@ -76,7 +106,7 @@ export default function BitcoinOSNav() {
                     {app.name}
                     {app.current && <span className="text-xs text-gray-400 ml-2">(current)</span>}
                   </span>
-                </a>
+                </button>
               )
             })}
           </div>

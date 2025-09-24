@@ -76,6 +76,10 @@
     {
       "protocol": "mailto",
       "url": "/compose?to=%s"
+    },
+    {
+      "protocol": "web+bitcoin-email",
+      "url": "/?action=%s"
     }
   ]
 }
