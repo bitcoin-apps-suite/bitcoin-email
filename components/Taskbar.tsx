@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import MobileMenu from './MobileMenu';
 import AboutDialog from './AboutDialog';
+import { UnifiedConnections } from './UnifiedConnections';
 import './Taskbar.css';
 
 interface DropdownItem {
@@ -37,8 +38,27 @@ const Taskbar: React.FC<TaskbarProps> = ({
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [showBitcoinSuite, setShowBitcoinSuite] = useState(false);
   const [showAboutDialog, setShowAboutDialog] = useState(false);
+  const [showConnectionsModal, setShowConnectionsModal] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  // Mock connections data - in real app this would come from a store
+  const [connections, setConnections] = useState([
+    {
+      id: '1',
+      type: 'gmail' as const,
+      name: 'Gmail',
+      email: 'user@gmail.com',
+      status: 'connected' as const
+    },
+    {
+      id: '2',
+      type: 'handcash' as const,
+      name: 'HandCash',
+      handle: '$user',
+      status: 'disconnected' as const
+    }
+  ]);
 
   const bitcoinApps = [
     { name: 'Bitcoin Auth', color: '#ef4444', url: '#' },
@@ -267,6 +287,13 @@ const Taskbar: React.FC<TaskbarProps> = ({
             ))}
           </div>
         )}
+
+        {/* Connections Tab */}
+        <UnifiedConnections 
+          connections={connections}
+          onOpenModal={() => setShowConnectionsModal(true)}
+          className="taskbar-connections"
+        />
 
         <div className="menu-items">
           {menus.map((menu) => (
