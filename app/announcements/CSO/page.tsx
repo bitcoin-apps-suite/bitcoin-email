@@ -28,7 +28,7 @@ export default function CSOAnnouncementPage() {
             <p className="text-lg md:text-xl text-orange-300 leading-relaxed">
               🥫 <strong>Spamsom Mo'</strong> - Chief Spam Officer & Head of BitSeedVentures - 
               is preparing a groundbreaking announcement that will revolutionize how we think about 
-              Bitcoin email marketing and ecosystem development.
+              Bitcoin email marketing and ecosystem development. Stay tuned for historic news.
             </p>
           </div>
         </div>
