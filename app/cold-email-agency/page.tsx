@@ -1,4 +1,4 @@
-import { Target, DollarSign, TrendingUp, Mail, Zap, Users, CheckCircle, ArrowRight, Briefcase } from 'lucide-react';
+import { Target, DollarSign, TrendingUp, Zap, CheckCircle, ArrowRight, Briefcase } from 'lucide-react';
 
 export default function ColdEmailAgencyPage() {
   return (

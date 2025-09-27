@@ -1,4 +1,6 @@
-import { ExternalLink, Download, Sparkles, ImageIcon } from 'lucide-react';
+'use client';
+
+import { ExternalLink, Sparkles, ImageIcon } from 'lucide-react';
 
 export default function PerchanceGeneratorPage() {
   const promptText = "Have you had your SPAM today? - vintage 1950s enamel sign with red Bitcoin B logo, retro typography, weathered metal texture, classic diner signage style, bold lettering, nostalgic americana, advertising poster";
