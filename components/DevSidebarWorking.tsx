@@ -87,10 +87,11 @@ export default function DevSidebar() {
     <div 
       className={`fixed left-0 bottom-0 ${isCollapsed ? 'w-16' : 'w-[260px]'} transition-all duration-300 flex flex-col`}
       style={{
-        top: '95px',
+        top: '0',
+        paddingTop: '100px',
         backgroundColor: '#111827',
         borderRight: '1px solid #374151',
-        zIndex: 30
+        zIndex: 1
       }}
     >
       <div className="p-4 border-b border-gray-700 flex items-center justify-between">
