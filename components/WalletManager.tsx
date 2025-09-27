@@ -30,20 +30,21 @@ export function WalletManager({ className = '' }: WalletManagerProps) {
     setTokenBalances(balances);
   };
 
-  const _handleConnectWallet = async (type: TokenWallet['type']) => {
-    try {
-      const wallet = await tokenEncryption.connectWallet(type);
-      setWallets([...wallets, wallet]);
-      
-      // Update balances
-      const walletBalance = await tokenEncryption.getWalletTokenBalance(wallet.address);
-      const newBalances = new Map(tokenBalances);
-      newBalances.set(wallet.address, walletBalance);
-      setTokenBalances(newBalances);
-    } catch (error) {
-      console.error('Failed to connect wallet:', error);
-    }
-  };
+  // Commenting out unused function - may be needed for future wallet connection feature
+  // const _handleConnectWallet = async (type: TokenWallet['type']) => {
+  //   try {
+  //     const wallet = await tokenEncryption.connectWallet(type);
+  //     setWallets([...wallets, wallet]);
+  //     
+  //     // Update balances
+  //     const walletBalance = await tokenEncryption.getWalletTokenBalance(wallet.address);
+  //     const newBalances = new Map(tokenBalances);
+  //     newBalances.set(wallet.address, walletBalance);
+  //     setTokenBalances(newBalances);
+  //   } catch (error) {
+  //     console.error('Failed to connect wallet:', error);
+  //   }
+  // };
 
   const handleDisconnectWallet = async (walletAddress: string) => {
     try {

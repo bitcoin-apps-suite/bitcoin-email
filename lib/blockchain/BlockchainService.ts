@@ -1,4 +1,4 @@
-import { Transaction, Script, PrivateKey, PublicKey, Hash } from '@bsv/sdk';
+import { Transaction, Script, PrivateKey } from '@bsv/sdk';
 import CryptoJS from 'crypto-js';
 
 export interface EmailMetadata {
@@ -177,7 +177,7 @@ export class BlockchainService {
   }
 
   private async createEmailTransaction(
-    data: Buffer,
+    _data: Buffer,
     privateKey: PrivateKey
   ): Promise<Transaction> {
     const tx = new Transaction();

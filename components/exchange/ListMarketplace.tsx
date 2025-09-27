@@ -23,7 +23,8 @@ interface MarketplaceListing {
 
 export function ListMarketplace() {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
+  // Commenting out unused state - may be needed for future price filter feature
+  // const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
   
   const categories = [
     'All Categories',

@@ -134,10 +134,11 @@ export function EmailList({ onSelectEmail, activeFolder = 'inbox', searchQuery: 
     ));
   };
 
-  const _deleteEmail = (e: React.MouseEvent, emailId: string) => {
-    e.stopPropagation(); // Prevent email selection
-    setEmails(prev => prev.filter(email => email.id !== emailId));
-  };
+  // Commenting out unused function - may be needed for future delete feature
+  // const _deleteEmail = (e: React.MouseEvent, emailId: string) => {
+  //   e.stopPropagation(); // Prevent email selection
+  //   setEmails(prev => prev.filter(email => email.id !== emailId));
+  // };
 
   return (
     <div className="email-list">
