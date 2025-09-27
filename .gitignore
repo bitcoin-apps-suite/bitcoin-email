@@ -46,6 +46,11 @@ next-env.d.ts
 screenshot*.jpg
 screenshot*.png
 
+# Screenshots (all cases)
+*Screenshot*
+Screenshot*
+*screenshot*
+
 # Source/meme folders
 $BITCOINEMAIL/
 @memes/._*
