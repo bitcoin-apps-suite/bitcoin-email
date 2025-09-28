@@ -30,6 +30,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@bitcoin-os/bridge": "^1.0.1",
     "@bsv/sdk": "^1.7.6",
     "@handcash/handcash-connect": "^0.8.11",
     "@react-email/components": "^0.5.3",

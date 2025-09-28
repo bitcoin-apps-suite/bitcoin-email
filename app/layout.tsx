@@ -69,7 +69,7 @@ export default function RootLayout({
             <Taskbar />
             <PocBar color="#ff3333" />
             <DevSidebar />
-            <div className="pt-[70px] md:pt-[70px] mobile-content-wrapper ml-[260px] dev-sidebar-content min-h-screen">
+            <div className="pt-[70px] md:pt-[70px] mobile-content-wrapper dev-sidebar-content min-h-screen">
               {children}
               <Footer />
             </div>

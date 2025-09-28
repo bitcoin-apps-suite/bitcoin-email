@@ -46,13 +46,26 @@ export default function DevSidebar() {
     fetchIssues()
   }, [])
 
-  // Load collapsed state from localStorage
+  // Load collapsed state from localStorage and update document class
   useEffect(() => {
     const saved = localStorage.getItem('devSidebarCollapsed')
     if (saved) {
       setIsCollapsed(JSON.parse(saved))
     }
   }, [])
+
+  // Update document class when sidebar state changes
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      if (isCollapsed) {
+        document.documentElement.classList.add('sidebar-collapsed')
+        document.documentElement.classList.remove('sidebar-expanded')
+      } else {
+        document.documentElement.classList.add('sidebar-expanded')
+        document.documentElement.classList.remove('sidebar-collapsed')
+      }
+    }
+  }, [isCollapsed])
 
   const toggleSidebar = () => {
     const newState = !isCollapsed
