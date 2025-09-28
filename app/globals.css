@@ -52,21 +52,27 @@
   margin-left: 260px;
 }
 
-/* When sidebar is collapsed */
-html.sidebar-collapsed .dev-sidebar-content {
+/* When sidebar is collapsed - 64px for collapsed sidebar width */
+.sidebar-collapsed .dev-sidebar-content {
   margin-left: 64px !important;
 }
 
-/* When sidebar is expanded */
-html.sidebar-expanded .dev-sidebar-content {
+/* When sidebar is expanded - 260px for expanded sidebar width */
+.sidebar-expanded .dev-sidebar-content {
   margin-left: 260px !important;
+}
+
+/* Default state (when classes haven't loaded yet) */
+body:not(.sidebar-collapsed):not(.sidebar-expanded) .dev-sidebar-content {
+  margin-left: 64px; /* Default to collapsed */
 }
 
 /* Mobile-specific link enhancements */
 @media (max-width: 768px) {
   .dev-sidebar-content,
-  html.sidebar-collapsed .dev-sidebar-content,
-  html.sidebar-expanded .dev-sidebar-content {
+  .sidebar-collapsed .dev-sidebar-content,
+  .sidebar-expanded .dev-sidebar-content,
+  body:not(.sidebar-collapsed):not(.sidebar-expanded) .dev-sidebar-content {
     margin-left: 0 !important;
   }
   
