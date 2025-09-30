@@ -49,7 +49,7 @@
 /* Developer sidebar content adjustment */
 .dev-sidebar-content {
   transition: margin-left 0.3s ease;
-  margin-left: 260px;
+  margin-left: 64px; /* Default to collapsed */
 }
 
 /* When sidebar is collapsed - 64px for collapsed sidebar width */
@@ -60,11 +60,6 @@
 /* When sidebar is expanded - 260px for expanded sidebar width */
 .sidebar-expanded .dev-sidebar-content {
   margin-left: 260px !important;
-}
-
-/* Default state (when classes haven't loaded yet) */
-body:not(.sidebar-collapsed):not(.sidebar-expanded) .dev-sidebar-content {
-  margin-left: 64px; /* Default to collapsed */
 }
 
 /* Mobile-specific link enhancements */

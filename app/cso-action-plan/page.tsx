@@ -63,8 +63,8 @@ export default function CSOActionPlanPage() {
         <div className="vintage-box">
           <h2 className="section-title">THE MISSION</h2>
           <p style={{ fontSize: '20px', color: '#4A4A4A', lineHeight: '1.8', fontFamily: 'Oswald, sans-serif' }}>
-            Transform Bitcoin Email into the premier cold outreach service for the entire BSV ecosystem, 
-            while building BitSeedVentures&apos; portfolio through strategic SPAM campaigns.
+            Transform Bitcoin Email into the premier cold outreach service for the entire BSV ecosystem 
+            through strategic SPAM campaigns.
           </p>
         </div>
 
@@ -124,7 +124,7 @@ export default function CSOActionPlanPage() {
               },
               {
                 number: '2',
-                title: 'BITSEEDVENTURES PORTFOLIO GROWTH',
+                title: 'PORTFOLIO GROWTH',
                 what: 'Scout and connect with promising BSV projects globally',
                 how: 'Cold outreach to developers, identifying investment opportunities',
                 value: 'Build a portfolio while getting paid for outreach'
@@ -373,7 +373,7 @@ export default function CSOActionPlanPage() {
           <strong>
             - Spamsom Mo&apos;, Chief Spam Officer
             <br/>
-            The Bitcoin Corporation Ltd | BitSeedVentures
+            The Bitcoin Corporation Ltd
           </strong>
         </div>
       </div>

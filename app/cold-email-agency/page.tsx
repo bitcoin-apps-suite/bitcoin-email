@@ -343,7 +343,7 @@ export default function ColdEmailAgencyPage() {
           <strong>
             - The Bitcoin Corporation Ltd
             <br/>
-            Powered by Bitcoin Email & BitSeedVentures
+            Powered by Bitcoin Email
           </strong>
         </div>
       </div>

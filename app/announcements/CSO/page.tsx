@@ -63,7 +63,7 @@ export default function CSOAnnouncementPage() {
         <div className="vintage-box">
           <h2 className="section-title">🥫 THE BIG NEWS IS COMING 🥫</h2>
           <p style={{ fontSize: '24px', color: '#4A4A4A', lineHeight: '1.8', fontFamily: 'Oswald, sans-serif', fontWeight: '600', textAlign: 'center' }}>
-            <strong>Spamsom Mo&apos;</strong> - Chief Spam Officer & Head of BitSeedVentures - 
+            <strong>Spamsom Mo&apos;</strong> - Chief Spam Officer - 
             is preparing a groundbreaking announcement that will revolutionize how we think about 
             Bitcoin email marketing and ecosystem development. Stay tuned for historic news.
           </p>
@@ -138,9 +138,6 @@ export default function CSOAnnouncementPage() {
                   Chief Spam Officer
                 </p>
                 <p style={{ fontSize: '20px', color: '#A0522D', fontFamily: 'Oswald' }}>
-                  Head of BitSeedVentures
-                </p>
-                <p style={{ fontSize: '20px', color: '#A0522D', fontFamily: 'Oswald' }}>
                   The Bitcoin Corporation Ltd
                 </p>
               </div>
@@ -192,7 +189,7 @@ export default function CSOAnnouncementPage() {
                   Community Impact
                 </h3>
                 <p style={{ color: '#4A4A4A', fontSize: '16px', fontFamily: 'Oswald' }}>
-                  Major initiatives to expand the BSV developer and user ecosystem through BitSeedVentures
+                  Major initiatives to expand the BSV developer and user ecosystem
                 </p>
               </div>
             </div>
@@ -210,7 +207,7 @@ export default function CSOAnnouncementPage() {
               {[
                 { 
                   phase: 'Phase 1: Strategic Review Complete', 
-                  desc: 'BitSeedVentures portfolio analysis finalized',
+                  desc: 'Portfolio analysis finalized',
                   status: 'complete'
                 },
                 { 
@@ -278,13 +275,16 @@ export default function CSOAnnouncementPage() {
               <a href="/spam" className="spam-cta-button">
                 Subscribe to SPAM <ArrowRight style={{ display: 'inline', marginLeft: '10px' }} />
               </a>
+              <a href="https://spamkitchen.substack.com" className="spam-cta-button" target="_blank" rel="noopener noreferrer">
+                Sign up to Spam Kitchen Newsletter
+              </a>
               <a href="/contributions" className="spam-cta-button">
                 Claim $BMAIL Tokens
               </a>
             </div>
             
             <div style={{ marginTop: '20px', fontSize: '18px', color: '#A0522D', fontFamily: 'Oswald' }}>
-              <p>💡 Pro tip: Early subscribers get priority access to BitSeedVentures opportunities</p>
+              <p>💡 Pro tip: Early subscribers get priority access to exclusive opportunities</p>
             </div>
           </div>
         </div>

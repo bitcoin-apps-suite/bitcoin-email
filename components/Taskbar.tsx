@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import MobileMenu from './MobileMenu';
 import AboutDialog from './AboutDialog';
 import { UnifiedConnections } from './UnifiedConnections';
+import '@bitcoin-os/bridge/components/TopMenuBar.css';
 import './Taskbar.css';
 
 interface DropdownItem {
