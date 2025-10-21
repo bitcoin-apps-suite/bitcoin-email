@@ -2,6 +2,7 @@
 
 import React from 'react';
 import './marketing.css';
+import './marketing.mobile.css';
 
 const MarketingPage: React.FC = () => {
   return (

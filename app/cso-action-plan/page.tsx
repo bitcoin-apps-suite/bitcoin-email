@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { ChevronRight, DollarSign, Target, Zap, TrendingUp, Mail, Users, Globe } from 'lucide-react';
 import './cso-action-plan.css';
+import './cso-action-plan.mobile.css';
 
 export default function CSOActionPlanPage() {
   const [activeStep, setActiveStep] = useState<number | null>(null);

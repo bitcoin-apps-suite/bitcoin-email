@@ -1,0 +1,688 @@
+/* Tokenize Page Mobile Styles */
+
+@media (max-width: 768px) {
+  /* ============================================
+     PAGE LAYOUT
+     ============================================ */
+
+  /* Main container */
+  .min-h-screen.bg-black.text-white {
+    padding-bottom: 80px !important; /* Space for bottom nav */
+  }
+
+  /* ============================================
+     HEADER
+     ============================================ */
+
+  /* Header container */
+  header.bg-gradient-to-b {
+    padding: 12px 16px !important;
+  }
+
+  /* Header flex container */
+  header .flex.justify-between {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  /* Logo and title section */
+  header .flex.items-center.gap-3 {
+    width: 100% !important;
+  }
+
+  /* Logo image */
+  header .w-12.h-12 {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  /* Page title */
+  header h1 {
+    font-size: 20px !important;
+  }
+
+  /* Subtitle */
+  header p.text-gray-400 {
+    font-size: 12px !important;
+  }
+
+  /* Connection badge */
+  header .connection-badge {
+    align-self: flex-end !important;
+  }
+
+  /* ============================================
+     MAIN LAYOUT (SIDEBAR + CONTENT)
+     ============================================ */
+
+  /* Main flex container */
+  .flex.h-\[calc\(100vh-32px-88px\)\] {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  /* Sidebar - hide on mobile */
+  .w-72.bg-gray-900 {
+    display: none !important;
+  }
+
+  /* Main content area */
+  .flex-1.overflow-y-auto {
+    padding: 16px !important;
+  }
+
+  /* ============================================
+     STEP INDICATOR / PROGRESS
+     ============================================ */
+
+  /* Step indicator container */
+  .step-indicator {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+  }
+
+  /* Step items */
+  .step-item {
+    min-width: 80px !important;
+    font-size: 0.75rem !important;
+    padding: 0.5rem !important;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    height: 4px !important;
+    border-radius: 2px !important;
+  }
+
+  /* ============================================
+     FORM SECTIONS
+     ============================================ */
+
+  /* Section container */
+  section[style*="padding"] {
+    padding: 16px !important;
+  }
+
+  /* Section title */
+  h2[style*="fontSize: '32px'"],
+  h2[style*="fontSize: 32"] {
+    font-size: 24px !important;
+  }
+
+  h3[style*="fontSize: '24px'"],
+  h3[style*="fontSize: 24"] {
+    font-size: 18px !important;
+  }
+
+  /* Section description */
+  p[style*="fontSize: '14px'"] {
+    font-size: 13px !important;
+  }
+
+  /* ============================================
+     FORM INPUTS
+     ============================================ */
+
+  /* All input fields */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="file"],
+  select,
+  textarea {
+    font-size: 16px !important; /* Prevents iOS zoom */
+    padding: 12px !important;
+    border-radius: 6px !important;
+    min-height: 44px !important; /* Touch-friendly */
+  }
+
+  /* Textarea specific */
+  textarea {
+    min-height: 120px !important;
+    resize: vertical !important;
+  }
+
+  /* Input labels */
+  label {
+    font-size: 14px !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* Small helper text */
+  .text-xs,
+  small {
+    font-size: 11px !important;
+  }
+
+  /* ============================================
+     FILE UPLOAD
+     ============================================ */
+
+  /* File upload area */
+  .file-upload-area {
+    padding: 24px 16px !important;
+    border-radius: 8px !important;
+    min-height: 120px !important;
+  }
+
+  /* Upload button */
+  .file-upload-button {
+    width: 100% !important;
+    min-height: 48px !important;
+    font-size: 15px !important;
+  }
+
+  /* File preview */
+  .file-preview {
+    padding: 12px !important;
+    font-size: 13px !important;
+  }
+
+  /* ============================================
+     GRID LAYOUTS
+     ============================================ */
+
+  /* Grid containers - make single column */
+  div[style*="gridTemplateColumns"][style*="repeat(2"],
+  div[style*="gridTemplateColumns"][style*="repeat(3"],
+  div[style*="grid-template-columns: repeat(2"],
+  div[style*="grid-template-columns: repeat(3"],
+  .grid.grid-cols-2,
+  .grid.grid-cols-3,
+  .grid.grid-cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Stats grid - keep 2 columns */
+  .stats-grid,
+  div[style*="gridTemplateColumns"][style*="repeat(auto-fit"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  /* ============================================
+     CARDS
+     ============================================ */
+
+  /* Card container */
+  div[style*="background: 'linear-gradient"][style*="padding: '20px'"],
+  .card {
+    padding: 16px !important;
+    border-radius: 8px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Card header */
+  .card-header {
+    padding: 12px !important;
+  }
+
+  /* Card body */
+  .card-body {
+    padding: 12px !important;
+  }
+
+  /* ============================================
+     TOKEN ECONOMICS SLIDERS
+     ============================================ */
+
+  /* Slider container */
+  .slider-container {
+    padding: 16px 0 !important;
+  }
+
+  /* Slider input */
+  input[type="range"] {
+    width: 100% !important;
+    height: 8px !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    border-radius: 4px !important;
+  }
+
+  /* Slider thumb */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+  }
+
+  /* Slider value display */
+  .slider-value {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+  }
+
+  /* ============================================
+     TAGS / CHIPS
+     ============================================ */
+
+  /* Tags container */
+  .tags-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    padding: 8px 0 !important;
+  }
+
+  /* Individual tag */
+  .tag,
+  .chip {
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+    border-radius: 16px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  /* Tag remove button */
+  .tag button,
+  .chip button {
+    min-width: 20px !important;
+    min-height: 20px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+  }
+
+  /* Tag input */
+  .tag-input {
+    flex: 1 !important;
+    min-width: 120px !important;
+  }
+
+  /* ============================================
+     TOGGLE SWITCHES
+     ============================================ */
+
+  /* Toggle container */
+  .toggle-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 12px 0 !important;
+    min-height: 44px !important;
+  }
+
+  /* Toggle switch */
+  .toggle-switch {
+    width: 48px !important;
+    height: 28px !important;
+    border-radius: 14px !important;
+  }
+
+  /* Toggle knob */
+  .toggle-knob {
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 12px !important;
+  }
+
+  /* ============================================
+     BUTTONS
+     ============================================ */
+
+  /* Primary action buttons */
+  button[style*="padding: '8px'"],
+  .btn-primary {
+    width: 100% !important;
+    min-height: 48px !important;
+    font-size: 16px !important;
+    padding: 14px 24px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+  }
+
+  /* Secondary buttons */
+  .btn-secondary {
+    min-height: 44px !important;
+    font-size: 15px !important;
+    padding: 12px 20px !important;
+  }
+
+  /* Button groups */
+  .button-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  /* Step navigation buttons */
+  .step-buttons {
+    display: flex !important;
+    gap: 12px !important;
+    padding: 16px 0 !important;
+  }
+
+  .step-buttons button {
+    flex: 1 !important;
+    min-height: 48px !important;
+  }
+
+  /* ============================================
+     CATEGORY SELECTION
+     ============================================ */
+
+  /* Category grid */
+  .category-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  /* Category button */
+  .category-button {
+    min-height: 60px !important;
+    padding: 12px !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    text-align: center !important;
+  }
+
+  /* ============================================
+     PREVIEW / SUMMARY
+     ============================================ */
+
+  /* Summary card */
+  .summary-card {
+    padding: 16px !important;
+    border-radius: 8px !important;
+  }
+
+  /* Summary row */
+  .summary-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 10px 0 !important;
+    font-size: 14px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .summary-row:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Summary label */
+  .summary-label {
+    font-size: 13px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  /* Summary value */
+  .summary-value {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+  }
+
+  /* ============================================
+     CHARTS / VISUALIZATIONS
+     ============================================ */
+
+  /* Chart container */
+  .chart-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding: 12px 0 !important;
+  }
+
+  /* Pie chart */
+  .pie-chart {
+    min-width: 200px !important;
+    max-width: 250px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Chart legend */
+  .chart-legend {
+    font-size: 12px !important;
+    padding: 8px !important;
+  }
+
+  /* ============================================
+     MODALS
+     ============================================ */
+
+  /* Modal overlay */
+  .modal-overlay {
+    padding: 0 !important;
+  }
+
+  /* Modal content */
+  .modal-content {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    overflow-y: auto !important;
+  }
+
+  /* Modal header */
+  .modal-header {
+    padding: 16px !important;
+    position: sticky !important;
+    top: 0 !important;
+    background: inherit !important;
+    z-index: 10 !important;
+  }
+
+  /* Modal body */
+  .modal-body {
+    padding: 16px !important;
+  }
+
+  /* Modal footer */
+  .modal-footer {
+    padding: 16px !important;
+    position: sticky !important;
+    bottom: 0 !important;
+    background: inherit !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* ============================================
+     TABS
+     ============================================ */
+
+  /* Tab container */
+  .tabs-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px !important;
+  }
+
+  /* Tab buttons */
+  .tab-button {
+    min-width: 100px !important;
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+  }
+
+  /* ============================================
+     TOOLTIPS / HELP TEXT
+     ============================================ */
+
+  /* Tooltip */
+  .tooltip {
+    max-width: 250px !important;
+    font-size: 12px !important;
+    padding: 8px !important;
+  }
+
+  /* Help icon */
+  .help-icon {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+  }
+
+  /* ============================================
+     ACCORDION / COLLAPSIBLE
+     ============================================ */
+
+  /* Accordion header */
+  .accordion-header {
+    padding: 14px !important;
+    font-size: 15px !important;
+    min-height: 48px !important;
+  }
+
+  /* Accordion content */
+  .accordion-content {
+    padding: 16px !important;
+  }
+
+  /* ============================================
+     ACCESSIBILITY
+     ============================================ */
+
+  /* Focus styles */
+  input:focus,
+  textarea:focus,
+  select:focus,
+  button:focus {
+    outline: 2px solid rgba(239, 68, 68, 0.6) !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Active states */
+  button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION
+   ============================================ */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* More compact padding in landscape */
+  .flex-1.overflow-y-auto {
+    padding: 12px !important;
+  }
+
+  /* Smaller headings */
+  h2[style*="fontSize"] {
+    font-size: 20px !important;
+  }
+
+  /* Keep some grids 2-column in landscape */
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  /* Reduce vertical spacing */
+  section[style*="padding"] {
+    padding: 12px !important;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  /* Even more compact */
+  header h1 {
+    font-size: 18px !important;
+  }
+
+  .flex-1.overflow-y-auto {
+    padding: 12px !important;
+  }
+
+  h2[style*="fontSize"] {
+    font-size: 20px !important;
+  }
+
+  /* Single column for all grids */
+  .stats-grid,
+  .category-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Smaller buttons */
+  button[style*="padding"],
+  .btn-primary {
+    min-height: 44px !important;
+    font-size: 15px !important;
+    padding: 12px 20px !important;
+  }
+
+  /* Smaller tag font */
+  .tag,
+  .chip {
+    font-size: 12px !important;
+    padding: 5px 10px !important;
+  }
+}
+
+/* ============================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ============================================ */
+@media (pointer: coarse) {
+  /* Larger touch targets */
+  button,
+  input,
+  select,
+  textarea {
+    min-height: 44px !important;
+  }
+
+  /* Remove hover effects */
+  button:hover,
+  .card:hover {
+    transform: none !important;
+  }
+
+  /* Better active states */
+  button:active {
+    opacity: 0.9 !important;
+  }
+}
+
+/* ============================================
+   HIGH CONTRAST MODE
+   ============================================ */
+@media (prefers-contrast: high) {
+  input,
+  textarea,
+  select {
+    border-width: 2px !important;
+  }
+
+  button {
+    border: 2px solid currentColor !important;
+  }
+
+  .card {
+    border-width: 2px !important;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

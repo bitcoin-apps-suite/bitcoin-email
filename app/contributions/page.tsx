@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import './contributions.css';
+import './contributions.mobile.css';
 
 interface GitHubContributor {
   login: string;

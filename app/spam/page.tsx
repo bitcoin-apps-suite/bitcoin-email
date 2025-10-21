@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import './spam.css';
+import './spam.mobile.css';
 
 const SpamSignupPage: React.FC = () => {
   const [email, setEmail] = useState('');

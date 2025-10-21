@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Taskbar from '@/components/Taskbar';
 import { ConnectionBadge } from '@/components/ConnectionBadge';
 import { ConnectionsModal } from '@/components/ConnectionsModal';
+import './tokenize.mobile.css';
 
 export default function TokenizePage() {
   const [step, setStep] = useState(1);

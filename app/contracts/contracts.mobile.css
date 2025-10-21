@@ -1,0 +1,490 @@
+/* Contributions Page Mobile Styles */
+
+@media (max-width: 768px) {
+  /* ============================================
+     PAGE LAYOUT
+     ============================================ */
+
+  .contributions-page {
+    padding: 1rem !important;
+    padding-bottom: 80px !important; /* Space for bottom nav */
+  }
+
+  /* ============================================
+     HEADER
+     ============================================ */
+
+  .contributions-header {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .contributions-header h1 {
+    font-size: 1.75rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .contributions-header p {
+    font-size: 0.875rem !important;
+  }
+
+  /* ============================================
+     TOKEN ECONOMICS BANNER
+     ============================================ */
+
+  .token-economics-banner {
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .token-economics-banner h2 {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .token-economics-banner p {
+    font-size: 0.8125rem !important;
+  }
+
+  /* Token stats grid */
+  .token-stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .token-stat {
+    padding: 0.75rem !important;
+    border-radius: 6px !important;
+    text-align: center !important;
+  }
+
+  .token-stat-value {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+  }
+
+  .token-stat-label {
+    font-size: 0.75rem !important;
+  }
+
+  /* ============================================
+     TABS
+     ============================================ */
+
+  .tabs-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1.5rem !important;
+    padding-bottom: 8px !important;
+  }
+
+  .tabs-list {
+    display: flex !important;
+    gap: 0.5rem !important;
+    min-width: min-content !important;
+  }
+
+  .tab-button {
+    min-width: 100px !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+    white-space: nowrap !important;
+    border-radius: 6px !important;
+    min-height: 44px !important; /* Touch-friendly */
+  }
+
+  /* ============================================
+     TASK CARDS
+     ============================================ */
+
+  /* Task grid - single column */
+  .tasks-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Task card */
+  .task-card {
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Task header */
+  .task-card-header {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .task-tier-badge {
+    font-size: 0.75rem !important;
+    padding: 0.375rem 0.75rem !important;
+    border-radius: 12px !important;
+    align-self: flex-start !important;
+  }
+
+  .task-title {
+    font-size: 1.125rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Task description */
+  .task-description {
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Task tokens */
+  .task-tokens {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #fbbf24 !important;
+  }
+
+  /* Task meta info */
+  .task-meta {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    margin-top: 0.75rem !important;
+    padding-top: 0.75rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .task-meta-item {
+    font-size: 0.8125rem !important;
+  }
+
+  /* Task actions */
+  .task-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .task-actions button {
+    width: 100% !important;
+    min-height: 44px !important;
+    font-size: 0.9375rem !important;
+    padding: 0.75rem !important;
+  }
+
+  /* ============================================
+     CONTRIBUTORS LIST
+     ============================================ */
+
+  /* Contributors grid */
+  .contributors-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Contributor card */
+  .contributor-card {
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+
+  /* Avatar */
+  .contributor-avatar {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    border-radius: 50% !important;
+  }
+
+  /* Contributor info */
+  .contributor-info {
+    flex: 1 !important;
+  }
+
+  .contributor-name {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .contributor-handle {
+    font-size: 0.875rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  /* Contributor stats */
+  .contributor-stats {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.75rem !important;
+    margin-top: 0.75rem !important;
+    padding-top: 0.75rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .contributor-stat {
+    text-align: center !important;
+  }
+
+  .contributor-stat-value {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+  }
+
+  .contributor-stat-label {
+    font-size: 0.6875rem !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  /* ============================================
+     LEADERBOARD
+     ============================================ */
+
+  .leaderboard-table {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px !important;
+  }
+
+  .leaderboard-table table {
+    min-width: 500px !important;
+    font-size: 0.875rem !important;
+  }
+
+  .leaderboard-table th {
+    padding: 0.75rem 0.5rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  .leaderboard-table td {
+    padding: 0.75rem 0.5rem !important;
+  }
+
+  /* Rank badge */
+  .rank-badge {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* ============================================
+     FILTERS AND SEARCH
+     ============================================ */
+
+  .filters-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .search-input {
+    width: 100% !important;
+    padding: 0.75rem !important;
+    font-size: 16px !important; /* Prevents iOS zoom */
+    border-radius: 6px !important;
+    min-height: 44px !important;
+  }
+
+  .filter-buttons {
+    display: flex !important;
+    gap: 0.5rem !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px !important;
+  }
+
+  .filter-button {
+    min-width: 80px !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.8125rem !important;
+    white-space: nowrap !important;
+    border-radius: 6px !important;
+  }
+
+  /* ============================================
+     CLAIM MODAL
+     ============================================ */
+
+  .claim-modal {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .claim-modal-header {
+    padding: 1rem !important;
+    position: sticky !important;
+    top: 0 !important;
+    background: inherit !important;
+    z-index: 10 !important;
+  }
+
+  .claim-modal-body {
+    padding: 1rem !important;
+  }
+
+  .claim-modal-footer {
+    padding: 1rem !important;
+    position: sticky !important;
+    bottom: 0 !important;
+    background: inherit !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* ============================================
+     GITHUB CONNECTION
+     ============================================ */
+
+  .github-connect-button {
+    width: 100% !important;
+    min-height: 48px !important;
+    font-size: 1rem !important;
+    padding: 0.875rem 1.5rem !important;
+    border-radius: 8px !important;
+  }
+
+  .connection-status {
+    padding: 0.75rem !important;
+    border-radius: 6px !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* ============================================
+     LOADING STATES
+     ============================================ */
+
+  .loading-spinner {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .loading-text {
+    font-size: 0.875rem !important;
+    margin-top: 0.75rem !important;
+  }
+
+  /* ============================================
+     EMPTY STATES
+     ============================================ */
+
+  .empty-state {
+    padding: 3rem 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .empty-state-icon {
+    font-size: 3rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .empty-state-title {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .empty-state-description {
+    font-size: 0.875rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION
+   ============================================ */
+@media (max-width: 768px) and (orientation: landscape) {
+  .contributions-header h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .tasks-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .contributors-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  .contributions-page {
+    padding: 0.75rem !important;
+  }
+
+  .contributions-header h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .task-title {
+    font-size: 1rem !important;
+  }
+
+  .task-tokens {
+    font-size: 1.125rem !important;
+  }
+
+  .contributor-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+  }
+}
+
+/* ============================================
+   TOUCH OPTIMIZATIONS
+   ============================================ */
+@media (pointer: coarse) {
+  button,
+  .tab-button,
+  .filter-button {
+    min-height: 44px !important;
+  }
+
+  .task-card:active {
+    opacity: 0.95 !important;
+  }
+
+  button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* ============================================
+   HIGH CONTRAST
+   ============================================ */
+@media (prefers-contrast: high) {
+  .task-card,
+  .contributor-card {
+    border-width: 2px !important;
+  }
+
+  button {
+    border: 2px solid currentColor !important;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

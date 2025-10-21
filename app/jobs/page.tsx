@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import './jobs.css';
+import './jobs.mobile.css';
 import { AVAILABLE_TASKS } from '../contributions/taskData';
 
 interface JobContract {

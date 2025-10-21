@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Target, DollarSign, TrendingUp, Zap, CheckCircle, ArrowRight, Briefcase, ChevronRight } from 'lucide-react';
 import './cold-email-agency.css';
+import './cold-email-agency.mobile.css';
 
 export default function ColdEmailAgencyPage() {
   const [activeStep, setActiveStep] = useState<number | null>(null);

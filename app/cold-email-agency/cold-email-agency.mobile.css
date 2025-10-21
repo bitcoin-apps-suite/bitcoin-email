@@ -1,0 +1,72 @@
+/* Spam Dashboard Mobile Styles */
+
+@media (max-width: 768px) {
+  /* Page container */
+  .spam-page,
+  .dashboard-container {
+    padding: 1rem !important;
+    padding-bottom: 80px !important;
+  }
+
+  /* Headers */
+  h1 {
+    font-size: 1.75rem !important;
+  }
+
+  h2 {
+    font-size: 1.375rem !important;
+  }
+
+  h3 {
+    font-size: 1.125rem !important;
+  }
+
+  /* Grid layouts - single column */
+  .grid,
+  .dashboard-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Cards */
+  .card,
+  .stat-card,
+  .campaign-card {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Buttons */
+  button,
+  .btn {
+    min-height: 48px !important;
+    font-size: 1rem !important;
+    width: 100% !important;
+  }
+
+  /* Forms */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+    padding: 0.75rem !important;
+    min-height: 44px !important;
+  }
+
+  /* Tables - horizontal scroll */
+  .table-container,
+  table {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 600px !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem !important; }
+  h2 { font-size: 1.25rem !important; }
+}

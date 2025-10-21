@@ -1,0 +1,494 @@
+/* Marketing Page Enhanced Mobile Styles */
+
+@media (max-width: 768px) {
+  /* ============================================
+     ENHANCED HERO SECTION
+     ============================================ */
+
+  .hero-section {
+    min-height: auto !important;
+    padding: 2rem 1rem !important;
+  }
+
+  .hero-content {
+    padding: 0 !important;
+    gap: 1.5rem !important;
+  }
+
+  .hero-title {
+    font-size: 2.25rem !important; /* Smaller than 3rem for better mobile fit */
+    line-height: 1.1 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .hero-description {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Hero buttons */
+  .hero-buttons {
+    width: 100% !important;
+    gap: 0.75rem !important;
+  }
+
+  .hero-buttons button,
+  .hero-buttons a {
+    width: 100% !important;
+    min-height: 52px !important;
+    font-size: 1.0625rem !important;
+    padding: 1rem 1.5rem !important;
+    border-radius: 8px !important;
+  }
+
+  /* Hero stats */
+  .hero-stats {
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    justify-content: center !important;
+  }
+
+  .hero-stat {
+    min-width: 140px !important;
+    padding: 0.75rem !important;
+  }
+
+  .hero-stat-value {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-stat-label {
+    font-size: 0.875rem !important;
+  }
+
+  /* Hero image/visual */
+  .hero-visual {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* ============================================
+     FEATURES SECTION
+     ============================================ */
+
+  .features-section {
+    padding: 3rem 1rem !important;
+  }
+
+  .section-title {
+    font-size: 1.75rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .section-subtitle {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .features-grid {
+    gap: 1.5rem !important;
+  }
+
+  .feature-card {
+    padding: 1.5rem !important;
+    border-radius: 12px !important;
+  }
+
+  .feature-icon {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 24px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .feature-title {
+    font-size: 1.125rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .feature-description {
+    font-size: 0.9375rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ============================================
+     TESTIMONIALS / SOCIAL PROOF
+     ============================================ */
+
+  .testimonials-section {
+    padding: 3rem 1rem !important;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem !important;
+  }
+
+  .testimonial-text {
+    font-size: 0.9375rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .testimonial-author {
+    font-size: 0.875rem !important;
+  }
+
+  /* ============================================
+     PRICING SECTION
+     ============================================ */
+
+  .pricing-section {
+    padding: 3rem 1rem !important;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .pricing-card {
+    padding: 1.5rem !important;
+    max-width: 100% !important;
+  }
+
+  .pricing-price {
+    font-size: 2rem !important;
+  }
+
+  .pricing-features {
+    margin: 1.5rem 0 !important;
+  }
+
+  .pricing-feature {
+    font-size: 0.9375rem !important;
+    padding: 0.75rem 0 !important;
+  }
+
+  /* ============================================
+     CTA SECTION
+     ============================================ */
+
+  .cta-section {
+    padding: 3rem 1rem !important;
+    margin: 2rem 0 !important;
+  }
+
+  .cta-content {
+    padding: 2rem 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .cta-title {
+    font-size: 1.75rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .cta-description {
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .cta-button {
+    width: 100% !important;
+    max-width: 320px !important;
+    min-height: 52px !important;
+    font-size: 1.0625rem !important;
+  }
+
+  .cta-features {
+    margin-top: 1.5rem !important;
+    gap: 1rem !important;
+  }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+
+  .footer-section {
+    padding: 2rem 1rem !important;
+  }
+
+  .footer-content {
+    gap: 2rem !important;
+  }
+
+  .footer-column {
+    text-align: center !important;
+  }
+
+  .footer-title {
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .footer-links {
+    gap: 0.75rem !important;
+  }
+
+  .footer-link {
+    font-size: 0.9375rem !important;
+  }
+
+  .footer-bottom {
+    padding-top: 1.5rem !important;
+    margin-top: 2rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* ============================================
+     NEWSLETTER / EMAIL SIGNUP
+     ============================================ */
+
+  .newsletter-section {
+    padding: 2rem 1rem !important;
+  }
+
+  .newsletter-form {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+  }
+
+  .newsletter-input {
+    width: 100% !important;
+    min-height: 48px !important;
+    font-size: 16px !important; /* Prevents iOS zoom */
+    padding: 0.875rem 1rem !important;
+  }
+
+  .newsletter-button {
+    width: 100% !important;
+    min-height: 48px !important;
+    font-size: 1rem !important;
+  }
+
+  /* ============================================
+     ANIMATIONS & TRANSITIONS
+     ============================================ */
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth !important;
+  }
+
+  /* Fade-in animation for sections */
+  .fade-in {
+    animation: fadeIn 0.6s ease-in-out !important;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ============================================
+     MOBILE NAVIGATION (if needed)
+     ============================================ */
+
+  .mobile-nav-toggle {
+    display: block !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+  }
+
+  .mobile-nav-menu {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+    z-index: 9999 !important;
+    padding: 2rem !important;
+  }
+
+  .mobile-nav-links {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    margin-top: 3rem !important;
+  }
+
+  .mobile-nav-link {
+    font-size: 1.25rem !important;
+    padding: 1rem !important;
+    text-align: center !important;
+  }
+
+  /* ============================================
+     IMAGES & MEDIA
+     ============================================ */
+
+  .marketing-page img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 8px !important;
+  }
+
+  .image-container {
+    margin: 1.5rem 0 !important;
+  }
+
+  /* Video responsive */
+  .video-container {
+    position: relative !important;
+    padding-bottom: 56.25% !important; /* 16:9 aspect ratio */
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .video-container iframe {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* ============================================
+     TOUCH OPTIMIZATIONS
+     ============================================ */
+
+  /* Larger tap targets */
+  a,
+  button {
+    min-height: 44px !important;
+    padding: 0.75rem 1rem !important;
+  }
+
+  /* Active states for touch feedback */
+  button:active,
+  a:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.1s ease !important;
+  }
+
+  /* Remove hover effects on touch devices */
+  @media (hover: none) {
+    .feature-card:hover,
+    .testimonial-card:hover,
+    .pricing-card:hover {
+      transform: none !important;
+    }
+  }
+}
+
+/* ============================================
+   LANDSCAPE MOBILE
+   ============================================ */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto !important;
+    padding: 1.5rem 1rem !important;
+  }
+
+  .hero-title {
+    font-size: 2rem !important;
+  }
+
+  .section-title {
+    font-size: 1.5rem !important;
+  }
+
+  /* Keep 2-column grid in landscape for features */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem !important;
+  }
+
+  .section-title {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-buttons button,
+  .hero-buttons a {
+    font-size: 1rem !important;
+    min-height: 48px !important;
+  }
+
+  .feature-card {
+    padding: 1.25rem !important;
+  }
+
+  .testimonial-card {
+    padding: 1.25rem !important;
+  }
+
+  .pricing-card {
+    padding: 1.25rem !important;
+  }
+}
+
+/* ============================================
+   HIGH CONTRAST
+   ============================================ */
+@media (prefers-contrast: high) {
+  .feature-card,
+  .testimonial-card,
+  .pricing-card {
+    border-width: 2px !important;
+  }
+
+  button {
+    border: 2px solid currentColor !important;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   DARK MODE SUPPORT (if needed)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .marketing-page {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  .feature-card,
+  .testimonial-card,
+  .pricing-card {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+}

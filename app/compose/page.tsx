@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { EmailComposer } from '@/components/email/EmailComposer';
+import './compose.mobile.css';
 
 export default function ComposePage() {
   const router = useRouter();
