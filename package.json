@@ -45,7 +45,7 @@
     "googleapis": "^160.0.0",
     "lucide-react": "^0.544.0",
     "mailparser": "^3.7.4",
-    "next": "15.5.3",
+    "next": "16.1.6",
     "next-auth": "^4.24.11",
     "next-pwa": "^5.6.0",
     "node-imap": "^0.9.6",
@@ -64,7 +64,7 @@
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
-    "eslint-config-next": "15.5.3",
+    "eslint-config-next": "16.1.6",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "typescript": "5.9.2"
