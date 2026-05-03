@@ -1,0 +1,786 @@
+openapi: 3.1.0
+info:
+  title: bMail API
+  version: '1.0.0'
+  summary: Gmail-API-compatible mail interface backed by 1Sat ordinals on BSV.
+  description: |
+    bMail exposes a Gmail-shaped REST surface on top of a native protocol where
+    every message is a 1Sat ordinal (manifest + N inscriptions) on Bitcoin SV.
+
+    Three layers are documented:
+
+    * **Native** (`/api/native/*`) — JSON-RPC over the underlying ordinal
+      protocol. Source of truth.
+    * **v1 REST** (`/api/v1/users/*`) — Gmail-API-shaped resources for
+      drop-in compatibility with the `googleapis` client and other Gmail
+      tooling.
+    * **OAuth 2.0** (`/oauth/v2/*`) — scope-mapped authorization with
+      delegated signing keys derived from the user's BAP / HandCash identity.
+
+    Cross-references:
+    * `docs/ARCHITECTURE_API_LAYERS.md` — layered architecture sketch.
+    * `docs/CLIENT_ARCHITECTURE.md` — Electron client + Next.js server +
+      bitcoin-wallet module.
+  contact:
+    name: The Bitcoin Corporation LTD
+    email: ceo@thebitcoincorporation.com
+  license:
+    name: Open-BSV-4.0
+
+servers:
+  - url: https://bmail.dev
+    description: Production
+  - url: https://bitcoin-email.vercel.app
+    description: Staging / current deployment
+  - url: http://localhost:2040
+    description: Local dev
+
+tags:
+  - name: messages
+    description: Send, list, get, modify, trash messages.
+  - name: threads
+    description: Conversation threads.
+  - name: labels
+    description: Folder / label management.
+  - name: drafts
+    description: Draft message management.
+  - name: attachments
+    description: Inline attachment retrieval.
+  - name: history
+    description: Incremental sync.
+  - name: native
+    description: Layer 1 native protocol calls.
+  - name: oauth
+    description: OAuth 2.0 authorization and token issuance.
+  - name: discovery
+    description: Google API Discovery document.
+
+security:
+  - bearerAuth: []
+
+paths:
+
+  # ----- Layer 2 — Gmail-compatible REST veneer -----
+
+  /api/v1/users/{userId}/messages:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      tags: [messages]
+      summary: List messages
+      operationId: messagesList
+      parameters:
+        - name: q
+          in: query
+          schema: { type: string }
+          description: Gmail-syntax query (`from:`, `to:`, `subject:`, `is:unread`).
+        - name: labelIds
+          in: query
+          schema: { type: array, items: { type: string } }
+          style: form
+          explode: true
+        - name: maxResults
+          in: query
+          schema: { type: integer, default: 100, maximum: 500 }
+        - name: pageToken
+          in: query
+          schema: { type: string }
+        - name: includeSpamTrash
+          in: query
+          schema: { type: boolean, default: false }
+      responses:
+        '200':
+          description: Listing
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MessagesListResponse' }
+    post:
+      tags: [messages]
+      summary: Send a message (mints a 1Sat ordinal)
+      operationId: messagesSend
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SendMessageRequest' }
+      responses:
+        '200':
+          description: Sent
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+
+  /api/v1/users/{userId}/messages/{id}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - name: id
+        in: path
+        required: true
+        schema: { type: string }
+        description: Message ID — equals the ordinal outpoint (`txid_vout`).
+    get:
+      tags: [messages]
+      summary: Get a message
+      operationId: messagesGet
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+            enum: [minimal, full, raw, metadata]
+            default: full
+      responses:
+        '200':
+          description: Message
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+        '404': { description: Not found }
+    delete:
+      tags: [messages]
+      summary: Move to trash (label change; ordinal stays on chain forever)
+      operationId: messagesTrash
+      responses:
+        '204': { description: Trashed }
+
+  /api/v1/users/{userId}/messages/{id}/modify:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - { name: id, in: path, required: true, schema: { type: string } }
+    post:
+      tags: [messages]
+      summary: Add or remove labels
+      operationId: messagesModify
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                addLabelIds: { type: array, items: { type: string } }
+                removeLabelIds: { type: array, items: { type: string } }
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+
+  /api/v1/users/{userId}/messages/{id}/attachments/{attachmentId}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - { name: id, in: path, required: true, schema: { type: string } }
+      - { name: attachmentId, in: path, required: true, schema: { type: string } }
+    get:
+      tags: [attachments]
+      summary: Get an attachment
+      operationId: attachmentsGet
+      responses:
+        '200':
+          description: Attachment payload
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  size: { type: integer }
+                  data:
+                    type: string
+                    format: byte
+                    description: base64url-encoded attachment bytes
+
+  /api/v1/users/{userId}/threads:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      tags: [threads]
+      summary: List threads
+      operationId: threadsList
+      parameters:
+        - { name: q, in: query, schema: { type: string } }
+        - { name: labelIds, in: query, schema: { type: array, items: { type: string } }, style: form, explode: true }
+        - { name: maxResults, in: query, schema: { type: integer, default: 100 } }
+        - { name: pageToken, in: query, schema: { type: string } }
+      responses:
+        '200':
+          description: Listing
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ThreadsListResponse' }
+
+  /api/v1/users/{userId}/threads/{id}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - { name: id, in: path, required: true, schema: { type: string }, description: Thread ID — equals the root message txid. }
+    get:
+      tags: [threads]
+      summary: Get a thread
+      operationId: threadsGet
+      responses:
+        '200':
+          description: Thread
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Thread' }
+
+  /api/v1/users/{userId}/labels:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      tags: [labels]
+      summary: List labels
+      operationId: labelsList
+      responses:
+        '200':
+          description: Labels
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  labels:
+                    type: array
+                    items: { $ref: '#/components/schemas/Label' }
+    post:
+      tags: [labels]
+      summary: Create a label
+      operationId: labelsCreate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/Label' }
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Label' }
+
+  /api/v1/users/{userId}/labels/{id}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get:
+      tags: [labels]
+      operationId: labelsGet
+      responses:
+        '200':
+          description: Label
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Label' }
+    delete:
+      tags: [labels]
+      operationId: labelsDelete
+      responses:
+        '204': { description: Deleted }
+
+  /api/v1/users/{userId}/drafts:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      tags: [drafts]
+      operationId: draftsList
+      responses:
+        '200':
+          description: Drafts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  drafts:
+                    type: array
+                    items: { $ref: '#/components/schemas/Draft' }
+                  nextPageToken: { type: string }
+    post:
+      tags: [drafts]
+      operationId: draftsCreate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message: { $ref: '#/components/schemas/Message' }
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Draft' }
+
+  /api/v1/users/{userId}/drafts/{id}/send:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - { name: id, in: path, required: true, schema: { type: string } }
+    post:
+      tags: [drafts]
+      summary: Send a draft (mints the ordinal)
+      operationId: draftsSend
+      responses:
+        '200':
+          description: Sent
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+
+  /api/v1/users/{userId}/history:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      tags: [history]
+      summary: Incremental sync
+      operationId: historyList
+      parameters:
+        - name: startHistoryId
+          in: query
+          required: true
+          schema: { type: string }
+          description: Block height + tx index from a prior response.
+        - name: maxResults
+          in: query
+          schema: { type: integer, default: 100 }
+        - name: pageToken
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: History since the given point
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  history:
+                    type: array
+                    items: { $ref: '#/components/schemas/History' }
+                  historyId: { type: string }
+                  nextPageToken: { type: string }
+
+  # ----- Layer 1 — Native protocol -----
+
+  /api/native/sendMessage:
+    post:
+      tags: [native]
+      summary: Mint a message ordinal
+      operationId: nativeSendMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/NativeSendRequest' }
+      responses:
+        '200':
+          description: Mint result
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/NativeSendResponse' }
+
+  /api/native/listMessages:
+    post:
+      tags: [native]
+      operationId: nativeListMessages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [address]
+              properties:
+                address:
+                  type: string
+                  description: BSV address or BAP root key.
+                cursor: { type: string }
+                limit: { type: integer, default: 100 }
+      responses:
+        '200':
+          description: Native listing
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ordinals:
+                    type: array
+                    items: { $ref: '#/components/schemas/MessageOrdinal' }
+                  nextCursor: { type: string }
+
+  /api/native/getMessage:
+    post:
+      tags: [native]
+      operationId: nativeGetMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [outpoint]
+              properties:
+                outpoint: { type: string, description: '`txid_vout`' }
+      responses:
+        '200':
+          description: Native message
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MessageOrdinal' }
+
+  /api/native/stream:
+    get:
+      tags: [native]
+      summary: WebSocket subscription for live deliveries
+      operationId: nativeStream
+      parameters:
+        - name: address
+          in: query
+          required: true
+          schema: { type: string }
+      responses:
+        '101': { description: Switching Protocols (WebSocket) }
+
+  # ----- OAuth 2.0 -----
+
+  /oauth/v2/authorize:
+    get:
+      tags: [oauth]
+      summary: Authorization endpoint (consent screen)
+      operationId: oauthAuthorize
+      parameters:
+        - { name: client_id, in: query, required: true, schema: { type: string } }
+        - { name: redirect_uri, in: query, required: true, schema: { type: string, format: uri } }
+        - { name: response_type, in: query, required: true, schema: { type: string, enum: [code] } }
+        - { name: scope, in: query, required: true, schema: { type: string } }
+        - { name: state, in: query, schema: { type: string } }
+        - { name: code_challenge, in: query, schema: { type: string } }
+        - { name: code_challenge_method, in: query, schema: { type: string, enum: [S256] } }
+      responses:
+        '302':
+          description: Redirect with `code` (or `error`) parameter.
+      security: []
+
+  /oauth/v2/token:
+    post:
+      tags: [oauth]
+      summary: Token exchange
+      operationId: oauthToken
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type: { type: string, enum: [authorization_code, refresh_token] }
+                code: { type: string }
+                redirect_uri: { type: string, format: uri }
+                client_id: { type: string }
+                client_secret: { type: string }
+                refresh_token: { type: string }
+                code_verifier: { type: string }
+      responses:
+        '200':
+          description: Token issued
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token: { type: string }
+                  token_type: { type: string, enum: [Bearer] }
+                  expires_in: { type: integer }
+                  refresh_token: { type: string }
+                  scope: { type: string }
+                  id_token: { type: string }
+      security: []
+
+  # ----- Discovery -----
+
+  /$discovery/rest:
+    get:
+      tags: [discovery]
+      summary: Google API Discovery document
+      operationId: discoveryRest
+      parameters:
+        - name: version
+          in: query
+          required: true
+          schema: { type: string, enum: [v1] }
+      responses:
+        '200':
+          description: Discovery doc consumable by `googleapis` client
+          content:
+            application/json:
+              schema: { type: object }
+      security: []
+
+components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      schema: { type: string }
+      description: |
+        User identifier. Accepts:
+        * `me` — the authenticated user.
+        * HandCash handle (without the `$`).
+        * BAP root key (`1Bap...`).
+        * RFC-5322 email address (resolved via SMTP bridge if enabled).
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Message:
+      type: object
+      description: Gmail-shaped Message resource with bMail extension.
+      properties:
+        id: { type: string, description: Ordinal outpoint (`txid_vout`). }
+        threadId: { type: string, description: Root message txid. }
+        labelIds:
+          type: array
+          items: { type: string }
+        snippet: { type: string }
+        historyId: { type: string, description: Block height + tx index, monotonic. }
+        internalDate: { type: string, description: Block timestamp, ms since epoch as string. }
+        payload: { $ref: '#/components/schemas/MessagePart' }
+        sizeEstimate: { type: integer }
+        raw:
+          type: string
+          format: byte
+          description: base64url-encoded RFC-5322 message (only when `format=raw`).
+        bmail: { $ref: '#/components/schemas/BMailExtension' }
+
+    BMailExtension:
+      type: object
+      description: bMail-native fields. Gmail clients ignore this; bMail clients use it.
+      properties:
+        ordinalOutpoint: { type: string }
+        manifestTxid: { type: string }
+        senderBap: { type: string, description: Sender BAP root key. }
+        senderHandle: { type: string, description: HandCash handle if available. }
+        recipientAddresses:
+          type: array
+          items: { type: string }
+        encryptionVersion: { type: integer }
+        parentTxid: { type: string, description: Direct parent message txid for threading. }
+
+    MessagePart:
+      type: object
+      description: MIME tree node.
+      properties:
+        partId: { type: string }
+        mimeType: { type: string }
+        filename: { type: string }
+        headers:
+          type: array
+          items:
+            type: object
+            properties:
+              name: { type: string }
+              value: { type: string }
+        body:
+          type: object
+          properties:
+            attachmentId: { type: string }
+            size: { type: integer }
+            data:
+              type: string
+              format: byte
+              description: base64url-encoded part body.
+        parts:
+          type: array
+          items: { $ref: '#/components/schemas/MessagePart' }
+
+    MessagesListResponse:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              threadId: { type: string }
+        nextPageToken: { type: string }
+        resultSizeEstimate: { type: integer }
+
+    Thread:
+      type: object
+      properties:
+        id: { type: string }
+        snippet: { type: string }
+        historyId: { type: string }
+        messages:
+          type: array
+          items: { $ref: '#/components/schemas/Message' }
+
+    ThreadsListResponse:
+      type: object
+      properties:
+        threads:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              snippet: { type: string }
+              historyId: { type: string }
+        nextPageToken: { type: string }
+        resultSizeEstimate: { type: integer }
+
+    Label:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        messageListVisibility: { type: string, enum: [show, hide] }
+        labelListVisibility: { type: string, enum: [labelShow, labelShowIfUnread, labelHide] }
+        type: { type: string, enum: [system, user] }
+        messagesTotal: { type: integer }
+        messagesUnread: { type: integer }
+        threadsTotal: { type: integer }
+        threadsUnread: { type: integer }
+        color:
+          type: object
+          properties:
+            textColor: { type: string }
+            backgroundColor: { type: string }
+
+    Draft:
+      type: object
+      properties:
+        id: { type: string }
+        message: { $ref: '#/components/schemas/Message' }
+
+    History:
+      type: object
+      properties:
+        id: { type: string }
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              threadId: { type: string }
+        messagesAdded: { type: array, items: { type: object } }
+        messagesDeleted: { type: array, items: { type: object } }
+        labelsAdded: { type: array, items: { type: object } }
+        labelsRemoved: { type: array, items: { type: object } }
+
+    SendMessageRequest:
+      type: object
+      properties:
+        raw:
+          type: string
+          format: byte
+          description: |
+            base64url-encoded RFC-5322 message. Gmail-compatible path: a client
+            that already knows how to build raw RFC-5322 just hands it over.
+        threadId: { type: string, description: Optional parent thread for replies. }
+
+    NativeSendRequest:
+      type: object
+      required: [from, to, subject]
+      properties:
+        from:
+          type: string
+          description: Sender HandCash handle or BAP key.
+        to:
+          type: array
+          items: { type: string }
+          description: Recipients — handles, BAPs, or emails.
+        cc:
+          type: array
+          items: { type: string }
+        bcc:
+          type: array
+          items: { type: string }
+        subject: { type: string }
+        bodyText: { type: string }
+        bodyHtml: { type: string }
+        attachments:
+          type: array
+          items:
+            type: object
+            properties:
+              filename: { type: string }
+              mimeType: { type: string }
+              dataB64: { type: string, format: byte }
+        encrypt:
+          type: boolean
+          default: true
+        parentTxid:
+          type: string
+          description: For replies — links the new ordinal to its parent.
+
+    NativeSendResponse:
+      type: object
+      properties:
+        txid: { type: string }
+        outpoint: { type: string, description: '`txid_0` of the manifest inscription.' }
+        partTxids:
+          type: array
+          items: { type: string }
+        feeSatoshis: { type: integer }
+
+    MessageOrdinal:
+      type: object
+      description: Native protocol view of a message ordinal.
+      properties:
+        outpoint: { type: string }
+        manifestTxid: { type: string }
+        manifest:
+          type: object
+          properties:
+            version: { type: integer, default: 1 }
+            from: { type: string }
+            to: { type: array, items: { type: string } }
+            cc: { type: array, items: { type: string } }
+            subject: { type: string }
+            sentAt: { type: string, format: date-time }
+            mimeTree: { $ref: '#/components/schemas/MessagePart' }
+            partRefs:
+              type: array
+              description: References to child inscription outpoints.
+              items:
+                type: object
+                properties:
+                  outpoint: { type: string }
+                  mimeType: { type: string }
+                  filename: { type: string }
+            parentTxid: { type: string }
+            encryption:
+              type: object
+              properties:
+                version: { type: integer }
+                algorithm: { type: string, enum: [ECDH-AES256-GCM] }
+                wrappedKeys:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      recipient: { type: string, description: BSV address or BAP key. }
+                      ephemeralPubKey: { type: string }
+                      wrappedKey: { type: string, format: byte }
+            sender:
+              type: object
+              properties:
+                bap: { type: string }
+                handle: { type: string }
+                signature: { type: string, description: Sender signature over manifest. }
+        ciphertextRefs:
+          type: array
+          items: { type: string }
+        decrypted:
+          type: boolean
+          description: Indicates whether the server returned cleartext body (only true if request was authenticated as a recipient and decryption happened server-side; clients normally decrypt locally).
