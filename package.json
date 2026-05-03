@@ -1,7 +1,8 @@
 {
   "name": "bitcoin-email",
+  "productName": "bMail",
   "version": "0.1.0",
-  "description": "The world's first blockchain-powered email client by The Bitcoin Corporation LTD",
+  "description": "bMail — Gmail-API-compatible email backed by 1Sat ordinals on BSV. Brand: bMail. Token: $bMail. Repo: bitcoin-email. By The Bitcoin Corporation LTD.",
   "author": "The Bitcoin Corporation LTD <ceo@thebitcoincorporation.com>",
   "license": "Open-BSV-4.0",
   "copyright": "Copyright (c) 2025 The Bitcoin Corporation LTD (UK Company No. 16735102)",
@@ -14,9 +15,14 @@
     "url": "https://github.com/bitcoin-apps-suite/bitcoin-email/issues"
   },
   "keywords": [
+    "bmail",
     "bitcoin",
     "bsv",
     "email",
+    "gmail-compatible",
+    "1sat-ordinals",
+    "handcash",
+    "bap",
     "blockchain",
     "micropayments",
     "decentralized",

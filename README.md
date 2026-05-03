@@ -1,4 +1,6 @@
-# Bitcoin Email 📧 ₿
+# bMail — Bitcoin Email 📧 ₿
+
+> **Brand:** bMail · **Token:** `$bMail` · **Repo:** `bitcoin-email` · **App:** [bitcoin-email.vercel.app](https://bitcoin-email.vercel.app)
 
 [![License](https://img.shields.io/badge/license-Open%20BSV-green.svg)](LICENSE)
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.3-black)](https://nextjs.org/)
@@ -6,7 +8,9 @@
 [![BSV](https://img.shields.io/badge/BSV-Blockchain-orange)](https://bitcoinsv.com/)
 [![Company](https://img.shields.io/badge/THE%20BITCOIN%20CORPORATION%20LTD-16735102-red)](https://find-and-update.company-information.service.gov.uk/company/16735102)
 
-**The world's first decentralized email client powered by Bitcoin SV blockchain technology.**
+**bMail is a Gmail-API-compatible email service backed by 1Sat ordinals on Bitcoin SV.** Each message is a tokenised ordinal minted in the user's own wallet. Existing apps coded against the Gmail API run on bMail with a one-line swap via [`@bopen/bmail-googleapis-shim`](./docs/ARCHITECTURE_API_LAYERS.md).
+
+> **Naming convention:** the brand is **bMail**, the GitHub repo is `bitcoin-email`, and the on-chain token is `$bMail`. All three refer to the same product. See [`docs/ARCHITECTURE_API_LAYERS.md`](./docs/ARCHITECTURE_API_LAYERS.md), [`docs/CLIENT_ARCHITECTURE.md`](./docs/CLIENT_ARCHITECTURE.md), and [`docs/openapi/bmail-v1.yaml`](./docs/openapi/bmail-v1.yaml) for the layered architecture.
 
 Built by **The Bitcoin Corporation LTD** (UK Company No. 16735102)  
 CEO: Richard Boase | CSO: Spamsom Mo  
