@@ -12,6 +12,9 @@ import BitcoinOSProvider from "../components/BitcoinOSProvider";
 import ConditionalNav from "../components/ConditionalNav";
 import ServiceWorkerRegistration from "../components/ServiceWorkerRegistration";
 
+import '../components/mobile/mobile-bwallet.css';
+import MobileShellInit from '../components/mobile/MobileShellInit';
+
 export const metadata: Metadata = {
   title: "Bitcoin Email - The Bitcoin Corporation LTD",
   description: "The world's first open-source, blockchain-powered email client. Built by The Bitcoin Corporation LTD (UK Company No. 16735102).",
@@ -62,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="antialiased h-full">
+        <MobileShellInit />
         <ServiceWorkerRegistration />
         <Providers>
           <BitcoinOSProvider>
